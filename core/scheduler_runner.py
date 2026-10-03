@@ -37,16 +37,23 @@ def run_global_cycle():
     except Exception as e:
         print(f"[SCOUT WARN] Veille automatique ignorée: {e}")
 
-    # 2. Récupération des opportunités et utilisateurs
+    # 2. Nettoyage automatique des offres expirées et liens morts (404/clos)
+    try:
+        from cleaner import purge_dead_opportunities
+        purge_dead_opportunities()
+    except Exception as e:
+        print(f"[CLEANER WARN] Nettoyage automatique ignoré: {e}")
+
+    # 3. Récupération des opportunités et utilisateurs
     opps = get_all_active_opportunities()
     users = get_all_active_users()
     
     print(f"Opportunités actives : {len(opps)} | Utilisateurs abonnés : {len(users)}")
 
-    # 3. Export pour le site web public
+    # 4. Export pour le site web public
     export_public_json()
 
-    # 4. Matching & Diffusion personnalisée
+    # 5. Matching & Diffusion personnalisée
     sent_count = 0
     for user in users:
         matches = match_opportunities_for_user(user, opps, min_score=60)
