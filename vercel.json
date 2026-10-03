@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/admin", "destination": "/api/admin.py" },
+    { "source": "/api/register", "destination": "/api/register.py" }
+  ]
+}

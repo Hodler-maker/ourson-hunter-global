@@ -72,7 +72,7 @@ def app(environ, start_response):
             return serve_file("contact.html", start_response)
         return serve_file("index.html", start_response)
 
-    # Requête POST -> Inscription utilisateur
+    # Requête POST
     if method == "POST":
         try:
             content_length = int(environ.get("CONTENT_LENGTH", 0))
@@ -83,6 +83,25 @@ def app(environ, start_response):
 
         try:
             data = json.loads(request_body.decode("utf-8"))
+        except Exception:
+            data = {}
+
+        # 1. Routage vers l'API Admin si action ou admin_key présent
+        if "action" in data or "admin_key" in data or "admin" in raw_path:
+            import io
+            environ["wsgi.input"] = io.BytesIO(request_body)
+            environ["CONTENT_LENGTH"] = str(len(request_body))
+            try:
+                sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+                import admin
+                return admin.app(environ, start_response)
+            except Exception as admin_err:
+                headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
+                start_response("500 Internal Server Error", headers)
+                return [json.dumps({"success": False, "error": f"Erreur admin API: {admin_err}"}).encode("utf-8")]
+
+        # 2. Inscription utilisateur
+        try:
             name = data.get("name", "").strip()
             email = data.get("email", "").strip()
             telegram = data.get("telegram", "").strip()
