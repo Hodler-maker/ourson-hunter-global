@@ -6,5 +6,5 @@ echo ========================================================
 echo.
 echo Ouverture automatique de http://localhost:8080 ...
 start "" "http://localhost:8080"
-python "%~dp0api\server.py"
+python "%~dp0scripts\serveur_local.py"
 pause
