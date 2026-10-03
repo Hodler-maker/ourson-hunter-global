@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ourson Hunter — Le Job Board IA Web3 & Remote</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @keyframes earWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-6deg); }
+      75% { transform: rotate(6deg); }
+    }
+    @keyframes blinkEye {
+      0%, 92%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.1); }
+    }
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .bear-ear:hover { animation: earWiggle 0.4s ease-in-out 2; }
+    .bear-eye { animation: blinkEye 4s infinite; transform-origin: center; }
+    .bear-float { animation: floatSoft 3s ease-in-out infinite; }
+    .shimmer-text {
+      background: linear-gradient(90deg, #f59e0b 0%, #fef3c7 50%, #f59e0b 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+    .glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(245, 158, 11, 0.3);
+    }
+
+    /* ══ EFFETS ÉDITORIAUX (reveal, halo de bordure, marquee, ambiance) ══ */
+    html { scroll-behavior: smooth; }
+    .hero-wrap, #offres, footer { position: relative; z-index: 2; }
+
+    /* Reveal au scroll — sans JS (.js absent) tout reste visible */
+    .js .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .js .reveal.visible { opacity: 1; transform: none; }
+    .reveal.done { transition-delay: 0s !important; }
+
+    /* Cartes d'offres : survol + halo qui parcourt la bordure */
+    @property --beam-angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+    .job-card { position: relative; --radius: 1rem; }
+    .job-card.done { transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s; }
+    .job-card.done:hover { transform: translateY(-3px); box-shadow: 0 12px 30px -10px rgba(0,0,0,.5), 0 0 0 1px rgba(245,158,11,.3); }
+    .job-card::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: var(--radius); padding: 2px;
+      background: conic-gradient(from var(--beam-angle), transparent 0deg, #fbbf24 60deg, rgba(255,255,255,.4) 130deg, transparent 180deg, transparent 360deg);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+      opacity: 0; transition: opacity .3s; }
+    .job-card:hover::after { opacity: 1; animation: beam-rotate 2.4s linear infinite; }
+    @keyframes beam-rotate { to { --beam-angle: 360deg; } }
+
+    /* Marquee : contenu dupliqué en JS => boucle sans saut */
+    .marquee { background: #020617; overflow: hidden; padding: 14px 0; border-block: 1px solid rgba(245,158,11,.15); position: relative; z-index: 2; }
+    .marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+    .marquee-track .word { font-weight: 800; font-size: clamp(.8rem, 1.5vw, 1.05rem); letter-spacing: .12em; text-transform: uppercase; color: #cbd5e1; padding: 0 1.4rem; white-space: nowrap; display: flex; align-items: center; gap: 1.4rem; }
+    .marquee-track .word::after { content: "✦"; font-size: .6em; color: #f59e0b; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* Orbes du hero */
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; will-change: transform; z-index: 0; }
+    .orb-1 { width: clamp(200px, 35vw, 460px); aspect-ratio: 1; background: radial-gradient(circle, rgba(245,158,11,.22), transparent 70%); top: -10%; left: -8%; animation: orb-drift-1 12s ease-in-out infinite alternate; }
+    .orb-2 { width: clamp(150px, 25vw, 340px); aspect-ratio: 1; background: radial-gradient(circle, rgba(168,85,247,.16), transparent 70%); bottom: 0; right: 5%; animation: orb-drift-2 15s ease-in-out infinite alternate; }
+    @keyframes orb-drift-1 { to { transform: translate(6vw, 8vh) scale(1.15); } }
+    @keyframes orb-drift-2 { to { transform: translate(-4vw, -6vh) scale(.9); } }
+    .hero-wrap > section { position: relative; z-index: 1; }
+
+    /* Overlays d'ambiance */
+    #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: linear-gradient(90deg, #d97706, #fbbf24); z-index: 300; }
+    #cursor-glow { pointer-events: none; position: fixed; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(245,158,11,.09) 0%, transparent 70%); transform: translate(-50%, -50%); z-index: 0; will-change: transform; }
+    @media (pointer: coarse) { #cursor-glow { display: none; } }
+    #particles-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+    :focus-visible { outline: 2px solid #f59e0b; outline-offset: 3px; }
+
+
+    /* FAQ (details natif) + marqueurs "à compléter" */
+    .faq-item summary { list-style: none; cursor: pointer; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; float: right; color: #f59e0b; font-weight: 800; font-size: 1.1rem; line-height: 1; }
+    .faq-item[open] summary::after { content: "\2212"; }
+    .todo { background: rgba(245,158,11,.15); border: 1px dashed rgba(245,158,11,.55); color: #fcd34d; padding: 0 .3rem; border-radius: .25rem; }
+    .sr-only-lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen">
+  <script>document.documentElement.classList.add('js');</script>
+  <div id="scroll-bar" aria-hidden="true"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="border-b border-slate-800 glass sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <!-- Petit Ourson Logo -->
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg border border-amber-400/40 bear-float">
+          <span class="text-sm font-black text-white tracking-tight">OH</span>
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wide shimmer-text">OURSON HUNTER</span>
+          <span class="hidden sm:inline-block ml-2 text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2 py-0.5 rounded-full border border-amber-500/30">Global Edition</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#offres" class="text-xs font-semibold text-slate-300 hover:text-white transition">Offres Ouvertes</a>
+        <a href="#faq" class="hidden sm:inline text-xs font-semibold text-slate-300 hover:text-white transition">FAQ</a>
+        <button onclick="openModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white shadow-lg shadow-amber-600/25 transition">
+          Recevoir mes alertes
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero-wrap overflow-hidden">
+  <div class="orb orb-1" aria-hidden="true"></div><div class="orb orb-2" aria-hidden="true"></div>
+  <section class="max-w-4xl mx-auto px-4 pt-12 pb-8 text-center">
+    <div style="transition-delay:.05s" class="reveal inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3.5 py-1.5 rounded-full text-xs text-amber-300 mb-4">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      Veille IA autonome · Scan chaque matin à 8h · Accès gratuit
+    </div>
+    <h1 style="transition-delay:.15s" class="reveal text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+      Offres Web3, bounties et missions remote <br class="hidden sm:inline"/>
+      <span class="shimmer-text">pour l'Afrique francophone</span>
+    </h1>
+    <p style="transition-delay:.25s" class="reveal mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+      Un agent IA analyse plusieurs sources chaque matin à 8 h et sélectionne des bourses, des missions d'ambassadeur et des emplois 100 % remote accessibles depuis l'Afrique francophone et le reste du monde.
+    </p>
+    <p style="transition-delay:.3s" class="reveal mt-2 text-xs text-slate-500">Pays couverts : Togo, Bénin, Côte d'Ivoire, Sénégal, Cameroun, RDC, Burkina Faso, Guinée et autres.</p>
+
+    <div style="transition-delay:.35s" class="reveal mt-8 flex flex-wrap justify-center gap-3">
+      <button id="hero-cta" onclick="openModal()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-sm font-bold shadow-xl shadow-amber-600/30 transition flex items-center gap-2">
+        <span>Créer mon profil d'alerte</span>
+      </button>
+      <a href="#offres" class="px-6 py-3 rounded-2xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold border border-slate-700 transition">
+        Voir les 6 offres actives ↓
+      </a>
+    </div>
+
+    <!-- STATS BANNER -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-10">
+      <div style="transition-delay:.45s" class="reveal glass p-3 rounded-xl border border-slate-800">
+        <div class="text-lg font-black text-white">Chaque matin, 8h</div>
+        <div class="text-[11px] text-slate-400">Scan automatique</div>
+      </div>
+      <div style="transition-delay:.53s" class="reveal glass p-3 rounded-xl border border-slate-800">
+        <div class="text-lg font-black text-amber-400">100% Remote</div>
+        <div class="text-[11px] text-slate-400">Éligibilité mondiale</div>
+      </div>
+      <div style="transition-delay:.61s" class="reveal glass p-3 rounded-xl border border-slate-800">
+        <div class="text-lg font-black text-emerald-400">USDC / Crypto</div>
+        <div class="text-[11px] text-slate-400">Paiement sans friction</div>
+      </div>
+      <div style="transition-delay:.69s" class="reveal glass p-3 rounded-xl border border-slate-800">
+        <div class="text-lg font-black text-purple-400">Pitch IA</div>
+        <div class="text-[11px] text-slate-400">Cover Letter en 1 clic</div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <!-- JOB BOARD SECTION -->
+  <section id="offres" class="max-w-5xl mx-auto px-4 py-8">
+    <div class="reveal flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span>Opportunités Vérifiées en Cours</span>
+          <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">6 actives</span>
+        </h2>
+        <p class="text-xs text-slate-400 mt-0.5">Scannées, auditées sur 6 critères éliminatoires et classées par score</p>
+      </div>
+
+      <!-- Filtres rapides -->
+      <div class="flex gap-1.5 overflow-x-auto pb-1 max-w-full">
+        <button onclick="filterCategory('all', this)" class="filter-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-600 text-white">Tous</button>
+        <button onclick="filterCategory('Community', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Community</button>
+        <button onclick="filterCategory('Ambassadeur', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Ambassadeur</button>
+        <button onclick="filterCategory('Grants', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Grants</button>
+        <button onclick="filterCategory('Content', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Freelance</button>
+      </div>
+    </div>
+
+
+    <!-- RECHERCHE & TRI -->
+    <div class="reveal flex flex-col sm:flex-row gap-2 mb-2" role="search">
+      <div class="flex-1">
+        <label for="job-search" class="sr-only-lbl">Rechercher une offre</label>
+        <input id="job-search" type="search" autocomplete="off" placeholder="Rechercher par poste, entreprise ou mot-clé" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"/>
+      </div>
+      <div>
+        <label for="job-sort" class="sr-only-lbl">Trier les offres</label>
+        <select id="job-sort" class="w-full sm:w-auto bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          <option value="score">Trier : score (décroissant)</option>
+          <option value="date">Trier : date de vérification (récentes d'abord)</option>
+          <option value="pay">Trier : rémunération (indicatif)</option>
+        </select>
+      </div>
+    </div>
+    <p id="job-count" class="text-[11px] text-slate-500 mb-3" aria-live="polite"></p>
+
+    <!-- LISTE DES CARTES -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="jobs-container" aria-live="polite">
+      <!-- Les cartes sont injectées dynamiquement par JS -->
+    </div>
+    <p class="reveal mt-4 text-[11px] text-slate-500">Ne payez jamais pour postuler. Vérifiez chaque offre sur le site officiel de l'entreprise avant de candidater.</p>
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-3xl mx-auto px-4 py-8 relative z-[2]">
+    <h2 class="reveal text-xl font-bold text-white mb-4">Questions fréquentes</h2>
+    <div class="space-y-2.5">
+      <details class="faq-item reveal glass rounded-2xl border border-slate-800 p-4" style="transition-delay:0.0s">
+        <summary class="text-sm font-bold text-white">Le service est-il gratuit ?</summary>
+        <p class="mt-2 text-xs text-slate-400 leading-relaxed">Oui. La consultation des offres et l'inscription aux alertes sont gratuites. Aucune offre listée ne devrait te demander de payer pour postuler : si c'est le cas, signale-le via la <a href="contact.html" class="text-amber-400 underline">page de contact</a>.</p>
+      </details>
+      <details class="faq-item reveal glass rounded-2xl border border-slate-800 p-4" style="transition-delay:0.07s">
+        <summary class="text-sm font-bold text-white">À quelle fréquence les alertes sont-elles envoyées ?</summary>
+        <p class="mt-2 text-xs text-slate-400 leading-relaxed">L'agent analyse les sources et envoie les alertes chaque matin à 8 h. Les offres sont filtrées selon ton profil et envoyées sur l'identifiant Telegram ou l'adresse email indiqué à l'inscription.</p>
+      </details>
+      <details class="faq-item reveal glass rounded-2xl border border-slate-800 p-4" style="transition-delay:0.14s">
+        <summary class="text-sm font-bold text-white">Quelles données sont collectées ?</summary>
+        <p class="mt-2 text-xs text-slate-400 leading-relaxed">Le formulaire demande ton nom complet, ton identifiant Telegram ou ton email, ton métier ou profil et ton pays de résidence. Elles servent uniquement à personnaliser les alertes. Détails dans la <button type="button" onclick="openInfo('privacy')" class="text-amber-400 underline">politique de confidentialité</button>.</p>
+      </details>
+      <details class="faq-item reveal glass rounded-2xl border border-slate-800 p-4" style="transition-delay:0.21000000000000002s">
+        <summary class="text-sm font-bold text-white">Comment me désinscrire ?</summary>
+        <p class="mt-2 text-xs text-slate-400 leading-relaxed">Envoie une demande via la <a href="contact.html" class="text-amber-400 underline">page de contact</a> en précisant l'identifiant utilisé à l'inscription. Ton profil sera supprimé et tu ne recevras plus d'alertes.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- MODAL D'INSCRIPTION UTILISATEUR -->
+  <div id="modal-signup" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass max-w-md w-full rounded-3xl p-6 border border-amber-500/30 shadow-2xl relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+      
+      <div class="text-center mb-5">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-base font-black text-white mx-auto mb-2">OH</div>
+        <h3 class="text-lg font-black text-white">Reçois tes offres personnalisées</h3>
+        <p class="text-xs text-slate-400 mt-1">L'agent IA filtrera chaque matin à 8h les opportunités qui correspondent exactement à ton profil.</p>
+      </div>
+
+      <form onsubmit="handleSignup(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-300 mb-1 font-semibold">Nom complet</label>
+          <input type="text" id="reg-name" required placeholder="Ex: Koffi Mensah" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-500"/>
+        </div>
+        <div>
+          <label class="block text-slate-300 mb-1 font-semibold">Identifiant Telegram ou Email</label>
+          <input type="text" id="reg-contact" required placeholder="@ton_telegram ou ton@email.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-500"/>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-300 mb-1 font-semibold">Ton Métier / Profil</label>
+            <select id="reg-category" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2 py-2 text-white focus:outline-none focus:border-amber-500">
+              <option value="Community">Community Lead / CM</option>
+              <option value="Ambassadeur">Ambassadeur / BD</option>
+              <option value="Content">Rédacteur / Contenu</option>
+              <option value="Dev">Développeur Web3</option>
+              <option value="Trading">Analyste / Trading</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-300 mb-1 font-semibold">Pays de résidence</label>
+            <select id="reg-country" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2 py-2 text-white focus:outline-none focus:border-amber-500">
+              <option value="Togo">Togo</option>
+              <option value="Bénin">Bénin</option>
+              <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+              <option value="Sénégal">Sénégal</option>
+              <option value="Cameroun">Cameroun</option>
+              <option value="RDC">RDC (Congo Kinshasa)</option>
+              <option value="Congo">Congo (Brazzaville)</option>
+              <option value="Burkina Faso">Burkina Faso</option>
+              <option value="Guinée">Guinée (Conakry)</option>
+              <option value="Mali">Mali</option>
+              <option value="Niger">Niger</option>
+              <option value="Gabon">Gabon</option>
+              <option value="Tchad">Tchad</option>
+              <option value="Madagascar">Madagascar</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="Burundi">Burundi</option>
+              <option value="Centrafrique">Centrafrique</option>
+              <option value="Mauritanie">Mauritanie</option>
+              <option value="Comores">Comores</option>
+              <option value="Djibouti">Djibouti</option>
+              <option value="Autre / Diaspora">Autre pays / Diaspora</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full mt-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold text-xs shadow-lg shadow-amber-600/30 transition">
+          M'abonner aux alertes gratuites
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- MODAL D'INFORMATION (mentions légales, confidentialité) -->
+  <div id="modal-info" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="info-title">
+    <div class="glass max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-3xl p-6 border border-amber-500/30 shadow-2xl relative">
+      <button onclick="closeInfo()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+      <h3 id="info-title" class="text-lg font-black text-white mb-3 pr-8"></h3>
+      <div id="info-body" class="space-y-3 text-xs text-slate-300 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-12 relative z-[2]">
+    <div class="max-w-5xl mx-auto px-4 py-10">
+      <div class="rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 text-xs text-slate-300 mb-8" role="note">
+        <strong class="text-amber-300">Anti-arnaque : ne payez jamais pour postuler.</strong>
+        Un recruteur ou un programme sérieux ne demande ni frais de dossier, ni dépôt d'argent, ni clé privée ou phrase de récupération de portefeuille. Vérifie toujours l'annonce sur le site officiel de l'entreprise.
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs">
+        <div class="sm:col-span-1">
+          <div class="font-black text-white tracking-wide mb-2">OURSON HUNTER</div>
+          <p class="text-slate-400 leading-relaxed">Projet initié par Tine Antonio Etche, consultant blockchain et éducateur Web3 basé à Lomé (Togo), pour aider les talents d'Afrique francophone à trouver des opportunités Web3 et remote.</p>
+        </div>
+        <div>
+          <div class="font-bold text-slate-300 mb-2">Navigation</div>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="#offres" class="hover:text-white transition">Offres ouvertes</a></li>
+            <li><a href="#faq" class="hover:text-white transition">Questions fréquentes</a></li>
+            <li><button type="button" onclick="openModal()" class="hover:text-white transition">Recevoir mes alertes</button></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold text-slate-300 mb-2">Informations</div>
+          <ul class="space-y-1.5 text-slate-400">
+            <li><a href="https://etche-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">À propos</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+            <li><button type="button" onclick="openInfo('legal')" class="hover:text-white transition">Mentions légales</button></li>
+            <li><button type="button" onclick="openInfo('privacy')" class="hover:text-white transition">Politique de confidentialité</button></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-8 pt-6 border-t border-slate-800/80 text-[11px] text-slate-500">Ourson Hunter · Scan automatique chaque matin à 8 h · Information uniquement : ni conseil financier, ni offre d'emploi directe.</p>
+    </div>
+  </footer>
+
+  <script>
+    // payMonthly : équivalent mensuel indicatif (annuel ÷ 12, montants ponctuels tels quels ; horaire ou tokens = null)
+    const JOBS_DATA = [
+      {
+        id: "KRAKEN-01",
+        title: "Community Lead — Kraken Pro",
+        company: "Kraken",
+        category: "Community",
+        salary: "83k - 166k $/an",
+        type: "CDI Remote",
+        eligibility: "Global",
+        score: 92,
+        url: "https://jobs.ashbyhq.com/kraken.com/f6100b36-d906-4c8d-93b8-a03399452966",
+        desc: "Gestion d'utilisateurs avancés, trading et advocacy. 100% remote.",
+        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        payMonthly: 13833
+      },
+      {
+        id: "CERTIK-01",
+        title: "BD & Community Ambassador",
+        company: "CertiK",
+        category: "Ambassadeur",
+        salary: "1 000 $/mois (~5h/sem)",
+        type: "Ambassadeur",
+        eligibility: "Global / Afrique",
+        score: 88,
+        url: "https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik",
+        desc: "Relations sécurité, audit de smart contracts et écosystème Web3.",
+        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        payMonthly: 1000
+      },
+      {
+        id: "ARC-01",
+        title: "Arc Microgrants (Proof-of-Learning)",
+        company: "Circle / Arc (DoraHacks)",
+        category: "Grants",
+        salary: "500 USDC garanti",
+        type: "Bourse MVP",
+        eligibility: "Global",
+        score: 87,
+        url: "https://dorahacks.io/hackathon/arc-microgrants/detail",
+        desc: "20 bourses de 500 USDC pour un MVP déployé sur Arc mainnet. Clôture 14 oct. 2026.",
+        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        payMonthly: 500
+      },
+      {
+        id: "SUPERTEAM-01",
+        title: "Missions Content & Research Web3",
+        company: "Superteam Earn",
+        category: "Content",
+        salary: "100 - 1 500 USDC",
+        type: "Bounties",
+        eligibility: "Global",
+        score: 89,
+        url: "https://earn.superteam.fun",
+        desc: "Bounties continus de rédaction d'analyses, threads et recherche Solana.",
+        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        payMonthly: 1500
+      },
+      {
+        id: "CLOWN-01",
+        title: "Web3 Telegram Community Manager",
+        company: "CLOWN Token",
+        category: "Community",
+        salary: "15 - 30 $/heure",
+        type: "Freelance",
+        eligibility: "Global",
+        score: 84,
+        url: "https://cryptojobslist.com/jobs/web3-telegram-community-manager-clown-remote-at-clown-token",
+        desc: "Modération, animation de lives et growth de groupe Telegram.",
+        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        payMonthly: null
+      },
+      {
+        id: "FIBER-01",
+        title: "Fiber Community Ambassador",
+        company: "Fiber Network",
+        category: "Ambassadeur",
+        salary: "Incentives Tokens",
+        type: "Indépendant",
+        eligibility: "Global",
+        score: 81,
+        url: "https://cryptojobslist.com/jobs/fiber-community-ambassador-remote-at-fiber",
+        desc: "Sensibilisation et éducation décentralisée sur le réseau Fiber.",
+        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        payMonthly: null
+      }
+    ];
+
+    // Échappe les données injectées via innerHTML
+    const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    // État de la liste : catégorie, recherche, tri
+    const state = { cat: 'all', q: '', sort: 'score' };
+    const norm = v => String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const fmtDate = d => new Date(d + 'T00:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+    const SORTERS = {
+      score: (a, b) => b.score - a.score,
+      date: (a, b) => (b.checked || '').localeCompare(a.checked || '') || b.score - a.score, // sans date => fin de liste
+      pay: (a, b) => (b.payMonthly ?? -1) - (a.payMonthly ?? -1) || b.score - a.score
+    };
+
+    function renderJobs(animate = true) {
+      const container = document.getElementById('jobs-container');
+      const q = norm(state.q.trim());
+      const list = JOBS_DATA
+        .filter(j => (state.cat === 'all' || j.category === state.cat) &&
+          (!q || norm([j.title, j.company, j.desc, j.type, j.category, j.eligibility, j.salary].join(' ')).includes(q)))
+        .sort(SORTERS[state.sort]);
+
+      document.getElementById('job-count').textContent =
+        `${list.length} offre${list.length > 1 ? 's' : ''} affichée${list.length > 1 ? 's' : ''} sur ${JOBS_DATA.length}`;
+
+      if (!list.length) {
+        container.innerHTML = '<p class="sm:col-span-2 text-center text-xs text-slate-400 py-10">Aucune offre ne correspond à ta recherche. Essaie un autre mot-clé ou une autre catégorie.</p>';
+        return;
+      }
+
+      container.innerHTML = list.map((job, i) => `
+        <article class="job-card reveal ${animate ? '' : 'visible done'} glass p-4 rounded-2xl border border-slate-800 flex flex-col justify-between" style="${animate ? `transition-delay:${i * 0.07}s` : ''}">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-bold text-amber-400 text-xs">${esc(job.company)}</span>
+              <span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full font-bold border border-emerald-500/20">Score ${esc(job.score)}/100</span>
+            </div>
+            <h3 class="font-bold text-sm text-white">${esc(job.title)}</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">${esc(job.desc)}</p>
+            ${job.checked ? `<p class="text-[10px] text-slate-500 mt-2">Vérifiée le ${esc(fmtDate(job.checked))}</p>` : ''}
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex justify-between items-center">
+            <div>
+              <div class="text-[11px] font-bold text-amber-300 font-mono">${esc(job.salary)}</div>
+              <div class="text-[10px] text-slate-500">${esc(job.type)} · ${esc(job.eligibility)}</div>
+            </div>
+            <a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-bold transition shadow-md shadow-amber-600/20">
+              Postuler
+            </a>
+          </div>
+        </article>`).join('');
+
+      if (animate) container.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-amber-600', 'text-white');
+        b.classList.add('bg-slate-800', 'text-slate-300');
+      });
+      btn.classList.remove('bg-slate-800', 'text-slate-300');
+      btn.classList.add('bg-amber-600', 'text-white');
+      state.cat = cat;
+      renderJobs();
+    }
+
+    document.getElementById('job-search').addEventListener('input', e => { state.q = e.target.value; renderJobs(false); });
+    document.getElementById('job-sort').addEventListener('change', e => { state.sort = e.target.value; renderJobs(false); });
+
+    // Pages d'information (contenu statique, maîtrisé : pas de saisie utilisateur)
+    const TODO = t => `<span class="todo">[à compléter : ${t}]</span>`;
+    const INFO = {
+      legal: {
+        title: 'Mentions légales',
+        html: `
+          <p><strong class="text-white">Éditeur du site.</strong> Ourson Hunter, projet initié par Tine Antonio Etche, Lomé (Togo). Statut juridique et immatriculation : ${TODO('statut / numéro')}.</p>
+          <p><strong class="text-white">Contact.</strong> Par email : <a class="text-amber-400 underline" href="mailto:oursonhunter.alerts@gmail.com">oursonhunter.alerts@gmail.com</a>.</p>
+          <p><strong class="text-white">Hébergement.</strong> ${TODO('nom et adresse de l\'hébergeur')}.</p>
+          <p><strong class="text-white">Nature du service.</strong> Ourson Hunter est un service d'information qui référence des offres publiées par des tiers. Il n'est ni l'employeur, ni un intermédiaire de recrutement, et ne garantit ni l'obtention d'une offre ni son exactitude.</p>
+          <p><strong class="text-white">Pas de conseil financier.</strong> Les contenus relatifs aux cryptoactifs sont fournis à titre informatif et ne constituent pas un conseil en investissement.</p>
+          <p><strong class="text-white">Informations indicatives.</strong> Les offres, rémunérations et dates de clôture peuvent changer ou expirer. Vérifie toujours l'annonce d'origine avant de candidater.</p>
+          <p><strong class="text-white">Sécurité.</strong> Ne payez jamais pour postuler et ne communiquez jamais de clé privée ou de phrase de récupération.</p>
+          <p><strong class="text-white">Liens externes.</strong> Les liens « Postuler » mènent vers des sites tiers dont le contenu n'est pas sous la responsabilité d'Ourson Hunter.</p>`
+      },
+      privacy: {
+        title: 'Politique de confidentialité',
+        html: `
+          <p><strong class="text-white">Données collectées.</strong> Lors de l'inscription aux alertes : nom complet, identifiant Telegram ou adresse email, métier ou profil, pays de résidence.</p>
+          <p><strong class="text-white">Finalité.</strong> Personnaliser et envoyer les alertes d'offres. Aucune autre utilisation n'est prévue.</p>
+          <p><strong class="text-white">Base de traitement.</strong> Ton consentement, donné en remplissant volontairement le formulaire.</p>
+          <p><strong class="text-white">Destinataires.</strong> L'éditeur du site ; outils tiers utilisés pour stocker les inscriptions et envoyer les alertes : ${TODO('noms des outils')}.</p>
+          <p><strong class="text-white">Durée de conservation.</strong> Jusqu'à ta désinscription ; durée maximale : ${TODO('durée')}.</p>
+          <p><strong class="text-white">Tes droits.</strong> Tu peux demander l'accès, la correction ou la suppression de tes données, et retirer ton consentement à tout moment, en écrivant via la <a class="text-amber-400 underline" href="contact.html">page de contact</a>.</p>
+          <p><strong class="text-white">Sécurité.</strong> Ne nous envoie jamais de mot de passe, de clé privée ou de phrase de récupération.</p>`
+      }
+    };
+    let lastFocus = null;
+    function openInfo(key) {
+      lastFocus = document.activeElement;
+      document.getElementById('info-title').textContent = INFO[key].title;
+      document.getElementById('info-body').innerHTML = INFO[key].html;
+      const m = document.getElementById('modal-info');
+      m.classList.remove('hidden');
+      m.querySelector('button').focus();
+    }
+    function closeInfo() {
+      const m = document.getElementById('modal-info');
+      if (m.classList.contains('hidden')) return;
+      m.classList.add('hidden');
+      if (lastFocus) lastFocus.focus();
+    }
+    addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      closeModal(); closeInfo();
+    });
+    document.getElementById('modal-info').addEventListener('click', e => { if (e.target.id === 'modal-info') closeInfo(); });
+
+    function openModal() {
+      document.getElementById('modal-signup').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal-signup').classList.add('hidden');
+    }
+
+    function handleSignup(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const contact = document.getElementById('reg-contact').value;
+      alert(`Félicitations ${name} ! Ton profil est enregistré. Tu recevras tes premières alertes sur ${contact} dès la prochaine alerte de 8h !`);
+      closeModal();
+    }
+
+    // ══ EFFETS ══
+    const $ = id => document.getElementById(id);
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Marquee (mots dupliqués => boucle sans couture)
+    const MARQUEE_WORDS = ['Web3', 'Bounties', '100% Remote', 'USDC', 'Grants', 'Ambassadeur', 'Community', 'Freelance', 'Afrique francophone', 'Pitch IA'];
+    $('marquee').innerHTML = [...MARQUEE_WORDS, ...MARQUEE_WORDS].map(w => `<span class="word">${esc(w)}</span>`).join('');
+
+    // Reveal au scroll (une seule fois par élément)
+    const revealIO = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('visible');
+      revealIO.unobserve(e.target);
+      setTimeout(() => e.target.classList.add('done'), 1100); // libère transition/délai pour le survol
+    }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+    // Barre de progression
+    const bar = $('scroll-bar');
+    addEventListener('scroll', () => {
+      bar.style.width = (scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) * 100) + '%';
+    }, { passive: true });
+
+    if (!reduceMotion) {
+      // CTA magnétique (souris uniquement)
+      const cta = $('hero-cta');
+      if (matchMedia('(hover: hover)').matches) {
+        cta.addEventListener('pointermove', e => { const r = cta.getBoundingClientRect(); cta.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .3}px)`; });
+        cta.addEventListener('pointerleave', () => { cta.style.transform = ''; });
+      }
+      // Parallaxe des orbes
+      const o1 = document.querySelector('.orb-1'), o2 = document.querySelector('.orb-2');
+      addEventListener('scroll', () => { o1.style.transform = `translateY(${scrollY * .15}px)`; o2.style.transform = `translateY(${scrollY * .08}px)`; }, { passive: true });
+      // Halo qui suit le curseur (lissage 8 %)
+      if (matchMedia('(pointer: fine)').matches) {
+        const glow = $('cursor-glow'); let mx = 0, my = 0, gx = 0, gy = 0;
+        addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+        (function loop() { gx += (mx - gx) * .08; gy += (my - gy) * .08; glow.style.left = gx + 'px'; glow.style.top = gy + 'px'; requestAnimationFrame(loop); })();
+      }
+      // Particules ambrées (60 points, 30 sur petit écran)
+      const cv = $('particles-canvas'), ctx = cv.getContext('2d');
+      const fit = () => { cv.width = innerWidth; cv.height = innerHeight; }; fit(); addEventListener('resize', fit, { passive: true });
+      const COLS = ['245,158,11', '254,243,199', '255,255,255'];
+      class P {
+        constructor() { this.reset(); this.life = Math.random() * this.max; }
+        reset() { this.x = Math.random() * cv.width; this.y = Math.random() * cv.height; this.r = Math.random() * 1.5 + .3; this.vx = (Math.random() - .5) * .3; this.vy = -Math.random() * .4 - .1; this.a = Math.random() * .5 + .1; this.life = 0; this.max = Math.random() * 200 + 100; this.c = COLS[Math.floor(Math.random() * COLS.length)]; }
+        tick() { this.x += this.vx; this.y += this.vy; if (++this.life > this.max) this.reset(); }
+        draw() { const k = this.life / this.max, a = this.a * (k < .2 ? k / .2 : k > .8 ? (1 - k) / .2 : 1); ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, 6.2832); ctx.fillStyle = `rgba(${this.c},${a})`; ctx.fill(); }
+      }
+      const ps = Array.from({ length: innerWidth < 640 ? 30 : 60 }, () => new P());
+      (function anim() { ctx.clearRect(0, 0, cv.width, cv.height); ps.forEach(p => { p.tick(); p.draw(); }); requestAnimationFrame(anim); })();
+    }
+
+    // Init
+    renderJobs();
+  </script>
+</body>
+</html>
