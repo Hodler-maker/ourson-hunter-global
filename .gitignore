@@ -1,0 +1,22 @@
+# Fichiers sensibles et secrets (CRITIQUE : ne jamais pousser sur GitHub)
+.env
+*.env
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Rapports internes personnels
+RAPPORTS/OFFRES_EMPLOI.xlsx

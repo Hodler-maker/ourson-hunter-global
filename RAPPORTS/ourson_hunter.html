@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ourson Hunter v2 — Dashboard Tine Antonio Etche</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* === ANIMATIONS === */
+    @keyframes earWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+    }
+    @keyframes blinkEye {
+      0%, 92%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.05); }
+    }
+    @keyframes floatBear {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 8px rgba(251,191,36,0.3); }
+      50% { box-shadow: 0 0 20px rgba(251,191,36,0.6); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes xpFill {
+      from { width: 0%; }
+      to { width: var(--xp-width); }
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    @keyframes waveHand {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(14deg); }
+      40% { transform: rotate(-8deg); }
+      60% { transform: rotate(14deg); }
+      80% { transform: rotate(-4deg); }
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .ear-anim:hover { animation: earWiggle 0.5s ease-in-out 2; }
+    .eye-blink { animation: blinkEye 5s ease-in-out infinite; transform-origin: center; }
+    .bear-float { animation: floatBear 4s ease-in-out infinite; }
+    .breathe { animation: breathe 6s ease-in-out infinite; }
+    .wave { animation: waveHand 2s ease-in-out; }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #fbbf24 0%, #fff7ed 40%, #fbbf24 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.3), 0 0 0 1px rgba(251,191,36,0.2);
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .glass-amber {
+      background: rgba(120, 53, 15, 0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .tab-slide { animation: slideIn 0.35s ease-out; }
+
+    .xp-bar {
+      animation: xpFill 1.5s ease-out forwards;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+      background-size: 200% 100%;
+      animation: xpFill 1.5s ease-out forwards, shimmer 2s linear infinite 1.5s;
+    }
+
+    .glow-pulse { animation: pulseGlow 3s ease-in-out infinite; }
+
+    .sparkle-dot {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: #fbbf24;
+      border-radius: 50%;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    .gradient-border {
+      background: linear-gradient(135deg, #92400e, #d97706, #fbbf24, #d97706, #92400e);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    .custom-scroll::-webkit-scrollbar { width: 5px; }
+    .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(251,191,36,0.3); border-radius: 10px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(251,191,36,0.6); }
+
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      position: relative;
+    }
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: inherit;
+      opacity: 0.4;
+      animation: breathe 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background,#0f172a)] text-[var(--foreground,#f8fafc)] antialiased p-4 sm:p-6 select-none">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- === OUTER SHELL: BEAR BODY === -->
+    <div class="relative gradient-border rounded-[52px] p-[3px]">
+      <div class="relative bg-gradient-to-b from-amber-800 via-amber-900 to-stone-950 rounded-[50px] p-5 sm:p-7 overflow-hidden">
+
+        <!-- Decorative sparkles -->
+        <div class="sparkle-dot" style="top:12%;left:8%;animation-delay:0s;"></div>
+        <div class="sparkle-dot" style="top:18%;right:10%;animation-delay:1s;"></div>
+        <div class="sparkle-dot" style="top:45%;left:5%;animation-delay:2s;"></div>
+        <div class="sparkle-dot" style="top:70%;right:6%;animation-delay:0.5s;"></div>
+        <div class="sparkle-dot" style="top:85%;left:15%;animation-delay:1.5s;"></div>
+
+        <!-- === EARS === -->
+        <div class="absolute -top-5 left-10 sm:left-14 ear-anim cursor-pointer z-20">
+          <div class="w-[72px] h-[72px] rounded-full bg-gradient-to-br from-amber-600 to-amber-800 border-[3px] border-amber-500/50 shadow-lg flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-300/50 to-amber-400/30"></div>
+          </div>
+        </div>
+        <div class="absolute -top-5 right-10 sm:right-14 ear-anim cursor-pointer z-20">
+          <div class="w-[72px] h-[72px] rounded-full bg-gradient-to-bl from-amber-600 to-amber-800 border-[3px] border-amber-500/50 shadow-lg flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-bl from-amber-300/50 to-amber-400/30"></div>
+          </div>
+        </div>
+
+        <!-- === HEADER: BEAR FACE + IDENTITY === -->
+        <div class="relative z-10 flex flex-col items-center mt-4 mb-5">
+          <div class="bear-float flex items-center gap-4 glass-amber px-6 py-3 rounded-2xl border border-amber-500/20 shadow-xl">
+
+            <!-- Enhanced Bear SVG -->
+            <svg class="w-16 h-16 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Head base -->
+              <circle cx="60" cy="62" r="44" fill="url(#headGrad)" stroke="#92400E" stroke-width="3"/>
+              <!-- Muzzle -->
+              <ellipse cx="60" cy="72" rx="22" ry="16" fill="#FEF3C7"/>
+              <ellipse cx="60" cy="72" rx="22" ry="16" fill="url(#muzzleGrad)" opacity="0.3"/>
+              <!-- Nose -->
+              <ellipse cx="60" cy="66" rx="7" ry="5" fill="#451A03" rx="3"/>
+              <ellipse cx="58" cy="64.5" rx="2.5" ry="1.5" fill="#78350F" opacity="0.5"/>
+              <!-- Mouth -->
+              <path d="M52 73 Q60 80 68 73" stroke="#78350F" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <!-- Eyes -->
+              <g class="eye-blink">
+                <circle cx="42" cy="52" r="6" fill="#1E293B"/>
+                <circle cx="40" cy="50" r="2.2" fill="#FFFFFF"/>
+                <circle cx="43.5" cy="53" r="1" fill="#FFFFFF" opacity="0.5"/>
+              </g>
+              <g class="eye-blink">
+                <circle cx="78" cy="52" r="6" fill="#1E293B"/>
+                <circle cx="76" cy="50" r="2.2" fill="#FFFFFF"/>
+                <circle cx="79.5" cy="53" r="1" fill="#FFFFFF" opacity="0.5"/>
+              </g>
+              <!-- Blush cheeks -->
+              <circle cx="32" cy="65" r="5" fill="#FB923C" opacity="0.35"/>
+              <circle cx="88" cy="65" r="5" fill="#FB923C" opacity="0.35"/>
+              <!-- Detective glasses -->
+              <rect x="31" y="45" width="22" height="15" rx="5" fill="rgba(59, 130, 246, 0.15)" stroke="#3B82F6" stroke-width="2.5"/>
+              <rect x="67" y="45" width="22" height="15" rx="5" fill="rgba(59, 130, 246, 0.15)" stroke="#3B82F6" stroke-width="2.5"/>
+              <path d="M53 52 Q60 48 67 52" stroke="#3B82F6" stroke-width="2.5" fill="none"/>
+              <line x1="31" y1="52" x2="24" y2="49" stroke="#3B82F6" stroke-width="2"/>
+              <!-- Detective hat -->
+              <path d="M25 38 Q60 8 95 38" fill="#78350F" stroke="#451A03" stroke-width="2"/>
+              <rect x="28" y="36" width="64" height="8" rx="4" fill="#92400E" stroke="#451A03" stroke-width="1.5"/>
+              <rect x="48" y="34" width="24" height="4" rx="2" fill="#D97706"/>
+              <!-- Hat star badge -->
+              <polygon points="60,31 61.5,34 65,34.5 62.5,37 63,40.5 60,39 57,40.5 57.5,37 55,34.5 58.5,34" fill="#FBBF24"/>
+              <!-- Scarf -->
+              <path d="M30 90 Q38 100 60 102 Q82 100 90 90" fill="#EF4444" stroke="#DC2626" stroke-width="1.5"/>
+              <path d="M78 94 L85 108 L78 106 L82 112" fill="#DC2626" stroke="#B91C1C" stroke-width="1"/>
+              <defs>
+                <radialGradient id="headGrad" cx="0.4" cy="0.3" r="0.7">
+                  <stop offset="0%" stop-color="#F59E0B"/>
+                  <stop offset="100%" stop-color="#B45309"/>
+                </radialGradient>
+                <linearGradient id="muzzleGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FDE68A"/>
+                  <stop offset="100%" stop-color="#D97706" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h1 class="text-xl sm:text-2xl font-black shimmer-text tracking-wide">OURSON HUNTER</h1>
+                <span class="bg-amber-500/15 text-amber-300 text-[12px] font-semibold px-2.5 py-0.5 rounded-full border border-amber-400/25">v2</span>
+              </div>
+              <p class="text-[12px] text-amber-200/70 mt-0.5">Agent de veille autonome Web2 & Web3 · Lomé, Togo</p>
+            </div>
+          </div>
+
+          <!-- === STATUS PILLS === -->
+          <div class="flex flex-wrap items-center justify-center gap-2 mt-4">
+            <!-- Live cron -->
+            <div class="flex items-center gap-2 glass px-3.5 py-1.5 rounded-full border border-emerald-500/30 text-[12px] font-medium">
+              <span class="status-dot bg-emerald-400"></span>
+              <span class="text-emerald-300">Cron quotidien actif</span>
+              <span class="text-emerald-500/60 font-mono">08:00 UTC</span>
+            </div>
+
+            <!-- XP & Level -->
+            <div class="glass px-3.5 py-1.5 rounded-full border border-amber-500/30 text-[12px] font-medium flex items-center gap-2">
+              <span class="text-amber-400">⭐</span>
+              <span class="text-amber-200 font-bold">Recrue</span>
+              <div class="w-20 h-1.5 bg-amber-950 rounded-full overflow-hidden" title="10 / 100 XP">
+                <div class="xp-bar h-full rounded-full" style="--xp-width: 10%;"></div>
+              </div>
+              <span class="text-amber-400/80 font-mono">10 XP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- === BELLY: MAIN DASHBOARD SCREEN === -->
+        <div class="glass rounded-3xl p-4 sm:p-5 border border-amber-500/15 shadow-inner breathe" style="animation-duration:8s;">
+
+          <!-- TAB BAR -->
+          <div class="flex flex-wrap gap-1.5 mb-4 bg-slate-900/50 p-1.5 rounded-2xl">
+            <button onclick="switchTab('grants')" id="tab-btn-grants"
+              class="tab-btn active flex-1 min-w-[100px] px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all duration-300 bg-gradient-to-r from-amber-600 to-amber-500 text-white shadow-lg shadow-amber-600/20">
+              🎯 Grants
+              <span class="bg-white/20 text-[10px] px-1.5 py-0.5 rounded-full font-mono">5</span>
+            </button>
+            <button onclick="switchTab('jobs')" id="tab-btn-jobs"
+              class="tab-btn flex-1 min-w-[80px] px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all duration-300 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+              💼 Emplois
+              <span class="bg-slate-700/60 text-[10px] px-1.5 py-0.5 rounded-full font-mono">6</span>
+            </button>
+            <button onclick="switchTab('drafts')" id="tab-btn-drafts"
+              class="tab-btn flex-1 min-w-[90px] px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all duration-300 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+              📝 Brouillons
+              <span class="bg-purple-600/60 text-white text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold">3</span>
+            </button>
+            <button onclick="switchTab('agents')" id="tab-btn-agents"
+              class="tab-btn flex-1 min-w-[100px] px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-bold flex items-center justify-center gap-1.5 transition-all duration-300 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+              🤖 Agents
+              <span class="bg-slate-700/60 text-[10px] px-1.5 py-0.5 rounded-full font-mono">3</span>
+            </button>
+          </div>
+
+          <!-- ═══════════════════════════════════════════ -->
+          <!-- TAB 1: GRANTS & HACKATHONS                 -->
+          <!-- ═══════════════════════════════════════════ -->
+          <div id="tab-content-grants" class="tab-panel tab-slide space-y-2.5">
+            <div class="flex justify-between items-center text-[12px] text-slate-500 px-1 mb-1">
+              <span>Opportunités vérifiées, classées par score d'adéquation</span>
+              <span class="text-emerald-400 font-semibold">🇹🇬 Togo éligible</span>
+            </div>
+
+            <!-- Card: HRF BDF -->
+            <div class="card-hover p-4 rounded-2xl glass border border-slate-700/50 group">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <div class="flex items-center gap-1 bg-gradient-to-r from-amber-500/20 to-amber-600/10 text-amber-300 text-[12px] font-bold px-2.5 py-1 rounded-lg border border-amber-500/20">
+                      <span class="text-amber-400">★</span> 91/100
+                    </div>
+                    <h3 class="font-bold text-[14px] text-white">HRF Bitcoin Development Fund</h3>
+                    <span class="text-[11px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-md font-semibold border border-emerald-500/20">VALIDÉE</span>
+                  </div>
+                  <p class="text-[12px] text-slate-400 mt-1.5 leading-relaxed">Subvention éducation & communauté Bitcoin en Afrique. Cible directe pour la Togo Bitcoin Community.</p>
+                  <div class="flex items-center gap-4 mt-2 text-[11px] text-slate-500">
+                    <span class="flex items-center gap-1">🔄 Trimestriel</span>
+                    <span class="flex items-center gap-1">💰 Montant non publié</span>
+                    <span class="flex items-center gap-1">🛡️ Risque faible</span>
+                  </div>
+                </div>
+                <a href="https://hrf.org/program/financial-freedom/bitcoin-development-fund/" target="_blank"
+                  class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-[12px] font-bold transition-all shadow-lg shadow-amber-600/20 hover:shadow-amber-500/30 flex items-center gap-1 shrink-0">
+                  Voir ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Card: Superteam Earn -->
+            <div class="card-hover p-4 rounded-2xl glass border border-slate-700/50 group">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <div class="flex items-center gap-1 bg-gradient-to-r from-amber-500/20 to-amber-600/10 text-amber-300 text-[12px] font-bold px-2.5 py-1 rounded-lg border border-amber-500/20">
+                      <span class="text-amber-400">★</span> 89/100
+                    </div>
+                    <h3 class="font-bold text-[14px] text-white">Superteam Earn (Solana Bounties)</h3>
+                    <span class="text-[11px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-md font-semibold border border-emerald-500/20">VALIDÉE</span>
+                  </div>
+                  <p class="text-[12px] text-slate-400 mt-1.5 leading-relaxed">Missions contenu, recherche et analyse fondamentale payées en USDC sur Solana.</p>
+                  <div class="flex items-center gap-4 mt-2 text-[11px] text-slate-500">
+                    <span class="flex items-center gap-1">🔄 Bounties continus</span>
+                    <span class="flex items-center gap-1">💰 100 – 1 500 USDC</span>
+                    <span class="flex items-center gap-1">⚡ Paiement wallet direct</span>
+                  </div>
+                </div>
+                <a href="https://earn.superteam.fun" target="_blank"
+                  class="px-4 py-2 rounded-xl bg-slate-700/80 hover:bg-slate-600 text-white text-[12px] font-bold transition-all flex items-center gap-1 shrink-0">
+                  Explorer ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Card: Arc Microgrants (URGENT) -->
+            <div class="card-hover p-4 rounded-2xl glass border border-amber-500/30 glow-pulse group relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-gradient-to-bl from-amber-500/20 to-transparent w-24 h-24 rounded-bl-full"></div>
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 relative z-10">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <div class="flex items-center gap-1 bg-gradient-to-r from-amber-500/20 to-amber-600/10 text-amber-300 text-[12px] font-bold px-2.5 py-1 rounded-lg border border-amber-500/20">
+                      <span class="text-amber-400">★</span> 87/100
+                    </div>
+                    <h3 class="font-bold text-[14px] text-white">Arc Microgrants (Circle / DoraHacks)</h3>
+                    <span class="text-[11px] bg-rose-500/15 text-rose-400 px-2 py-0.5 rounded-md font-bold border border-rose-500/25 animate-pulse">⏳ J-11</span>
+                  </div>
+                  <p class="text-[12px] text-slate-400 mt-1.5 leading-relaxed">20 bourses de 500 USDC pour un MVP déployé sur Arc mainnet. <span class="text-amber-300 font-semibold">Brouillon prêt !</span></p>
+                  <div class="flex items-center gap-4 mt-2 text-[11px] text-slate-500">
+                    <span class="flex items-center gap-1">📅 Clôture 14 oct. 2026</span>
+                    <span class="flex items-center gap-1">💰 500 USDC (garanti)</span>
+                    <span class="flex items-center gap-1">📄 Formulaire court</span>
+                  </div>
+                </div>
+                <a href="https://dorahacks.io/hackathon/arc-microgrants/detail" target="_blank"
+                  class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white text-[12px] font-bold transition-all shadow-lg shadow-orange-600/25 flex items-center gap-1 shrink-0">
+                  Postuler ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Card: Colosseum -->
+            <div class="card-hover p-4 rounded-2xl glass border border-slate-700/50 group">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <div class="flex items-center gap-1 bg-gradient-to-r from-amber-500/20 to-amber-600/10 text-amber-300 text-[12px] font-bold px-2.5 py-1 rounded-lg border border-amber-500/20">
+                      <span class="text-amber-400">★</span> 79/100
+                    </div>
+                    <h3 class="font-bold text-[14px] text-white">Colosseum World's Fair</h3>
+                    <span class="text-[11px] bg-rose-500/15 text-rose-400 px-2 py-0.5 rounded-md font-bold border border-rose-500/25">⏳ J-9</span>
+                  </div>
+                  <p class="text-[12px] text-slate-400 mt-1.5 leading-relaxed">Hackathon mondial multichain (Bitcoin, Solana, Open Track). 100% en ligne.</p>
+                  <div class="flex items-center gap-4 mt-2 text-[11px] text-slate-500">
+                    <span class="flex items-center gap-1">📅 Clôture 12 oct. 2026</span>
+                    <span class="flex items-center gap-1">💰 Pool 840 000 $</span>
+                    <span class="flex items-center gap-1">🌐 100% remote</span>
+                  </div>
+                </div>
+                <a href="https://colosseum.org/worldsfair" target="_blank"
+                  class="px-4 py-2 rounded-xl bg-slate-700/80 hover:bg-slate-600 text-white text-[12px] font-bold transition-all flex items-center gap-1 shrink-0">
+                  Voir ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════════════════ -->
+          <!-- TAB 2: PIPELINE CRM & EMPLOIS              -->
+          <!-- ═══════════════════════════════════════════ -->
+          <div id="tab-content-jobs" class="tab-panel hidden space-y-3">
+            <!-- CRM KPI Mini-Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div class="glass p-2.5 rounded-xl border border-purple-500/20 text-center">
+                <div class="text-[10px] text-slate-400 font-medium">À POSTULER</div>
+                <div class="text-base font-black text-purple-300">6</div>
+              </div>
+              <div class="glass p-2.5 rounded-xl border border-amber-500/20 text-center">
+                <div class="text-[10px] text-slate-400 font-medium">EN COURS (J+5)</div>
+                <div class="text-base font-black text-amber-300">0</div>
+              </div>
+              <div class="glass p-2.5 rounded-xl border border-emerald-500/20 text-center">
+                <div class="text-[10px] text-slate-400 font-medium">ENCAISSÉ ($)</div>
+                <div class="text-base font-black text-emerald-300">0 $</div>
+              </div>
+              <div class="glass p-2.5 rounded-xl border border-blue-500/20 text-center">
+                <div class="text-[10px] text-slate-400 font-medium">POTENTIEL MAX</div>
+                <div class="text-base font-black text-blue-300">170k $</div>
+              </div>
+            </div>
+
+            <!-- Excel CRM sync banner -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 glass p-3 rounded-2xl border border-blue-500/20">
+              <div class="flex items-center gap-2.5 text-[12px]">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400 font-bold">📈</div>
+                <div>
+                  <span class="text-white font-bold">CRM Pipeline Excel (2 Feuilles)</span>
+                  <div class="text-blue-300/70 text-[11px] font-mono mt-0.5">Pipeline CRM & Suivi + Dashboard KPIs</div>
+                </div>
+              </div>
+              <span class="text-[11px] bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded-lg font-semibold">Relances J+5 automatisées</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <!-- Job 1: Kraken -->
+              <a href="https://jobs.ashbyhq.com/kraken.com/f6100b36-d906-4c8d-93b8-a03399452966" target="_blank" class="card-hover p-3.5 rounded-xl glass border border-slate-700/50 block group">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-amber-400 text-[13px]">Kraken</span>
+                  <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md text-[10px] font-bold border border-purple-500/30">🎯 À postuler</span>
+                </div>
+                <h4 class="font-bold text-white text-[13px] mt-1.5 group-hover:text-amber-300 transition-colors">Community Lead — Kraken Pro</h4>
+                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">Community trading, gestion d'utilisateurs avancés. 100% Remote.</p>
+                <div class="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-800">
+                  <span class="text-[11px] text-amber-300 font-bold font-mono">83k - 166k $/an</span>
+                  <span class="text-[11px] text-amber-400 font-semibold group-hover:underline flex items-center gap-1">Postuler ↗</span>
+                </div>
+              </a>
+
+              <!-- Job 2: CertiK -->
+              <a href="https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik" target="_blank" class="card-hover p-3.5 rounded-xl glass border border-slate-700/50 block group">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-amber-400 text-[13px]">CertiK</span>
+                  <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md text-[10px] font-bold border border-purple-500/30">🎯 À postuler</span>
+                </div>
+                <h4 class="font-bold text-white text-[13px] mt-1.5 group-hover:text-amber-300 transition-colors">BD & Community Ambassador</h4>
+                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">Relations sécurité, audit et développement d'écosystème blockchain.</p>
+                <div class="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-800">
+                  <span class="text-[11px] text-emerald-400 font-bold font-mono">1 000 $/mois (~5h/sem)</span>
+                  <span class="text-[11px] text-amber-400 font-semibold group-hover:underline flex items-center gap-1">Postuler ↗</span>
+                </div>
+              </a>
+
+              <!-- Job 3: Arc Microgrants (Grant dans le pipeline CRM) -->
+              <a href="https://dorahacks.io/hackathon/arc-microgrants/detail" target="_blank" class="card-hover p-3.5 rounded-xl glass border border-amber-500/30 glow-pulse block group">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-amber-400 text-[13px]">Circle / Arc (DoraHacks)</span>
+                  <span class="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-md text-[10px] font-bold border border-rose-500/30 animate-pulse">⏳ J-11</span>
+                </div>
+                <h4 class="font-bold text-white text-[13px] mt-1.5 group-hover:text-amber-300 transition-colors">Arc Microgrants (Proof-of-Learning)</h4>
+                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">Bourse pour MVP déployé sur Arc mainnet. Brouillon complet prêt.</p>
+                <div class="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-800">
+                  <span class="text-[11px] text-amber-300 font-bold font-mono">500 USDC garanti</span>
+                  <span class="text-[11px] text-amber-400 font-semibold group-hover:underline flex items-center gap-1">Soumettre ↗</span>
+                </div>
+              </a>
+
+              <!-- Job 4: CLOWN Token -->
+              <a href="https://cryptojobslist.com/jobs/web3-telegram-community-manager-clown-remote-at-clown-token" target="_blank" class="card-hover p-3.5 rounded-xl glass border border-slate-700/50 block group">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-amber-400 text-[13px]">CLOWN Token</span>
+                  <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md text-[10px] font-bold border border-purple-500/30">🎯 À postuler</span>
+                </div>
+                <h4 class="font-bold text-white text-[13px] mt-1.5 group-hover:text-amber-300 transition-colors">Web3 Telegram Community Manager</h4>
+                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">Modération, growth, gestion des lives et animation de groupe.</p>
+                <div class="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-800">
+                  <span class="text-[11px] text-orange-300 font-bold font-mono">15 - 30 $/heure</span>
+                  <span class="text-[11px] text-amber-400 font-semibold group-hover:underline flex items-center gap-1">Postuler ↗</span>
+                </div>
+              </a>
+
+              <!-- Job 5: Fiber Network -->
+              <a href="https://cryptojobslist.com/jobs/fiber-community-ambassador-remote-at-fiber" target="_blank" class="card-hover p-3.5 rounded-xl glass border border-slate-700/50 block group">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-amber-400 text-[13px]">Fiber Network</span>
+                  <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md text-[10px] font-bold border border-purple-500/30">🎯 À postuler</span>
+                </div>
+                <h4 class="font-bold text-white text-[13px] mt-1.5 group-hover:text-amber-300 transition-colors">Fiber Community Ambassador</h4>
+                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">Onboarding et sensibilisation communautaire décentralisée.</p>
+                <div class="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-800">
+                  <span class="text-[11px] text-purple-300 font-bold font-mono">Incentives Tokens</span>
+                  <span class="text-[11px] text-amber-400 font-semibold group-hover:underline flex items-center gap-1">Postuler ↗</span>
+                </div>
+              </a>
+
+              <!-- Job 6: Superteam Earn -->
+              <a href="https://earn.superteam.fun" target="_blank" class="card-hover p-3.5 rounded-xl glass border border-slate-700/50 block group">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-amber-400 text-[13px]">Superteam Earn</span>
+                  <span class="bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-md text-[10px] font-bold border border-blue-500/30">Bounties</span>
+                </div>
+                <h4 class="font-bold text-white text-[13px] mt-1.5 group-hover:text-amber-300 transition-colors">Missions Content & Research</h4>
+                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">Bounties contenu, recherche et analyse fondamentale Web3. Paiement USDC.</p>
+                <div class="flex justify-between items-center mt-2.5 pt-2 border-t border-slate-800">
+                  <span class="text-[11px] text-blue-300 font-bold font-mono">100 - 1 500 USDC</span>
+                  <span class="text-[11px] text-amber-400 font-semibold group-hover:underline flex items-center gap-1">Explorer ↗</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════════════════ -->
+          <!-- TAB 3: BROUILLONS & PITCHS PRÊTS           -->
+          <!-- ═══════════════════════════════════════════ -->
+          <div id="tab-content-drafts" class="tab-panel hidden space-y-3">
+            <div class="flex justify-between items-center text-[12px] text-slate-400 px-1">
+              <span>Sélectionne un dossier prêt à l'envoi pour copier la lettre ou le message direct :</span>
+              <span class="text-purple-400 font-bold">3 dossiers complets</span>
+            </div>
+
+            <!-- Mini selector pills for drafts -->
+            <div class="flex gap-2 overflow-x-auto pb-1">
+              <button onclick="selectDraft('arc')" id="btn-draft-arc" class="draft-sel-btn px-3 py-1.5 rounded-xl text-[12px] font-bold bg-purple-600 text-white shrink-0 shadow">
+                🎯 Arc Microgrants (Grant)
+              </button>
+              <button onclick="selectDraft('kraken')" id="btn-draft-kraken" class="draft-sel-btn px-3 py-1.5 rounded-xl text-[12px] font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 shrink-0">
+                💼 Kraken Pro (83k-166k $)
+              </button>
+              <button onclick="selectDraft('certik')" id="btn-draft-certik" class="draft-sel-btn px-3 py-1.5 rounded-xl text-[12px] font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 shrink-0">
+                🛡️ CertiK Ambassador (1 000 $/m)
+              </button>
+            </div>
+
+            <!-- Draft Display Box -->
+            <div class="p-4 rounded-2xl glass border border-purple-500/25">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-purple-500/20 pb-3 mb-3">
+                <div>
+                  <h4 class="font-bold text-[14px] text-white" id="draft-title">Candidature Arc Microgrants (DoraHacks)</h4>
+                  <p class="text-[11px] text-slate-400 mt-0.5" id="draft-subtitle">12 questions officielles répondues en anglais · Jeu éducatif Bitcoin valorisé</p>
+                </div>
+                <div class="flex gap-2 shrink-0">
+                  <button onclick="copyCurrentDraft()" id="btn-copy-main"
+                    class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white text-[12px] font-bold transition shadow-lg shadow-purple-600/20 flex items-center gap-1.5">
+                    📋 Copier le texte
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-[12px] font-mono text-slate-300 max-h-56 overflow-y-auto custom-scroll space-y-2 whitespace-pre-wrap leading-relaxed" id="draft-content">
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════════════════ -->
+          <!-- TAB 4: SOUS-AGENTS                         -->
+          <!-- ═══════════════════════════════════════════ -->
+          <div id="tab-content-agents" class="tab-panel hidden space-y-3">
+            <div class="text-[12px] text-slate-500 px-1 mb-1">3 agents spécialisés qui travaillent en arrière-plan :</div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <!-- Agent 1 -->
+              <div class="card-hover p-4 rounded-2xl glass border border-slate-700/50 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 text-blue-400 flex items-center justify-center text-xl mx-auto mb-3 border border-blue-500/20">🔍</div>
+                <h4 class="font-bold text-white text-[13px]">web3_job_scout</h4>
+                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Scanne le web pour dénicher des postes 100% remote accessibles depuis l'Afrique.</p>
+                <div class="mt-3 flex items-center justify-center gap-1.5">
+                  <span class="status-dot bg-emerald-400"></span>
+                  <span class="text-[11px] text-emerald-400 font-semibold">Actif</span>
+                </div>
+              </div>
+
+              <!-- Agent 2 -->
+              <div class="card-hover p-4 rounded-2xl glass border border-slate-700/50 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 text-emerald-400 flex items-center justify-center text-xl mx-auto mb-3 border border-emerald-500/20">⚖️</div>
+                <h4 class="font-bold text-white text-[13px]">opportunity_verifier</h4>
+                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Audit strict des 6 critères éliminatoires, scores /100 et conflits d'intérêts.</p>
+                <div class="mt-3 flex items-center justify-center gap-1.5">
+                  <span class="status-dot bg-emerald-400"></span>
+                  <span class="text-[11px] text-emerald-400 font-semibold">Actif</span>
+                </div>
+              </div>
+
+              <!-- Agent 3 -->
+              <div class="card-hover p-4 rounded-2xl glass border border-slate-700/50 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 text-purple-400 flex items-center justify-center text-xl mx-auto mb-3 border border-purple-500/20">✍️</div>
+                <h4 class="font-bold text-white text-[13px]">grant_proposal_writer</h4>
+                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Rédige les dossiers complets de subvention et pitchs d'emploi dans brouillons/.</p>
+                <div class="mt-3 flex items-center justify-center gap-1.5">
+                  <span class="status-dot bg-emerald-400"></span>
+                  <span class="text-[11px] text-emerald-400 font-semibold">Actif</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end belly -->
+
+        <!-- === PAWS (FOOTER) === -->
+        <div class="flex justify-between items-center px-6 sm:px-10 mt-4 text-[11px] text-amber-400/50 font-medium">
+          <span class="flex items-center gap-1">🐾 Veille active</span>
+          <span class="font-mono text-amber-500/30">Opportunity Hunter v2 · Mode Autonome</span>
+          <span class="flex items-center gap-1">Brouillons prêts 🐾</span>
+        </div>
+
+      </div><!-- end bear body inner -->
+    </div><!-- end gradient border -->
+
+  </div>
+
+  <script>
+    function switchTab(tabKey) {
+      // Reset all tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = btn.className
+          .replace(/bg-gradient-to-r from-amber-600 to-amber-500/g, '')
+          .replace(/text-white/g, 'text-slate-400')
+          .replace(/shadow-lg shadow-amber-600\/20/g, '');
+        if (!btn.classList.contains('hover:text-slate-200')) {
+          btn.classList.add('hover:text-slate-200', 'hover:bg-slate-800/60');
+        }
+      });
+
+      // Reset panels
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.add('hidden');
+        panel.classList.remove('tab-slide');
+      });
+
+      // Activate button
+      const activeBtn = document.getElementById('tab-btn-' + tabKey);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400', 'hover:text-slate-200', 'hover:bg-slate-800/60');
+        activeBtn.classList.add('bg-gradient-to-r', 'from-amber-600', 'to-amber-500', 'text-white', 'shadow-lg', 'shadow-amber-600/20');
+      }
+
+      // Show panel with animation
+      const activePanel = document.getElementById('tab-content-' + tabKey);
+      if (activePanel) {
+        activePanel.classList.remove('hidden');
+        // Trigger reflow for animation
+        void activePanel.offsetWidth;
+        activePanel.classList.add('tab-slide');
+      }
+    }
+
+    const draftsData = {
+      arc: {
+        title: "Candidature Arc Microgrants (Circle / DoraHacks)",
+        subtitle: "12 questions officielles répondues en anglais · Jeu éducatif Bitcoin valorisé sur Arc mainnet",
+        content: `# Project Name :
+BitLearn Arc — On-Chain Proof-of-Learning for African Bitcoin Literacy
+
+# In two sentences, what does your project do?
+BitLearn is an interactive educational game designed to onboard African youth and grassroots communities to Bitcoin fundamentals through localized, gamified learning. The platform mints lightweight, verifiable on-chain certificates on Arc mainnet to record student milestones.
+
+# What does it use Arc for?
+BitLearn leverages Arc mainnet as its low-cost, fast settlement and attestation layer. Because Arc uses native USDC for gas fees, it provides predictable, sub-cent transaction costs ideal for students in West Africa.
+
+# What stage is your project at?
+Functional prototype live with offline & web components; smart contract for Proof-of-Learning ready for deployment on Arc mainnet.`
+      },
+      kraken: {
+        title: "Kraken Pro — Community Lead (Cold DM & Cover Letter)",
+        subtitle: "83k-166k $/an · DM recruteur (<120 mots) + Cover Letter complète en anglais",
+        content: `=== 1. COLD DM LINKEDIN / TWITTER (Moins de 120 mots) ===
+
+Hi [Hiring Manager],
+
+I noticed Kraken is looking for a Community Lead for Kraken Pro. With 5+ years building and scaling crypto communities in emerging markets—including serving as Vice President of the Togo Bitcoin Community and leading regional growth programs—I know firsthand how to turn active traders and power users into passionate brand advocates.
+
+I’ve managed 10+ projects, spoken at 10 major conferences across West Africa, and host weekly fundamental analysis sessions for thousands of traders. I admire Kraken’s uncompromising stance on security and client empowerment, and I’d love to bring this battle-tested community growth engine to Kraken Pro.
+
+Would you be open to a brief chat this week?
+
+Best regards,
+Tine Antonio Etche
+Blockchain Consultant & Community Builder
+
+=== 2. COVER LETTER COMPLÈTE ===
+(Consulter le fichier complet : RAPPORTS/brouillons/candidature_kraken_community_lead.md)`
+      },
+      certik: {
+        title: "CertiK — Business Development & Community Ambassador",
+        subtitle: "1 000 $/mois (~5h/semaine) · Cold DM + Pitch écosystème sécurité Web3",
+        content: `=== 1. COLD DM LINKEDIN / TELEGRAM (Moins de 100 mots) ===
+
+Hi [Name],
+
+I’m reaching out regarding CertiK’s Business Development & Community Ambassador opportunity. As a Blockchain Consultant at Block-Bridge Technology and Vice President of the Togo Bitcoin Community, I’ve spent 5+ years advocating for Web3 security, auditing best practices, and building developer ecosystems across Francophone Africa.
+
+With 10+ projects advised, 10 speaker keynotes in 4 countries, and an active builder audience, I can bridge CertiK’s world-class security solutions with high-potential regional builders and protocols.
+
+I’d love to connect and share how I can support CertiK's footprint.
+
+Best,
+Tine Antonio Etche
+Telegram: @[Ton Telegram] | LinkedIn: [Ton Profil]
+
+=== 2. FEUILLE DE ROUTE 5H/SEMAINE ===
+- H1-2 : Outreach 5 projets Web3 émergents nécessitant audit/KYC CertiK
+- H3-4 : Contenu éducatif (carrousels, lives) décryptant la sécurité et Skynet
+- H5 : Remontée de leads qualifiés et reporting`
+      }
+    };
+
+    let currentDraftKey = 'arc';
+
+    function selectDraft(key) {
+      currentDraftKey = key;
+      const data = draftsData[key];
+      if (!data) return;
+
+      document.getElementById('draft-title').innerText = data.title;
+      document.getElementById('draft-subtitle').innerText = data.subtitle;
+      document.getElementById('draft-content').innerText = data.content;
+
+      document.querySelectorAll('.draft-sel-btn').forEach(btn => {
+        btn.classList.remove('bg-purple-600', 'text-white', 'shadow');
+        btn.classList.add('bg-slate-800', 'text-slate-300');
+      });
+
+      const activeBtn = document.getElementById('btn-draft-rec' || 'btn-draft-' + key);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+        activeBtn.classList.add('bg-purple-600', 'text-white', 'shadow');
+      }
+    }
+
+    function copyCurrentDraft() {
+      const text = document.getElementById('draft-content').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('btn-copy-main');
+        const oldHtml = btn.innerHTML;
+        btn.innerHTML = '✅ Copié !';
+        btn.classList.remove('from-purple-600', 'to-purple-500');
+        btn.classList.add('from-emerald-600', 'to-emerald-500');
+        setTimeout(() => {
+          btn.innerHTML = oldHtml;
+          btn.classList.remove('from-emerald-600', 'to-emerald-500');
+          btn.classList.add('from-purple-600', 'to-purple-500');
+        }, 2000);
+      });
+    }
+
+    // Init first draft on load
+    selectDraft('arc');
+  </script>
+</body>
+</html>

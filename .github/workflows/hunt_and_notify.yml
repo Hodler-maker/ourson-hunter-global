@@ -1,0 +1,39 @@
+name: Ourson Hunter 8-Hour Autonomous Cycle
+
+on:
+  schedule:
+    # Tourne toutes les 8 heures (00:00, 08:00, 16:00 UTC)
+    - cron: '0 */8 * * *'
+  workflow_dispatch: # Permet de déclencher manuellement le scan depuis GitHub
+
+jobs:
+  hunt_and_notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Cloner le dépôt
+        uses: actions/checkout@v3
+
+      - name: 🐍 Configurer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 📦 Installer les dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🐻 Exécuter le cycle de veille et d'alertes
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          python core/scheduler_runner.py
+
+      - name: 💾 Sauvegarder les données publiques à jour
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Ourson Hunter Bot"
+          git add data/public_jobs.json data/ourson_global.db || true
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update jobs & matching [skip ci]"
+          git push || true
