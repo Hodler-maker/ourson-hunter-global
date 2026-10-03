@@ -14,7 +14,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "core"))
 
 from database import add_user
-from notifier import send_welcome_email
+from notifier import send_welcome_email, send_welcome_telegram
 
 def serve_index(start_response):
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -103,10 +103,20 @@ def app(environ, start_response):
                 except Exception as mail_err:
                     print(f"Erreur email: {mail_err}")
 
+            # Envoi de la notification de bienvenue Telegram
+            telegram_sent = False
+            if telegram:
+                try:
+                    success, _ = send_welcome_telegram(telegram, name, category, country)
+                    telegram_sent = success
+                except Exception as tg_err:
+                    print(f"Erreur telegram: {tg_err}")
+
             response_data = {
                 "success": True,
                 "message": f"Bienvenue {name} ! Ton profil est activé.",
-                "email_sent": email_sent
+                "email_sent": email_sent,
+                "telegram_sent": telegram_sent
             }
             headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
             start_response("200 OK", headers)

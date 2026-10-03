@@ -242,6 +242,70 @@ def send_telegram_alert(chat_id_or_handle, message):
     except Exception as e:
         return False, f"Erreur Telegram : {e}"
 
+def resolve_telegram_chat_id(telegram_input):
+    """
+    Tente de convertir un @pseudo en chat_id numérique en inspectant les mises à jour du bot.
+    Si c'est déjà un ID numérique, le retourne directement.
+    """
+    if not telegram_input:
+        return None
+    
+    clean = str(telegram_input).strip()
+    if clean.isdigit():
+        return clean
+    
+    clean_handle = clean.lstrip("@").lower()
+    
+    if not TELEGRAM_BOT_TOKEN:
+        return None
+        
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates"
+        res = requests.get(url, timeout=5)
+        if res.status_code == 200:
+            data = res.json()
+            for update in reversed(data.get("result", [])):
+                msg = update.get("message", {}) or update.get("my_chat_member", {})
+                user = msg.get("from", {})
+                chat = msg.get("chat", {})
+                u_handle = (user.get("username") or "").lower()
+                c_id = str(chat.get("id") or user.get("id") or "")
+                if u_handle and c_id:
+                    # Correspondance exacte ou tolérance pour les inversions courantes
+                    if u_handle == clean_handle or u_handle in clean_handle or clean_handle in u_handle:
+                        return c_id
+    except Exception as e:
+        print(f"Erreur résolution chat_id: {e}")
+        
+    return clean
+
+def send_welcome_telegram(telegram_input, user_name, category="Community", country="Togo"):
+    """
+    Envoie un message d'accueil et d'activation immédiat sur Telegram.
+    """
+    chat_id = resolve_telegram_chat_id(telegram_input)
+    if not chat_id:
+        return False, "Chat ID Telegram introuvable."
+        
+    msg = (
+        f"🐻 *BIENVENUE SUR OURSON HUNTER GLOBAL !*\n\n"
+        f"Félicitations *{user_name}* ! 🎉\n\n"
+        f"Ton profil est activé avec succès :\n"
+        f"📍 *Pays :* {country}\n"
+        f"💼 *Spécialité :* {category}\n"
+        f"⏰ *Fréquence :* Alertes automatiques toutes les 8h\n\n"
+        f"🔥 *TOP 3 Opportunités prêtes pour toi :*\n\n"
+        f"1. *Community Lead — Kraken Pro* (Kraken)\n"
+        f"💰 83k - 166k $/an | CDI Remote | Score: 92%\n\n"
+        f"2. *BD & Community Ambassador* (CertiK)\n"
+        f"💰 1 000 $/mois (~5h/sem) | Ambassadeur | Score: 88%\n\n"
+        f"3. *Arc Microgrants Proof-of-Learning* (Circle / Arc)\n"
+        f"💰 500 USDC | Bourse MVP | Score: 87%\n\n"
+        f"⚡ _Génère ta lettre de motivation sur notre plateforme :_\n"
+        f"https://ourson-hunter-global-rqkh.vercel.app/"
+    )
+    return send_telegram_alert(chat_id, msg)
+
 def notify_user_matches(user, matches):
     """
     Déclenche l'envoi de la notification selon les préférences et les canaux de l'utilisateur.
