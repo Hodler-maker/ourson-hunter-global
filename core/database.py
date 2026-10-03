@@ -150,12 +150,22 @@ if __name__ == "__main__":
     )
     # Insertion des opportunités vérifiées actuelles
     initial_opps = [
-        ("KRAKEN-01", "Community Lead - Kraken Pro", "Kraken", "Community", "CDI Remote", "83 000 $ - 166 000 $ / an", "https://jobs.ashbyhq.com/kraken.com/f6100b36-d906-4c8d-93b8-a03399452966", "Global", 92, "Trading & crypto community leader"),
-        ("CERTIK-01", "Business Development & Community Ambassador", "CertiK", "Ambassadeur", "Ambassadeur (~5h/sem)", "1 000 $ / mois", "https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik", "Global / Afrique", 88, "Sécurité Web3 et audit de smart contracts"),
-        ("ARC-01", "Arc Microgrants (Proof-of-Learning Bitcoin)", "Circle / Arc", "Grants", "Bourse MVP", "500 USDC", "https://dorahacks.io/hackathon/arc-microgrants/detail", "Global", 87, "J-11 clôture 14 oct 2026"),
-        ("SUPERTEAM-01", "Missions Freelance Content & Research Web3", "Superteam Earn", "Content", "Bounties", "100 $ - 1 500 USDC", "https://earn.superteam.fun", "Global", 89, "Bounties continus sur Solana"),
-        ("CLOWN-01", "Web3 Telegram Community Manager", "CLOWN Token", "Community", "Freelance", "15 $ - 30 $ / heure", "https://cryptojobslist.com/jobs/web3-telegram-community-manager-clown-remote-at-clown-token", "Global", 84, "Modération et lives communautaires"),
-        ("FIBER-01", "Fiber Community Ambassador", "Fiber Network", "Ambassadeur", "Indépendant", "Incentives / Bounties", "https://cryptojobslist.com/jobs/fiber-community-ambassador-remote-at-fiber", "Global", 81, "Éducation et adoption")
+        ("KRAKEN-01", "Community Lead — Kraken Pro", "Kraken", "Community", "CDI Remote", "83k - 166k $/an", "https://jobs.ashbyhq.com/kraken.com/f6100b36-d906-4c8d-93b8-a03399452966", "Global / Afrique", 92, "Advocacy et scaling de communauté trading"),
+        ("CELO-01", "Regional Community Lead Africa", "Celo Foundation", "Community", "Contrat Remote", "28k - 48k $/an", "https://jobs.lever.co/celo", "Afrique francophone & globale", 90, "Hubs locaux et onboarding francophone"),
+        ("CLOWN-01", "Web3 Telegram Community Manager", "CLOWN Token", "Community", "Freelance", "15 - 30 $/heure", "https://cryptojobslist.com/jobs/web3-telegram-community-manager-clown-remote-at-clown-token", "Global", 84, "Modération et lives communautaires"),
+        ("ARBITRUM-01", "Discord & Governance Moderator", "Arbitrum Ecosystem", "Community", "Freelance Remote", "1 200 - 2 000 $/mois", "https://arbitrum.foundation", "Global", 86, "Support L2 et surveillance anti-scam"),
+        ("CERTIK-01", "BD & Community Ambassador", "CertiK", "Ambassadeur", "Ambassadeur (~5h/sem)", "1 000 $/mois", "https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik", "Global / Afrique", 88, "Sécurité Web3 et audits smart contracts"),
+        ("TON-01", "Campus & Regional Ambassador Francophone", "TON Foundation", "Ambassadeur", "Ambassadeur", "500 - 1 500 $/mois", "https://ton.org", "Afrique francophone", 89, "Meetups Mini-Apps Telegram"),
+        ("BYBIT-01", "Bybit Ranger & Campus KOL Partner", "Bybit", "Ambassadeur", "Partenaire", "Commissions + Prime 800 $/mois", "https://www.bybit.com", "Afrique / Global", 87, "Représentation locale et événements"),
+        ("FIBER-01", "Fiber Community Ambassador", "Fiber Network", "Ambassadeur", "Indépendant", "Incentives Tokens", "https://cryptojobslist.com/jobs/fiber-community-ambassador-remote-at-fiber", "Global", 81, "Éducation et micro-transactions"),
+        ("SUPERTEAM-01", "Missions Content & Research Web3", "Superteam Earn", "Content", "Bounties", "100 - 1 500 USDC", "https://earn.superteam.fun", "Global", 89, "Bounties Solana en rédaction et recherche"),
+        ("BANKLESS-01", "Crypto Newsletter Analyst & Writer", "Bankless DAO", "Content", "Freelance", "50 - 120 $/article", "https://bankless.community", "Global", 85, "Articles de synthèse DeFi"),
+        ("ETHEREUM-01", "Technical Writer & Translator Francophone", "Ethereum.org", "Content", "Grants & Bounties", "500 - 2 000 USDC", "https://ethereum.org/contributing/translation-program/", "Global / Afrique", 88, "Traduction documentation Ethereum"),
+        ("ARC-01", "Arc Microgrants (Proof-of-Learning)", "Circle / Arc (DoraHacks)", "Dev", "Bourse MVP", "500 USDC garanti", "https://dorahacks.io/hackathon/arc-microgrants/detail", "Global", 87, "Bourse MVP déployé sur Arc mainnet"),
+        ("SOLANA-01", "Solana Superteam MVP Grants", "Solana Foundation", "Dev", "Subvention MVP", "1 000 - 10 000 USDC", "https://earn.superteam.fun/grants/", "Global / Afrique", 91, "Financement sans dilution pour prototypes"),
+        ("CODE4RENA-01", "Smart Contract Auditor Apprentice", "Code4rena / Sherlock", "Dev", "Bug Bounty", "500 - 5 000 USDC", "https://code4rena.com", "Global", 86, "Recherche de vulnérabilités Solidity"),
+        ("COINMARKETCAP-01", "Analyste Fondamental & Contenu Crypto", "CoinMarketCap Community", "Trading", "Freelance", "300 - 900 $/mois", "https://coinmarketcap.com/community", "Global", 84, "Analyses graphiques et fondamentales"),
+        ("BITGET-01", "Bitget Global KOL Partner", "Bitget", "Trading", "Partenariat KOL", "Jusqu'à 60% RevShare + 1 200 $ bonus", "https://www.bitget.com", "Afrique / Global", 88, "Lives de trading et partage de stratégies")
     ]
     for opp in initial_opps:
         add_opportunity(*opp)

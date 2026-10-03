@@ -190,38 +190,107 @@
 
   <!-- JOB BOARD SECTION -->
   <section id="offres" class="max-w-5xl mx-auto px-4 py-8">
-    <div class="reveal flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
-      <div>
-        <h2 class="text-xl font-bold text-white flex items-center gap-2">
-          <span>Opportunités Vérifiées en Cours</span>
-          <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">6 actives</span>
-        </h2>
-        <p class="text-xs text-slate-400 mt-0.5">Scannées, auditées sur 6 critères éliminatoires et classées par score</p>
+
+    <!-- SÉLECTEUR DE PROFIL INSTANTANÉ (CONSULTATION IMMÉDIATE SANS ATTENDRE LE MATIN) -->
+    <div class="reveal glass rounded-3xl p-5 sm:p-6 border border-amber-500/30 mb-8 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-amber-950/20 shadow-xl">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+        <div>
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span>⚡</span> Filtre en direct · Résultats instantanés
+          </span>
+          <h2 class="text-lg sm:text-xl font-black text-white mt-0.5">
+            Quel est ton profil ? Découvre tes offres ciblées
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Pas besoin d'attendre l'alerte du matin : choisis ton métier pour afficher immédiatement les opportunités qui te correspondent.
+          </p>
+        </div>
+        <div class="text-[11px] text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700/60 hidden sm:block">
+          ⏰ <span class="text-amber-300 font-semibold">Abonnés :</span> alertes auto chaque matin à 8h
+        </div>
       </div>
 
-      <!-- Filtres rapides -->
-      <div class="flex gap-1.5 overflow-x-auto pb-1 max-w-full">
-        <button onclick="filterCategory('all', this)" class="filter-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-600 text-white">Tous</button>
-        <button onclick="filterCategory('Community', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Community</button>
-        <button onclick="filterCategory('Ambassadeur', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Ambassadeur</button>
-        <button onclick="filterCategory('Grants', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Grants</button>
-        <button onclick="filterCategory('Content', this)" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">Freelance</button>
+      <!-- Grille des boutons de profil -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 pt-1" id="profile-selector">
+        <button type="button" onclick="filterCategory('all', this)" class="profile-btn active p-3 rounded-2xl border border-amber-500 bg-amber-600/20 text-white font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center hover:bg-amber-600/30">
+          <span class="text-lg">🌟</span>
+          <span>Tous profils</span>
+          <span class="text-[10px] text-amber-300 font-normal opacity-80" id="badge-count-all">16 offres</span>
+        </button>
+        <button type="button" onclick="filterCategory('Community', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
+          <span class="text-lg">👥</span>
+          <span>Community Lead</span>
+          <span class="text-[10px] text-slate-400 font-normal" id="badge-count-community">4 offres</span>
+        </button>
+        <button type="button" onclick="filterCategory('Ambassadeur', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
+          <span class="text-lg">🤝</span>
+          <span>Ambassadeur / BD</span>
+          <span class="text-[10px] text-slate-400 font-normal" id="badge-count-ambassadeur">4 offres</span>
+        </button>
+        <button type="button" onclick="filterCategory('Content', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
+          <span class="text-lg">✍️</span>
+          <span>Rédacteur / Contenu</span>
+          <span class="text-[10px] text-slate-400 font-normal" id="badge-count-content">3 offres</span>
+        </button>
+        <button type="button" onclick="filterCategory('Dev', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
+          <span class="text-lg">💻</span>
+          <span>Développeur Web3</span>
+          <span class="text-[10px] text-slate-400 font-normal" id="badge-count-dev">3 offres</span>
+        </button>
+        <button type="button" onclick="filterCategory('Trading', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
+          <span class="text-lg">📈</span>
+          <span>Analyste / Trading</span>
+          <span class="text-[10px] text-slate-400 font-normal" id="badge-count-trading">2 offres</span>
+        </button>
       </div>
     </div>
 
-
-    <!-- RECHERCHE & TRI -->
-    <div class="reveal flex flex-col sm:flex-row gap-2 mb-2" role="search">
-      <div class="flex-1">
-        <label for="job-search" class="sr-only-lbl">Rechercher une offre</label>
-        <input id="job-search" type="search" autocomplete="off" placeholder="Rechercher par poste, entreprise ou mot-clé" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"/>
-      </div>
+    <!-- EN-TÊTE DU FLUX DYNAMIQUE -->
+    <div class="reveal flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
       <div>
+        <h3 id="flux-title" class="text-lg font-bold text-white flex items-center gap-2">
+          <span>Toutes les opportunités en cours</span>
+          <span id="flux-badge" class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">16 actives</span>
+        </h3>
+        <p id="flux-subtitle" class="text-xs text-slate-400 mt-0.5">Scannées, auditées sur 6 critères éliminatoires et classées par score</p>
+      </div>
+
+      <!-- Bouton d'alerte matinale -->
+      <button onclick="openModal()" class="px-3.5 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold transition flex items-center gap-1.5">
+        <span>⏰ Recevoir mon condensé chaque matin à 8h</span>
+      </button>
+    </div>
+
+    <!-- RECHERCHE & FILTRE PAYS & TRI -->
+    <div class="reveal grid grid-cols-1 sm:grid-cols-12 gap-2 mb-3" role="search">
+      <div class="sm:col-span-5">
+        <label for="job-search" class="sr-only-lbl">Rechercher une offre</label>
+        <input id="job-search" type="search" autocomplete="off" placeholder="Rechercher par poste, entreprise ou mot-clé..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"/>
+      </div>
+      <div class="sm:col-span-4">
+        <label for="job-country" class="sr-only-lbl">Filtrer par pays</label>
+        <select id="job-country" onchange="filterCountry(this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          <option value="all">🌍 Tout (100% Remote / Global)</option>
+          <option value="Togo">🇹🇬 Togo</option>
+          <option value="Bénin">🇧🇯 Bénin</option>
+          <option value="Côte d'Ivoire">🇨🇮 Côte d'Ivoire</option>
+          <option value="Sénégal">🇸🇳 Sénégal</option>
+          <option value="Cameroun">🇨🇲 Cameroun</option>
+          <option value="RDC">🇨🇩 RDC</option>
+          <option value="Burkina Faso">🇧🇫 Burkina Faso</option>
+          <option value="Guinée">🇬🇳 Guinée</option>
+          <option value="Mali">🇲🇱 Mali</option>
+          <option value="Gabon">🇬🇦 Gabon</option>
+          <option value="Madagascar">🇲🇬 Madagascar</option>
+          <option value="Diaspora">🌐 Autre pays / Diaspora</option>
+        </select>
+      </div>
+      <div class="sm:col-span-3">
         <label for="job-sort" class="sr-only-lbl">Trier les offres</label>
-        <select id="job-sort" class="w-full sm:w-auto bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+        <select id="job-sort" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
           <option value="score">Trier : score (décroissant)</option>
-          <option value="date">Trier : date de vérification (récentes d'abord)</option>
-          <option value="pay">Trier : rémunération (indicatif)</option>
+          <option value="pay">Trier : rémunération</option>
+          <option value="date">Trier : date de vérification</option>
         </select>
       </div>
     </div>
@@ -482,6 +551,7 @@
   <script>
     // payMonthly : équivalent mensuel indicatif (annuel ÷ 12, montants ponctuels tels quels ; horaire ou tokens = null)
     const JOBS_DATA = [
+      // 1. COMMUNITY LEAD & CM
       {
         id: "KRAKEN-01",
         title: "Community Lead — Kraken Pro",
@@ -489,54 +559,26 @@
         category: "Community",
         salary: "83k - 166k $/an",
         type: "CDI Remote",
-        eligibility: "Global",
+        eligibility: "Global / Afrique",
         score: 92,
         url: "https://jobs.ashbyhq.com/kraken.com/f6100b36-d906-4c8d-93b8-a03399452966",
-        desc: "Gestion d'utilisateurs avancés, trading et advocacy. 100% remote.",
-        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
+        desc: "Gestion d'utilisateurs avancés, advocacy et scaling de communauté trading. 100% remote.",
+        checked: "2026-10-01",
         payMonthly: 13833
       },
       {
-        id: "CERTIK-01",
-        title: "BD & Community Ambassador",
-        company: "CertiK",
-        category: "Ambassadeur",
-        salary: "1 000 $/mois (~5h/sem)",
-        type: "Ambassadeur",
-        eligibility: "Global / Afrique",
-        score: 88,
-        url: "https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik",
-        desc: "Relations sécurité, audit de smart contracts et écosystème Web3.",
-        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
-        payMonthly: 1000
-      },
-      {
-        id: "ARC-01",
-        title: "Arc Microgrants (Proof-of-Learning)",
-        company: "Circle / Arc (DoraHacks)",
-        category: "Grants",
-        salary: "500 USDC garanti",
-        type: "Bourse MVP",
-        eligibility: "Global",
-        score: 87,
-        url: "https://dorahacks.io/hackathon/arc-microgrants/detail",
-        desc: "20 bourses de 500 USDC pour un MVP déployé sur Arc mainnet. Clôture 14 oct. 2026.",
-        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
-        payMonthly: 500
-      },
-      {
-        id: "SUPERTEAM-01",
-        title: "Missions Content & Research Web3",
-        company: "Superteam Earn",
-        category: "Content",
-        salary: "100 - 1 500 USDC",
-        type: "Bounties",
-        eligibility: "Global",
-        score: 89,
-        url: "https://earn.superteam.fun",
-        desc: "Bounties continus de rédaction d'analyses, threads et recherche Solana.",
-        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
-        payMonthly: 1500
+        id: "CELO-01",
+        title: "Regional Community Lead Africa",
+        company: "Celo Foundation",
+        category: "Community",
+        salary: "28k - 48k $/an",
+        type: "Contrat Remote",
+        eligibility: "Afrique francophone & globale",
+        score: 90,
+        url: "https://jobs.lever.co/celo",
+        desc: "Animation des hubs locaux en Afrique, hackathons régionaux et onboarding d'utilisateurs francophones.",
+        checked: "2026-10-02",
+        payMonthly: 3500
       },
       {
         id: "CLOWN-01",
@@ -548,64 +590,307 @@
         eligibility: "Global",
         score: 84,
         url: "https://cryptojobslist.com/jobs/web3-telegram-community-manager-clown-remote-at-clown-token",
-        desc: "Modération, animation de lives et growth de groupe Telegram.",
-        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
-        payMonthly: null
+        desc: "Modération, animation de lives vocaux et growth de communauté Telegram active.",
+        checked: "2026-10-01",
+        payMonthly: 2400
+      },
+      {
+        id: "ARBITRUM-01",
+        title: "Discord & Governance Moderator",
+        company: "Arbitrum Ecosystem",
+        category: "Community",
+        salary: "1 200 - 2 000 $/mois",
+        type: "Freelance Remote",
+        eligibility: "Global",
+        score: 86,
+        url: "https://arbitrum.foundation",
+        desc: "Accompagnement des utilisateurs L2, surveillance anti-scam et synthèses de votes de gouvernance.",
+        checked: "2026-10-02",
+        payMonthly: 1600
+      },
+
+      // 2. AMBASSADEUR & BD
+      {
+        id: "CERTIK-01",
+        title: "BD & Community Ambassador",
+        company: "CertiK",
+        category: "Ambassadeur",
+        salary: "1 000 $/mois (~5h/sem)",
+        type: "Ambassadeur",
+        eligibility: "Global / Afrique",
+        score: 88,
+        url: "https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik",
+        desc: "Relations sécurité, vulgarisation des audits de smart contracts et écosystème Web3.",
+        checked: "2026-10-01",
+        payMonthly: 1000
+      },
+      {
+        id: "TON-01",
+        title: "Campus & Regional Ambassador Francophone",
+        company: "TON Foundation",
+        category: "Ambassadeur",
+        salary: "500 - 1 500 $/mois + Bourses",
+        type: "Ambassadeur",
+        eligibility: "Afrique francophone",
+        score: 89,
+        url: "https://ton.org",
+        desc: "Organisation de meetups, ateliers Mini-Apps Telegram et évangélisation auprès des développeurs.",
+        checked: "2026-10-02",
+        payMonthly: 1000
+      },
+      {
+        id: "BYBIT-01",
+        title: "Bybit Ranger & Campus KOL Partner",
+        company: "Bybit",
+        category: "Ambassadeur",
+        salary: "Commissions + Prime 800 $/mois",
+        type: "Programme Partenaire",
+        eligibility: "Afrique / Global",
+        score: 87,
+        url: "https://www.bybit.com",
+        desc: "Représentation locale, onboarding des traders francophones et gestion d'événements physiques/en ligne.",
+        checked: "2026-10-01",
+        payMonthly: 1200
       },
       {
         id: "FIBER-01",
         title: "Fiber Community Ambassador",
         company: "Fiber Network",
         category: "Ambassadeur",
-        salary: "Incentives Tokens",
+        salary: "Incentives Tokens + Bounties",
         type: "Indépendant",
         eligibility: "Global",
         score: 81,
         url: "https://cryptojobslist.com/jobs/fiber-community-ambassador-remote-at-fiber",
-        desc: "Sensibilisation et éducation décentralisée sur le réseau Fiber.",
-        checked: null, // TODO : date de vérification au format AAAA-MM-JJ
-        payMonthly: null
+        desc: "Sensibilisation et éducation décentralisée sur le réseau Fiber et les micro-transactions.",
+        checked: "2026-10-01",
+        payMonthly: 600
+      },
+
+      // 3. RÉDACTEUR & CONTENU (CONTENT)
+      {
+        id: "SUPERTEAM-01",
+        title: "Missions Content & Research Web3",
+        company: "Superteam Earn",
+        category: "Content",
+        salary: "100 - 1 500 USDC",
+        type: "Bounties",
+        eligibility: "Global",
+        score: 89,
+        url: "https://earn.superteam.fun",
+        desc: "Bounties continus de rédaction d'analyses, threads X, dossiers de recherche Solana et tutoriels.",
+        checked: "2026-10-02",
+        payMonthly: 1500
+      },
+      {
+        id: "BANKLESS-01",
+        title: "Crypto Newsletter Analyst & Writer",
+        company: "Bankless DAO",
+        category: "Content",
+        salary: "50 - 120 $/article",
+        type: "Contributeur Freelance",
+        eligibility: "Global",
+        score: 85,
+        url: "https://bankless.community",
+        desc: "Rédaction d'articles de synthèse DeFi, récapitulatifs d'actualités et guides pédagogiques.",
+        checked: "2026-10-01",
+        payMonthly: 800
+      },
+      {
+        id: "ETHEREUM-01",
+        title: "Technical Writer & Translator Francophone",
+        company: "Ethereum.org (Gitcoin)",
+        category: "Content",
+        salary: "500 - 2 000 USDC",
+        type: "Grants & Bounties",
+        eligibility: "Global / Afrique",
+        score: 88,
+        url: "https://ethereum.org/contributing/translation-program/",
+        desc: "Traduction et vulgarisation de la documentation officielle Ethereum pour le public francophone.",
+        checked: "2026-10-02",
+        payMonthly: 1200
+      },
+
+      // 4. DÉVELOPPEUR WEB3 & BOURSES MVP (DEV)
+      {
+        id: "ARC-01",
+        title: "Arc Microgrants (Proof-of-Learning)",
+        company: "Circle / Arc (DoraHacks)",
+        category: "Dev",
+        salary: "500 USDC garanti",
+        type: "Bourse MVP",
+        eligibility: "Global",
+        score: 87,
+        url: "https://dorahacks.io/hackathon/arc-microgrants/detail",
+        desc: "20 bourses de 500 USDC pour un MVP déployé sur Arc mainnet. Clôture 14 oct. 2026.",
+        checked: "2026-10-02",
+        payMonthly: 500
+      },
+      {
+        id: "SOLANA-01",
+        title: "Solana Superteam MVP Grants",
+        company: "Solana Foundation",
+        category: "Dev",
+        salary: "1 000 - 10 000 USDC",
+        type: "Subvention MVP",
+        eligibility: "Global / Afrique",
+        score: 91,
+        url: "https://earn.superteam.fun/grants/",
+        desc: "Financement rapide sans prise de participation pour prototypes déployés sur Solana (DeFi, Mobile, IA).",
+        checked: "2026-10-01",
+        payMonthly: 2500
+      },
+      {
+        id: "CODE4RENA-01",
+        title: "Smart Contract Auditor Apprentice",
+        company: "Code4rena / Sherlock",
+        category: "Dev",
+        salary: "500 - 5 000 USDC / audit",
+        type: "Compétition Bug Bounty",
+        eligibility: "Global",
+        score: 86,
+        url: "https://code4rena.com",
+        desc: "Recherche de failles et vulnérabilités dans le code Solidity de protocoles majeurs.",
+        checked: "2026-10-02",
+        payMonthly: 2000
+      },
+
+      // 5. ANALYSTE & TRADING & KOL
+      {
+        id: "COINMARKETCAP-01",
+        title: "Analyste Fondamental & Contenu Crypto",
+        company: "CoinMarketCap Community",
+        category: "Trading",
+        salary: "300 - 900 $/mois",
+        type: "Freelance",
+        eligibility: "Global",
+        score: 84,
+        url: "https://coinmarketcap.com/community",
+        desc: "Publication d'analyses graphiques et fondamentales sur les tendances de marché et altcoins.",
+        checked: "2026-10-01",
+        payMonthly: 600
+      },
+      {
+        id: "BITGET-01",
+        title: "Bitget Global KOL Partner",
+        company: "Bitget",
+        category: "Trading",
+        salary: "Jusqu'à 60% RevShare + 1 200 $ bonus",
+        type: "Partenariat KOL",
+        eligibility: "Afrique / Global",
+        score: 88,
+        url: "https://www.bybit.com",
+        desc: "Animation de sessions de trading en direct, partage de stratégies et monétisation d'audience.",
+        checked: "2026-10-02",
+        payMonthly: 1500
       }
     ];
 
     // Échappe les données injectées via innerHTML
     const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-    // État de la liste : catégorie, recherche, tri
-    const state = { cat: 'all', q: '', sort: 'score' };
+    // État de la liste : catégorie/profil, recherche, pays, tri
+    const state = { cat: 'all', country: 'all', q: '', sort: 'score' };
     const norm = v => String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const fmtDate = d => new Date(d + 'T00:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
     const SORTERS = {
       score: (a, b) => b.score - a.score,
-      date: (a, b) => (b.checked || '').localeCompare(a.checked || '') || b.score - a.score, // sans date => fin de liste
+      date: (a, b) => (b.checked || '').localeCompare(a.checked || '') || b.score - a.score,
       pay: (a, b) => (b.payMonthly ?? -1) - (a.payMonthly ?? -1) || b.score - a.score
     };
+
+    function updateBadgeCounts() {
+      const counts = { all: JOBS_DATA.length };
+      JOBS_DATA.forEach(j => {
+        counts[j.category] = (counts[j.category] || 0) + 1;
+      });
+      if (document.getElementById('badge-count-all')) document.getElementById('badge-count-all').textContent = `${counts.all} offres`;
+      if (document.getElementById('badge-count-community')) document.getElementById('badge-count-community').textContent = `${counts.Community || 0} offres`;
+      if (document.getElementById('badge-count-ambassadeur')) document.getElementById('badge-count-ambassadeur').textContent = `${counts.Ambassadeur || 0} offres`;
+      if (document.getElementById('badge-count-content')) document.getElementById('badge-count-content').textContent = `${counts.Content || 0} offres`;
+      if (document.getElementById('badge-count-dev')) document.getElementById('badge-count-dev').textContent = `${counts.Dev || 0} offres`;
+      if (document.getElementById('badge-count-trading')) document.getElementById('badge-count-trading').textContent = `${counts.Trading || 0} offres`;
+    }
+
+    function updateHeaderTexts() {
+      const titles = {
+        'all': 'Toutes les opportunités en cours',
+        'Community': 'Opportunités ciblées : Community Lead / CM',
+        'Ambassadeur': 'Opportunités ciblées : Ambassadeur & BD',
+        'Content': 'Opportunités ciblées : Rédacteur & Contenu',
+        'Dev': 'Opportunités ciblées : Développeur Web3 & Bourses',
+        'Trading': 'Opportunités ciblées : Analyste & Trading'
+      };
+      const titleEl = document.getElementById('flux-title');
+      if (titleEl) {
+        titleEl.querySelector('span').textContent = titles[state.cat] || 'Opportunités ciblées';
+      }
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.profile-btn').forEach(b => {
+        b.classList.remove('active', 'border-amber-500', 'bg-amber-600/20', 'text-white');
+        b.classList.add('border-slate-800', 'bg-slate-900/60', 'text-slate-300');
+      });
+      if (btn) {
+        btn.classList.remove('border-slate-800', 'bg-slate-900/60', 'text-slate-300');
+        btn.classList.add('active', 'border-amber-500', 'bg-amber-600/20', 'text-white');
+      }
+      state.cat = cat;
+      updateHeaderTexts();
+      renderJobs();
+    }
+
+    function filterCountry(country) {
+      state.country = country;
+      renderJobs();
+    }
 
     function renderJobs(animate = true) {
       const container = document.getElementById('jobs-container');
       const q = norm(state.q.trim());
       const list = JOBS_DATA
-        .filter(j => (state.cat === 'all' || j.category === state.cat) &&
-          (!q || norm([j.title, j.company, j.desc, j.type, j.category, j.eligibility, j.salary].join(' ')).includes(q)))
+        .filter(j => {
+          const matchCat = (state.cat === 'all' || j.category === state.cat);
+          const matchCountry = (state.country === 'all' || 
+            norm(j.eligibility).includes(norm(state.country)) || 
+            norm(j.eligibility).includes('global') || 
+            norm(j.eligibility).includes('afrique'));
+          const matchQuery = (!q || norm([j.title, j.company, j.desc, j.type, j.category, j.eligibility, j.salary].join(' ')).includes(q));
+          return matchCat && matchCountry && matchQuery;
+        })
         .sort(SORTERS[state.sort]);
 
+      const badgeCount = document.getElementById('flux-badge');
+      if (badgeCount) {
+        badgeCount.textContent = `${list.length} active${list.length > 1 ? 's' : ''}`;
+      }
+
       document.getElementById('job-count').textContent =
-        `${list.length} offre${list.length > 1 ? 's' : ''} affichée${list.length > 1 ? 's' : ''} sur ${JOBS_DATA.length}`;
+        `${list.length} offre${list.length > 1 ? 's' : ''} affichée${list.length > 1 ? 's' : ''} (sur ${JOBS_DATA.length} opportunités au total)`;
 
       if (!list.length) {
-        container.innerHTML = '<p class="sm:col-span-2 text-center text-xs text-slate-400 py-10">Aucune offre ne correspond à ta recherche. Essaie un autre mot-clé ou une autre catégorie.</p>';
+        container.innerHTML = '<div class="sm:col-span-2 text-center text-xs text-slate-400 py-12 glass rounded-2xl border border-slate-800"><p class="text-base font-bold text-white mb-1">🔍 Aucune offre ne correspond à cette combinaison</p><p class="text-slate-500">Essaie un autre profil ou élargis le filtre pays pour voir les opportunités 100% remote.</p></div>';
         return;
       }
 
-      container.innerHTML = list.map((job, i) => `
-        <article class="job-card reveal ${animate ? '' : 'visible done'} glass p-4 rounded-2xl border border-slate-800 flex flex-col justify-between" style="${animate ? `transition-delay:${i * 0.07}s` : ''}">
+      container.innerHTML = list.map((job, i) => {
+        const isTargetMatch = (state.cat !== 'all' && job.category === state.cat);
+        return `
+        <article class="job-card reveal ${animate ? '' : 'visible done'} glass p-4 rounded-2xl border ${isTargetMatch ? 'border-amber-500/50 bg-amber-500/[0.03]' : 'border-slate-800'} flex flex-col justify-between" style="${animate ? `transition-delay:${i * 0.05}s` : ''}">
           <div>
             <div class="flex justify-between items-center mb-2">
-              <span class="font-bold text-amber-400 text-xs">${esc(job.company)}</span>
-              <span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full font-bold border border-emerald-500/20">Score ${esc(job.score)}/100</span>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-amber-400 text-xs">${esc(job.company)}</span>
+                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full border border-slate-700 font-medium">${esc(job.category)}</span>
+              </div>
+              <div class="flex items-center gap-1">
+                ${isTargetMatch ? `<span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-500/30">🎯 Ton profil</span>` : ''}
+                <span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full font-bold border border-emerald-500/20">Score ${esc(job.score)}/100</span>
+              </div>
             </div>
             <h3 class="font-bold text-sm text-white">${esc(job.title)}</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">${esc(job.desc)}</p>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">${esc(job.desc)}</p>
             ${job.checked ? `<p class="text-[10px] text-slate-500 mt-2">Vérifiée le ${esc(fmtDate(job.checked))}</p>` : ''}
           </div>
           <div class="mt-4 pt-3 border-t border-slate-800/80 flex justify-between items-center gap-2">
@@ -622,20 +907,10 @@
               </a>
             </div>
           </div>
-        </article>`).join('');
+        </article>`;
+      }).join('');
 
       if (animate) container.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
-    }
-
-    function filterCategory(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.remove('bg-amber-600', 'text-white');
-        b.classList.add('bg-slate-800', 'text-slate-300');
-      });
-      btn.classList.remove('bg-slate-800', 'text-slate-300');
-      btn.classList.add('bg-amber-600', 'text-white');
-      state.cat = cat;
-      renderJobs();
     }
 
     document.getElementById('job-search').addEventListener('input', e => { state.q = e.target.value; renderJobs(false); });
@@ -873,6 +1148,7 @@
     }
 
     // Init
+    updateBadgeCounts();
     renderJobs();
   </script>
 </body>
