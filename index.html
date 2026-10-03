@@ -432,7 +432,7 @@
           </div>
           <div>
             <label class="block text-slate-300 mb-1 font-semibold">Ton Nom complet</label>
-            <input type="text" id="pitch-name" placeholder="Ex: Tine Antonio Etche" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-purple-500"/>
+            <input type="text" id="pitch-name" oninput="generatePitches()" placeholder="Ton prénom et nom (ex: Koffi Mensah)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-purple-500"/>
           </div>
         </div>
 
@@ -977,9 +977,7 @@
       const regName = document.getElementById('reg-name');
       const pitchName = document.getElementById('pitch-name');
       if (regName && regName.value && !pitchName.value) {
-        pitchName.value = regName.value;
-      } else if (!pitchName.value) {
-        pitchName.value = "Tine Antonio Etche";
+        pitchName.value = regName.value.trim();
       }
 
       generatePitches();
@@ -994,9 +992,10 @@
       const select = document.getElementById('pitch-job-select');
       const jobId = select ? select.value : '';
       const job = JOBS_DATA.find(j => j.id === jobId) || JOBS_DATA[0];
-      const name = (document.getElementById('pitch-name').value || '').trim() || 'Candidat';
-      const role = document.getElementById('pitch-profile').value;
       const lang = document.getElementById('pitch-lang').value;
+      const rawName = (document.getElementById('pitch-name').value || '').trim();
+      const name = rawName || (lang === 'fr' ? '[Ton Prénom & Nom]' : '[Your Full Name]');
+      const role = document.getElementById('pitch-profile').value;
 
       let dm = "", cl = "", oral = "";
 
