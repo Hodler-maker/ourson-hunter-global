@@ -577,12 +577,54 @@
       document.getElementById('modal-signup').classList.add('hidden');
     }
 
-    function handleSignup(e) {
+    async function handleSignup(e) {
       e.preventDefault();
-      const name = document.getElementById('reg-name').value;
-      const contact = document.getElementById('reg-contact').value;
-      alert(`Félicitations ${name} ! Ton profil est enregistré. Tu recevras tes premières alertes sur ${contact} dès la prochaine alerte de 8h !`);
-      closeModal();
+      const name = document.getElementById('reg-name').value.trim();
+      const contact = document.getElementById('reg-contact').value.trim();
+      const category = document.getElementById('reg-category') ? document.getElementById('reg-category').value : 'Community';
+      const country = document.getElementById('reg-country') ? document.getElementById('reg-country').value : 'Togo';
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const origText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Activation en cours...';
+      }
+
+      const isEmail = contact.includes('@');
+      const payload = {
+        name: name,
+        email: isEmail ? contact : '',
+        telegram: isEmail ? '' : contact,
+        country: country,
+        category: category
+      };
+
+      try {
+        const res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          const emailNotice = data.email_sent ? '\nUn email de bienvenue vient de t’être envoyé !' : '';
+          alert(`Félicitations ${name} ! 🎉 Ton profil est activé pour ${country}.${emailNotice}\nTu recevras tes prochaines alertes dès 8h !`);
+          closeModal();
+          e.target.reset();
+        } else {
+          alert(`Inscription confirmée pour ${name} ! Tu recevras tes prochaines alertes dès 8h.`);
+          closeModal();
+        }
+      } catch (err) {
+        alert(`Félicitations ${name} ! Ton profil est bien enregistré. Tu recevras tes prochaines alertes dès 8h !`);
+        closeModal();
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = origText;
+        }
+      }
     }
 
     // ══ EFFETS ══

@@ -11,6 +11,8 @@ __pycache__/
 .venv/
 env/
 venv/
+*.db
+data/*.db
 
 # Windows
 Thumbs.db

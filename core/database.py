@@ -11,12 +11,21 @@ import os
 import json
 from datetime import datetime
 
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "ourson_global.db")
-PUBLIC_JSON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "public_jobs.json")
+if os.environ.get("VERCEL"):
+    DB_PATH = "/tmp/ourson_global.db"
+    PUBLIC_JSON_PATH = "/tmp/public_jobs.json"
+else:
+    DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "ourson_global.db")
+    PUBLIC_JSON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "public_jobs.json")
 
 def get_connection():
-    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
+    try:
+        os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+        conn = sqlite3.connect(DB_PATH)
+    except OSError:
+        # Fallback pour tout environnement à système de fichiers en lecture seule
+        fallback_path = "/tmp/ourson_global.db"
+        conn = sqlite3.connect(fallback_path)
     conn.row_factory = sqlite3.Row
     return conn
 
