@@ -29,8 +29,13 @@ def run_global_cycle():
     now_str = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     print(f"\n[{now_str}] DÉMARRAGE DU CYCLE 8H — OURSON HUNTER GLOBAL")
     
-    # 1. Init DB
+    # 1. Init DB & Veille automatique (Scout)
     init_db()
+    try:
+        from scout import scout_and_sync_new_jobs
+        scout_and_sync_new_jobs()
+    except Exception as e:
+        print(f"[SCOUT WARN] Veille automatique ignorée: {e}")
 
     # 2. Récupération des opportunités et utilisateurs
     opps = get_all_active_opportunities()

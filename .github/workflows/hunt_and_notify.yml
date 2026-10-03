@@ -27,6 +27,8 @@ jobs:
       - name: 🐻 Exécuter le cycle de veille et d'alertes
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: |
           python core/scheduler_runner.py
 
@@ -34,6 +36,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Ourson Hunter Bot"
-          git add data/public_jobs.json data/ourson_global.db || true
+          git add data/public_jobs.json public/public_jobs.json data/ourson_global.db || true
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update jobs & matching [skip ci]"
           git push || true

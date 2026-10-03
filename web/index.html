@@ -1146,9 +1146,53 @@
       (function anim() { ctx.clearRect(0, 0, cv.width, cv.height); ps.forEach(p => { p.tick(); p.draw(); }); requestAnimationFrame(anim); })();
     }
 
+    async function loadDynamicJobs() {
+      try {
+        const res = await fetch('/public_jobs.json?t=' + Date.now());
+        if (!res.ok) return;
+        const remoteJobs = await res.json();
+        if (Array.isArray(remoteJobs) && remoteJobs.length > 0) {
+          const existingIds = new Set(JOBS_DATA.map(j => j.id));
+          const existingUrls = new Set(JOBS_DATA.map(j => (j.url || '').toLowerCase().replace(/\/+$/, '')));
+          let added = false;
+          
+          remoteJobs.forEach(rj => {
+            const cleanUrl = (rj.url || '').toLowerCase().replace(/\/+$/, '');
+            if (!existingIds.has(rj.id) && !existingUrls.has(cleanUrl)) {
+              JOBS_DATA.push({
+                id: rj.id,
+                title: rj.title,
+                company: rj.company,
+                category: rj.category || 'Community',
+                salary: rj.salary || 'Selon profil',
+                type: rj.type || 'Remote',
+                eligibility: rj.eligibility || 'Global',
+                score: rj.score || 85,
+                url: rj.url,
+                desc: rj.notes || rj.title,
+                checked: (rj.created_at || '').slice(0, 10) || null,
+                payMonthly: null
+              });
+              existingIds.add(rj.id);
+              existingUrls.add(cleanUrl);
+              added = true;
+            }
+          });
+
+          if (added) {
+            updateBadgeCounts();
+            renderJobs(false);
+          }
+        }
+      } catch (e) {
+        // Fallback silencieux sur les données intégrées
+      }
+    }
+
     // Init
     updateBadgeCounts();
     renderJobs();
+    loadDynamicJobs();
   </script>
 </body>
 </html>
