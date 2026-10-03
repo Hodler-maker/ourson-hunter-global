@@ -39,6 +39,8 @@ EXPIRED_PHRASES = [
     "page not found"
 ]
 
+from urllib.parse import urlparse
+
 def is_opportunity_alive(url):
     """
     Vérifie si le lien profond de l'opportunité est toujours valide et actif.
@@ -47,15 +49,21 @@ def is_opportunity_alive(url):
     if not url or not url.startswith("http"):
         return False, "URL invalide"
 
+    # 1. Rejet strict des pages d'accueil génériques (Lien profond obligatoire selon AGENTS.md)
+    parsed = urlparse(url)
+    path = parsed.path.strip('/')
+    if not path:
+        return False, "Page d'accueil générique (Lien profond vers l'annonce obligatoire)"
+
     try:
         # Requete GET avec timeout de 8 secondes
         res = requests.get(url, headers=HEADERS, timeout=8, allow_redirects=True)
         
-        # 1. Statut HTTP mort
+        # 2. Statut HTTP mort
         if res.status_code in [404, 410]:
             return False, f"Code HTTP {res.status_code}"
 
-        # 2. Détection de page d'expiration dans le contenu HTML
+        # 3. Détection de page d'expiration dans le contenu HTML
         content_lower = res.text.lower()
         for phrase in EXPIRED_PHRASES:
             if phrase in content_lower:

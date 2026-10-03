@@ -10,6 +10,7 @@ Niveau : Recrue | XP confirmé : 10 | XP en attente : 10
 | Superteam Earn | https://earn.superteam.fun | continu | validée | 100 $ à 1 500 $ / tâche (fait selon listing) | 89/100 | 03 oct. 2026 | Bounties de contenu, community management et recherche payés en USDC Solana sans restriction géographique (+5 XP en attente). |
 | DoraHacks Web3 for Social Good 2026 | https://dorahacks.io/hackathon/web3-social-good-2026/detail | 24 oct. 2026 | à confirmer | non vérifié (Pending) | 71/100 | 03 oct. 2026 | Organisé par SMU, GSR Foundation et UMA. L'Idea Track ne requiert aucun code au départ. Présentation finale possible en ligne. Montant des prix non publié. |
 | Regional Community Lead Africa (Celo) | https://jobs.lever.co/celo | expirée | expirée | 28k - 48k $/an | 0/100 | 03 oct. 2026 | Offre fermée par le recruteur (404 Lever). Détectée et purgée automatiquement de la base et du site. |
+| Campus Ambassador Francophone (TON) | https://ton.org | inéligible | purgée | 500 - 1500 $/mois | 0/100 | 03 oct. 2026 | Aucun formulaire ni offre de poste ouverte sur le site officiel (redirection vers page d'accueil ton.org). Purgée de la base et du site. |
 | Selar (Monétisation de produits) | https://selar.co | permanent | à confirmer | non vérifié (estimation) | 64/100 | 03 oct. 2026 | Plateforme de vente de produits numériques multi-devises. Retrait direct Mobile Money créateur au Togo à vérifier directement sur dashboard officiel. |
 
 ## Sources fiables
@@ -26,7 +27,7 @@ Niveau : Recrue | XP confirmé : 10 | XP en attente : 10
 1. **Paiements et retraits en Afrique :** Les paiements en crypto (USDC / BTC) restent les plus fluides et immédiatement vérifiables pour Tine depuis Lomé sans dépendre d'intermédiaires bancaires.
 2. **Vérification stricte des montants :** Si un montant individuel ou une répartition de dotation n'est pas explicitement publiée par la source primaire (comme pour HRF ou Colosseum), il doit être étiqueté "montant non publié" ou "non vérifié" sans extrapolation.
 3. **Idea Track vs Tech Track :** Le hackathon SMU Web3 for Social Good propose une piste "Idée" pure sans code préalable avec mentorat "Vibe Coding" pour les finalistes, ce qui permet de valoriser immédiatement un concept sans passer des semaines à coder.
-4. **Purge automatique des offres closes (Cleaner) :** Les offres sur ATS (Lever, Ashby, Greenhouse) se ferment sans préavis. Un vérificateur HTTP avec analyse des messages de fermeture ("couldn't find anything here", 404, 410) tourne désormais à chaque cycle de 8h pour supprimer immédiatement les liens périmés de la base et du site public.
+4. **Purge automatique & Rejet strict des pages d'accueil génériques :** Règle #1 d'AGENTS.md appliquée dans le cleaner. Une opportunité qui redirige vers une racine de domaine (`ton.org`, `arbitrum.foundation`) sans formulaire de candidature ni lien direct vers l'offre est désormais systématiquement rejetée et purgée de la base de données.
 5. **Automatisation des offres d'emploi :** Centralisation et déduplication quotidienne dans `RAPPORTS/OFFRES_EMPLOI.xlsx` pour tracker systématiquement les postes ouverts (Community Management, Ambassadeur, Growth, Consulting) accessibles à distance depuis Lomé.
 
 ## Hypothèses à tester
