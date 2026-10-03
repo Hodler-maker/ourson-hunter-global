@@ -63,7 +63,13 @@ def is_opportunity_alive(url):
         if res.status_code in [404, 410]:
             return False, f"Code HTTP {res.status_code}"
 
-        # 3. Détection de page d'expiration dans le contenu HTML
+        # 3. Détection de redirection cachée vers une page d'accueil racine
+        final_parsed = urlparse(res.url)
+        final_path = final_parsed.path.strip('/')
+        if not final_path and not any(sub in final_parsed.netloc for sub in ['affiliates.', 'earn.', 'jobs.', 'careers.']):
+            return False, f"Redirige vers la racine générique ({res.url})"
+
+        # 4. Détection de page d'expiration dans le contenu HTML
         content_lower = res.text.lower()
         for phrase in EXPIRED_PHRASES:
             if phrase in content_lower:
