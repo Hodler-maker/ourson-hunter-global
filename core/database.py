@@ -14,9 +14,11 @@ from datetime import datetime
 if os.environ.get("VERCEL"):
     DB_PATH = "/tmp/ourson_global.db"
     PUBLIC_JSON_PATH = "/tmp/public_jobs.json"
+    PUBLIC_EVENTS_PATH = "/tmp/public_events.json"
 else:
     DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "ourson_global.db")
     PUBLIC_JSON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "public_jobs.json")
+    PUBLIC_EVENTS_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "public_events.json")
 
 def get_connection():
     try:
@@ -83,6 +85,23 @@ def init_db():
     )
     """)
 
+    # Table des événements Web3 Afrique
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS events (
+        id TEXT PRIMARY KEY,
+        title TEXT NOT NULL,
+        organizer TEXT NOT NULL,
+        date TEXT NOT NULL,
+        location TEXT NOT NULL,
+        country TEXT DEFAULT 'Togo',
+        type TEXT DEFAULT 'Meetup',
+        url TEXT NOT NULL,
+        description TEXT,
+        status TEXT DEFAULT 'active',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+
     conn.commit()
     conn.close()
     print("Base de données SQLite initialisée avec succès.")
@@ -113,6 +132,63 @@ def add_opportunity(opp_id, title, company, category, opp_type, salary, url, eli
     finally:
         conn.close()
 
+def delete_opportunity(opp_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("DELETE FROM opportunities WHERE id = ?", (opp_id,))
+        conn.commit()
+        return cursor.rowcount > 0
+    finally:
+        conn.close()
+
+def add_event(event_id, title, organizer, event_date, location, country="Togo", event_type="Meetup", url="", description=""):
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+        INSERT OR REPLACE INTO events (id, title, organizer, date, location, country, type, url, description)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (event_id, title, organizer, event_date, location, country, event_type, url, description))
+        conn.commit()
+    finally:
+        conn.close()
+
+def delete_event(event_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("DELETE FROM events WHERE id = ?", (event_id,))
+        conn.commit()
+        return cursor.rowcount > 0
+    finally:
+        conn.close()
+
+def get_all_active_events():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM events WHERE status = 'active' ORDER BY created_at DESC")
+    events = [dict(row) for row in cursor.fetchall()]
+    conn.close()
+    return events
+
+def export_public_events_json():
+    events = get_all_active_events()
+    os.makedirs(os.path.dirname(PUBLIC_EVENTS_PATH), exist_ok=True)
+    with open(PUBLIC_EVENTS_PATH, "w", encoding="utf-8") as f:
+        json.dump(events, f, indent=2, ensure_ascii=False)
+    
+    # Copie automatique dans public/public_events.json
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    public_copy = os.path.join(root_dir, "public", "public_events.json")
+    try:
+        os.makedirs(os.path.dirname(public_copy), exist_ok=True)
+        with open(public_copy, "w", encoding="utf-8") as f:
+            json.dump(events, f, indent=2, ensure_ascii=False)
+    except Exception:
+        pass
+    print(f"Export JSON événements public généré : {PUBLIC_EVENTS_PATH} ({len(events)} événements)")
+
 def get_all_active_users():
     conn = get_connection()
     cursor = conn.cursor()
@@ -131,9 +207,27 @@ def get_all_active_opportunities():
 
 def export_public_json():
     opps = get_all_active_opportunities()
+    os.makedirs(os.path.dirname(PUBLIC_JSON_PATH), exist_ok=True)
     with open(PUBLIC_JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(opps, f, indent=2, ensure_ascii=False)
     print(f"Export JSON public généré : {PUBLIC_JSON_PATH} ({len(opps)} opportunités)")
+
+def seed_default_events_if_empty():
+    events = get_all_active_events()
+    if len(events) == 0:
+        default_events = [
+            ("EVT-TG-01", "Lomé Bitcoin & Lightning Meetup", "Togo Bitcoin Community", "18 Octobre 2026 • 15h00 GMT", "Campus Numérique Francophone, Lomé", "Togo", "Meetup", "https://t.me/togobitcoin", "Atelier pratique sur les transactions Lightning Network, la self-custody et l'adoption marchande au Togo."),
+            ("EVT-CI-01", "Web3 Abidjan Builders & DeFi Day", "Solana Africa & Abidjan Web3", "25 Octobre 2026 • 10h00 GMT", "Espace Coworking Cocody, Abidjan", "Côte d'Ivoire", "Workshop", "https://earn.superteam.fun", "Rencontre des développeurs et créateurs Web3 ivoiriens : sessions pratiques sur la DeFi, les bounties et les microgrants."),
+            ("EVT-SN-01", "Dakar Bitcoin Days 2026", "Dakar Bitcoin Community", "07 Novembre 2026 • 09h00 GMT", "Place du Souvenir Africain, Dakar", "Sénégal", "Conférence", "https://dakarbitcoindays.com", "Grande conférence annuelle sur l'adoption du Bitcoin, les transferts de fonds et la souveraineté financière en Afrique de l'Ouest."),
+            ("EVT-BJ-01", "Atelier Mini-Apps Telegram & Web3", "TON Society Benin", "14 Novembre 2026 • 14h00 GMT", "Sèmè City, Cotonou", "Bénin", "Atelier", "https://society.ton.org", "Formation intensive sur la création de Mini-Apps Telegram et le déploiement de smart contracts TON pour développeurs béninois."),
+            ("EVT-ON-01", "Live Hebdomadaire d'Analyse Fondamentale & Opportunités", "Tine Antonio Etche (Ourson Hunter)", "Chaque Samedi à 19h00 GMT", "En ligne (Google Meet & X Spaces)", "En ligne", "Webinaire", "https://ourson-hunter-global-rqkh.vercel.app/", "Décryptage des tendances du marché, revue des meilleures offres de bounties de la semaine et coaching candidature en direct."),
+            ("EVT-CM-01", "Yaoundé Crypto & Freelance Meetup", "Cameroon Web3 Hub", "21 Novembre 2026 • 14h30 GMT", "Douala / Yaoundé Innovation Hub", "Cameroun", "Meetup", "https://t.me/oursonhunter", "Session d'échange sur le freelancing international, les microgrants et comment se faire rémunérer en stablecoins sans compte bancaire classique.")
+        ]
+        for evt in default_events:
+            add_event(*evt)
+        export_public_events_json()
+        print("Événements Web3 par défaut initialisés avec succès.")
+
 
 if __name__ == "__main__":
     init_db()

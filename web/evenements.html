@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Événements Web3 Afrique Francophone — Ourson Hunter</title>
+  <meta name="description" content="Agenda des conférences, meetups, hackathons et ateliers crypto/Web3 au Togo, en Côte d'Ivoire, au Bénin, au Sénégal, au Cameroun et en ligne.">
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    .shimmer-text {
+      background: linear-gradient(90deg, #f59e0b 0%, #fef3c7 50%, #f59e0b 100%);
+      background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+    .glass { background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .glass-card { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card:hover { border-color: rgba(245, 158, 11, 0.35); transform: translateY(-3px); }
+    html { scroll-behavior: smooth; }
+    #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: linear-gradient(90deg, #d97706, #fbbf24); z-index: 300; }
+    :focus-visible { outline: 2px solid #f59e0b; outline-offset: 3px; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
+  <div id="scroll-bar" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 glass border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <span class="text-2xl transition group-hover:scale-110">🐻</span>
+        <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-amber-400 bg-clip-text text-transparent">Ourson Hunter</span>
+      </a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-white transition">Offres & Bounties</a>
+        <a href="evenements.html" class="text-amber-400 font-semibold border-b-2 border-amber-400 pb-0.5">Événements Web3</a>
+        <a href="contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+        <a href="admin.html" class="px-3 py-1.5 rounded-full bg-slate-900 border border-slate-700 hover:border-amber-500/60 text-slate-300 hover:text-white transition text-xs flex items-center gap-1.5">
+          <span>⚙️</span> <span class="hidden sm:inline">Admin</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-medium mb-4">
+        <span>📍</span> Agenda Web3 Afrique Francophone
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4 leading-tight">
+        Les Événements Crypto & Web3 en <span class="shimmer-text">Afrique</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Meetups, hackathons, ateliers de code, conférences et lives communautaires au Togo, en Côte d'Ivoire, au Sénégal, au Bénin, au Cameroun et en ligne.
+      </p>
+
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <button onclick="openSubmitModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition flex items-center gap-2">
+          <span>➕</span> Proposer un événement
+        </button>
+        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 font-medium text-xs sm:text-sm transition">
+          Explorer les offres d'emploi
+        </a>
+      </div>
+    </div>
+
+    <!-- FILTRES -->
+    <div class="glass-card rounded-2xl p-4 sm:p-6 mb-8">
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        <!-- Filtre par type -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Type :</span>
+          <button onclick="filterType('all', this)" class="type-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/20 border border-amber-500 text-white transition">Tous</button>
+          <button onclick="filterType('Meetup', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Meetups</button>
+          <button onclick="filterType('Workshop', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Workshops</button>
+          <button onclick="filterType('Conférence', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Conférences</button>
+          <button onclick="filterType('Atelier', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Ateliers</button>
+          <button onclick="filterType('Webinaire', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">En Ligne</button>
+        </div>
+
+        <!-- Filtre par pays -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pays :</span>
+          <select id="country-filter" onchange="filterCountry(this.value)" class="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-amber-500">
+            <option value="all">Tous les pays</option>
+            <option value="Togo">🇹🇬 Togo</option>
+            <option value="Côte d'Ivoire">🇨🇮 Côte d'Ivoire</option>
+            <option value="Bénin">🇧🇯 Bénin</option>
+            <option value="Sénégal">🇸🇳 Sénégal</option>
+            <option value="Cameroun">🇨🇲 Cameroun</option>
+            <option value="En ligne">🌐 En ligne (Global)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPTEUR & LISTE D'ÉVÉNEMENTS -->
+    <div class="flex items-center justify-between mb-6">
+      <h2 id="events-heading" class="text-lg font-bold text-slate-200">Événements à venir</h2>
+      <span id="events-count" class="text-xs px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-amber-400 font-semibold">Chargement...</span>
+    </div>
+
+    <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Les cartes seront injectées dynamiquement -->
+    </div>
+  </main>
+
+  <!-- MODAL PROPOSER UN ÉVÉNEMENT -->
+  <div id="submit-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeSubmitModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">✕</button>
+      <h3 class="text-xl font-bold mb-2 text-white">Proposer un événement Web3</h3>
+      <p class="text-slate-400 text-xs mb-5">Tu organises un meetup ou un atelier crypto en Afrique francophone ? Partage-le pour être référencé gratuitement.</p>
+      
+      <form id="propose-form" onsubmit="handlePropose(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nom de l'événement *</label>
+          <input type="text" id="prop-title" required placeholder="Ex: Lomé Lightning Meetup" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Organisateur *</label>
+            <input type="text" id="prop-org" required placeholder="Ex: Togo Bitcoin Community" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Pays *</label>
+            <select id="prop-country" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+              <option value="Togo">Togo</option>
+              <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+              <option value="Bénin">Bénin</option>
+              <option value="Sénégal">Sénégal</option>
+              <option value="Cameroun">Cameroun</option>
+              <option value="En ligne">En ligne</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Date & Heure *</label>
+            <input type="text" id="prop-date" required placeholder="Ex: 24 Octobre 2026 • 15h GMT" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Lieu précis *</label>
+            <input type="text" id="prop-loc" required placeholder="Ex: Lomé / Sèmè City / Google Meet" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Lien d'inscription ou d'infos (Luma, X, Telegram) *</label>
+          <input type="url" id="prop-url" required placeholder="https://..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Courte description *</label>
+          <textarea id="prop-desc" rows="3" required placeholder="Thèmes abordés, public ciblé, gratuit ou sur inscription..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"></textarea>
+        </div>
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition">
+          Envoyer la proposition
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 bg-slate-950/90 py-8 text-xs text-slate-500 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span>🐻</span>
+        <span>Ourson Hunter Global · Radar Web2 & Web3</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-white transition">Offres</a>
+        <a href="evenements.html" class="text-amber-400 transition font-medium">Événements</a>
+        <a href="contact.html" class="hover:text-white transition">Contact</a>
+        <a href="admin.html" class="hover:text-amber-400 transition">Espace Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Événements de secours si public_events.json tarde à charger
+    const FALLBACK_EVENTS = [
+      {
+        id: "EVT-TG-01",
+        title: "Lomé Bitcoin & Lightning Meetup",
+        organizer: "Togo Bitcoin Community",
+        date: "18 Octobre 2026 • 15h00 GMT",
+        location: "Campus Numérique Francophone, Lomé",
+        country: "Togo",
+        type: "Meetup",
+        url: "https://t.me/togobitcoin",
+        description: "Atelier pratique sur les transactions Lightning Network, la self-custody et l'adoption marchande au Togo."
+      },
+      {
+        id: "EVT-CI-01",
+        title: "Web3 Abidjan Builders & DeFi Day",
+        organizer: "Solana Africa & Abidjan Web3",
+        date: "25 Octobre 2026 • 10h00 GMT",
+        location: "Espace Coworking Cocody, Abidjan",
+        country: "Côte d'Ivoire",
+        type: "Workshop",
+        url: "https://earn.superteam.fun",
+        description: "Rencontre des développeurs et créateurs Web3 ivoiriens : sessions pratiques sur la DeFi, les bounties et les microgrants."
+      },
+      {
+        id: "EVT-SN-01",
+        title: "Dakar Bitcoin Days 2026",
+        organizer: "Dakar Bitcoin Community",
+        date: "07 Novembre 2026 • 09h00 GMT",
+        location: "Place du Souvenir Africain, Dakar",
+        country: "Sénégal",
+        type: "Conférence",
+        url: "https://dakarbitcoindays.com",
+        description: "Grande conférence annuelle sur l'adoption du Bitcoin, les transferts de fonds et la souveraineté financière en Afrique de l'Ouest."
+      },
+      {
+        id: "EVT-BJ-01",
+        title: "Atelier Mini-Apps Telegram & Web3",
+        organizer: "TON Society Benin",
+        date: "14 Novembre 2026 • 14h00 GMT",
+        location: "Sèmè City, Cotonou",
+        country: "Bénin",
+        type: "Atelier",
+        url: "https://society.ton.org",
+        description: "Formation intensive sur la création de Mini-Apps Telegram et le déploiement de smart contracts TON pour développeurs béninois."
+      },
+      {
+        id: "EVT-ON-01",
+        title: "Live Hebdomadaire d'Analyse Fondamentale & Opportunités",
+        organizer: "Tine Antonio Etche (Ourson Hunter)",
+        date: "Chaque Samedi à 19h00 GMT",
+        location: "En ligne (Google Meet & X Spaces)",
+        country: "En ligne",
+        type: "Webinaire",
+        url: "https://ourson-hunter-global-rqkh.vercel.app/",
+        description: "Décryptage des tendances du marché, revue des meilleures offres de bounties de la semaine et coaching candidature en direct."
+      },
+      {
+        id: "EVT-CM-01",
+        title: "Yaoundé Crypto & Freelance Meetup",
+        organizer: "Cameroon Web3 Hub",
+        date: "21 Novembre 2026 • 14h30 GMT",
+        location: "Douala / Yaoundé Innovation Hub",
+        country: "Cameroun",
+        type: "Meetup",
+        url: "https://t.me/oursonhunter",
+        description: "Session d'échange sur le freelancing international, les microgrants et comment se faire rémunérer en stablecoins sans compte bancaire classique."
+      }
+    ];
+
+    let currentEvents = [...FALLBACK_EVENTS];
+    const filterState = { type: 'all', country: 'all' };
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    async function loadEvents() {
+      try {
+        const res = await fetch('public_events.json?v=' + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            currentEvents = data;
+          }
+        }
+      } catch (e) {
+        console.warn("Utilisation des événements fallback:", e);
+      }
+      renderEvents();
+    }
+
+    function renderEvents() {
+      const container = document.getElementById('events-container');
+      const filtered = currentEvents.filter(evt => {
+        const matchType = (filterState.type === 'all' || evt.type === filterState.type);
+        const matchCountry = (filterState.country === 'all' || evt.country === filterState.country);
+        return matchType && matchCountry;
+      });
+
+      document.getElementById('events-count').textContent = `${filtered.length} événement${filtered.length > 1 ? 's' : ''}`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-500">
+            <span class="text-4xl block mb-2">🔍</span>
+            <p class="text-sm font-medium">Aucun événement ne correspond à ces critères.</p>
+            <button onclick="resetFilters()" class="mt-3 text-xs text-amber-400 hover:underline">Réinitialiser les filtres</button>
+          </div>
+        `;
+        return;
+      }
+
+      const flags = {
+        'Togo': '🇹🇬',
+        'Côte d\'Ivoire': '🇨🇮',
+        'Bénin': '🇧🇯',
+        'Sénégal': '🇸🇳',
+        'Cameroun': '🇨🇲',
+        'En ligne': '🌐'
+      };
+
+      container.innerHTML = filtered.map(evt => {
+        const flag = flags[evt.country] || '📍';
+        const calTitle = encodeURIComponent(evt.title);
+        const calDetails = encodeURIComponent((evt.description || '') + '\n\nOrganisé par: ' + evt.organizer);
+        const calLocation = encodeURIComponent(evt.location || evt.country);
+        const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calTitle}&details=${calDetails}&location=${calLocation}`;
+
+        return `
+          <div class="glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                  ${esc(evt.type)}
+                </span>
+                <span class="text-xs font-semibold text-slate-300 bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800">
+                  ${flag} ${esc(evt.country)}
+                </span>
+              </div>
+
+              <h3 class="text-base font-bold text-white mb-1.5 leading-snug hover:text-amber-300 transition">
+                ${esc(evt.title)}
+              </h3>
+              
+              <p class="text-xs text-amber-400/90 font-medium mb-3 flex items-center gap-1.5">
+                <span>👥</span> ${esc(evt.organizer)}
+              </p>
+
+              <div class="space-y-1.5 text-xs text-slate-300 mb-4 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <div class="flex items-center gap-2">
+                  <span class="text-slate-400">📅</span>
+                  <span class="font-medium">${esc(evt.date)}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-slate-400">📍</span>
+                  <span class="text-slate-300 truncate">${esc(evt.location)}</span>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-400 line-clamp-3 mb-4 leading-relaxed">
+                ${esc(evt.description)}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800/80 flex items-center gap-2">
+              <a href="${esc(evt.url)}" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs text-center transition flex items-center justify-center gap-1.5">
+                <span>Participer</span> <span>↗</span>
+              </a>
+              <a href="${calUrl}" target="_blank" rel="noopener noreferrer" title="Ajouter à Google Calendar" class="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs transition">
+                🗓️
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterType(type, btn) {
+      document.querySelectorAll('.type-btn').forEach(b => {
+        b.classList.remove('active', 'bg-amber-500/20', 'border-amber-500', 'text-white');
+        b.classList.add('bg-slate-900', 'border-slate-800', 'text-slate-400');
+      });
+      if (btn) {
+        btn.classList.remove('bg-slate-900', 'border-slate-800', 'text-slate-400');
+        btn.classList.add('active', 'bg-amber-500/20', 'border-amber-500', 'text-white');
+      }
+      filterState.type = type;
+      renderEvents();
+    }
+
+    function filterCountry(country) {
+      filterState.country = country;
+      renderEvents();
+    }
+
+    function resetFilters() {
+      filterState.type = 'all';
+      filterState.country = 'all';
+      document.getElementById('country-filter').value = 'all';
+      filterType('all', document.querySelector('.type-btn'));
+    }
+
+    function openSubmitModal() {
+      document.getElementById('submit-modal').classList.remove('hidden');
+      document.getElementById('submit-modal').classList.add('flex');
+    }
+
+    function closeSubmitModal() {
+      document.getElementById('submit-modal').classList.add('hidden');
+      document.getElementById('submit-modal').classList.remove('flex');
+    }
+
+    function handlePropose(e) {
+      e.preventDefault();
+      const title = document.getElementById('prop-title').value;
+      const org = document.getElementById('prop-org').value;
+      alert(`Merci ! La proposition "${title}" par ${org} a été transmise à Tine pour validation.`);
+      closeSubmitModal();
+      e.target.reset();
+    }
+
+    // Scroll progress bar
+    addEventListener('scroll', () => {
+      const bar = document.getElementById('scroll-bar');
+      bar.style.width = (scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) * 100) + '%';
+    }, { passive: true });
+
+    loadEvents();
+  </script>
+</body>
+</html>

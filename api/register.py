@@ -16,12 +16,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 from database import add_user
 from notifier import send_welcome_email, send_welcome_telegram
 
-def serve_index(start_response):
+def serve_file(filename, start_response):
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     candidates = [
-        os.path.join(root_dir, "index.html"),
-        os.path.join(root_dir, "public", "index.html"),
-        os.path.join(root_dir, "web", "index.html"),
+        os.path.join(root_dir, filename),
+        os.path.join(root_dir, "public", filename),
+        os.path.join(root_dir, "web", filename),
     ]
     for path in candidates:
         if os.path.exists(path):
@@ -39,7 +39,7 @@ def serve_index(start_response):
             except Exception:
                 pass
 
-    msg = b"<!DOCTYPE html><html><head><meta charset='utf-8'><title>Ourson Hunter</title></head><body style='font-family:sans-serif;background:#0b1120;color:#fff;text-align:center;padding:50px;'><h1>Ourson Hunter Global</h1><p>Application en ligne.</p></body></html>"
+    msg = f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>Ourson Hunter</title></head><body style='font-family:sans-serif;background:#0b1120;color:#fff;text-align:center;padding:50px;'><h1>Ourson Hunter Global</h1><p>Page {filename} en ligne.</p></body></html>".encode("utf-8")
     headers = [("Content-Type", "text/html; charset=utf-8"), ("Content-Length", str(len(msg)))]
     start_response("200 OK", headers)
     return [msg]
@@ -49,7 +49,7 @@ def app(environ, start_response):
     Standard WSGI callable reconnu par Vercel.
     """
     method = environ.get("REQUEST_METHOD", "GET")
-    path = environ.get("PATH_INFO", "/")
+    raw_path = environ.get("PATH_INFO", "/").lower().strip("/")
     
     # Gestion des requêtes OPTIONS (CORS pre-flight)
     if method == "OPTIONS":
@@ -62,9 +62,15 @@ def app(environ, start_response):
         start_response("200 OK", headers)
         return [b""]
 
-    # Requête GET -> Servir la page Web index.html
+    # Requête GET -> Servir les pages HTML
     if method == "GET":
-        return serve_index(start_response)
+        if "evenement" in raw_path or "event" in raw_path:
+            return serve_file("evenements.html", start_response)
+        elif "admin" in raw_path:
+            return serve_file("admin.html", start_response)
+        elif "contact" in raw_path:
+            return serve_file("contact.html", start_response)
+        return serve_file("index.html", start_response)
 
     # Requête POST -> Inscription utilisateur
     if method == "POST":
