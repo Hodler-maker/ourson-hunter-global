@@ -291,6 +291,18 @@
   <script>
     const FALLBACK_EVENTS = [
       {
+        id: "EVT-BJ-STRIPE",
+        title: "STRIPE COMMUNITY COTONOU",
+        organizer: "Gedeon LALEMI",
+        date: "31 Octobre 2025 • 10h00 GMT+1",
+        location: "Bitcoin Hub, Jericho, Immeuble Hammer, Cotonou, Bénin",
+        country: "Bénin",
+        type: "Meetup",
+        url: "https://t.me/oursonhunter",
+        description: "Rencontre de la communauté Stripe à Cotonou : opportunités de paiement en ligne, intégration API et monétisation pour développeurs et créateurs ouest-africains.",
+        poster_url: "assets/stripe_cotonou_thumb.png"
+      },
+      {
         id: "EVT-LOME-POSTER",
         title: "Web3 Founders & Builders Summit Lomé",
         organizer: "Togo Bitcoin Community",
@@ -558,22 +570,40 @@
     }
 
     async function init() {
-      const delEvts = JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]');
-      allEvents = FALLBACK_EVENTS.filter(e => !delEvts.includes(e.id));
+      const delEvts = new Set(JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]'));
+      const customEvts = JSON.parse(localStorage.getItem('ourson_custom_events') || '[]');
+      
+      const baseList = [...customEvts, ...FALLBACK_EVENTS].filter(e => !delEvts.has(e.id));
+      const seen = new Set();
+      allEvents = [];
+      baseList.forEach(e => {
+        if (!seen.has(e.id)) {
+          seen.add(e.id);
+          allEvents.push(e);
+        }
+      });
       renderEvents();
 
+      // Dynamic fetch from API first, with fallback to public_events.json
       try {
-        let res = await fetch('public_events.json?t=' + Date.now());
+        let res = await fetch('/api/admin?action=get_events&t=' + Date.now());
+        if (!res.ok) {
+          res = await fetch('/api/events?t=' + Date.now());
+        }
+        if (!res.ok) {
+          res = await fetch('public_events.json?t=' + Date.now());
+        }
         if (!res.ok) {
           res = await fetch('/public_events.json?t=' + Date.now());
         }
         if (res.ok) {
-          const data = await res.json();
-          if (Array.isArray(data) && data.length > 0) {
+          const raw = await res.json();
+          const items = Array.isArray(raw) ? raw : (raw.events || []);
+          if (Array.isArray(items) && items.length > 0) {
             const existingIds = new Set(allEvents.map(e => e.id));
             let updated = false;
-            data.forEach(evt => {
-              if (delEvts.includes(evt.id)) return;
+            items.forEach(evt => {
+              if (delEvts.has(evt.id)) return;
               if (!existingIds.has(evt.id)) {
                 allEvents.push(evt);
                 existingIds.add(evt.id);

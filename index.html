@@ -1992,46 +1992,77 @@
 
     async function loadDynamicJobs() {
       try {
-        const delJobs = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
-        const res = await fetch('/public_jobs.json?t=' + Date.now());
-        if (!res.ok) return;
-        const remoteJobs = await res.json();
-        if (Array.isArray(remoteJobs) && remoteJobs.length > 0) {
-          const existingIds = new Set(JOBS_DATA.map(j => j.id));
-          const existingUrls = new Set(JOBS_DATA.map(j => (j.url || '').toLowerCase().replace(/\/+$/, '')));
-          let added = false;
-          
-          remoteJobs.forEach(rj => {
-            if (delJobs.includes(rj.id)) return;
-            const cleanUrl = (rj.url || '').toLowerCase().replace(/\/+$/, '');
-            if (!existingIds.has(rj.id) && !existingUrls.has(cleanUrl)) {
-              JOBS_DATA.push({
-                id: rj.id,
-                title: rj.title,
-                company: rj.company,
-                category: rj.category || 'Community',
-                salary: rj.salary || 'Selon profil',
-                type: rj.type || 'Remote',
-                eligibility: rj.eligibility || 'Global',
-                score: rj.score || 85,
-                url: rj.url,
-                desc: rj.notes || rj.title,
-                checked: (rj.created_at || '').slice(0, 10) || null,
-                payMonthly: null,
-                accent: '#f59e0b'
-              });
-              existingIds.add(rj.id);
-              existingUrls.add(cleanUrl);
-              added = true;
-            }
-          });
+        const delJobs = new Set(JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]'));
+        const customJobs = JSON.parse(localStorage.getItem('ourson_custom_jobs') || '[]');
 
-          if (added) {
-            if (candidateProfile) {
-              calculateCvMatchScores();
+        const existingIds = new Set(JOBS_DATA.map(j => j.id));
+        const existingUrls = new Set(JOBS_DATA.map(j => (j.url || '').toLowerCase().replace(/\/+$/, '')));
+        let added = false;
+
+        function ingestJob(rj) {
+          if (!rj || !rj.id || delJobs.has(rj.id)) return;
+          const cleanUrl = (rj.url || '').toLowerCase().replace(/\/+$/, '');
+          if (!existingIds.has(rj.id) && (!cleanUrl || !existingUrls.has(cleanUrl))) {
+            JOBS_DATA.unshift({
+              id: rj.id,
+              title: rj.title,
+              company: rj.company,
+              category: rj.category || 'Community',
+              salary: rj.salary || 'Selon profil',
+              type: rj.type || 'Remote',
+              eligibility: rj.eligibility || 'Global',
+              score: rj.score || 85,
+              url: rj.url,
+              desc: rj.notes || rj.description || rj.title,
+              checked: (rj.created_at || '').slice(0, 10) || null,
+              payMonthly: null,
+              accent: '#f59e0b'
+            });
+            existingIds.add(rj.id);
+            if (cleanUrl) existingUrls.add(cleanUrl);
+            added = true;
+          }
+        }
+
+        // 1. Ingest immediate custom jobs from localStorage
+        if (Array.isArray(customJobs)) {
+          customJobs.forEach(ingestJob);
+        }
+
+        if (added) {
+          if (candidateProfile) calculateCvMatchScores();
+          updateBadgeCounts();
+          renderJobs();
+        }
+
+        // 2. Fetch from API or static public_jobs.json
+        let res = await fetch('/api/admin?action=get_jobs&t=' + Date.now());
+        if (!res.ok) {
+          res = await fetch('/api/jobs?t=' + Date.now());
+        }
+        if (!res.ok) {
+          res = await fetch('/public_jobs.json?t=' + Date.now());
+        }
+        if (!res.ok) {
+          res = await fetch('public_jobs.json?t=' + Date.now());
+        }
+
+        if (res.ok) {
+          const raw = await res.json();
+          const remoteJobs = Array.isArray(raw) ? raw : (raw.opportunities || []);
+          let remoteAdded = false;
+          if (Array.isArray(remoteJobs) && remoteJobs.length > 0) {
+            remoteJobs.forEach(rj => {
+              const beforeCount = JOBS_DATA.length;
+              ingestJob(rj);
+              if (JOBS_DATA.length > beforeCount) remoteAdded = true;
+            });
+
+            if (remoteAdded) {
+              if (candidateProfile) calculateCvMatchScores();
+              updateBadgeCounts();
+              renderJobs();
             }
-            updateBadgeCounts();
-            renderJobs();
           }
         }
       } catch (e) {}

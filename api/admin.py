@@ -206,8 +206,15 @@ def app(environ, start_response):
 
         return json_response(start_response, "400 Bad Request", {"success": False, "error": f"Action inconnue: {action}"})
 
-    # GET par défaut -> stats publiques légères
+    # GET par défaut -> données publiques si demandées, ou statut
     if method == "GET":
+        query_string = (environ.get("QUERY_STRING") or "").lower()
+        path_info = (environ.get("PATH_INFO") or "").lower()
+        if "action=get_events" in query_string or "type=events" in query_string or "events" in path_info:
+            return json_response(start_response, "200 OK", get_all_active_events())
+        if "action=get_jobs" in query_string or "type=jobs" in query_string or "jobs" in path_info:
+            return json_response(start_response, "200 OK", get_all_active_opportunities())
+
         return json_response(start_response, "200 OK", {
             "status": "online",
             "service": "ÀNFÀÀNÍ Admin API",
