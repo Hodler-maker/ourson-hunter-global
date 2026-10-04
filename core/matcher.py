@@ -84,7 +84,7 @@ if __name__ == "__main__":
     print(f"Test de Matching sur {len(users)} utilisateur(s) et {len(opps)} offre(s) :")
     for u in users:
         matches = match_opportunities_for_user(u, opps)
-        print(f"\n👤 {u['name']} ({u['country']} - {u['category']}) : {len(matches)} offre(s) pertinente(s)")
+        print(f"\n[USER] {u['name']} ({u['country']} - {u['category']}) : {len(matches)} offre(s) pertinente(s)")
         for m in matches[:3]:
             o = m["opportunity"]
-            print(f"   ★ Match {m['match_score']}% | {o['title']} ({o['company']}) - {o['salary']}")
+            print(f"   * Match {m['match_score']}% | {o['title']} ({o['company']}) - {o['salary']}")

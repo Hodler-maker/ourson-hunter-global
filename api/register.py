@@ -107,6 +107,11 @@ def app(environ, start_response):
             telegram = data.get("telegram", "").strip()
             category = data.get("category", "Community")
             country = data.get("country", "Togo")
+            skills = data.get("skills", "")
+            try:
+                experience_years = int(data.get("experience_years", 2))
+            except (ValueError, TypeError):
+                experience_years = 2
 
             if not name or (not email and not telegram):
                 headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
@@ -115,7 +120,7 @@ def app(environ, start_response):
 
             # Enregistrement en base de données
             try:
-                add_user(name=name, email=email, telegram=telegram, country=country, category=category)
+                add_user(name=name, email=email, telegram=telegram, country=country, category=category, experience_years=experience_years, skills=skills)
             except Exception as dbe:
                 print(f"Erreur DB: {dbe}")
 

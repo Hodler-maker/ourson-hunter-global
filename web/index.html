@@ -14,6 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <!-- PDF.js pour extraction locale et securisee des CV -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
   
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -167,6 +170,10 @@
 
       <!-- NAVIGATION LINKS -->
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300">
+        <a href="#cv-matcher-section" class="hover:text-amber-400 transition flex items-center gap-1.5 text-amber-300">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Scanner mon CV
+        </a>
         <a href="#offres" class="hover:text-amber-400 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           Offres d'emploi
@@ -375,6 +382,124 @@
 
   <!-- SECTION PRINCIPALE : JOB BOARD -->
   <section id="offres" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10 flex-1 bg-black">
+
+    <!-- MODULE ANALYSE DE CV ET MATCHING IA PERSONNALISE -->
+    <div id="cv-matcher-section" class="glass-card rounded-3xl p-6 sm:p-8 mb-8 border border-neutral-800 bg-neutral-950">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-mono uppercase tracking-wider font-bold text-amber-400">Intelligence Artificielle et Recrutement</span>
+            <span class="text-[10px] bg-neutral-900 text-emerald-400 font-semibold px-2 py-0.5 rounded-full border border-neutral-800">100% Confidentiel et Local</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">
+            Matching IA instantané avec votre CV
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+            Importez votre CV (PDF ou Texte). Notre algorithme extrait vos compétences clés, identifie votre métier cible et recalcule en temps réel le pourcentage de compatibilité pour chaque offre de la plateforme.
+          </p>
+        </div>
+
+        <!-- Bouton / zone d'action rapide -->
+        <div class="flex-shrink-0 w-full lg:w-auto flex flex-col sm:flex-row items-center gap-3">
+          <input type="file" id="cv-file-input" accept=".pdf,.txt,.md,.doc,.docx" class="hidden" onchange="handleCvFileSelect(event)">
+          <button type="button" onclick="document.getElementById('cv-file-input').click()" class="btn-gold w-full sm:w-auto px-5 py-3 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-lg">
+            <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+            <span>Uploader mon CV (PDF / Texte)</span>
+          </button>
+          <button type="button" onclick="toggleCvPasteArea()" class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-neutral-900 hover:bg-neutral-800 text-slate-300 hover:text-white border border-neutral-800 font-bold text-xs flex items-center justify-center gap-2 transition cursor-pointer">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Coller mon texte</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Zone Drag and Drop -->
+      <div id="cv-dropzone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)" onclick="document.getElementById('cv-file-input').click()" class="mt-6 border-2 border-dashed border-neutral-800 hover:border-amber-500/70 rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all bg-black/60 group">
+        <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-amber-400 mx-auto mb-3 group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div class="text-xs sm:text-sm font-bold text-white mb-1">
+          Glissez-déposez votre CV ici, ou cliquez pour parcourir vos fichiers
+        </div>
+        <div class="text-[11px] text-slate-400 font-mono">
+          Formats acceptés : PDF, TXT, DOCX, Markdown · Vos données restent 100% dans votre navigateur
+        </div>
+      </div>
+
+      <!-- Zone de collage manuel -->
+      <div id="cv-paste-container" class="hidden mt-6 bg-black border border-neutral-800 rounded-2xl p-4 sm:p-5">
+        <label class="block text-xs font-semibold text-slate-300 mb-2">
+          Collez le texte brut de votre CV ou une description de vos compétences :
+        </label>
+        <textarea id="cv-paste-text" rows="5" placeholder="Ex: Développeur Fullstack Web3 avec 3 ans d'expérience en Solidity, React, Smart Contracts EVM, audits et bots Telegram..." class="w-full bg-neutral-950 border border-neutral-800 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"></textarea>
+        <div class="mt-3 flex justify-end gap-2">
+          <button type="button" onclick="toggleCvPasteArea()" class="px-4 py-2 rounded-xl text-xs text-slate-400 hover:text-white">Annuler</button>
+          <button type="button" onclick="parsePastedCv()" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold cursor-pointer">Analyser le texte</button>
+        </div>
+      </div>
+
+      <!-- Indicateur de chargement / analyse -->
+      <div id="cv-loading" class="hidden mt-6 p-4 rounded-2xl bg-black border border-neutral-800 text-center">
+        <div class="inline-flex items-center gap-3 text-xs text-amber-400 font-mono">
+          <svg class="animate-spin h-4 w-4 text-amber-400" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          <span>Extraction et analyse sémantique du CV en cours...</span>
+        </div>
+      </div>
+
+      <!-- Resultat de l'analyse / Profil candidat actif -->
+      <div id="cv-profile-card" class="hidden mt-6 p-5 sm:p-6 rounded-2xl bg-black border border-emerald-500/50 shadow-xl">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-neutral-800">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-emerald-500/40 flex items-center justify-center font-bold text-emerald-400 text-sm font-mono" id="cv-avatar-text">
+              CV
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-base font-bold text-white" id="cv-candidate-name">Candidat Détecté</h3>
+                <span class="text-[10px] font-mono font-bold bg-emerald-950/80 text-emerald-400 border border-emerald-800/80 px-2 py-0.5 rounded-full">Profil Actif</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-0.5 flex flex-wrap items-center gap-2 font-mono">
+                <span class="text-amber-400 font-semibold" id="cv-detected-role">Profil : Développeur Web3</span>
+                <span>·</span>
+                <span id="cv-detected-exp">Expérience : ~2 ans</span>
+                <span id="cv-detected-country-dot" class="hidden">·</span>
+                <span id="cv-detected-country" class="hidden text-slate-300">Localisation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+            <button type="button" onclick="prefillAlertsFromCv()" class="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+              <svg class="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+              <span>Sauvegarder dans mes alertes</span>
+            </button>
+            <button type="button" onclick="resetCvProfile()" class="px-3 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-slate-400 hover:text-white border border-neutral-800 text-xs font-semibold transition cursor-pointer">
+              Réinitialiser
+            </button>
+          </div>
+        </div>
+
+        <!-- Competences extraites -->
+        <div class="mt-4">
+          <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider font-mono mb-2">
+            Compétences techniques et métiers extraites (<span id="cv-skills-count">0</span>) :
+          </div>
+          <div class="flex flex-wrap gap-1.5" id="cv-skills-tags">
+            <!-- Rempli dynamiquement -->
+          </div>
+        </div>
+
+        <!-- Note sur le matching -->
+        <div class="mt-4 pt-3 border-t border-neutral-900 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400">
+          <span class="flex items-center gap-1.5 text-emerald-400 font-mono text-[11px]">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Toutes les offres ci-dessous sont désormais classées et notées sur-mesure pour votre CV.
+          </span>
+          <span class="text-[11px] text-amber-400 font-mono" id="cv-top-match-stat"></span>
+        </div>
+      </div>
+    </div>
+
     
     <!-- SÉLECTEUR DE MÉTIER ET PROFIL -->
     <div class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-neutral-800 bg-neutral-950">
@@ -471,6 +596,7 @@
         <div class="relative">
           <label for="job-sort" class="sr-only">Trier les offres</label>
           <select id="job-sort" class="bg-neutral-950 border border-neutral-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-amber-500 cursor-pointer">
+            <option value="cv_match">Trier par : Pertinence avec mon CV (Match %)</option>
             <option value="score">Trier par : Score IA (décroissant)</option>
             <option value="pay">Trier par : Rémunération</option>
             <option value="date">Trier par : Date de vérification</option>
@@ -1077,7 +1203,388 @@
     const norm = v => String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const fmtDate = d => new Date(d + 'T00:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
 
+    // TAXONOMIE ET ANALYSE DE CV
+    const SKILL_TAXONOMY = {
+      Dev: [
+        'solidity', 'rust', 'smart contract', 'smart contracts', 'evm', 'ethereum', 'solana',
+        'web3.js', 'ethers.js', 'hardhat', 'foundry', 'react', 'next.js', 'typescript',
+        'javascript', 'python', 'node.js', 'node', 'golang', 'git', 'github', 'audit',
+        'security', 'defi', 'backend', 'frontend', 'fullstack', 'api', 'graphql', 'c++', 'move'
+      ],
+      Community: [
+        'community', 'community manager', 'community lead', 'discord', 'telegram', 'moderation',
+        'growth', 'engagement', 'animation', 'support', 'onboarding',
+        'retention', 'ambassador', 'twitter', 'social media', 'events', 'webinar',
+        'kpi', 'ama', 'advocacy', 'cm'
+      ],
+      Ambassadeur: [
+        'ambassadeur', 'ambassador', 'business development', 'bd', 'partnerships', 'partenariats',
+        'campus', 'outreach', 'sales', 'lead generation', 'negociation', 'relations',
+        'sponsorship', 'ecosystem', 'adoption', 'networking', 'kol partner', 'liaison'
+      ],
+      Content: [
+        'content', 'copywriting', 'copywriter', 'redaction', 'technical writer',
+        'traduction', 'translation', 'research', 'recherche', 'newsletter', 'article',
+        'documentation', 'vulgarisation', 'storytelling', 'seo', 'ghostwriting', 'threads'
+      ],
+      Trading: [
+        'trading', 'analyse technique', 'analyse fondamentale', 'kol', 'market maker',
+        'liquidity', 'dex', 'cex', 'defi', 'chartist', 'cryptomonnaies', 'crypto',
+        'bitcoin', 'ethereum', 'altcoins', 'risk management', 'volume', 'technical analysis'
+      ]
+    };
+
+    let candidateProfile = null;
+
+    function extractCandidateProfile(rawText, filename = '') {
+      const cleanText = rawText.replace(/\r/g, ' ');
+      const lower = cleanText.toLowerCase();
+
+      // Extraction du nom
+      let detectedName = '';
+      const nameMatch = cleanText.match(/(?:nom|name|prénom|prenom)\s*[:\-]\s*([^\n\r,;|]+)/i);
+      if (nameMatch && nameMatch[1].trim().length > 2) {
+        detectedName = nameMatch[1].trim().split(/\s+/).slice(0, 3).join(' ');
+      } else {
+        const lines = cleanText.split('\n').map(l => l.trim()).filter(l => l.length > 2 && l.length < 50);
+        for (const line of lines.slice(0, 5)) {
+          if (!line.includes('@') && !line.includes('http') && !line.includes('www') && !/curriculum|resume|cv|profil|experience/i.test(line)) {
+            const words = line.split(/\s+/);
+            if (words.length >= 2 && words.length <= 4 && !/\d/.test(line)) {
+              detectedName = line;
+              break;
+            }
+          }
+        }
+      }
+      if (!detectedName && filename) {
+        const baseName = filename.replace(/\.[^/.]+$/, '').replace(/[_\-\.]+/g, ' ');
+        if (baseName.length > 2 && baseName.length < 35 && !/cv|resume/i.test(baseName.trim())) {
+          detectedName = baseName.trim();
+        }
+      }
+      if (!detectedName) detectedName = 'Candidat';
+
+      // Extraction email et telegram
+      const emailMatch = cleanText.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+      const email = emailMatch ? emailMatch[0] : '';
+      const tgMatch = cleanText.match(/@([a-zA-Z0-9_]{4,})/);
+      const telegram = tgMatch ? tgMatch[1] : '';
+
+      // Extraction des annees d'experience
+      let expYears = 2;
+      const expMatch = cleanText.match(/(\d{1,2})\+?\s*(?:ans?|années?|years?|annee)\b/i);
+      if (expMatch) {
+        const val = parseInt(expMatch[1]);
+        if (!isNaN(val) && val >= 1 && val <= 25) expYears = val;
+      }
+
+      // Extraction pays
+      const COUNTRIES = [
+        'Togo', 'Bénin', "Côte d'Ivoire", 'Sénégal', 'Cameroun', 'RDC',
+        'Burkina Faso', 'Guinée', 'Mali', 'Niger', 'Gabon', 'Congo',
+        'Tchad', 'Madagascar', 'Rwanda', 'France', 'Canada'
+      ];
+      let detectedCountry = '';
+      for (const c of COUNTRIES) {
+        if (lower.includes(c.toLowerCase())) {
+          detectedCountry = c;
+          break;
+        }
+      }
+
+      // Detection competences et profil dominant
+      const matchedSkills = [];
+      const catCounts = { Dev: 0, Community: 0, Ambassadeur: 0, Content: 0, Trading: 0 };
+
+      for (const [cat, skills] of Object.entries(SKILL_TAXONOMY)) {
+        for (const skill of skills) {
+          const regex = new RegExp('\\b' + skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+          if (regex.test(cleanText)) {
+            if (!matchedSkills.includes(skill)) {
+              matchedSkills.push(skill);
+            }
+            catCounts[cat]++;
+          }
+        }
+      }
+
+      let dominantCategory = 'Community';
+      let maxScore = -1;
+      for (const [cat, count] of Object.entries(catCounts)) {
+        if (count > maxScore) {
+          maxScore = count;
+          dominantCategory = cat;
+        }
+      }
+
+      return {
+        name: detectedName,
+        email: email,
+        telegram: telegram,
+        country: detectedCountry,
+        experienceYears: expYears,
+        category: dominantCategory,
+        skills: matchedSkills,
+        rawText: cleanText
+      };
+    }
+
+    function calculateCvMatchScores() {
+      if (!candidateProfile) {
+        JOBS_DATA.forEach(j => {
+          delete j.customScore;
+          delete j.matchedSkills;
+        });
+        return;
+      }
+
+      const p = candidateProfile;
+      const candSkillsLower = p.skills.map(s => s.toLowerCase());
+
+      JOBS_DATA.forEach(job => {
+        let score = 42;
+        const jobText = (job.title + ' ' + job.desc + ' ' + job.type + ' ' + job.category).toLowerCase();
+
+        // 1. Categorie identique
+        if (job.category.toLowerCase() === p.category.toLowerCase()) {
+          score += 30;
+        } else {
+          if ((job.category === 'Ambassadeur' && p.category === 'Community') ||
+              (job.category === 'Community' && p.category === 'Ambassadeur')) {
+            score += 18;
+          }
+        }
+
+        // 2. Competences en commun
+        const relevantSkills = [];
+        candSkillsLower.forEach(s => {
+          if (jobText.includes(s) || (SKILL_TAXONOMY[job.category] && SKILL_TAXONOMY[job.category].includes(s))) {
+            relevantSkills.push(s);
+          }
+        });
+
+        const overlapCount = Math.min(relevantSkills.length, 4);
+        score += overlapCount * 6;
+
+        // 3. Annees d'experience
+        if (p.experienceYears >= 3) {
+          score += 10;
+        } else if (p.experienceYears >= 1) {
+          score += 6;
+        }
+
+        // 4. Eligibilite geographique
+        if (p.country && job.eligibility.toLowerCase().includes(p.country.toLowerCase())) {
+          score += 6;
+        } else if (job.eligibility.toLowerCase().includes('global') || job.eligibility.toLowerCase().includes('afrique')) {
+          score += 4;
+        }
+
+        job.customScore = Math.min(Math.max(score, 52), 98);
+        job.matchedSkills = Array.from(new Set(relevantSkills)).slice(0, 5);
+      });
+    }
+
+    async function extractTextFromFile(file) {
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (ext === 'pdf') {
+        const arrayBuffer = await file.arrayBuffer();
+        if (window.pdfjsLib) {
+          pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+          let fullText = '';
+          for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items.map(item => item.str).join(' ');
+            fullText += pageText + '\n';
+          }
+          return fullText;
+        } else {
+          throw new Error('Module PDF non disponible.');
+        }
+      } else {
+        return await file.text();
+      }
+    }
+
+    async function handleCvFileSelect(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      await processCvFile(file);
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const dropzone = document.getElementById('cv-dropzone');
+      if (dropzone) dropzone.classList.add('border-amber-400', 'bg-neutral-900/50');
+    }
+
+    function handleDragLeave(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const dropzone = document.getElementById('cv-dropzone');
+      if (dropzone) dropzone.classList.remove('border-amber-400', 'bg-neutral-900/50');
+    }
+
+    async function handleDrop(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const dropzone = document.getElementById('cv-dropzone');
+      if (dropzone) dropzone.classList.remove('border-amber-400', 'bg-neutral-900/50');
+      const files = e.dataTransfer && e.dataTransfer.files;
+      if (files && files.length > 0) {
+        await processCvFile(files[0]);
+      }
+    }
+
+    async function processCvFile(file) {
+      const loading = document.getElementById('cv-loading');
+      if (loading) loading.classList.remove('hidden');
+
+      try {
+        const text = await extractTextFromFile(file);
+        if (!text || text.trim().length < 20) {
+          showToast('Contenu du fichier trop court ou illisible.');
+          return;
+        }
+        processCvText(text, file.name);
+      } catch (err) {
+        showToast('Erreur de lecture du fichier. Essayez de coller le texte directement.');
+      } finally {
+        if (loading) loading.classList.add('hidden');
+      }
+    }
+
+    function toggleCvPasteArea() {
+      const container = document.getElementById('cv-paste-container');
+      if (container) container.classList.toggle('hidden');
+    }
+
+    function parsePastedCv() {
+      const textarea = document.getElementById('cv-paste-text');
+      const text = textarea ? textarea.value.trim() : '';
+      if (!text || text.length < 20) {
+        showToast('Veuillez coller un texte de CV plus détaillé.');
+        return;
+      }
+      processCvText(text, 'Texte CV');
+      toggleCvPasteArea();
+    }
+
+    function processCvText(rawText, sourceName) {
+      candidateProfile = extractCandidateProfile(rawText, sourceName);
+      calculateCvMatchScores();
+      renderCvProfile();
+
+      const sortSelect = document.getElementById('job-sort');
+      if (sortSelect) {
+        sortSelect.value = 'cv_match';
+        state.sort = 'cv_match';
+      }
+
+      renderJobs();
+      showToast(`CV analysé avec succès ! ${candidateProfile.skills.length} compétences détectées.`);
+    }
+
+    function renderCvProfile() {
+      const card = document.getElementById('cv-profile-card');
+      const dropzone = document.getElementById('cv-dropzone');
+      if (!candidateProfile || !card) return;
+
+      const p = candidateProfile;
+      if (dropzone) dropzone.classList.add('hidden');
+      card.classList.remove('hidden');
+
+      const nameEl = document.getElementById('cv-candidate-name');
+      const roleEl = document.getElementById('cv-detected-role');
+      const expEl = document.getElementById('cv-detected-exp');
+      const countryEl = document.getElementById('cv-detected-country');
+      const countryDot = document.getElementById('cv-detected-country-dot');
+      const avatarEl = document.getElementById('cv-avatar-text');
+      const skillsTags = document.getElementById('cv-skills-tags');
+      const skillsCount = document.getElementById('cv-skills-count');
+      const topMatchStat = document.getElementById('cv-top-match-stat');
+
+      if (nameEl) nameEl.textContent = p.name;
+      if (roleEl) roleEl.textContent = `Profil : ${p.category}`;
+      if (expEl) expEl.textContent = `Expérience : ~${p.experienceYears} an${p.experienceYears > 1 ? 's' : ''}`;
+      
+      if (p.country && countryEl && countryDot) {
+        countryEl.textContent = p.country;
+        countryEl.classList.remove('hidden');
+        countryDot.classList.remove('hidden');
+      }
+
+      if (avatarEl) {
+        const initials = p.name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+        avatarEl.textContent = initials || 'CV';
+      }
+
+      if (skillsCount) skillsCount.textContent = p.skills.length;
+
+      if (skillsTags) {
+        if (p.skills.length === 0) {
+          skillsTags.innerHTML = `<span class="text-[11px] text-slate-500 font-mono">Profil généraliste (pas de mots-clés spécifiques identifiés)</span>`;
+        } else {
+          skillsTags.innerHTML = p.skills.map(skill => `
+            <span class="px-2.5 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-[11px] font-mono font-semibold text-amber-300">
+              ${esc(skill)}
+            </span>
+          `).join('');
+        }
+      }
+
+      const highMatches = JOBS_DATA.filter(j => (j.customScore || 0) >= 75).length;
+      if (topMatchStat) {
+        topMatchStat.textContent = `${highMatches} offre${highMatches > 1 ? 's' : ''} avec forte compatibilité (>= 75%)`;
+      }
+    }
+
+    function resetCvProfile() {
+      candidateProfile = null;
+      calculateCvMatchScores();
+      
+      const card = document.getElementById('cv-profile-card');
+      const dropzone = document.getElementById('cv-dropzone');
+      const sortSelect = document.getElementById('job-sort');
+      const fileInput = document.getElementById('cv-file-input');
+      const pasteText = document.getElementById('cv-paste-text');
+
+      if (card) card.classList.add('hidden');
+      if (dropzone) dropzone.classList.remove('hidden');
+      if (fileInput) fileInput.value = '';
+      if (pasteText) pasteText.value = '';
+
+      if (sortSelect) {
+        sortSelect.value = 'score';
+        state.sort = 'score';
+      }
+
+      renderJobs();
+      showToast('Profil CV réinitialisé. Affichage standard rétabli.');
+    }
+
+    function prefillAlertsFromCv() {
+      if (!candidateProfile) return;
+      openModal();
+      const nameInput = document.getElementById('reg-name');
+      const catSelect = document.getElementById('reg-category');
+      const countrySelect = document.getElementById('reg-country');
+      const contactInput = document.getElementById('reg-contact');
+
+      if (nameInput && candidateProfile.name) nameInput.value = candidateProfile.name;
+      if (catSelect && candidateProfile.category) catSelect.value = candidateProfile.category;
+      if (countrySelect && candidateProfile.country) countrySelect.value = candidateProfile.country;
+      if (contactInput && (candidateProfile.email || candidateProfile.telegram)) {
+        contactInput.value = candidateProfile.email || ('@' + candidateProfile.telegram);
+      }
+    }
+
     const SORTERS = {
+      cv_match: (a, b) => (b.customScore || b.score) - (a.customScore || a.score),
       score: (a, b) => b.score - a.score,
       date: (a, b) => (b.checked || '').localeCompare(a.checked || '') || b.score - a.score,
       pay: (a, b) => (b.payMonthly ?? -1) - (a.payMonthly ?? -1) || b.score - a.score
@@ -1172,12 +1679,18 @@
                 </div>
               </div>
 
-              <!-- Score IA -->
+              <!-- Score IA / Match CV -->
               <div class="flex items-center gap-1.5">
-                ${isTargetMatch ? `<span class="text-[10px] bg-neutral-900 text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-500/40">Ton profil</span>` : ''}
-                <span class="text-[11px] font-mono font-bold text-emerald-400 bg-neutral-900 px-2.5 py-1 rounded-xl border border-neutral-800">
-                  ${esc(job.score)}/100
-                </span>
+                ${candidateProfile && job.customScore ? `
+                  <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-xl border ${job.customScore >= 80 ? 'text-emerald-400 border-emerald-500/40 bg-neutral-900' : job.customScore >= 65 ? 'text-amber-400 border-amber-500/40 bg-neutral-900' : 'text-slate-300 border-neutral-800 bg-neutral-900'}">
+                    Match CV : ${job.customScore}%
+                  </span>
+                ` : `
+                  ${isTargetMatch ? `<span class="text-[10px] bg-neutral-900 text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-500/40">Ton profil</span>` : ''}
+                  <span class="text-[11px] font-mono font-bold text-emerald-400 bg-neutral-900 px-2.5 py-1 rounded-xl border border-neutral-800">
+                    ${esc(job.score)}/100
+                  </span>
+                `}
               </div>
             </div>
 
@@ -1190,6 +1703,15 @@
             <p class="text-xs text-slate-300 mt-2 leading-relaxed">
               ${esc(job.desc)}
             </p>
+
+            ${candidateProfile && job.matchedSkills && job.matchedSkills.length > 0 ? `
+              <div class="mt-2.5 px-3 py-1.5 rounded-xl bg-neutral-900/80 border border-neutral-800/80 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                <span class="text-[10px] font-mono text-slate-300">
+                  <strong class="text-emerald-400 font-semibold">En adéquation :</strong> ${esc(job.matchedSkills.join(' · '))}
+                </span>
+              </div>
+            ` : ''}
 
             <!-- Tags techniques -->
             <div class="flex flex-wrap gap-1.5 mt-3 pt-2">
@@ -1240,10 +1762,20 @@
         select.value = JOBS_DATA[0].id;
       }
 
-      const regName = document.getElementById('reg-name');
       const pitchName = document.getElementById('pitch-name');
-      if (regName && regName.value && !pitchName.value) {
-        pitchName.value = regName.value.trim();
+      const pitchProfile = document.getElementById('pitch-profile');
+
+      if (candidateProfile) {
+        if (pitchName && !pitchName.value) pitchName.value = candidateProfile.name;
+        if (pitchProfile) {
+          const catMap = { Dev: 'dev', Community: 'community', Ambassadeur: 'ambassador', Content: 'content', Trading: 'general' };
+          if (catMap[candidateProfile.category]) pitchProfile.value = catMap[candidateProfile.category];
+        }
+      } else {
+        const regName = document.getElementById('reg-name');
+        if (regName && regName.value && !pitchName.value) {
+          pitchName.value = regName.value.trim();
+        }
       }
 
       generatePitches();
@@ -1262,17 +1794,21 @@
       const rawName = (document.getElementById('pitch-name').value || '').trim();
       const name = rawName || (lang === 'fr' ? 'Tine Antonio Etche' : 'Tine Antonio Etche');
       const role = document.getElementById('pitch-profile').value;
+      const skillsHighlight = (candidateProfile && candidateProfile.skills.length > 0) ?
+        ` notamment autour de ${candidateProfile.skills.slice(0, 3).join(', ')}` : '';
+      const skillsHighlightEn = (candidateProfile && candidateProfile.skills.length > 0) ?
+        ` particularly with ${candidateProfile.skills.slice(0, 3).join(', ')}` : '';
 
       let dm = "", cl = "", oral = "";
 
       if (lang === 'fr') {
-        dm = `Bonjour l'équipe ${job.company} !\n\nJe suis ${name}, actif dans l'écosystème Web3 et passionné par votre mission.\nJ'ai vu votre opportunité pour le rôle de "${job.title}". Grâce à mon expérience terrain en animation de communauté, création de contenu et stratégie de croissance, je peux immédiatement vous aider à booster votre engagement et votre rayonnement francophone et global.\n\nSeriez-vous disponibles pour un court échange de 5 minutes cette semaine ?\n\nBien à vous,\n${name}`;
+        dm = `Bonjour l'équipe ${job.company} !\n\nJe suis ${name}, actif dans l'écosystème Web3 et passionné par votre mission.\nJ'ai vu votre opportunité pour le rôle de "${job.title}". Grâce à mon expérience terrain${skillsHighlight}, je peux immédiatement vous aider à booster votre engagement et votre rayonnement francophone et global.\n\nSeriez-vous disponibles pour un court échange de 5 minutes cette semaine ?\n\nBien à vous,\n${name}`;
 
         cl = `Objet : Candidature au poste de ${job.title} — ${name}\n\nMadame, Monsieur,\n\nC'est avec un vif enthousiasme que je vous adresse ma candidature pour l'opportunité de ${job.title} au sein de ${job.company}.\n\nÉvoluant activement dans l'écosystème Web3 depuis plusieurs années, j'ai développé une solide expertise en engagement communautaire, vulgarisation et gestion de projets 100% à distance. Votre vision résonne particulièrement avec mes réalisations, et je suis convaincu de pouvoir apporter une réelle valeur ajoutée à votre équipe dès les premières semaines.\n\nMes principaux atouts pour ce rôle :\n• Autonomie totale et communication proactive en environnement décentralisé et asynchrone\n• Capacité démontrée à fédérer des utilisateurs et convertir l'attention en rétention\n• Maîtrise des dynamiques de gouvernance et des outils Web3 (Discord, Telegram, X)\n\nJe serais ravi d'échanger avec vous de vive voix afin de vous exposer plus en détail ma motivation et mes réalisations concrètes.\n\nBien cordialement,\n${name}`;
 
         oral = `« Bonjour ! Je m'appelle ${name}. Je suis un spécialiste Web3 avec un fort focus sur l'adoption et la croissance communautaire. Ce qui m'anime chez ${job.company}, c'est votre ambition et la qualité de vos produits. Sur le rôle de ${job.title}, mon objectif sera d'être opérationnel dès le premier jour pour convertir l'intérêt des membres en utilisateurs fidèles et fidéliser votre communauté. »`;
       } else {
-        dm = `Hi ${job.company} team!\n\nI'm ${name}, a Web3 builder focused on community growth and ecosystem adoption.\nI came across your open position for "${job.title}" and would love to contribute. With hands-on experience driving user engagement, managing remote communities, and localizing Web3 products, I can help scale your reach from day one.\n\nWould you be open to a quick 5-minute chat this week?\n\nBest regards,\n${name}`;
+        dm = `Hi ${job.company} team!\n\nI'm ${name}, a Web3 builder focused on community growth and ecosystem adoption.\nI came across your open position for "${job.title}" and would love to contribute. With hands-on experience${skillsHighlightEn}, I can help scale your reach and operations from day one.\n\nWould you be open to a quick 5-minute chat this week?\n\nBest regards,\n${name}`;
 
         cl = `Subject: Application for ${job.title} — ${name}\n\nDear ${job.company} Hiring Team,\n\nI am writing to express my strong interest in the ${job.title} position at ${job.company}.\n\nWith extensive hands-on experience in the Web3 space, I have built and scaled engaged communities, designed high-impact educational content, and operated autonomously in remote, fast-paced environments. I closely follow ${job.company}'s milestones and am eager to bring my drive and expertise to your team.\n\nKey strengths I bring to this role:\n• Full autonomy and proactive communication in remote/async workflows\n• Proven track record in community building and user retention across Web3\n• Deep understanding of crypto-native audiences and regional adoption dynamics\n\nI would welcome the opportunity to discuss how my background aligns with your vision for ${job.company}.\n\nBest regards,\n${name}`;
 
@@ -1365,7 +1901,9 @@
         email: isEmail ? contact : '',
         telegram: isEmail ? '' : contact,
         country: country,
-        category: category
+        category: category,
+        skills: candidateProfile ? candidateProfile.skills.join(', ') : '',
+        experience_years: candidateProfile ? candidateProfile.experienceYears : 2
       };
 
       try {
