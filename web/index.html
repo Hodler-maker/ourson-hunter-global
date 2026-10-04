@@ -1591,8 +1591,10 @@
     };
 
     function updateBadgeCounts() {
-      const counts = { all: JOBS_DATA.length };
-      JOBS_DATA.forEach(j => {
+      const delJobs = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
+      const activeJobs = JOBS_DATA.filter(j => !delJobs.includes(j.id));
+      const counts = { all: activeJobs.length };
+      activeJobs.forEach(j => {
         counts[j.category] = (counts[j.category] || 0) + 1;
       });
       if (document.getElementById('badge-count-all')) document.getElementById('badge-count-all').textContent = `${counts.all} offres`;
@@ -1628,7 +1630,9 @@
     function renderJobs() {
       const container = document.getElementById('jobs-container');
       const q = norm(state.q.trim());
+      const delJobs = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
       const list = JOBS_DATA
+        .filter(j => !delJobs.includes(j.id))
         .filter(j => {
           const matchCat = (state.cat === 'all' || j.category === state.cat);
           const matchCountry = (state.country === 'all' || 
@@ -1640,8 +1644,9 @@
         })
         .sort(SORTERS[state.sort]);
 
+      const activeTotal = JOBS_DATA.filter(j => !delJobs.includes(j.id)).length;
       document.getElementById('job-count').textContent =
-        `${list.length} opportunité${list.length > 1 ? 's' : ''} vérifiée${list.length > 1 ? 's' : ''} (sur ${JOBS_DATA.length} au total)`;
+        `${list.length} opportunité${list.length > 1 ? 's' : ''} vérifiée${list.length > 1 ? 's' : ''} (sur ${activeTotal} au total)`;
 
       if (!list.length) {
         container.innerHTML = `
@@ -2022,6 +2027,9 @@
           });
 
           if (added) {
+            if (candidateProfile) {
+              calculateCvMatchScores();
+            }
             updateBadgeCounts();
             renderJobs();
           }

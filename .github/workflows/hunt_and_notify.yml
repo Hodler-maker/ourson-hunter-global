@@ -1,13 +1,13 @@
-name: Ourson Hunter 8-Hour Autonomous Cycle
+name: ANFAANI 8-Hour Autonomous Cycle
 
 on:
   schedule:
     # Tourne toutes les 8 heures (00:15, 08:15, 16:15 UTC)
-    # Décalé à la minute 15 pour garantir l'exécution sans file d'attente GitHub
+    # Decale a la minute 15 pour garantir l'execution sans file d'attente GitHub
     - cron: '15 0,8,16 * * *'
-  workflow_dispatch: # Permet de déclencher manuellement le scan depuis GitHub
+  workflow_dispatch: # Permet de declencher manuellement le scan depuis GitHub
 
-# Permissions requises pour pousser les mises à jour
+# Permissions requises pour pousser les mises a jour
 permissions:
   contents: write
 
@@ -16,22 +16,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Cloner le dépôt
+      - name: Cloner le depot
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🐍 Configurer Python
+      - name: Configurer Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: 📦 Installer les dépendances
+      - name: Installer les dependances
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🐻 Exécuter le cycle de veille et d'alertes
+      - name: Executer le cycle de veille et d'alertes
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
@@ -39,14 +39,14 @@ jobs:
         run: |
           python core/scheduler_runner.py
 
-      - name: 💾 Sauvegarder les données publiques à jour
+      - name: Sauvegarder les donnees publiques a jour
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "Ourson Hunter Bot"
-          git add -A data/ public/ web/
+          git config --local user.name "ANFAANI Bot"
+          git add -A data/ public/ web/ public_jobs.json public_events.json
           if ! git diff --staged --quiet; then
-            git commit -m "Auto-update jobs & matching [skip ci]"
+            git commit -m "Auto-update jobs and matching [skip ci]"
             git push origin main
           else
-            echo "Aucun changement détecté à pousser."
+            echo "Aucun changement detecte a pousser."
           fi

@@ -38,18 +38,18 @@ def format_telegram_digest(user_name, matches):
     """
     Formate un message Telegram clair et direct avec les meilleures opportunités.
     """
-    msg = f"✨ *ÀNFÀÀNÍ — Nouvelles Offres pour toi*\n"
+    msg = f"*ÀNFÀÀNÍ — Nouvelles Offres pour toi*\n"
     msg += f"Bonjour *{user_name}*, voici les meilleures opportunités détectées ce matin correspondant à ton profil :\n\n"
 
     for idx, item in enumerate(matches[:3], 1):
         opp = item["opportunity"]
         score = item["match_score"]
         msg += f"*{idx}. {opp['title']}* ({opp['company']})\n"
-        msg += f"🎯 Pertinence : `{score}%` | 💰 {opp['salary']}\n"
-        msg += f"📍 Éligibilité : {opp['eligibility']} | Type : {opp['type']}\n"
-        msg += f"🔗 [Voir l'offre officielle]({opp['url']})\n\n"
+        msg += f"Pertinence : `{score}%` | {opp['salary']}\n"
+        msg += f"Eligibilité : {opp['eligibility']} | Type : {opp['type']}\n"
+        msg += f" [Voir l'offre officielle]({opp['url']})\n\n"
 
-    msg += "⚡ _ÀNFÀÀNÍ · Open the door to opportunity._"
+    msg += "_ÀNFÀÀNÍ · Open the door to opportunity._"
     return msg
 
 def format_email_html(user_name, matches):
@@ -73,7 +73,7 @@ def format_email_html(user_name, matches):
                     <div style="color: #fde68a; font-weight: bold; font-size: 13px;">{opp['salary']}</div>
                     <div style="color: #64748b; font-size: 11px;">{opp['type']} · {opp['eligibility']}</div>
                 </div>
-                <a href="{opp['url']}" target="_blank" style="background: linear-gradient(90deg, #d97706, #f59e0b); color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: bold; display: inline-block;">Postuler ↗</a>
+                <a href="{opp['url']}" target="_blank" style="background: linear-gradient(90deg, #d97706, #f59e0b); color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: bold; display: inline-block;">Postuler -></a>
             </div>
         </div>
         """
@@ -101,7 +101,7 @@ def format_email_html(user_name, matches):
           <!-- Salutation -->
           <tr>
             <td style="padding: 20px 0 12px 0;">
-              <h2 style="color: #ffffff; font-size: 17px; margin: 0 0 6px 0;">Bonjour {user_name} 👋</h2>
+              <h2 style="color: #ffffff; font-size: 17px; margin: 0 0 6px 0;">Bonjour {user_name} </h2>
               <p style="color: #cbd5e1; font-size: 13px; margin: 0; line-height: 1.5;">Voici ta sélection quotidienne d'opportunités vérifiées correspondant exactement à ton profil :</p>
             </td>
           </tr>
@@ -114,7 +114,7 @@ def format_email_html(user_name, matches):
           <!-- Action Banner -->
           <tr>
             <td style="background-color: rgba(217, 119, 6, 0.1); border: 1px dashed rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 14px; text-align: center; margin-top: 10px;">
-              <p style="color: #fde68a; font-size: 12px; margin: 0; font-weight: 600;">⚡ Besoin d'un message d'accroche ou d'une Cover Letter ?</p>
+              <p style="color: #fde68a; font-size: 12px; margin: 0; font-weight: 600;"> Besoin d'un message d'accroche ou d'une Cover Letter ?</p>
               <p style="color: #94a3b8; font-size: 11px; margin: 4px 0 0 0;">Utilise le générateur IA sur la plateforme ÀNFÀÀNÍ pour postuler en 2 minutes.</p>
             </td>
           </tr>
@@ -147,7 +147,7 @@ def format_email_text(user_name, matches):
         text += f"   Rémunération : {opp['salary']}\n"
         text += f"   Type : {opp['type']} ({opp['eligibility']})\n"
         text += f"   Lien : {opp['url']}\n\n"
-    text += "Pour générer ta lettre de motivation personnalisée, connecte-toi sur Ourson Hunter.\n"
+    text += "Pour générer ta lettre de motivation personnalisée, connecte-toi sur ÀNFÀÀNÍ.\n"
     return text
 
 def send_email_smtp(recipient_email, subject, html_content, text_content):
@@ -288,22 +288,22 @@ def send_welcome_telegram(telegram_input, user_name, category="Community", count
         return False, "Chat ID Telegram introuvable."
         
     msg = (
-        f"✨ *BIENVENUE SUR ÀNFÀÀNÍ !*\n"
+        f" *BIENVENUE SUR ÀNFÀÀNÍ !*\n"
         f"_Open the door to opportunity._\n\n"
-        f"Félicitations *{user_name}* ! 🎉\n\n"
+        f"Félicitations *{user_name}* ! \n\n"
         f"Ton profil d'alerte est activé avec succès :\n"
-        f"📍 *Pays :* {country}\n"
-        f"💼 *Spécialité :* {category}\n"
-        f"⏰ *Fréquence :* Scan et alertes automatiques chaque matin\n\n"
-        f"🔥 *TOP Opportunités prêtes pour toi :*\n\n"
+        f"*Pays :* {country}\n"
+        f"*Spécialité :* {category}\n"
+        f"*Fréquence :* Scan et alertes automatiques chaque matin\n\n"
+        f"*TOP Opportunités prêtes pour toi :*\n\n"
         f"1. *Community Lead — Kraken Pro* (Kraken)\n"
-        f"💰 83k - 166k $/an | CDI Remote | Score: 92%\n\n"
+        f"83k - 166k $/an | CDI Remote | Score: 92%\n\n"
         f"2. *BD & Community Ambassador* (CertiK)\n"
-        f"💰 1 000 $/mois (~5h/sem) | Ambassadeur | Score: 88%\n\n"
+        f"1 000 $/mois (~5h/sem) | Ambassadeur | Score: 88%\n\n"
         f"3. *Arc Microgrants Proof-of-Learning* (Circle / Arc)\n"
-        f"💰 500 USDC | Bourse MVP | Score: 87%\n\n"
-        f"⚡ _Découvre toutes les opportunités sur la plateforme :_\n"
-        f"https://ourson-hunter-global-rqkh.vercel.app/"
+        f"500 USDC | Bourse MVP | Score: 87%\n\n"
+        f"_Découvre toutes les opportunités sur la plateforme :_\n"
+        f"https://anfaani.vercel.app/"
     )
     return send_telegram_alert(chat_id, msg)
 
@@ -321,7 +321,7 @@ def notify_user_matches(user, matches):
 
     # 1. Envoi par E-mail si configuré
     if user_email and "@" in user_email and not user_email.endswith("example.com"):
-        subject = f"🐻 {len(matches)} opportunités Web3 & Remote sélectionnées pour toi !"
+        subject = f"{len(matches)} opportunités Web3 & Remote sélectionnées pour toi !"
         html_body = format_email_html(user_name, matches)
         text_body = format_email_text(user_name, matches)
         success, info = send_email(user_email, subject, html_body, text_body)
@@ -370,7 +370,7 @@ def format_welcome_email(user_name, category, country):
           <!-- Corps -->
           <tr>
             <td style="padding: 24px 0 16px 0;">
-              <h2 style="color: #ffffff; font-size: 18px; margin: 0 0 10px 0;">Félicitations {user_name} ! 🎉</h2>
+              <h2 style="color: #ffffff; font-size: 18px; margin: 0 0 10px 0;">Félicitations {user_name} ! </h2>
               <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 14px 0; line-height: 1.6;">
                 Ton profil est désormais enregistré avec succès sur <strong>ÀNFÀÀNÍ</strong>. Notre agent IA analyse le web chaque jour pour dénicher les opportunités les plus rémunératrices et accessibles depuis <strong>{country}</strong>.
               </p>
@@ -379,9 +379,9 @@ def format_welcome_email(user_name, category, country):
               <div style="background-color: #1e293b; border-left: 4px solid #f59e0b; border-radius: 12px; padding: 14px 18px; margin: 18px 0;">
                 <div style="color: #94a3b8; font-size: 12px; font-weight: bold; text-transform: uppercase;">Récapitulatif de ton profil d'alerte :</div>
                 <div style="color: #ffffff; font-size: 14px; margin-top: 6px; line-height: 1.6;">
-                  📍 <strong>Pays :</strong> {country}<br>
-                  💼 <strong>Métier cible :</strong> {category}<br>
-                  ⏰ <strong>Fréquence :</strong> Chaque matin à 08h00 UTC
+                  <strong>Pays :</strong> {country}<br>
+                  <strong>Métier cible :</strong> {category}<br>
+                  <strong>Fréquence :</strong> Chaque matin à 08h00 UTC
                 </div>
               </div>
 
@@ -414,7 +414,7 @@ def send_welcome_email(recipient_email, user_name, category="Community", country
     """
     Envoie un e-mail de bienvenue officiel dès qu'un utilisateur s'enregistre.
     """
-    subject = f"✨ Bienvenue sur ÀNFÀÀNÍ, {user_name} ! Ton profil est activé"
+    subject = f" Bienvenue sur ÀNFÀÀNÍ, {user_name} ! Ton profil est activé"
     html_content = format_welcome_email(user_name, category, country)
     text_content = f"Bienvenue sur ÀNFÀÀNÍ, {user_name} !\nTon profil ({category} - {country}) est activé. Tu recevras tes premières alertes d'offres chaque matin à 08h00."
     return send_email(recipient_email, subject, html_content, text_content)

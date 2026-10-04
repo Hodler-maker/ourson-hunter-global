@@ -61,6 +61,11 @@ class OursonHunterHandler(SimpleHTTPRequestHandler):
                 telegram = data.get("telegram", "").strip()
                 category = data.get("category", "Community")
                 country = data.get("country", "Togo")
+                skills = data.get("skills", "")
+                try:
+                    experience_years = int(data.get("experience_years", 2))
+                except (ValueError, TypeError):
+                    experience_years = 2
 
                 if not name or (not email and not telegram):
                     self.send_response(400)
@@ -75,7 +80,9 @@ class OursonHunterHandler(SimpleHTTPRequestHandler):
                     email=email if email else None,
                     telegram=telegram if telegram else None,
                     country=country,
-                    category=category
+                    category=category,
+                    experience_years=experience_years,
+                    skills=skills
                 )
                 print(f"[NOUVEAU MEMBRE] {name} ({country} - {category}) enregistré avec succès (ID: {user_id})")
 
@@ -263,8 +270,8 @@ def run_server(port=8080):
     server_address = ("", port)
     httpd = HTTPServer(server_address, OursonHunterHandler)
     print(f"\n=======================================================")
-    print(f"🐻 SERVEUR OURSON HUNTER EN LIGNE SUR http://localhost:{port}")
-    print(f"👉 Ouvre http://localhost:{port} dans ton navigateur")
+    print(f"[SERVEUR] ANFAANI EN LIGNE SUR http://localhost:{port}")
+    print(f"[ACCES] Ouvrez http://localhost:{port} dans votre navigateur")
     print(f"=======================================================\n")
     try:
         httpd.serve_forever()

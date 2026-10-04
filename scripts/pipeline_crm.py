@@ -33,11 +33,11 @@ HEADERS_CRM = [
 ]
 
 STATUS_COLORS = {
-    "🎯 À postuler": "EDE9FE",       # Violet clair
-    "⏳ Postulé": "FEF3C7",         # Jaune ambre
-    "💬 Entretien": "DBEAFE",       # Bleu ciel
-    "💰 Gagné / Encaissé": "D1FAE5", # Vert menthe
-    "❌ Rejeté / Expiré": "F3F4F6"   # Gris clair
+    "[A POSTULER] A postuler": "EDE9FE",       # Violet clair
+    "[POSTULE] Postule": "FEF3C7",         # Jaune ambre
+    "[ENTRETIEN] Entretien": "DBEAFE",       # Bleu ciel
+    "[GAGNE] Gagne / Encaisse": "D1FAE5", # Vert menthe
+    "[REJETE] Rejete / Expire": "F3F4F6"   # Gris clair
 }
 
 INITIAL_CRM_DATA = [
@@ -49,7 +49,7 @@ INITIAL_CRM_DATA = [
         "type": "Plein temps / CDI (Remote)",
         "salary": "83 000 $ - 166 000 $ / an",
         "url": "https://jobs.ashbyhq.com/kraken.com/f6100b36-d906-4c8d-93b8-a03399452966",
-        "status": "🎯 À postuler",
+        "status": "[A POSTULER] A postuler",
         "date_applied": "",
         "channel": "Formulaire Ashby + Cold DM LinkedIn",
         "date_followup": "J+5 après envoi",
@@ -66,7 +66,7 @@ INITIAL_CRM_DATA = [
         "type": "Ambassadeur (~5h/semaine)",
         "salary": "1 000 $ / mois",
         "url": "https://cryptojobslist.com/jobs/business-development-intern-certik-san-francisco-bay-area-ca-remote-at-certik",
-        "status": "🎯 À postuler",
+        "status": "[A POSTULER] A postuler",
         "date_applied": "",
         "channel": "CryptoJobsList + DM Telegram",
         "date_followup": "J+5 après envoi",
@@ -83,7 +83,7 @@ INITIAL_CRM_DATA = [
         "type": "Microgrant (Bourse MVP)",
         "salary": "500 USDC (Garanti aux 20 premiers)",
         "url": "https://dorahacks.io/hackathon/arc-microgrants/detail",
-        "status": "🎯 À postuler",
+        "status": "[A POSTULER] A postuler",
         "date_applied": "",
         "channel": "Formulaire officiel DoraHacks",
         "date_followup": "15 oct. 2026 (Annonces)",
@@ -100,7 +100,7 @@ INITIAL_CRM_DATA = [
         "type": "Freelance",
         "salary": "15 $ - 30 $ / heure",
         "url": "https://cryptojobslist.com/jobs/web3-telegram-community-manager-clown-remote-at-clown-token",
-        "status": "🎯 À postuler",
+        "status": "[A POSTULER] A postuler",
         "date_applied": "",
         "channel": "CryptoJobsList",
         "date_followup": "J+5 après envoi",
@@ -117,7 +117,7 @@ INITIAL_CRM_DATA = [
         "type": "Indépendant / Bounties",
         "salary": "Incentives / Bounties",
         "url": "https://cryptojobslist.com/jobs/fiber-community-ambassador-remote-at-fiber",
-        "status": "🎯 À postuler",
+        "status": "[A POSTULER] A postuler",
         "date_applied": "",
         "channel": "CryptoJobsList / Discord",
         "date_followup": "J+5 après envoi",
@@ -134,7 +134,7 @@ INITIAL_CRM_DATA = [
         "type": "Freelance à la mission",
         "salary": "100 $ - 1 500 USDC / bounty",
         "url": "https://earn.superteam.fun",
-        "status": "🎯 À postuler",
+        "status": "[A POSTULER] A postuler",
         "date_applied": "",
         "channel": "Plateforme Superteam Earn",
         "date_followup": "À la date de fin de chaque bounty",
@@ -151,7 +151,7 @@ INITIAL_CRM_DATA = [
         "type": "Ambassadeur",
         "salary": "Non applicable",
         "url": "https://celo.org",
-        "status": "❌ Rejeté / Expiré",
+        "status": "[REJETE] Rejete / Expire",
         "date_applied": "",
         "channel": "-",
         "date_followup": "-",
@@ -240,7 +240,7 @@ def build_crm_excel():
     # -------------------------------------------------------------
     # FEUILLE 2 : TABLEAU DE BORD & KPIS
     # -------------------------------------------------------------
-    ws2 = wb.create_sheet(title="📊 Dashboard & KPIs")
+    ws2 = wb.create_sheet(title=" Dashboard & KPIs")
     ws2.column_dimensions["A"].width = 5
     ws2.column_dimensions["B"].width = 32
     ws2.column_dimensions["C"].width = 20

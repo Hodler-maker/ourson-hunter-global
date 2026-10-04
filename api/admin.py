@@ -9,6 +9,7 @@ Endpoints WSGI Vercel : POST /api/admin
 import json
 import os
 import sys
+import time
 
 # Ajout du dossier core
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "core"))
@@ -111,7 +112,7 @@ def app(environ, start_response):
         # 3. Ajouter une opportunité
         if action == "add_opportunity":
             opp = data.get("opportunity", {})
-            opp_id = opp.get("id") or f"MANUAL-{int(os.times().system * 1000)}"
+            opp_id = opp.get("id") or f"MANUAL-{int(time.time() * 1000)}"
             title = opp.get("title", "").strip()
             company = opp.get("company", "").strip()
             category = opp.get("category", "Community")
@@ -152,7 +153,7 @@ def app(environ, start_response):
         # 5. Ajouter un événement
         if action == "add_event":
             evt = data.get("event", {})
-            evt_id = evt.get("id") or f"EVT-CUSTOM-{int(os.times().system * 1000)}"
+            evt_id = evt.get("id") or f"EVT-CUSTOM-{int(time.time() * 1000)}"
             title = evt.get("title", "").strip()
             organizer = evt.get("organizer", "").strip()
             date_str = evt.get("date", "").strip()

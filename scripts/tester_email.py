@@ -26,17 +26,17 @@ def tester_envoi(destinataire):
     opps = get_all_active_opportunities()
     mock_matches = [{"opportunity": o, "match_score": 90 - idx*5} for idx, o in enumerate(opps[:3])]
     
-    subject = "🐻 [TEST] Ton premier e-mail de veille Ourson Hunter !"
+    subject = "[TEST] Premier e-mail de veille ANFAANI"
     html_content = format_email_html("Tine Antonio", mock_matches)
     text_content = format_email_text("Tine Antonio", mock_matches)
     
     success, info = send_email(destinataire, subject, html_content, text_content)
     
     if success:
-        print(f"\n✅ SUCCÈS : {info}")
+        print(f"\n[OK] SUCCÈS : {info}")
         print("Vérifie ta boîte de réception (et ton dossier Spams au cas où) !")
     else:
-        print(f"\n❌ ÉCHEC : {info}")
+        print(f"\n[ECHEC] : {info}")
         print("Vérifie tes identifiants dans le fichier .env (SMTP_USER et SMTP_PASSWORD).")
 
 if __name__ == "__main__":
