@@ -161,11 +161,12 @@ def app(environ, start_response):
             evt_type = evt.get("type", "Meetup").strip()
             url = evt.get("url", "").strip()
             desc = evt.get("description", "").strip()
+            poster_url = evt.get("poster_url", "").strip()
 
             if not title or not organizer or not date_str:
                 return json_response(start_response, "400 Bad Request", {"success": False, "error": "Titre, organisateur et date requis"})
 
-            add_event(evt_id, title, organizer, date_str, location, country, evt_type, url, desc)
+            add_event(evt_id, title, organizer, date_str, location, country, evt_type, url, desc, poster_url)
             export_public_events_json()
 
             return json_response(start_response, "200 OK", {

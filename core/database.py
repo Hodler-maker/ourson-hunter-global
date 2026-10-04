@@ -97,6 +97,7 @@ def init_db():
         type TEXT DEFAULT 'Meetup',
         url TEXT NOT NULL,
         description TEXT,
+        poster_url TEXT DEFAULT '',
         status TEXT DEFAULT 'active',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
@@ -143,15 +144,15 @@ def delete_opportunity(opp_id):
     finally:
         conn.close()
 
-def add_event(event_id, title, organizer, event_date, location, country="Togo", event_type="Meetup", url="", description=""):
+def add_event(event_id, title, organizer, event_date, location, country="Togo", event_type="Meetup", url="", description="", poster_url=""):
     ensure_tables()
     conn = get_connection()
     cursor = conn.cursor()
     try:
         cursor.execute("""
-        INSERT OR REPLACE INTO events (id, title, organizer, date, location, country, type, url, description, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
-        """, (event_id, title, organizer, event_date, location, country, event_type, url, description))
+        INSERT OR REPLACE INTO events (id, title, organizer, date, location, country, type, url, description, poster_url, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
+        """, (event_id, title, organizer, event_date, location, country, event_type, url, description, poster_url))
         conn.commit()
     finally:
         conn.close()
@@ -209,6 +210,16 @@ def ensure_tables():
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='events'")
         if not cursor.fetchone():
             init_db()
+        else:
+            # Migration automatique si la colonne poster_url manque
+            cursor.execute("PRAGMA table_info(events)")
+            cols = [row[1] for row in cursor.fetchall()]
+            if "poster_url" not in cols:
+                try:
+                    cursor.execute("ALTER TABLE events ADD COLUMN poster_url TEXT DEFAULT ''")
+                    conn.commit()
+                except Exception:
+                    pass
 
         # Vérifier opportunités (totalite existante)
         cursor.execute("SELECT count(*) FROM opportunities")

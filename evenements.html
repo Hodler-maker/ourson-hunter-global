@@ -244,6 +244,11 @@
         </div>
 
         <div>
+          <label class="block text-slate-300 mb-1 font-semibold">Lien de l'affiche de l'événement (URL de l'image, optionnel)</label>
+          <input type="url" id="prop-poster" placeholder="https://... (ex: lien direct vers l'affiche)" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <div>
           <label class="block text-slate-300 mb-1 font-semibold">Description courte *</label>
           <textarea id="prop-desc" rows="3" required placeholder="Thèmes abordés, public cible, gratuit ou sur inscription..." class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500"></textarea>
         </div>
@@ -252,6 +257,17 @@
           Envoyer la proposition
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- MODAL LIGHTBOX AFFICHE -->
+  <div id="poster-lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 cursor-zoom-out" onclick="closePosterModal(event)">
+    <div class="max-w-3xl w-full max-h-[92vh] flex flex-col items-center relative cursor-default" onclick="event.stopPropagation()">
+      <button onclick="closePosterModal()" aria-label="Fermer" class="absolute -top-10 right-0 sm:-right-4 text-slate-400 hover:text-white p-2 cursor-pointer transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="Affiche en grand" class="max-h-[82vh] w-auto max-w-full rounded-2xl border border-neutral-800 object-contain shadow-2xl">
+      <div id="lightbox-caption" class="mt-3 text-sm font-bold text-white text-center font-sans px-4 truncate max-w-full"></div>
     </div>
   </div>
 
@@ -278,6 +294,36 @@
     let allEvents = [];
     let currentType = 'all';
     let currentCountry = 'all';
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function openPosterModal(src, title) {
+      const modal = document.getElementById('poster-lightbox');
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      if (modal && img) {
+        img.src = src;
+        if (caption) caption.textContent = title || '';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closePosterModal() {
+      const modal = document.getElementById('poster-lightbox');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        const img = document.getElementById('lightbox-img');
+        if (img) img.src = '';
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closePosterModal();
+    });
 
     function renderEvents() {
       const container = document.getElementById('events-container');
@@ -312,9 +358,23 @@
           'Webinaire': 'bg-sky-500/10 text-sky-300 border-sky-500/20'
         }[evt.type] || 'bg-neutral-900 text-slate-300 border-neutral-800';
 
+        const safePoster = evt.poster_url ? esc(evt.poster_url) : '';
+        const safeTitle = esc(evt.title);
+
         return `
         <article class="glass-card rounded-2xl p-5 sm:p-6 border border-neutral-800 flex flex-col justify-between group">
           <div>
+            ${safePoster ? `
+              <div class="relative w-full h-44 sm:h-52 rounded-xl overflow-hidden mb-4 border border-neutral-800 bg-neutral-950 group/img cursor-pointer" onclick="openPosterModal('${safePoster}', '${safeTitle}')">
+                <img src="${safePoster}" alt="Affiche ${safeTitle}" class="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                <div class="absolute bottom-2.5 right-2.5 bg-black/80 backdrop-blur-md border border-neutral-700/60 rounded-lg px-2.5 py-1 text-[10px] font-mono text-slate-200 flex items-center gap-1.5 shadow-lg">
+                  <svg class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  <span>Agrandir l'affiche</span>
+                </div>
+              </div>
+            ` : ''}
+
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${typeBadgeColors}">
                 ${evt.type}
@@ -391,6 +451,7 @@
 
     function handlePropose(e) {
       e.preventDefault();
+      const posterInput = document.getElementById('prop-poster');
       const newEvt = {
         id: 'USER-' + Date.now(),
         title: document.getElementById('prop-title').value.trim(),
@@ -400,6 +461,7 @@
         location: document.getElementById('prop-loc').value.trim(),
         url: document.getElementById('prop-url').value.trim(),
         description: document.getElementById('prop-desc').value.trim(),
+        poster_url: posterInput ? posterInput.value.trim() : '',
         type: 'Meetup'
       };
 

@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "EVT-LOME-POSTER",
+    "title": "Web3 Founders & Builders Summit Lomé",
+    "organizer": "Togo Bitcoin Community",
+    "date": "28 Novembre 2026 • 15h00 GMT",
+    "location": "Campus Numérique Francophone, Lomé",
+    "country": "Togo",
+    "type": "Conférence",
+    "url": "https://t.me/togobitcoin",
+    "description": "Grande conférence sur la tokenisation, les opportunités de bounties Web3 et le financement de startups crypto en Afrique.",
+    "status": "active",
+    "created_at": "2026-10-04 12:44:11",
+    "poster_url": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80"
+  }
+]

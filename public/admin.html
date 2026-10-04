@@ -310,6 +310,38 @@
             <textarea id="evt-desc" rows="2" required placeholder="Thématiques, intervenants, modalités..." class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500"></textarea>
           </div>
 
+          <!-- Champ Affiche de l'événement (Poster / Flyer) -->
+          <div class="p-4 rounded-xl border border-neutral-800 bg-neutral-950/70 space-y-3">
+            <div class="flex items-center justify-between">
+              <label class="block font-semibold text-slate-200">Affiche de l'événement (Poster / Flyer)</label>
+              <span class="text-[11px] text-amber-400 font-mono">Visible sur la carte de l'événement</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Option A : Lien direct vers l'image (URL)</label>
+                <input type="url" id="evt-poster-url" oninput="handlePosterUrlInput(this.value)" placeholder="https://example.com/affiche.jpg" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3.5 py-2 text-white text-xs focus:outline-none focus:border-amber-500">
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Option B : Téléverser un fichier (JPG, PNG, WebP)</label>
+                <input type="file" id="evt-poster-file" accept="image/*" onchange="handlePosterFileUpload(event)" class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-1.5 text-slate-300 text-xs focus:outline-none focus:border-amber-500 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-amber-500 file:text-black hover:file:bg-amber-400 cursor-pointer">
+              </div>
+            </div>
+
+            <!-- Aperçu en direct de l'affiche -->
+            <div id="poster-preview-box" class="hidden items-center gap-4 p-3 bg-neutral-900/90 rounded-xl border border-neutral-800">
+              <img id="poster-preview-img" src="" alt="Aperçu affiche" class="w-20 h-20 object-cover rounded-lg border border-neutral-700 flex-shrink-0">
+              <div class="flex-1 min-w-0 text-xs">
+                <div class="font-bold text-white truncate" id="poster-preview-name">Affiche sélectionnée</div>
+                <div class="text-[11px] text-emerald-400 font-mono mt-0.5">Prête à être enregistrée avec l'événement</div>
+              </div>
+              <button type="button" onclick="clearPoster()" class="px-3 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-slate-300 text-xs font-semibold border border-neutral-700 transition cursor-pointer">
+                Retirer
+              </button>
+            </div>
+            <input type="hidden" id="evt-poster-data" value="">
+          </div>
+
           <button type="submit" id="add-evt-btn" class="btn-gold px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer">
             Enregistrer l'événement
           </button>
@@ -529,8 +561,17 @@
       tbody.innerHTML = adminEvents.map(e => `
         <tr class="hover:bg-neutral-900/50 transition">
           <td class="p-3">
-            <div class="font-bold text-white">${esc(e.title)}</div>
-            <div class="text-[11px] text-slate-400 font-mono">${esc(e.organizer)}</div>
+            <div class="flex items-center gap-3">
+              ${e.poster_url ? `
+                <img src="${esc(e.poster_url)}" alt="Affiche" class="w-11 h-11 object-cover rounded-lg border border-neutral-800 flex-shrink-0 cursor-pointer hover:opacity-80 transition" onclick="window.open('${esc(e.poster_url)}', '_blank')">
+              ` : `
+                <div class="w-11 h-11 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[9px] text-slate-500 font-mono text-center leading-tight flex-shrink-0 p-1">Sans affiche</div>
+              `}
+              <div>
+                <div class="font-bold text-white">${esc(e.title)}</div>
+                <div class="text-[11px] text-slate-400 font-mono">${esc(e.organizer)}</div>
+              </div>
+            </div>
           </td>
           <td class="p-3">
             <div>${esc(e.date)}</div>
@@ -606,8 +647,88 @@
       }
     }
 
+    let currentPosterData = '';
+
+    function handlePosterUrlInput(val) {
+      const url = val.trim();
+      const box = document.getElementById('poster-preview-box');
+      const img = document.getElementById('poster-preview-img');
+      const name = document.getElementById('poster-preview-name');
+      const hidden = document.getElementById('evt-poster-data');
+
+      if (url) {
+        currentPosterData = url;
+        hidden.value = url;
+        img.src = url;
+        name.textContent = url;
+        box.classList.remove('hidden');
+        box.classList.add('flex');
+      } else if (!document.getElementById('evt-poster-file').files.length) {
+        clearPoster();
+      }
+    }
+
+    function handlePosterFileUpload(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const tempImg = new Image();
+        tempImg.onload = function() {
+          const maxW = 1200;
+          const maxH = 1200;
+          let w = tempImg.width;
+          let h = tempImg.height;
+          if (w > maxW || h > maxH) {
+            if (w > h) {
+              h = Math.round((h * maxW) / w);
+              w = maxW;
+            } else {
+              w = Math.round((w * maxH) / h);
+              h = maxH;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(tempImg, 0, 0, w, h);
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+
+          currentPosterData = dataUrl;
+          document.getElementById('evt-poster-data').value = dataUrl;
+          document.getElementById('poster-preview-img').src = dataUrl;
+          document.getElementById('poster-preview-name').textContent = file.name;
+          const box = document.getElementById('poster-preview-box');
+          box.classList.remove('hidden');
+          box.classList.add('flex');
+        };
+        tempImg.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearPoster() {
+      currentPosterData = '';
+      const hidden = document.getElementById('evt-poster-data');
+      if (hidden) hidden.value = '';
+      const urlInput = document.getElementById('evt-poster-url');
+      if (urlInput) urlInput.value = '';
+      const fileInput = document.getElementById('evt-poster-file');
+      if (fileInput) fileInput.value = '';
+      const box = document.getElementById('poster-preview-box');
+      if (box) {
+        box.classList.add('hidden');
+        box.classList.remove('flex');
+      }
+      const img = document.getElementById('poster-preview-img');
+      if (img) img.src = '';
+    }
+
     async function handleAddEvent(e) {
       e.preventDefault();
+      const posterVal = (document.getElementById('evt-poster-data').value || document.getElementById('evt-poster-url').value || '').trim();
       const evt = {
         title: document.getElementById('evt-title').value.trim(),
         organizer: document.getElementById('evt-org').value.trim(),
@@ -616,7 +737,8 @@
         location: document.getElementById('evt-loc').value.trim(),
         country: document.getElementById('evt-country').value,
         url: document.getElementById('evt-url').value.trim(),
-        description: document.getElementById('evt-desc').value.trim()
+        description: document.getElementById('evt-desc').value.trim(),
+        poster_url: posterVal
       };
 
       try {
@@ -629,6 +751,7 @@
         if (data.success) {
           alert("Événement ajouté et publié avec succès !");
           e.target.reset();
+          clearPoster();
           initDashboard();
         } else {
           alert("Erreur: " + data.error);
