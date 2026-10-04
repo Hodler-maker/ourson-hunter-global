@@ -73,7 +73,7 @@
     .marquee { background: #020617; overflow: hidden; padding: 14px 0; border-block: 1px solid rgba(245,158,11,.15); position: relative; z-index: 2; }
     .marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
     .marquee-track .word { font-weight: 800; font-size: clamp(.8rem, 1.5vw, 1.05rem); letter-spacing: .12em; text-transform: uppercase; color: #cbd5e1; padding: 0 1.4rem; white-space: nowrap; display: flex; align-items: center; gap: 1.4rem; }
-    .marquee-track .word::after { content: "✦"; font-size: .6em; color: #f59e0b; }
+    .marquee-track .word::after { content: "·"; font-size: 1.2em; color: #f59e0b; }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     /* Orbes du hero */
@@ -124,10 +124,10 @@
       </a>
       <div class="flex items-center gap-2 sm:gap-4">
         <a href="#offres" class="text-xs font-semibold text-slate-300 hover:text-white transition">Offres</a>
-        <a href="evenements.html" class="text-xs font-semibold text-amber-400 hover:text-amber-300 transition flex items-center gap-1"><span>📅</span> Événements</a>
+        <a href="evenements.html" class="text-xs font-semibold text-amber-400 hover:text-amber-300 transition flex items-center gap-1">Événements</a>
         <a href="#faq" class="hidden md:inline text-xs font-semibold text-slate-300 hover:text-white transition">FAQ</a>
         <a href="contact.html" class="hidden sm:inline text-xs font-semibold text-slate-300 hover:text-white transition">Contact</a>
-        <a href="admin.html" class="text-xs px-3 py-1.5 rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-slate-500 transition">⚙️ Admin</a>
+        <a href="admin.html" class="text-xs px-3 py-1.5 rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-slate-500 transition">Admin</a>
         <button onclick="openModal()" class="px-4 py-2 rounded-full text-xs font-bold bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-lg shadow-amber-400/20 transition">
           S'inscrire
         </button>
@@ -183,9 +183,9 @@
           <div style="transition-delay:.35s" class="reveal mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
             <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> +58 opportunités en direct</span>
             <span class="text-slate-600">·</span>
-            <span class="flex items-center gap-1.5">⚡ Audit anti-scam IA</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Audit anti-scam IA</span>
             <span class="text-slate-600">·</span>
-            <span class="flex items-center gap-1.5">🌍 Afrique francophone & Monde</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Afrique francophone & Monde</span>
           </div>
         </div>
 
@@ -199,7 +199,7 @@
             <div class="absolute bottom-4 left-4 right-4 glass p-3.5 rounded-2xl border border-slate-700/60 flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
-                  ✨
+                  
                 </div>
                 <div>
                   <div class="text-xs font-bold text-white">Carrières Tech & Web3</div>
@@ -231,7 +231,7 @@
         <div style="transition-delay:.69s" onclick="openPitchModal()" class="reveal glass p-3.5 rounded-xl border border-slate-800 hover:border-purple-500/50 hover:bg-purple-950/20 cursor-pointer transition text-center" title="Clique pour ouvrir le générateur de Pitch IA">
           <div class="text-lg font-black text-purple-400 flex items-center justify-center gap-1.5">
             <span>Pitch IA</span>
-            <span class="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded font-normal">Générer ⚡</span>
+            <span class="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded font-normal">Générer</span>
           </div>
           <div class="text-[11px] text-slate-400">Cover Letter en 1 clic</div>
         </div>
@@ -250,7 +250,7 @@
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
         <div>
           <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
-            <span>⚡</span> Filtre en direct · Résultats instantanés
+            Filtre en direct · Résultats instantanés
           </span>
           <h2 class="text-lg sm:text-xl font-black text-white mt-0.5">
             Quel est ton profil ? Découvre tes offres ciblées
@@ -260,40 +260,34 @@
           </p>
         </div>
         <div class="text-[11px] text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700/60 hidden sm:block">
-          ⏰ <span class="text-amber-300 font-semibold">Abonnés :</span> alertes auto chaque matin à 8h
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block mr-1"></span><span class="text-amber-300 font-semibold">Abonnés :</span> alertes auto chaque matin à 8h
         </div>
       </div>
 
       <!-- Grille des boutons de profil -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 pt-1" id="profile-selector">
         <button type="button" onclick="filterCategory('all', this)" class="profile-btn active p-3 rounded-2xl border border-amber-500 bg-amber-600/20 text-white font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center hover:bg-amber-600/30">
-          <span class="text-lg">🌟</span>
-          <span>Tous profils</span>
+                    <span>Tous profils</span>
           <span class="text-[10px] text-amber-300 font-normal opacity-80" id="badge-count-all">16 offres</span>
         </button>
         <button type="button" onclick="filterCategory('Community', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
-          <span class="text-lg">👥</span>
-          <span>Community Lead</span>
+                    <span>Community Lead</span>
           <span class="text-[10px] text-slate-400 font-normal" id="badge-count-community">4 offres</span>
         </button>
         <button type="button" onclick="filterCategory('Ambassadeur', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
-          <span class="text-lg">🤝</span>
-          <span>Ambassadeur / BD</span>
+                    <span>Ambassadeur / BD</span>
           <span class="text-[10px] text-slate-400 font-normal" id="badge-count-ambassadeur">4 offres</span>
         </button>
         <button type="button" onclick="filterCategory('Content', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
-          <span class="text-lg">✍️</span>
-          <span>Rédacteur / Contenu</span>
+                    <span>Rédacteur / Contenu</span>
           <span class="text-[10px] text-slate-400 font-normal" id="badge-count-content">3 offres</span>
         </button>
         <button type="button" onclick="filterCategory('Dev', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
-          <span class="text-lg">💻</span>
-          <span>Développeur Web3</span>
+                    <span>Développeur Web3</span>
           <span class="text-[10px] text-slate-400 font-normal" id="badge-count-dev">3 offres</span>
         </button>
         <button type="button" onclick="filterCategory('Trading', this)" class="profile-btn p-3 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:border-slate-700 font-bold text-xs flex flex-col items-center justify-center gap-1.5 transition text-center">
-          <span class="text-lg">📈</span>
-          <span>Analyste / Trading</span>
+                    <span>Analyste / Trading</span>
           <span class="text-[10px] text-slate-400 font-normal" id="badge-count-trading">2 offres</span>
         </button>
       </div>
@@ -311,7 +305,7 @@
 
       <!-- Bouton d'alerte matinale -->
       <button onclick="openModal()" class="px-3.5 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold transition flex items-center gap-1.5">
-        <span>⏰ Recevoir mon condensé chaque matin à 8h</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>Recevoir mon condensé chaque matin à 8h</span>
       </button>
     </div>
 
@@ -324,19 +318,19 @@
       <div class="sm:col-span-4">
         <label for="job-country" class="sr-only-lbl">Filtrer par pays</label>
         <select id="job-country" onchange="filterCountry(this.value)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
-          <option value="all">🌍 Tout (100% Remote / Global)</option>
-          <option value="Togo">🇹🇬 Togo</option>
-          <option value="Bénin">🇧🇯 Bénin</option>
-          <option value="Côte d'Ivoire">🇨🇮 Côte d'Ivoire</option>
-          <option value="Sénégal">🇸🇳 Sénégal</option>
-          <option value="Cameroun">🇨🇲 Cameroun</option>
-          <option value="RDC">🇨🇩 RDC</option>
-          <option value="Burkina Faso">🇧🇫 Burkina Faso</option>
-          <option value="Guinée">🇬🇳 Guinée</option>
-          <option value="Mali">🇲🇱 Mali</option>
-          <option value="Gabon">🇬🇦 Gabon</option>
-          <option value="Madagascar">🇲🇬 Madagascar</option>
-          <option value="Diaspora">🌐 Autre pays / Diaspora</option>
+          <option value="all">Tout (100% Remote / Global)</option>
+          <option value="Togo">Togo</option>
+          <option value="Bénin">Bénin</option>
+          <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+          <option value="Sénégal">Sénégal</option>
+          <option value="Cameroun">Cameroun</option>
+          <option value="RDC">RDC</option>
+          <option value="Burkina Faso">Burkina Faso</option>
+          <option value="Guinée">Guinée</option>
+          <option value="Mali">Mali</option>
+          <option value="Gabon">Gabon</option>
+          <option value="Madagascar">Madagascar</option>
+          <option value="Diaspora">Autre pays / Diaspora</option>
         </select>
       </div>
       <div class="sm:col-span-3">
@@ -384,7 +378,9 @@
   <!-- MODAL D'INSCRIPTION UTILISATEUR -->
   <div id="modal-signup" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="glass max-w-md w-full rounded-3xl p-6 border border-amber-500/30 shadow-2xl relative">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+      <button onclick="closeModal()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
       
       <div class="text-center mb-5">
         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-base font-black text-white mx-auto mb-2">OH</div>
@@ -400,14 +396,14 @@
         <!-- BOUTON ACTIVATION DIRECTE TELEGRAM -->
         <div class="bg-gradient-to-r from-sky-950/60 to-blue-950/60 border border-sky-500/30 rounded-2xl p-3 flex items-center justify-between gap-3">
           <div class="flex items-center gap-2.5">
-            <span class="text-xl">✈️</span>
+            
             <div>
               <div class="text-[11px] font-bold text-sky-300">Alertes instantanées Telegram</div>
               <div class="text-[10px] text-slate-400">Clique pour faire <span class="text-white font-mono font-bold">/start</span> sur le bot</div>
             </div>
           </div>
           <a href="https://t.me/ourson_hunter_alerts_bot" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold text-[11px] transition shadow-md shadow-sky-500/20 whitespace-nowrap">
-            Ouvrir le Bot 🤖
+            Ouvrir le Bot Telegram
           </a>
         </div>
 
@@ -417,7 +413,7 @@
             <span class="text-[10px] text-slate-400 font-normal">Email ou @pseudo Telegram</span>
           </label>
           <input type="text" id="reg-contact" required placeholder="ton@email.com ou @ton_pseudo" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-500"/>
-          <p class="text-[10px] text-slate-400 mt-1">💡 Si tu choisis Telegram, ouvre d'abord le bot ci-dessus pour l'autoriser à t'écrire.</p>
+          <p class="text-[10px] text-slate-400 mt-1">Si tu choisis Telegram, ouvre d'abord le bot ci-dessus pour l'autoriser à t'écrire.</p>
         </div>
         <div class="grid grid-cols-2 gap-2">
           <div>
@@ -468,10 +464,12 @@
   <!-- MODAL GÉNÉRATEUR DE PITCH IA -->
   <div id="modal-pitch" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="pitch-title">
     <div class="glass max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 border border-purple-500/40 shadow-2xl relative">
-      <button onclick="closePitchModal()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+      <button onclick="closePitchModal()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
       
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-lg shadow-lg shadow-purple-500/20">⚡</div>
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-purple-500/20">IA</div>
         <div>
           <h3 id="pitch-title" class="text-base sm:text-lg font-black text-white">Générateur de Pitch & Cover Letter IA</h3>
           <p class="text-[11px] text-slate-400">Génère en 1 clic un message d'accroche direct et une lettre de motivation sur-mesure.</p>
@@ -504,14 +502,14 @@
           <div>
             <label class="block text-slate-300 mb-1 font-semibold">Langue du pitch</label>
             <select id="pitch-lang" onchange="generatePitches()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-purple-500">
-              <option value="fr">🇫🇷 Français (Recommandé francophonie)</option>
-              <option value="en">🇬🇧 Anglais (Recommandé international)</option>
+              <option value="fr">Français (Recommandé francophonie)</option>
+              <option value="en">Anglais (Recommandé international)</option>
             </select>
           </div>
         </div>
 
         <button type="button" onclick="generatePitches()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-purple-600/30 transition flex items-center justify-center gap-2">
-          <span>⚡ Mettre à jour les 3 versions</span>
+          <span>Mettre à jour les 3 versions</span>
         </button>
       </div>
 
@@ -521,10 +519,10 @@
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
           <div class="flex justify-between items-center mb-2">
             <span class="text-xs font-bold text-purple-400 flex items-center gap-1.5">
-              <span>💬</span> Message direct (Telegram / X / LinkedIn)
+              <span>Message direct</span> (Telegram / X / LinkedIn)
             </span>
             <button onclick="copyToClipboard('pitch-dm-text', this)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-[11px] font-semibold transition border border-slate-700">
-              Copier 📋
+              Copier
             </button>
           </div>
           <p id="pitch-dm-text" class="text-xs text-slate-300 whitespace-pre-line leading-relaxed font-mono bg-slate-950/60 p-3 rounded-xl border border-slate-800/80"></p>
@@ -534,10 +532,10 @@
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
           <div class="flex justify-between items-center mb-2">
             <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
-              <span>📄</span> Cover Letter complète (Formulaire / Email)
+              <span>Cover Letter complète</span> (Formulaire / Email)
             </span>
             <button onclick="copyToClipboard('pitch-cl-text', this)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-[11px] font-semibold transition border border-slate-700">
-              Copier 📋
+              Copier
             </button>
           </div>
           <p id="pitch-cl-text" class="text-xs text-slate-300 whitespace-pre-line leading-relaxed font-mono bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 max-h-48 overflow-y-auto"></p>
@@ -547,10 +545,10 @@
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
           <div class="flex justify-between items-center mb-2">
             <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-              <span>🎙️</span> Pitch d'entretien oral (30 secondes)
+              <span>Pitch d'entretien oral</span> (30 secondes)
             </span>
             <button onclick="copyToClipboard('pitch-oral-text', this)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-[11px] font-semibold transition border border-slate-700">
-              Copier 📋
+              Copier
             </button>
           </div>
           <p id="pitch-oral-text" class="text-xs text-slate-300 whitespace-pre-line leading-relaxed font-mono bg-slate-950/60 p-3 rounded-xl border border-slate-800/80"></p>
@@ -562,7 +560,9 @@
   <!-- MODAL D'INFORMATION (mentions légales, confidentialité) -->
   <div id="modal-info" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="info-title">
     <div class="glass max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-3xl p-6 border border-amber-500/30 shadow-2xl relative">
-      <button onclick="closeInfo()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+      <button onclick="closeInfo()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
       <h3 id="info-title" class="text-lg font-black text-white mb-3 pr-8"></h3>
       <div id="info-body" class="space-y-3 text-xs text-slate-300 leading-relaxed"></div>
     </div>
@@ -859,7 +859,7 @@
         `${list.length} offre${list.length > 1 ? 's' : ''} affichée${list.length > 1 ? 's' : ''} (sur ${JOBS_DATA.length} opportunités au total)`;
 
       if (!list.length) {
-        container.innerHTML = '<div class="sm:col-span-2 text-center text-xs text-slate-400 py-12 glass rounded-2xl border border-slate-800"><p class="text-base font-bold text-white mb-1">🔍 Aucune offre ne correspond à cette combinaison</p><p class="text-slate-500">Essaie un autre profil ou élargis le filtre pays pour voir les opportunités 100% remote.</p></div>';
+        container.innerHTML = '<div class="sm:col-span-2 text-center text-xs text-slate-400 py-12 glass rounded-2xl border border-slate-800"><p class="text-base font-bold text-white mb-1">Aucune offre ne correspond à cette combinaison</p><p class="text-slate-500">Essaie un autre profil ou élargis le filtre pays pour voir les opportunités 100% remote.</p></div>';
         return;
       }
 
@@ -874,7 +874,7 @@
                 <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full border border-slate-700 font-medium">${esc(job.category)}</span>
               </div>
               <div class="flex items-center gap-1">
-                ${isTargetMatch ? `<span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-500/30">🎯 Ton profil</span>` : ''}
+                ${isTargetMatch ? `<span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-500/30">Ton profil</span>` : ''}
                 <span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full font-bold border border-emerald-500/20">Score ${esc(job.score)}/100</span>
               </div>
             </div>
@@ -889,7 +889,7 @@
             </div>
             <div class="flex items-center gap-2">
               <button type="button" onclick="openPitchModal('${esc(job.id)}')" class="px-2.5 py-1.5 rounded-xl bg-purple-500/15 hover:bg-purple-500/25 text-purple-300 border border-purple-500/30 text-xs font-semibold transition flex items-center gap-1 shadow-sm" title="Générer un pitch et une cover letter pour cette offre">
-                <span>⚡ Pitch IA</span>
+                <span>Pitch IA</span>
               </button>
               <a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-bold transition shadow-md shadow-amber-600/20">
                 Postuler
@@ -989,13 +989,13 @@
       let dm = "", cl = "", oral = "";
 
       if (lang === 'fr') {
-        dm = `Bonjour l'équipe ${job.company} ! 👋\n\nJe suis ${name}, actif dans l'écosystème Web3 et passionné par votre mission.\nJ'ai vu votre opportunité pour le rôle de "${job.title}". Grâce à mon expérience terrain en animation de communauté, création de contenu et stratégie de croissance, je peux immédiatement vous aider à booster votre engagement et votre rayonnement francophone et global.\n\nSeriez-vous disponibles pour un court échange de 5 minutes cette semaine ?\n\nBien à vous,\n${name}`;
+        dm = `Bonjour l'équipe ${job.company} ! \n\nJe suis ${name}, actif dans l'écosystème Web3 et passionné par votre mission.\nJ'ai vu votre opportunité pour le rôle de "${job.title}". Grâce à mon expérience terrain en animation de communauté, création de contenu et stratégie de croissance, je peux immédiatement vous aider à booster votre engagement et votre rayonnement francophone et global.\n\nSeriez-vous disponibles pour un court échange de 5 minutes cette semaine ?\n\nBien à vous,\n${name}`;
 
         cl = `Objet : Candidature au poste de ${job.title} — ${name}\n\nMadame, Monsieur,\n\nC'est avec un vif enthousiasme que je vous adresse ma candidature pour l'opportunité de ${job.title} au sein de ${job.company}.\n\nÉvoluant activement dans l'écosystème Web3 depuis plusieurs années, j'ai développé une solide expertise en engagement communautaire, vulgarisation et gestion de projets 100% à distance. Votre vision résonne particulièrement avec mes réalisations, et je suis convaincu de pouvoir apporter une réelle valeur ajoutée à votre équipe dès les premières semaines.\n\nMes principaux atouts pour ce rôle :\n• Autonomie totale et communication proactive en environnement décentralisé et asynchrone\n• Capacité démontrée à fédérer des utilisateurs et convertir l'attention en rétention\n• Maîtrise des dynamiques de gouvernance et des outils Web3 (Discord, Telegram, X)\n\nJe serais ravi d'échanger avec vous de vive voix afin de vous exposer plus en détail ma motivation et mes réalisations concrètes.\n\nBien cordialement,\n${name}`;
 
         oral = `« Bonjour ! Je m'appelle ${name}. Je suis un spécialiste Web3 avec un fort focus sur l'adoption et la croissance communautaire. Ce qui m'anime chez ${job.company}, c'est votre ambition et la qualité de vos produits. Sur le rôle de ${job.title}, mon objectif sera d'être opérationnel dès le premier jour pour convertir l'intérêt des membres en utilisateurs fidèles et fidéliser votre communauté. »`;
       } else {
-        dm = `Hi ${job.company} team! 👋\n\nI'm ${name}, a Web3 builder focused on community growth and ecosystem adoption.\nI came across your open position for "${job.title}" and would love to contribute. With hands-on experience driving user engagement, managing remote communities, and localizing Web3 products, I can help scale your reach from day one.\n\nWould you be open to a quick 5-minute chat this week?\n\nBest regards,\n${name}`;
+        dm = `Hi ${job.company} team! \n\nI'm ${name}, a Web3 builder focused on community growth and ecosystem adoption.\nI came across your open position for "${job.title}" and would love to contribute. With hands-on experience driving user engagement, managing remote communities, and localizing Web3 products, I can help scale your reach from day one.\n\nWould you be open to a quick 5-minute chat this week?\n\nBest regards,\n${name}`;
 
         cl = `Subject: Application for ${job.title} — ${name}\n\nDear ${job.company} Hiring Team,\n\nI am writing to express my strong interest in the ${job.title} position at ${job.company}.\n\nWith extensive hands-on experience in the Web3 space, I have built and scaled engaged communities, designed high-impact educational content, and operated autonomously in remote, fast-paced environments. I closely follow ${job.company}'s milestones and am eager to bring my drive and expertise to your team.\n\nKey strengths I bring to this role:\n• Full autonomy and proactive communication in remote/async workflows\n• Proven track record in community building and user retention across Web3\n• Deep understanding of crypto-native audiences and regional adoption dynamics\n\nI would welcome the opportunity to discuss how my background aligns with your vision for ${job.company}.\n\nBest regards,\n${name}`;
 
@@ -1011,7 +1011,7 @@
       const text = document.getElementById(elementId).textContent;
       navigator.clipboard.writeText(text).then(() => {
         const orig = btn.textContent;
-        btn.textContent = "Copié ! ✅";
+        btn.textContent = "Copié !";
         btn.classList.add("text-emerald-400", "border-emerald-500");
         setTimeout(() => {
           btn.textContent = orig;
@@ -1061,10 +1061,10 @@
         const data = await res.json();
         if (data.success) {
           let details = [];
-          if (data.email_sent) details.push('📧 Un email de bienvenue vient de t’être envoyé !');
-          if (data.telegram_sent) details.push('✈️ Une alerte d’activation vient d’arriver sur ton Telegram !');
+          if (data.email_sent) details.push('Un email de bienvenue vient de t’être envoyé !');
+          if (data.telegram_sent) details.push('Une alerte d’activation vient d’arriver sur ton Telegram !');
           const notice = details.length ? '\n\n' + details.join('\n') : '';
-          alert(`Félicitations ${name} ! 🎉 Ton profil est activé pour ${country}.${notice}\n\nTu recevras tes prochaines alertes dès 8h !`);
+          alert(`Félicitations ${name} ! Ton profil est activé pour ${country}.${notice}\n\nTu recevras tes prochaines alertes dès 8h !`);
           closeModal();
           e.target.reset();
         } else {
