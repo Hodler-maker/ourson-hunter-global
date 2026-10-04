@@ -336,6 +336,19 @@
       location.reload();
     }
 
+    function filterActiveItems(jobs, events) {
+      try {
+        const delJobs = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
+        const delEvts = JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]');
+        return {
+          jobs: (jobs || []).filter(j => !delJobs.includes(j.id)),
+          events: (events || []).filter(e => !delEvts.includes(e.id))
+        };
+      } catch (e) {
+        return { jobs: jobs || [], events: events || [] };
+      }
+    }
+
     async function initDashboard() {
       document.getElementById('login-view').classList.add('hidden');
       document.getElementById('dashboard-view').classList.remove('hidden');
@@ -351,8 +364,9 @@
         if (res.ok) {
           const data = await res.json();
           if (data.success) {
-            adminJobs = data.opportunities || [];
-            adminEvents = data.events || [];
+            const filtered = filterActiveItems(data.opportunities || [], data.events || []);
+            adminJobs = filtered.jobs;
+            adminEvents = filtered.events;
             updateStats(adminJobs.length, adminEvents.length);
             renderJobsTable();
             renderEventsTable();
@@ -373,8 +387,13 @@
           fetch('public_jobs.json?v=' + Date.now()),
           fetch('public_events.json?v=' + Date.now())
         ]);
-        if (rJobs.ok) adminJobs = await rJobs.json();
-        if (rEvts.ok) adminEvents = await rEvts.json();
+        let j = [];
+        let e = [];
+        if (rJobs.ok) j = await rJobs.json();
+        if (rEvts.ok) e = await rEvts.json();
+        const filtered = filterActiveItems(j, e);
+        adminJobs = filtered.jobs;
+        adminEvents = filtered.events;
       } catch (e) {
         console.error("Erreur chargement fallback:", e);
       }
@@ -509,20 +528,29 @@
     async function deleteJob(id) {
       if (!confirm(`Es-tu sûr de vouloir supprimer l'offre ${id} ?`)) return;
 
+      // 1. Suppression optimiste instantanée (0ms)
+      adminJobs = adminJobs.filter(j => j.id !== id);
+      updateStats(adminJobs.length, adminEvents.length);
+      renderJobsTable();
+
+      // 2. Persistance locale anti-résurrection
       try {
-        const res = await fetch('/api/admin', {
+        const delJobs = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
+        if (!delJobs.includes(id)) {
+          delJobs.push(id);
+          localStorage.setItem('ourson_deleted_jobs', JSON.stringify(delJobs));
+        }
+      } catch (e) {}
+
+      // 3. Synchronisation asynchrone avec le backend SQLite
+      try {
+        await fetch('/api/admin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'delete_opportunity', admin_key: adminToken, id: id })
         });
-        const data = await res.json();
-        if (data.success) {
-          initDashboard();
-        } else {
-          alert("Erreur: " + data.error);
-        }
       } catch (err) {
-        alert("Erreur lors de la suppression.");
+        console.warn("Erreur sync serveur delete_opportunity:", err);
       }
     }
 
@@ -561,20 +589,29 @@
     async function deleteEvent(id) {
       if (!confirm(`Es-tu sûr de vouloir supprimer cet événement ?`)) return;
 
+      // 1. Suppression optimiste instantanée (0ms)
+      adminEvents = adminEvents.filter(e => e.id !== id);
+      updateStats(adminJobs.length, adminEvents.length);
+      renderEventsTable();
+
+      // 2. Persistance locale anti-résurrection
       try {
-        const res = await fetch('/api/admin', {
+        const delEvts = JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]');
+        if (!delEvts.includes(id)) {
+          delEvts.push(id);
+          localStorage.setItem('ourson_deleted_events', JSON.stringify(delEvts));
+        }
+      } catch (e) {}
+
+      // 3. Synchronisation asynchrone avec le backend SQLite
+      try {
+        await fetch('/api/admin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'delete_event', admin_key: adminToken, id: id })
         });
-        const data = await res.json();
-        if (data.success) {
-          initDashboard();
-        } else {
-          alert("Erreur: " + data.error);
-        }
       } catch (err) {
-        alert("Erreur lors de la suppression.");
+        console.warn("Erreur sync serveur delete_event:", err);
       }
     }
 

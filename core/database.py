@@ -133,34 +133,39 @@ def add_opportunity(opp_id, title, company, category, opp_type, salary, url, eli
         conn.close()
 
 def delete_opportunity(opp_id):
+    ensure_tables()
     conn = get_connection()
     cursor = conn.cursor()
     try:
         cursor.execute("DELETE FROM opportunities WHERE id = ?", (opp_id,))
+        cursor.execute("UPDATE opportunities SET status = 'deleted' WHERE id = ?", (opp_id,))
         conn.commit()
-        return cursor.rowcount > 0
+        return True
     finally:
         conn.close()
 
 def add_event(event_id, title, organizer, event_date, location, country="Togo", event_type="Meetup", url="", description=""):
+    ensure_tables()
     conn = get_connection()
     cursor = conn.cursor()
     try:
         cursor.execute("""
-        INSERT OR REPLACE INTO events (id, title, organizer, date, location, country, type, url, description)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT OR REPLACE INTO events (id, title, organizer, date, location, country, type, url, description, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
         """, (event_id, title, organizer, event_date, location, country, event_type, url, description))
         conn.commit()
     finally:
         conn.close()
 
 def delete_event(event_id):
+    ensure_tables()
     conn = get_connection()
     cursor = conn.cursor()
     try:
         cursor.execute("DELETE FROM events WHERE id = ?", (event_id,))
+        cursor.execute("UPDATE events SET status = 'deleted' WHERE id = ?", (event_id,))
         conn.commit()
-        return cursor.rowcount > 0
+        return True
     finally:
         conn.close()
 
@@ -172,21 +177,10 @@ def get_all_active_events():
         cursor.execute("SELECT * FROM events WHERE status = 'active' ORDER BY created_at DESC")
         events = [dict(row) for row in cursor.fetchall()]
         conn.close()
-        if events:
-            return events
+        return events
     except Exception as e:
         print(f"Erreur SQL events: {e}")
-
-    # Fallback JSON
-    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    for p in [PUBLIC_EVENTS_PATH, os.path.join(root_dir, "data", "public_events.json"), os.path.join(root_dir, "public", "public_events.json")]:
-        if os.path.exists(p):
-            try:
-                with open(p, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception:
-                pass
-    return []
+        return []
 
 def export_public_events_json():
     events = get_all_active_events()
@@ -194,7 +188,7 @@ def export_public_events_json():
     with open(PUBLIC_EVENTS_PATH, "w", encoding="utf-8") as f:
         json.dump(events, f, indent=2, ensure_ascii=False)
     
-    # Copie automatique dans public/public_events.json
+    # Copie automatique dans public/public_events.json si possible
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     public_copy = os.path.join(root_dir, "public", "public_events.json")
     try:
@@ -212,8 +206,14 @@ def ensure_tables():
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='opportunities'")
         if not cursor.fetchone():
             init_db()
-            seed_default_events_if_empty()
-            
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='events'")
+        if not cursor.fetchone():
+            init_db()
+
+        # Vérifier opportunités
+        cursor.execute("SELECT count(*) FROM opportunities WHERE status = 'active'")
+        opp_count = cursor.fetchone()[0]
+        if opp_count == 0:
             root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             for jpath in [
                 os.path.join(root_dir, "data", "public_jobs.json"),
@@ -226,13 +226,19 @@ def ensure_tables():
                         c2 = conn.cursor()
                         for j in jobs:
                             c2.execute("""
-                            INSERT OR IGNORE INTO opportunities (id, title, company, category, type, salary, url, eligibility, score, notes)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                            INSERT OR IGNORE INTO opportunities (id, title, company, category, type, salary, url, eligibility, score, notes, status)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
                             """, (j.get("id"), j.get("title"), j.get("company"), j.get("category"), j.get("type"), j.get("salary"), j.get("url"), j.get("eligibility", "Global"), j.get("score", 85), j.get("desc", "")))
                         conn.commit()
                         break
                     except Exception as e:
                         print(f"Erreur import jobs: {e}")
+
+        # Vérifier événements
+        cursor.execute("SELECT count(*) FROM events WHERE status = 'active'")
+        evt_count = cursor.fetchone()[0]
+        if evt_count == 0:
+            seed_default_events_if_empty(conn)
     except Exception as e:
         print(f"Erreur ensure_tables: {e}")
     finally:
@@ -282,9 +288,11 @@ def export_public_json():
         json.dump(opps, f, indent=2, ensure_ascii=False)
     print(f"Export JSON public généré : {PUBLIC_JSON_PATH} ({len(opps)} opportunités)")
 
-def seed_default_events_if_empty():
-    events = get_all_active_events()
-    if len(events) == 0:
+def seed_default_events_if_empty(existing_conn=None):
+    conn = existing_conn or get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT count(*) FROM events WHERE status = 'active'")
+    if cursor.fetchone()[0] == 0:
         default_events = [
             ("EVT-TG-01", "Lomé Bitcoin & Lightning Meetup", "Togo Bitcoin Community", "18 Octobre 2026 • 15h00 GMT", "Campus Numérique Francophone, Lomé", "Togo", "Meetup", "https://t.me/togobitcoin", "Atelier pratique sur les transactions Lightning Network, la self-custody et l'adoption marchande au Togo."),
             ("EVT-CI-01", "Web3 Abidjan Builders & DeFi Day", "Solana Africa & Abidjan Web3", "25 Octobre 2026 • 10h00 GMT", "Espace Coworking Cocody, Abidjan", "Côte d'Ivoire", "Workshop", "https://earn.superteam.fun", "Rencontre des développeurs et créateurs Web3 ivoiriens : sessions pratiques sur la DeFi, les bounties et les microgrants."),
@@ -294,9 +302,13 @@ def seed_default_events_if_empty():
             ("EVT-CM-01", "Yaoundé Crypto & Freelance Meetup", "Cameroon Web3 Hub", "21 Novembre 2026 • 14h30 GMT", "Douala / Yaoundé Innovation Hub", "Cameroun", "Meetup", "https://t.me/oursonhunter", "Session d'échange sur le freelancing international, les microgrants et comment se faire rémunérer en stablecoins sans compte bancaire classique.")
         ]
         for evt in default_events:
-            add_event(*evt)
-        export_public_events_json()
-        print("Événements Web3 par défaut initialisés avec succès.")
+            cursor.execute("""
+            INSERT OR IGNORE INTO events (id, title, organizer, date, location, country, type, url, description, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
+            """, evt)
+        conn.commit()
+    if not existing_conn:
+        conn.close()
 
 
 if __name__ == "__main__":

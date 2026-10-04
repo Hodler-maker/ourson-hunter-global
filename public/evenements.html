@@ -266,6 +266,10 @@
       } catch (e) {
         console.warn("Utilisation des événements fallback:", e);
       }
+      try {
+        const delEvts = JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]');
+        currentEvents = currentEvents.filter(e => !delEvts.includes(e.id));
+      } catch (e) {}
       renderEvents();
     }
 

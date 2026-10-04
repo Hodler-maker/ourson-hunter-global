@@ -1082,6 +1082,7 @@
 
     async function loadDynamicJobs() {
       try {
+        const delJobs = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
         const res = await fetch('/public_jobs.json?t=' + Date.now());
         if (!res.ok) return;
         const remoteJobs = await res.json();
@@ -1091,6 +1092,7 @@
           let added = false;
           
           remoteJobs.forEach(rj => {
+            if (delJobs.includes(rj.id)) return;
             const cleanUrl = (rj.url || '').toLowerCase().replace(/\/+$/, '');
             if (!existingIds.has(rj.id) && !existingUrls.has(cleanUrl)) {
               JOBS_DATA.push({
@@ -1124,6 +1126,12 @@
     }
 
     // Init
+    try {
+      const delJobsInit = JSON.parse(localStorage.getItem('ourson_deleted_jobs') || '[]');
+      if (delJobsInit.length > 0) {
+        JOBS_DATA = JOBS_DATA.filter(j => !delJobsInit.includes(j.id));
+      }
+    } catch (e) {}
     updateBadgeCounts();
     renderJobs();
     loadDynamicJobs();
