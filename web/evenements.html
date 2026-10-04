@@ -586,9 +586,13 @@
 
       // Dynamic fetch from API first, with fallback to public_events.json
       try {
-        let res = await fetch('/api/admin?action=get_events&t=' + Date.now());
+        let res = await fetch('/api/events?t=' + Date.now());
         if (!res.ok) {
-          res = await fetch('/api/events?t=' + Date.now());
+          res = await fetch('/api/admin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'get_events' })
+          });
         }
         if (!res.ok) {
           res = await fetch('public_events.json?t=' + Date.now());

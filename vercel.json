@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     { "source": "/api/admin", "destination": "/api/admin.py" },
-    { "source": "/api/events", "destination": "/api/admin.py?action=get_events" },
-    { "source": "/api/jobs", "destination": "/api/admin.py?action=get_jobs" },
+    { "source": "/api/events", "destination": "/api/events.py" },
+    { "source": "/api/jobs", "destination": "/api/jobs.py" },
     { "source": "/api/register", "destination": "/api/register.py" }
   ]
 }

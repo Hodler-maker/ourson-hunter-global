@@ -69,12 +69,18 @@ def app(environ, start_response):
         except Exception:
             return json_response(start_response, "400 Bad Request", {"success": False, "error": "JSON invalide"})
 
-        # Vérification du mot de passe admin
+        action = data.get("action", "")
+
+        # Actions publiques autorisées en POST sans clé admin
+        if action == "get_events":
+            return json_response(start_response, "200 OK", get_all_active_events())
+        if action == "get_jobs":
+            return json_response(start_response, "200 OK", get_all_active_opportunities())
+
+        # Vérification du mot de passe admin pour toutes les autres actions
         key = data.get("admin_key", "")
         if key != ADMIN_PASSWORD:
             return json_response(start_response, "401 Unauthorized", {"success": False, "error": "Mot de passe administrateur incorrect"})
-
-        action = data.get("action", "")
 
         # 1. Vérification auth / Connexion
         if action == "login":

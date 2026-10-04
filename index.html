@@ -2036,9 +2036,13 @@
         }
 
         // 2. Fetch from API or static public_jobs.json
-        let res = await fetch('/api/admin?action=get_jobs&t=' + Date.now());
+        let res = await fetch('/api/jobs?t=' + Date.now());
         if (!res.ok) {
-          res = await fetch('/api/jobs?t=' + Date.now());
+          res = await fetch('/api/admin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'get_jobs' })
+          });
         }
         if (!res.ok) {
           res = await fetch('/public_jobs.json?t=' + Date.now());
