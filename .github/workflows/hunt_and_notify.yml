@@ -3,11 +3,11 @@ name: Ourson Hunter 8-Hour Autonomous Cycle
 on:
   schedule:
     # Tourne toutes les 8 heures (00:15, 08:15, 16:15 UTC)
-    # Décalé à la minute 15 pour éviter les encombrements majeurs de minute 00 sur GitHub Actions
+    # Décalé à la minute 15 pour garantir l'exécution sans file d'attente GitHub
     - cron: '15 0,8,16 * * *'
   workflow_dispatch: # Permet de déclencher manuellement le scan depuis GitHub
 
-# Permissions explicites pour autoriser github-actions[bot] à pousser les données
+# Permissions requises pour pousser les mises à jour
 permissions:
   contents: write
 
@@ -20,7 +20,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
 
       - name: 🐍 Configurer Python
         uses: actions/setup-python@v5
@@ -44,9 +43,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Ourson Hunter Bot"
-          git add data/public_jobs.json public/public_jobs.json data/ourson_global.db || true
-          if ! git diff --quiet || ! git diff --staged --quiet; then
+          git add -A data/ public/ web/
+          if ! git diff --staged --quiet; then
             git commit -m "Auto-update jobs & matching [skip ci]"
-            git pull --rebase origin main || true
             git push origin main
+          else
+            echo "Aucun changement détecté à pousser."
           fi
