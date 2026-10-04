@@ -84,19 +84,29 @@ def app(environ, start_response):
 
         # 2. Obtenir les statistiques & listes
         if action == "get_dashboard":
-            opps = get_all_active_opportunities()
-            events = get_all_active_events()
-            users = get_all_active_users()
-            return json_response(start_response, "200 OK", {
-                "success": True,
-                "stats": {
-                    "opportunities_count": len(opps),
-                    "events_count": len(events),
-                    "users_count": len(users)
-                },
-                "opportunities": opps,
-                "events": events
-            })
+            try:
+                opps = get_all_active_opportunities()
+                events = get_all_active_events()
+                users = get_all_active_users()
+                return json_response(start_response, "200 OK", {
+                    "success": True,
+                    "stats": {
+                        "opportunities_count": len(opps),
+                        "events_count": len(events),
+                        "users_count": len(users)
+                    },
+                    "opportunities": opps,
+                    "events": events
+                })
+            except Exception as dbe:
+                print(f"Erreur get_dashboard: {dbe}")
+                return json_response(start_response, "200 OK", {
+                    "success": True,
+                    "stats": {"opportunities_count": 0, "events_count": 0, "users_count": 0},
+                    "opportunities": [],
+                    "events": [],
+                    "warning": str(dbe)
+                })
 
         # 3. Ajouter une opportunité
         if action == "add_opportunity":

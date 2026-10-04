@@ -165,12 +165,28 @@ def delete_event(event_id):
         conn.close()
 
 def get_all_active_events():
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM events WHERE status = 'active' ORDER BY created_at DESC")
-    events = [dict(row) for row in cursor.fetchall()]
-    conn.close()
-    return events
+    ensure_tables()
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM events WHERE status = 'active' ORDER BY created_at DESC")
+        events = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        if events:
+            return events
+    except Exception as e:
+        print(f"Erreur SQL events: {e}")
+
+    # Fallback JSON
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for p in [PUBLIC_EVENTS_PATH, os.path.join(root_dir, "data", "public_events.json"), os.path.join(root_dir, "public", "public_events.json")]:
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+    return []
 
 def export_public_events_json():
     events = get_all_active_events()
@@ -189,21 +205,75 @@ def export_public_events_json():
         pass
     print(f"Export JSON événements public généré : {PUBLIC_EVENTS_PATH} ({len(events)} événements)")
 
-def get_all_active_users():
+def ensure_tables():
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE is_active = 1")
-    users = [dict(row) for row in cursor.fetchall()]
-    conn.close()
-    return users
+    try:
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='opportunities'")
+        if not cursor.fetchone():
+            init_db()
+            seed_default_events_if_empty()
+            
+            root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            for jpath in [
+                os.path.join(root_dir, "data", "public_jobs.json"),
+                os.path.join(root_dir, "public", "public_jobs.json")
+            ]:
+                if os.path.exists(jpath):
+                    try:
+                        with open(jpath, "r", encoding="utf-8") as f:
+                            jobs = json.load(f)
+                        c2 = conn.cursor()
+                        for j in jobs:
+                            c2.execute("""
+                            INSERT OR IGNORE INTO opportunities (id, title, company, category, type, salary, url, eligibility, score, notes)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                            """, (j.get("id"), j.get("title"), j.get("company"), j.get("category"), j.get("type"), j.get("salary"), j.get("url"), j.get("eligibility", "Global"), j.get("score", 85), j.get("desc", "")))
+                        conn.commit()
+                        break
+                    except Exception as e:
+                        print(f"Erreur import jobs: {e}")
+    except Exception as e:
+        print(f"Erreur ensure_tables: {e}")
+    finally:
+        conn.close()
+
+def get_all_active_users():
+    ensure_tables()
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE is_active = 1")
+        users = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        return users
+    except Exception as e:
+        print(f"Erreur SQL users: {e}")
+        return []
 
 def get_all_active_opportunities():
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM opportunities WHERE status = 'active' ORDER BY score DESC, created_at DESC")
-    opps = [dict(row) for row in cursor.fetchall()]
-    conn.close()
-    return opps
+    ensure_tables()
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM opportunities WHERE status = 'active' ORDER BY score DESC, created_at DESC")
+        opps = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        if opps:
+            return opps
+    except Exception as e:
+        print(f"Erreur SQL opportunities: {e}")
+
+    # Fallback fichiers JSON
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for p in [PUBLIC_JSON_PATH, os.path.join(root_dir, "data", "public_jobs.json"), os.path.join(root_dir, "public", "public_jobs.json")]:
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+    return []
 
 def export_public_json():
     opps = get_all_active_opportunities()
