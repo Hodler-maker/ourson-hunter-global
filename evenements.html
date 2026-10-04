@@ -1,137 +1,235 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Événements Web3 Afrique — ÀNFÀÀNÍ</title>
-  <meta name="description" content="ÀNFÀÀNÍ — Open the door to opportunity. Retrouve tous les événements, meetups et hackathons Web3 et tech en Afrique francophone.">
+  <title>Agenda Web3 & Tech Afrique — ÀNFÀÀNÍ</title>
+  <meta name="description" content="Découvrez tous les meetups, ateliers, hackathons et conférences Web3 et tech en Afrique francophone (Togo, Bénin, Côte d'Ivoire, Sénégal, Cameroun...).">
+  <meta name="theme-color" content="#07090e">
   <link rel="icon" href="assets/logo_transparent.png" type="image/png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  
   <style>
-    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-    .shimmer-text {
-      background: linear-gradient(90deg, #f59e0b 0%, #fef3c7 50%, #f59e0b 100%);
-      background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      animation: shimmer 3s linear infinite;
+    :root {
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
-    .glass { background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-    .glass-card { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .glass-card:hover { border-color: rgba(245, 158, 11, 0.35); transform: translateY(-3px); }
-    html { scroll-behavior: smooth; }
-    #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: linear-gradient(90deg, #d97706, #fbbf24); z-index: 300; }
-    :focus-visible { outline: 2px solid #f59e0b; outline-offset: 3px; }
+    body {
+      font-family: var(--font-sans);
+      background-color: #07090e;
+      color: #f1f5f9;
+    }
+    .font-mono { font-family: var(--font-mono); }
+    
+    .glass-nav {
+      background: rgba(7, 9, 14, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.75) 0%, rgba(11, 15, 25, 0.85) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(245, 158, 11, 0.12);
+    }
+    
+    .btn-gold {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
+      color: #090d16;
+      font-weight: 700;
+      box-shadow: 0 8px 20px -6px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: all 0.25s ease;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 60%, #f59e0b 100%);
+      box-shadow: 0 12px 28px -6px rgba(245, 158, 11, 0.6);
+      transform: translateY(-1px);
+    }
+    
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .orb-ambient {
+      position: absolute;
+      width: clamp(240px, 35vw, 500px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #a855f7);
+      z-index: 100;
+      width: 0%;
+      transition: width 0.1s;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
-  <div id="scroll-bar" aria-hidden="true"></div>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col relative selection:bg-amber-400 selection:text-slate-950">
+  <div id="progress-bar"></div>
 
-  <!-- NAVIGATION -->
-  <header class="sticky top-0 z-50 glass border-b border-slate-800/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-9 w-auto object-contain transition-transform group-hover:scale-105">
+  <!-- NAVBAR -->
+  <header class="glass-nav sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <span class="font-black text-lg sm:text-xl tracking-wider text-white">ÀNFÀÀNÍ</span>
-          <span class="text-[9px] text-amber-400 font-semibold uppercase tracking-widest -mt-1 hidden sm:block">Open the door to opportunity</span>
+          <div class="flex items-center gap-2">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-white font-sans">ÀNFÀÀNÍ</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 font-semibold">Événements</span>
+          </div>
+          <span class="text-[9px] text-amber-400/90 font-bold uppercase tracking-widest -mt-0.5 hidden sm:block">Open the door to opportunity</span>
         </div>
       </a>
-      <nav class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
-        <a href="index.html" class="text-slate-400 hover:text-white transition">Offres</a>
-        <a href="evenements.html" class="text-amber-400 font-semibold border-b-2 border-amber-400 pb-0.5">Événements</a>
-        <a href="contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
-        <a href="admin.html" class="px-3 py-1.5 rounded-full bg-slate-900 border border-slate-700 hover:border-amber-500/60 text-slate-300 hover:text-white transition text-xs flex items-center gap-1.5">
-          <span class="hidden sm:inline">Admin</span>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300">
+        <a href="index.html#offres" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Offres d'emploi
         </a>
+        <a href="evenements.html" class="text-amber-400 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Événements Web3
+        </a>
+        <a href="index.html#faq" class="hover:text-white transition">FAQ</a>
+        <a href="contact.html" class="hover:text-white transition">Contact</a>
       </nav>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openSubmitModal()" class="btn-gold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <span>Proposer un événement</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-14">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Agenda Web3 Afrique Francophone
+  <div class="relative overflow-hidden pt-10 sm:pt-16 pb-12 border-b border-slate-800/80">
+    <div class="orb-ambient bg-amber-500/10 top-0 left-1/4" aria-hidden="true"></div>
+    <div class="orb-ambient bg-purple-500/10 bottom-0 right-10" aria-hidden="true"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold tracking-wide uppercase mb-5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>AGENDA COMMUNAUTAIRE AFRIQUE FRANCOPHONE</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4 leading-tight">
-        Open the door to <span class="shimmer-text">opportunity.</span>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+        Les événements Tech & Web3<br>
+        <span class="text-gold-gradient">en direct du continent.</span>
       </h1>
-      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-        Meetups, hackathons, ateliers de code, conférences et lives communautaires au Togo, en Côte d'Ivoire, au Sénégal, au Bénin, au Cameroun et en ligne.
+
+      <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Meetups, hackathons, ateliers techniques et conférences au Togo, en Côte d'Ivoire, au Bénin, au Sénégal, au Cameroun et en ligne. Référencez vos initiatives pour fédérer la communauté.
       </p>
 
       <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <button onclick="openSubmitModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition flex items-center gap-2">
-          Proposer un événement
+        <button onclick="openSubmitModal()" class="btn-gold px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 cursor-pointer">
+          <span>Proposer un événement gratuitement</span>
         </button>
-        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 font-medium text-xs sm:text-sm transition">
-          Explorer les offres d'emploi
+        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm font-semibold transition">
+          Voir les offres d'emploi
         </a>
       </div>
     </div>
+  </div>
 
-    <!-- FILTRES -->
-    <div class="glass-card rounded-2xl p-4 sm:p-6 mb-8">
-      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-        <!-- Filtre par type -->
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Type :</span>
-          <button onclick="filterType('all', this)" class="type-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/20 border border-amber-500 text-white transition">Tous</button>
-          <button onclick="filterType('Meetup', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Meetups</button>
-          <button onclick="filterType('Workshop', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Workshops</button>
-          <button onclick="filterType('Conférence', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Conférences</button>
-          <button onclick="filterType('Atelier', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Ateliers</button>
-          <button onclick="filterType('Webinaire', this)" class="type-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">En Ligne</button>
-        </div>
+  <!-- FILTRES & LISTING -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 relative z-10 flex-1 w-full">
+    
+    <!-- BARRE DE FILTRES -->
+    <div class="glass-card rounded-2xl p-4 sm:p-5 mb-8 border border-slate-800 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono font-semibold text-slate-400 uppercase tracking-wider mr-1">Format :</span>
+        <button onclick="filterType('all', this)" class="type-btn active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-amber-500/20 border border-amber-500 text-white transition cursor-pointer">Tous</button>
+        <button onclick="filterType('Meetup', this)" class="type-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition cursor-pointer">Meetups</button>
+        <button onclick="filterType('Workshop', this)" class="type-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition cursor-pointer">Workshops</button>
+        <button onclick="filterType('Conférence', this)" class="type-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition cursor-pointer">Conférences</button>
+        <button onclick="filterType('Atelier', this)" class="type-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition cursor-pointer">Ateliers</button>
+        <button onclick="filterType('Webinaire', this)" class="type-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition cursor-pointer">En Ligne</button>
+      </div>
 
-        <!-- Filtre par pays -->
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pays :</span>
-          <select id="country-filter" onchange="filterCountry(this.value)" class="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-amber-500">
-            <option value="all">Tous les pays</option>
-            <option value="Togo">Togo</option>
-            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-            <option value="Bénin">Bénin</option>
-            <option value="Sénégal">Sénégal</option>
-            <option value="Cameroun">Cameroun</option>
-            <option value="En ligne">En ligne (Global)</option>
-          </select>
-        </div>
+      <div class="flex items-center gap-2.5">
+        <span class="text-xs font-mono font-semibold text-slate-400 uppercase tracking-wider">Pays :</span>
+        <select id="country-filter" onchange="filterCountry(this.value)" class="bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-300 focus:outline-none focus:border-amber-500 cursor-pointer">
+          <option value="all">Tous les pays</option>
+          <option value="Togo">Togo</option>
+          <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+          <option value="Bénin">Bénin</option>
+          <option value="Sénégal">Sénégal</option>
+          <option value="Cameroun">Cameroun</option>
+          <option value="En ligne">En ligne (Global)</option>
+        </select>
       </div>
     </div>
 
-    <!-- COMPTEUR & LISTE D'ÉVÉNEMENTS -->
+    <!-- EN-TÊTE DU LISTING -->
     <div class="flex items-center justify-between mb-6">
-      <h2 id="events-heading" class="text-lg font-bold text-slate-200">Événements à venir</h2>
-      <span id="events-count" class="text-xs px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-amber-400 font-semibold">Chargement...</span>
+      <h2 id="events-heading" class="text-xl font-bold text-white flex items-center gap-2">
+        <span>Événements à venir</span>
+      </h2>
+      <span id="events-count" class="text-xs font-mono px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-amber-400 font-semibold">
+        Chargement...
+      </span>
     </div>
 
+    <!-- GRILLE D'ÉVÉNEMENTS -->
     <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <!-- Les cartes seront injectées dynamiquement -->
+      <!-- Injecté par JavaScript -->
     </div>
   </main>
 
   <!-- MODAL PROPOSER UN ÉVÉNEMENT -->
-  <div id="submit-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+  <div id="submit-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-7 border border-amber-500/30 relative shadow-2xl">
       <button onclick="closeSubmitModal()" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
-      <h3 class="text-xl font-bold mb-2 text-white">Proposer un événement Web3</h3>
-      <p class="text-slate-400 text-xs mb-5">Tu organises un meetup ou un atelier crypto en Afrique francophone ? Partage-le pour être référencé gratuitement.</p>
-      
-      <form id="propose-form" onsubmit="handlePropose(event)" class="space-y-3.5">
+
+      <div class="mb-5">
+        <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-bold">Contribution Communautaire</span>
+        <h3 class="text-xl font-black text-white mt-0.5">Proposer un événement Web3</h3>
+        <p class="text-xs text-slate-400 mt-1">
+          Vous organisez un meetup, un hackathon ou un atelier en Afrique ? Publiez-le gratuitement sur l'agenda.
+        </p>
+      </div>
+
+      <form id="propose-form" onsubmit="handlePropose(event)" class="space-y-3.5 text-xs">
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Nom de l'événement *</label>
-          <input type="text" id="prop-title" required placeholder="Ex: Lomé Lightning Meetup" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          <label class="block text-slate-300 mb-1 font-semibold">Nom de l'événement *</label>
+          <input type="text" id="prop-title" required placeholder="Ex: Lomé Lightning & Bitcoin Meetup" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500">
         </div>
+
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Organisateur *</label>
-            <input type="text" id="prop-org" required placeholder="Ex: Togo Bitcoin Community" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+            <label class="block text-slate-300 mb-1 font-semibold">Organisateur *</label>
+            <input type="text" id="prop-org" required placeholder="Ex: Togo Bitcoin Community" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Pays *</label>
-            <select id="prop-country" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+            <label class="block text-slate-300 mb-1 font-semibold">Pays *</label>
+            <select id="prop-country" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-500">
               <option value="Togo">Togo</option>
               <option value="Côte d'Ivoire">Côte d'Ivoire</option>
               <option value="Bénin">Bénin</option>
@@ -141,25 +239,29 @@
             </select>
           </div>
         </div>
+
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Date & Heure *</label>
-            <input type="text" id="prop-date" required placeholder="Ex: 24 Octobre 2026 • 15h GMT" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+            <label class="block text-slate-300 mb-1 font-semibold">Date & Heure *</label>
+            <input type="text" id="prop-date" required placeholder="Ex: 24 Octobre 2026 • 15h GMT" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Lieu précis *</label>
-            <input type="text" id="prop-loc" required placeholder="Ex: Lomé / Sèmè City / Google Meet" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+            <label class="block text-slate-300 mb-1 font-semibold">Lieu / Plateforme *</label>
+            <input type="text" id="prop-loc" required placeholder="Ex: Lomé / Sèmè City / Google Meet" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500">
           </div>
         </div>
+
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Lien d'inscription ou d'infos (Luma, X, Telegram) *</label>
-          <input type="url" id="prop-url" required placeholder="https://..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500">
+          <label class="block text-slate-300 mb-1 font-semibold">Lien d'inscription ou d'infos (Luma, X, Telegram) *</label>
+          <input type="url" id="prop-url" required placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500">
         </div>
+
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Courte description *</label>
-          <textarea id="prop-desc" rows="3" required placeholder="Thèmes abordés, public ciblé, gratuit ou sur inscription..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"></textarea>
+          <label class="block text-slate-300 mb-1 font-semibold">Description courte *</label>
+          <textarea id="prop-desc" rows="3" required placeholder="Thèmes abordés, public cible, gratuit ou sur inscription..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500"></textarea>
         </div>
-        <button type="submit" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition">
+
+        <button type="submit" class="btn-gold w-full mt-2 py-3 rounded-xl font-bold text-xs shadow-lg transition cursor-pointer">
           Envoyer la proposition
         </button>
       </form>
@@ -167,24 +269,23 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-800/80 bg-slate-950/90 py-8 text-xs text-slate-500 mt-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5">
-        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-6 w-auto">
+  <footer class="border-t border-slate-900 bg-slate-950/90 py-10 text-xs text-slate-400 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-7 w-auto">
         <span class="text-white font-bold">ÀNFÀÀNÍ</span>
-        <span>· Open the door to opportunity</span>
+        <span class="text-slate-500 font-mono">· Open the door to opportunity</span>
       </div>
       <div class="flex items-center gap-6">
         <a href="index.html" class="hover:text-white transition">Offres</a>
-        <a href="evenements.html" class="text-amber-400 transition font-medium">Événements</a>
+        <a href="evenements.html" class="text-amber-400 font-semibold">Événements</a>
         <a href="contact.html" class="hover:text-white transition">Contact</a>
-        <a href="admin.html" class="hover:text-amber-400 transition">Espace Admin</a>
+        <a href="admin.html" class="hover:text-slate-200 transition font-mono">Console Admin</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Événements de secours si public_events.json tarde à charger
     const FALLBACK_EVENTS = [
       {
         id: "EVT-TG-01",
@@ -199,169 +300,131 @@
       },
       {
         id: "EVT-CI-01",
-        title: "Web3 Abidjan Builders & DeFi Day",
-        organizer: "Solana Africa & Abidjan Web3",
+        title: "Abidjan Web3 Builders Workshop",
+        organizer: "Web3 Côte d'Ivoire",
         date: "25 Octobre 2026 • 10h00 GMT",
-        location: "Espace Coworking Cocody, Abidjan",
+        location: "Orange Digital Center, Abidjan",
         country: "Côte d'Ivoire",
         type: "Workshop",
-        url: "https://earn.superteam.fun",
-        description: "Rencontre des développeurs et créateurs Web3 ivoiriens : sessions pratiques sur la DeFi, les bounties et les microgrants."
-      },
-      {
-        id: "EVT-SN-01",
-        title: "Dakar Bitcoin Days 2026",
-        organizer: "Dakar Bitcoin Community",
-        date: "07 Novembre 2026 • 09h00 GMT",
-        location: "Place du Souvenir Africain, Dakar",
-        country: "Sénégal",
-        type: "Conférence",
-        url: "https://dakarbitcoindays.com",
-        description: "Grande conférence annuelle sur l'adoption du Bitcoin, les transferts de fonds et la souveraineté financière en Afrique de l'Ouest."
+        url: "https://x.com",
+        description: "Initiation au développement de smart contracts Solidity et déploiement sur les Layer 2 Ethereum."
       },
       {
         id: "EVT-BJ-01",
-        title: "Atelier Mini-Apps Telegram & Web3",
-        organizer: "TON Society Benin",
-        date: "14 Novembre 2026 • 14h00 GMT",
-        location: "Sèmè City, Cotonou",
+        title: "Cotonou Crypto & Dev Community Day",
+        organizer: "Benin Tech Hub",
+        date: "31 Octobre 2026 • 14h00 GMT",
+        location: "Sèmè City Open Park, Cotonou",
         country: "Bénin",
-        type: "Atelier",
-        url: "https://society.ton.org",
-        description: "Formation intensive sur la création de Mini-Apps Telegram et le déploiement de smart contracts TON pour développeurs béninois."
+        type: "Conférence",
+        url: "https://x.com",
+        description: "Panel de discussion sur les stablecoins pour le commerce transfrontalier et opportunités remote."
       },
       {
-        id: "EVT-ON-01",
-        title: "Live Hebdomadaire d'Analyse Fondamentale & Opportunités",
-        organizer: "Tine Antonio Etche (Ourson Hunter)",
-        date: "Chaque Samedi à 19h00 GMT",
-        location: "En ligne (Google Meet & X Spaces)",
+        id: "EVT-SN-01",
+        title: "Dakar Solana Hacker Space",
+        organizer: "Superteam Senegal",
+        date: "05 Novembre 2026 • 16h00 GMT",
+        location: "Dakar Innovation Center / En ligne",
+        country: "Sénégal",
+        type: "Atelier",
+        url: "https://earn.superteam.fun",
+        description: "Session de prototypage et préparation aux micro-bourses Solana Superteam pour développeurs francophones."
+      },
+      {
+        id: "EVT-WEB-01",
+        title: "Masterclass IA & Remote Work pour l'Afrique",
+        organizer: "ÀNFÀÀNÍ x Tine Antonio Etche",
+        date: "Chaque samedi • 19h00 GMT",
+        location: "En direct (Google Meet / X Space)",
         country: "En ligne",
         type: "Webinaire",
-        url: "https://ourson-hunter-global-rqkh.vercel.app/",
-        description: "Décryptage des tendances du marché, revue des meilleures offres de bounties de la semaine et coaching candidature en direct."
-      },
-      {
-        id: "EVT-CM-01",
-        title: "Yaoundé Crypto & Freelance Meetup",
-        organizer: "Cameroon Web3 Hub",
-        date: "21 Novembre 2026 • 14h30 GMT",
-        location: "Douala / Yaoundé Innovation Hub",
-        country: "Cameroun",
-        type: "Meetup",
-        url: "https://t.me/oursonhunter",
-        description: "Session d'échange sur le freelancing international, les microgrants et comment se faire rémunérer en stablecoins sans compte bancaire classique."
+        url: "https://t.me/ourson_hunter_alerts_bot",
+        description: "Analyse fondamentale des opportunités crypto de la semaine, audit anti-scam et techniques de candidatures optimisées."
       }
     ];
 
-    let currentEvents = [...FALLBACK_EVENTS];
-    const filterState = { type: 'all', country: 'all' };
-
-    function esc(s) {
-      return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    }
-
-    async function loadEvents() {
-      try {
-        const res = await fetch('public_events.json?v=' + Date.now());
-        if (res.ok) {
-          const data = await res.json();
-          if (Array.isArray(data) && data.length > 0) {
-            currentEvents = data;
-          }
-        }
-      } catch (e) {
-        console.warn("Utilisation des événements fallback:", e);
-      }
-      try {
-        const delEvts = JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]');
-        currentEvents = currentEvents.filter(e => !delEvts.includes(e.id));
-      } catch (e) {}
-      renderEvents();
-    }
+    let allEvents = [];
+    let currentType = 'all';
+    let currentCountry = 'all';
 
     function renderEvents() {
       const container = document.getElementById('events-container');
-      const filtered = currentEvents.filter(evt => {
-        const matchType = (filterState.type === 'all' || evt.type === filterState.type);
-        const matchCountry = (filterState.country === 'all' || evt.country === filterState.country);
+      const countEl = document.getElementById('events-count');
+
+      const filtered = allEvents.filter(evt => {
+        const matchType = (currentType === 'all' || evt.type === currentType);
+        const matchCountry = (currentCountry === 'all' || evt.country === currentCountry);
         return matchType && matchCountry;
       });
 
-      document.getElementById('events-count').textContent = `${filtered.length} événement${filtered.length > 1 ? 's' : ''}`;
+      countEl.textContent = `${filtered.length} événement${filtered.length > 1 ? 's' : ''}`;
 
-      if (filtered.length === 0) {
+      if (!filtered.length) {
         container.innerHTML = `
-          <div class="col-span-full py-16 text-center text-slate-500">
-            
-            <p class="text-sm font-medium">Aucun événement ne correspond à ces critères.</p>
-            <button onclick="resetFilters()" class="mt-3 text-xs text-amber-400 hover:underline">Réinitialiser les filtres</button>
-          </div>
-        `;
+          <div class="col-span-full text-center py-16 glass-card rounded-3xl border border-slate-800">
+            <h4 class="text-base font-bold text-white mb-1">Aucun événement ne correspond à ce filtre</h4>
+            <p class="text-xs text-slate-400">Soyez le premier à proposer un événement dans cette catégorie !</p>
+            <button onclick="openSubmitModal()" class="btn-gold mt-4 px-4 py-2 rounded-xl text-xs font-bold">
+              Proposer un événement
+            </button>
+          </div>`;
         return;
       }
 
-      const flags = {
-        'Togo': '',
-        'Côte d\'Ivoire': '',
-        'Bénin': '',
-        'Sénégal': '',
-        'Cameroun': '',
-        'En ligne': ''
-      };
-
       container.innerHTML = filtered.map(evt => {
-        const flag = '';
-        const calTitle = encodeURIComponent(evt.title);
-        const calDetails = encodeURIComponent((evt.description || '') + '\n\nOrganisé par: ' + evt.organizer);
-        const calLocation = encodeURIComponent(evt.location || evt.country);
-        const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calTitle}&details=${calDetails}&location=${calLocation}`;
+        const typeBadgeColors = {
+          'Meetup': 'bg-amber-500/10 text-amber-300 border-amber-500/20',
+          'Workshop': 'bg-purple-500/10 text-purple-300 border-purple-500/20',
+          'Conférence': 'bg-blue-500/10 text-blue-300 border-blue-500/20',
+          'Atelier': 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20',
+          'Webinaire': 'bg-sky-500/10 text-sky-300 border-sky-500/20'
+        }[evt.type] || 'bg-slate-800 text-slate-300 border-slate-700';
 
         return `
-          <div class="glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                  ${esc(evt.type)}
-                </span>
-                <span class="text-xs font-semibold text-slate-300 bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800">
-                  ${flag} ${esc(evt.country)}
-                </span>
-              </div>
-
-              <h3 class="text-base font-bold text-white mb-1.5 leading-snug hover:text-amber-300 transition">
-                ${esc(evt.title)}
-              </h3>
-              
-              <p class="text-xs text-amber-400/90 font-medium mb-3 flex items-center gap-1.5">
-                ${esc(evt.organizer)}
-              </p>
-
-              <div class="space-y-1.5 text-xs text-slate-300 mb-4 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
-                <div class="flex items-center gap-2">
-                  
-                  <span class="font-medium">${esc(evt.date)}</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  
-                  <span class="text-slate-300 truncate">${esc(evt.location)}</span>
-                </div>
-              </div>
-
-              <p class="text-xs text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                ${esc(evt.description)}
-              </p>
+        <article class="glass-card rounded-3xl p-5 sm:p-6 border border-slate-800/80 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${typeBadgeColors}">
+                ${evt.type}
+              </span>
+              <span class="text-[11px] font-mono text-slate-400 flex items-center gap-1">
+                <svg class="w-3 h-3 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                ${evt.country}
+              </span>
             </div>
 
-            <div class="pt-3 border-t border-slate-800/80 flex items-center gap-2">
-              <a href="${esc(evt.url)}" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs text-center transition flex items-center justify-center gap-1.5">
-                <span>Participer</span> <span>↗</span>
-              </a>
-              <a href="${calUrl}" target="_blank" rel="noopener noreferrer" title="Ajouter à Google Calendar" class="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs transition">
-                              </a>
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
+              ${evt.title}
+            </h3>
+
+            <p class="text-xs text-slate-300 leading-relaxed line-clamp-3 mb-4">
+              ${evt.description}
+            </p>
+
+            <div class="space-y-1.5 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400 font-mono">
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="text-slate-300 font-semibold">${evt.date}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span class="truncate">${evt.location}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                <span class="truncate text-slate-300">Par ${evt.organizer}</span>
+              </div>
             </div>
           </div>
-        `;
+
+          <div class="mt-5 pt-3.5 border-t border-slate-800/80 flex items-center justify-end">
+            <a href="${evt.url}" target="_blank" rel="noopener noreferrer" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
+              <span>Participer</span>
+              <svg class="w-3.5 h-3.5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </article>`;
       }).join('');
     }
 
@@ -374,48 +437,68 @@
         btn.classList.remove('bg-slate-900', 'border-slate-800', 'text-slate-400');
         btn.classList.add('active', 'bg-amber-500/20', 'border-amber-500', 'text-white');
       }
-      filterState.type = type;
+      currentType = type;
       renderEvents();
     }
 
     function filterCountry(country) {
-      filterState.country = country;
+      currentCountry = country;
       renderEvents();
     }
 
-    function resetFilters() {
-      filterState.type = 'all';
-      filterState.country = 'all';
-      document.getElementById('country-filter').value = 'all';
-      filterType('all', document.querySelector('.type-btn'));
-    }
-
     function openSubmitModal() {
-      document.getElementById('submit-modal').classList.remove('hidden');
-      document.getElementById('submit-modal').classList.add('flex');
+      const modal = document.getElementById('submit-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
     }
 
     function closeSubmitModal() {
-      document.getElementById('submit-modal').classList.add('hidden');
-      document.getElementById('submit-modal').classList.remove('flex');
+      const modal = document.getElementById('submit-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
     }
 
     function handlePropose(e) {
       e.preventDefault();
-      const title = document.getElementById('prop-title').value;
-      const org = document.getElementById('prop-org').value;
-      alert(`Merci ! La proposition "${title}" par ${org} a été transmise à Tine pour validation.`);
+      const newEvt = {
+        id: 'USER-' + Date.now(),
+        title: document.getElementById('prop-title').value.trim(),
+        organizer: document.getElementById('prop-org').value.trim(),
+        country: document.getElementById('prop-country').value,
+        date: document.getElementById('prop-date').value.trim(),
+        location: document.getElementById('prop-loc').value.trim(),
+        url: document.getElementById('prop-url').value.trim(),
+        description: document.getElementById('prop-desc').value.trim(),
+        type: 'Meetup'
+      };
+
+      allEvents.unshift(newEvt);
+      renderEvents();
+      alert('Merci pour votre proposition ! Elle a été ajoutée à l\'agenda de cette session.');
       closeSubmitModal();
       e.target.reset();
     }
 
-    // Scroll progress bar
-    addEventListener('scroll', () => {
-      const bar = document.getElementById('scroll-bar');
-      bar.style.width = (scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) * 100) + '%';
-    }, { passive: true });
+    async function init() {
+      try {
+        const res = await fetch('/public_events.json?t=' + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            allEvents = data;
+          } else {
+            allEvents = FALLBACK_EVENTS;
+          }
+        } else {
+          allEvents = FALLBACK_EVENTS;
+        }
+      } catch (e) {
+        allEvents = FALLBACK_EVENTS;
+      }
+      renderEvents();
+    }
 
-    loadEvents();
+    init();
   </script>
 </body>
 </html>
