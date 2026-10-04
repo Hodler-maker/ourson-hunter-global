@@ -467,10 +467,11 @@
           const data = await res.json();
           if (data.success) {
             const customJobs = JSON.parse(localStorage.getItem('ourson_custom_jobs') || '[]');
-            const customEvts = JSON.parse(localStorage.getItem('ourson_custom_events') || '[]');
+            const customEvts = JSON.parse(localStorage.getItem('anfaani_events') || localStorage.getItem('ourson_custom_events') || '[]');
             const filtered = filterActiveItems([...customJobs, ...(data.opportunities || [])], [...customEvts, ...(data.events || [])]);
             adminJobs = filtered.jobs;
             adminEvents = filtered.events;
+            localStorage.setItem('anfaani_events', JSON.stringify(adminEvents));
             updateStats(adminJobs.length, adminEvents.length);
             renderJobsTable();
             renderEventsTable();
@@ -495,10 +496,11 @@
         if (rJobs.ok) j = await rJobs.json();
         if (rEvts.ok) e = await rEvts.json();
         const customJobs = JSON.parse(localStorage.getItem('ourson_custom_jobs') || '[]');
-        const customEvts = JSON.parse(localStorage.getItem('ourson_custom_events') || '[]');
+        const customEvts = JSON.parse(localStorage.getItem('anfaani_events') || localStorage.getItem('ourson_custom_events') || '[]');
         const filtered = filterActiveItems([...customJobs, ...j], [...customEvts, ...e]);
         adminJobs = filtered.jobs;
         adminEvents = filtered.events;
+        localStorage.setItem('anfaani_events', JSON.stringify(adminEvents));
       } catch (e) {
         console.error("Erreur chargement fallback:", e);
       }
@@ -783,8 +785,9 @@
           const newId = data.id || ('EVT-' + Date.now());
           const savedEvt = { ...evt, id: newId };
           try {
-            const customEvts = JSON.parse(localStorage.getItem('ourson_custom_events') || '[]');
+            const customEvts = JSON.parse(localStorage.getItem('anfaani_events') || localStorage.getItem('ourson_custom_events') || '[]');
             customEvts.unshift(savedEvt);
+            localStorage.setItem('anfaani_events', JSON.stringify(customEvts));
             localStorage.setItem('ourson_custom_events', JSON.stringify(customEvts));
           } catch (e) {}
           alert("Événement ajouté et publié avec succès !");
@@ -807,9 +810,8 @@
       renderEventsTable();
 
       try {
-        const customEvts = JSON.parse(localStorage.getItem('ourson_custom_events') || '[]');
-        const updated = customEvts.filter(e => e.id !== id);
-        localStorage.setItem('ourson_custom_events', JSON.stringify(updated));
+        localStorage.setItem('anfaani_events', JSON.stringify(adminEvents));
+        localStorage.setItem('ourson_custom_events', JSON.stringify(adminEvents));
       } catch (e) {}
 
       try {

@@ -245,11 +245,8 @@ def ensure_tables():
                     except Exception as e:
                         print(f"Erreur import jobs: {e}")
 
-        # Vérifier événements (totalite existante)
-        cursor.execute("SELECT count(*) FROM events")
-        evt_count = cursor.fetchone()[0]
-        if evt_count == 0:
-            seed_default_events_if_empty(conn)
+        # Événements : gérés uniquement par l'administrateur
+        pass
     except Exception as e:
         print(f"Erreur ensure_tables: {e}")
     finally:
@@ -312,26 +309,8 @@ def export_public_json():
     print(f"Export JSON opportunités synchronisé : {len(opps)} opportunité(s)")
 
 def seed_default_events_if_empty(existing_conn=None):
-    conn = existing_conn or get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT count(*) FROM events WHERE status = 'active'")
-    if cursor.fetchone()[0] == 0:
-        default_events = [
-            ("EVT-TG-01", "Lomé Bitcoin & Lightning Meetup", "Togo Bitcoin Community", "18 Octobre 2026 • 15h00 GMT", "Campus Numérique Francophone, Lomé", "Togo", "Meetup", "https://t.me/togobitcoin", "Atelier pratique sur les transactions Lightning Network, la self-custody et l'adoption marchande au Togo."),
-            ("EVT-CI-01", "Web3 Abidjan Builders & DeFi Day", "Solana Africa & Abidjan Web3", "25 Octobre 2026 • 10h00 GMT", "Espace Coworking Cocody, Abidjan", "Côte d'Ivoire", "Workshop", "https://earn.superteam.fun", "Rencontre des développeurs et créateurs Web3 ivoiriens : sessions pratiques sur la DeFi, les bounties et les microgrants."),
-            ("EVT-SN-01", "Dakar Bitcoin Days 2026", "Dakar Bitcoin Community", "07 Novembre 2026 • 09h00 GMT", "Place du Souvenir Africain, Dakar", "Sénégal", "Conférence", "https://dakarbitcoindays.com", "Grande conférence annuelle sur l'adoption du Bitcoin, les transferts de fonds et la souveraineté financière en Afrique de l'Ouest."),
-            ("EVT-BJ-01", "Atelier Mini-Apps Telegram & Web3", "TON Society Benin", "14 Novembre 2026 • 14h00 GMT", "Sèmè City, Cotonou", "Bénin", "Atelier", "https://society.ton.org", "Formation intensive sur la création de Mini-Apps Telegram et le déploiement de smart contracts TON pour développeurs béninois."),
-            ("EVT-ON-01", "Live Hebdomadaire d'Analyse Fondamentale & Opportunités", "Tine Antonio Etche (ÀNFÀÀNÍ)", "Chaque Samedi à 19h00 GMT", "En ligne (Google Meet & X Spaces)", "En ligne", "Webinaire", "https://anfaani.vercel.app/", "Décryptage des tendances du marché, revue des meilleures offres de bounties de la semaine et coaching candidature en direct."),
-            ("EVT-CM-01", "Yaoundé Crypto & Freelance Meetup", "Cameroon Web3 Hub", "21 Novembre 2026 • 14h30 GMT", "Douala / Yaoundé Innovation Hub", "Cameroun", "Meetup", "https://t.me/oursonhunter", "Session d'échange sur le freelancing international, les microgrants et comment se faire rémunérer en stablecoins sans compte bancaire classique.")
-        ]
-        for evt in default_events:
-            cursor.execute("""
-            INSERT OR IGNORE INTO events (id, title, organizer, date, location, country, type, url, description, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
-            """, evt)
-        conn.commit()
-    if not existing_conn:
-        conn.close()
+    # Les événements sont gérés exclusivement depuis la console admin
+    pass
 
 
 if __name__ == "__main__":
