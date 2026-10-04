@@ -273,63 +273,7 @@
   </footer>
 
   <script>
-    const FALLBACK_EVENTS = [
-      {
-        id: "EVT-TG-01",
-        title: "Lomé Bitcoin & Lightning Meetup",
-        organizer: "Togo Bitcoin Community",
-        date: "18 Octobre 2026 • 15h00 GMT",
-        location: "Campus Numérique Francophone, Lomé",
-        country: "Togo",
-        type: "Meetup",
-        url: "https://t.me/togobitcoin",
-        description: "Atelier pratique sur les transactions Lightning Network, la self-custody et l'adoption marchande au Togo."
-      },
-      {
-        id: "EVT-CI-01",
-        title: "Abidjan Web3 Builders Workshop",
-        organizer: "Web3 Côte d'Ivoire",
-        date: "25 Octobre 2026 • 10h00 GMT",
-        location: "Orange Digital Center, Abidjan",
-        country: "Côte d'Ivoire",
-        type: "Workshop",
-        url: "https://x.com",
-        description: "Initiation au développement de smart contracts Solidity et déploiement sur les Layer 2 Ethereum."
-      },
-      {
-        id: "EVT-BJ-01",
-        title: "Cotonou Crypto & Dev Community Day",
-        organizer: "Benin Tech Hub",
-        date: "31 Octobre 2026 • 14h00 GMT",
-        location: "Sèmè City Open Park, Cotonou",
-        country: "Bénin",
-        type: "Conférence",
-        url: "https://x.com",
-        description: "Panel de discussion sur les stablecoins pour le commerce transfrontalier et opportunités remote."
-      },
-      {
-        id: "EVT-SN-01",
-        title: "Dakar Solana Hacker Space",
-        organizer: "Superteam Senegal",
-        date: "05 Novembre 2026 • 16h00 GMT",
-        location: "Dakar Innovation Center / En ligne",
-        country: "Sénégal",
-        type: "Atelier",
-        url: "https://earn.superteam.fun",
-        description: "Session de prototypage et préparation aux micro-bourses Solana Superteam pour développeurs francophones."
-      },
-      {
-        id: "EVT-WEB-01",
-        title: "Masterclass IA & Remote Work pour l'Afrique",
-        organizer: "ÀNFÀÀNÍ x Tine Antonio Etche",
-        date: "Chaque samedi • 19h00 GMT",
-        location: "En direct (Google Meet / X Space)",
-        country: "En ligne",
-        type: "Webinaire",
-        url: "https://t.me/ourson_hunter_alerts_bot",
-        description: "Analyse fondamentale des opportunités crypto de la semaine, audit anti-scam et techniques de candidatures optimisées."
-      }
-    ];
+    const FALLBACK_EVENTS = [];
 
     let allEvents = [];
     let currentType = 'all';
@@ -470,19 +414,22 @@
       const delEvts = JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]');
 
       try {
-        const res = await fetch('/public_events.json?t=' + Date.now());
+        let res = await fetch('public_events.json?t=' + Date.now());
+        if (!res.ok) {
+          res = await fetch('/public_events.json?t=' + Date.now());
+        }
         if (res.ok) {
           const data = await res.json();
           if (Array.isArray(data)) {
             allEvents = data.filter(e => !delEvts.includes(e.id));
           } else {
-            allEvents = FALLBACK_EVENTS.filter(e => !delEvts.includes(e.id));
+            allEvents = [];
           }
         } else {
-          allEvents = FALLBACK_EVENTS.filter(e => !delEvts.includes(e.id));
+          allEvents = [];
         }
       } catch (e) {
-        allEvents = FALLBACK_EVENTS.filter(e => !delEvts.includes(e.id));
+        allEvents = [];
       }
       renderEvents();
     }
