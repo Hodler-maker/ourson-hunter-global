@@ -137,7 +137,6 @@ def delete_opportunity(opp_id):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("DELETE FROM opportunities WHERE id = ?", (opp_id,))
         cursor.execute("UPDATE opportunities SET status = 'deleted' WHERE id = ?", (opp_id,))
         conn.commit()
         return True
@@ -162,7 +161,6 @@ def delete_event(event_id):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("DELETE FROM events WHERE id = ?", (event_id,))
         cursor.execute("UPDATE events SET status = 'deleted' WHERE id = ?", (event_id,))
         conn.commit()
         return True
@@ -184,20 +182,22 @@ def get_all_active_events():
 
 def export_public_events_json():
     events = get_all_active_events()
-    os.makedirs(os.path.dirname(PUBLIC_EVENTS_PATH), exist_ok=True)
-    with open(PUBLIC_EVENTS_PATH, "w", encoding="utf-8") as f:
-        json.dump(events, f, indent=2, ensure_ascii=False)
-    
-    # Copie automatique dans public/public_events.json si possible
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    public_copy = os.path.join(root_dir, "public", "public_events.json")
-    try:
-        os.makedirs(os.path.dirname(public_copy), exist_ok=True)
-        with open(public_copy, "w", encoding="utf-8") as f:
-            json.dump(events, f, indent=2, ensure_ascii=False)
-    except Exception:
-        pass
-    print(f"Export JSON événements public généré : {PUBLIC_EVENTS_PATH} ({len(events)} événements)")
+    target_paths = [
+        PUBLIC_EVENTS_PATH,
+        os.path.join(root_dir, "data", "public_events.json"),
+        os.path.join(root_dir, "public", "public_events.json"),
+        os.path.join(root_dir, "web", "public_events.json"),
+        os.path.join(root_dir, "public_events.json")
+    ]
+    for p in set(target_paths):
+        try:
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            with open(p, "w", encoding="utf-8") as f:
+                json.dump(events, f, indent=2, ensure_ascii=False)
+        except Exception:
+            pass
+    print(f"Export JSON événements synchronisé : {len(events)} événement(s)")
 
 def ensure_tables():
     conn = get_connection()
@@ -210,8 +210,8 @@ def ensure_tables():
         if not cursor.fetchone():
             init_db()
 
-        # Vérifier opportunités
-        cursor.execute("SELECT count(*) FROM opportunities WHERE status = 'active'")
+        # Vérifier opportunités (totalite existante)
+        cursor.execute("SELECT count(*) FROM opportunities")
         opp_count = cursor.fetchone()[0]
         if opp_count == 0:
             root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -234,8 +234,8 @@ def ensure_tables():
                     except Exception as e:
                         print(f"Erreur import jobs: {e}")
 
-        # Vérifier événements
-        cursor.execute("SELECT count(*) FROM events WHERE status = 'active'")
+        # Vérifier événements (totalite existante)
+        cursor.execute("SELECT count(*) FROM events")
         evt_count = cursor.fetchone()[0]
         if evt_count == 0:
             seed_default_events_if_empty(conn)
@@ -283,10 +283,22 @@ def get_all_active_opportunities():
 
 def export_public_json():
     opps = get_all_active_opportunities()
-    os.makedirs(os.path.dirname(PUBLIC_JSON_PATH), exist_ok=True)
-    with open(PUBLIC_JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(opps, f, indent=2, ensure_ascii=False)
-    print(f"Export JSON public généré : {PUBLIC_JSON_PATH} ({len(opps)} opportunités)")
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    target_paths = [
+        PUBLIC_JSON_PATH,
+        os.path.join(root_dir, "data", "public_jobs.json"),
+        os.path.join(root_dir, "public", "public_jobs.json"),
+        os.path.join(root_dir, "web", "public_jobs.json"),
+        os.path.join(root_dir, "public_jobs.json")
+    ]
+    for p in set(target_paths):
+        try:
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            with open(p, "w", encoding="utf-8") as f:
+                json.dump(opps, f, indent=2, ensure_ascii=False)
+        except Exception:
+            pass
+    print(f"Export JSON opportunités synchronisé : {len(opps)} opportunité(s)")
 
 def seed_default_events_if_empty(existing_conn=None):
     conn = existing_conn or get_connection()
