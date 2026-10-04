@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ourson Hunter — Le Job Board IA Web3 & Remote</title>
+  <title>ÀNFÀÀNÍ — Open the door to opportunity | Tech, Web3 & Remote Jobs</title>
+  <meta name="description" content="ÀNFÀÀNÍ vous connecte aux meilleures opportunités dans la tech, le Web3 et le travail à distance, grâce à l'IA. Open the door to opportunity.">
+  <link rel="icon" href="assets/logo_transparent.png" type="image/png">
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     @keyframes earWiggle {
@@ -89,7 +91,6 @@
     #particles-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
     :focus-visible { outline: 2px solid #f59e0b; outline-offset: 3px; }
 
-
     /* FAQ (details natif) + marqueurs "à compléter" */
     .faq-item summary { list-style: none; cursor: pointer; }
     .faq-item summary::-webkit-details-marker { display: none; }
@@ -112,80 +113,130 @@
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
   <!-- NAVBAR -->
-  <header class="border-b border-slate-800 glass sticky top-0 z-40">
+  <header class="border-b border-slate-800/80 glass sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <!-- Petit Ourson Logo -->
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg border border-amber-400/40 bear-float">
-          <span class="text-sm font-black text-white tracking-tight">OH</span>
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105">
+        <div class="flex flex-col">
+          <span class="text-xl sm:text-2xl font-black tracking-wider text-white">ÀNFÀÀNÍ</span>
+          <span class="text-[9px] text-amber-400 font-semibold uppercase tracking-widest -mt-1 hidden sm:block">Open the door to opportunity</span>
         </div>
-        <div>
-          <span class="text-lg font-black tracking-wide shimmer-text">OURSON HUNTER</span>
-          <span class="hidden sm:inline-block ml-2 text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2 py-0.5 rounded-full border border-amber-500/30">Global Edition</span>
-        </div>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="#offres" class="text-xs font-semibold text-slate-300 hover:text-white transition">Offres Ouvertes</a>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <a href="#offres" class="text-xs font-semibold text-slate-300 hover:text-white transition">Offres</a>
         <a href="evenements.html" class="text-xs font-semibold text-amber-400 hover:text-amber-300 transition flex items-center gap-1"><span>📅</span> Événements</a>
-        <a href="#faq" class="hidden sm:inline text-xs font-semibold text-slate-300 hover:text-white transition">FAQ</a>
+        <a href="#faq" class="hidden md:inline text-xs font-semibold text-slate-300 hover:text-white transition">FAQ</a>
         <a href="contact.html" class="hidden sm:inline text-xs font-semibold text-slate-300 hover:text-white transition">Contact</a>
-        <a href="admin.html" class="hidden sm:inline text-xs px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">⚙️ Admin</a>
-        <button onclick="openModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white shadow-lg shadow-amber-600/25 transition">
-          Recevoir mes alertes
+        <a href="admin.html" class="text-xs px-3 py-1.5 rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:border-slate-500 transition">⚙️ Admin</a>
+        <button onclick="openModal()" class="px-4 py-2 rounded-full text-xs font-bold bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-lg shadow-amber-400/20 transition">
+          S'inscrire
         </button>
       </div>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <div class="hero-wrap overflow-hidden">
-  <div class="orb orb-1" aria-hidden="true"></div><div class="orb orb-2" aria-hidden="true"></div>
-  <section class="max-w-4xl mx-auto px-4 pt-12 pb-8 text-center">
-    <div style="transition-delay:.05s" class="reveal inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3.5 py-1.5 rounded-full text-xs text-amber-300 mb-4">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      Veille IA autonome · Scan chaque matin à 8h · Accès gratuit
-    </div>
-    <h1 style="transition-delay:.15s" class="reveal text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-      Offres Web3, bounties et missions remote <br class="hidden sm:inline"/>
-      <span class="shimmer-text">pour l'Afrique francophone</span>
-    </h1>
-    <p style="transition-delay:.25s" class="reveal mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-      Un agent IA analyse plusieurs sources chaque matin à 8 h et sélectionne des bourses, des missions d'ambassadeur et des emplois 100 % remote accessibles depuis l'Afrique francophone et le reste du monde.
-    </p>
-    <p style="transition-delay:.3s" class="reveal mt-2 text-xs text-slate-500">Pays couverts : Togo, Bénin, Côte d'Ivoire, Sénégal, Cameroun, RDC, Burkina Faso, Guinée et autres.</p>
+  <div class="hero-wrap overflow-hidden pt-6 pb-12">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <section class="max-w-6xl mx-auto px-4 pt-4 sm:pt-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Colonne Gauche : Slogan, Présentation, Recherche & Filtres -->
+        <div class="lg:col-span-7 text-left">
+          <div style="transition-delay:.05s" class="reveal inline-flex items-center gap-2 bg-emerald-950/50 border border-emerald-500/30 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs text-emerald-400 font-semibold tracking-wider uppercase mb-5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            AI · WEB3 · REMOTE JOBS
+          </div>
+          
+          <h1 style="transition-delay:.12s" class="reveal text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+            Open the door<br>
+            <span class="text-amber-400">to opportunity.</span>
+          </h1>
+          
+          <p style="transition-delay:.2s" class="reveal mt-4 text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+            <strong class="text-white font-semibold">ÀNFÀÀNÍ</strong> vous connecte aux meilleures opportunités dans la tech, le Web3 et le travail à distance, grâce à l'IA.
+          </p>
 
-    <div style="transition-delay:.35s" class="reveal mt-8 flex flex-wrap justify-center gap-3">
-      <button id="hero-cta" onclick="openModal()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-sm font-bold shadow-xl shadow-amber-600/30 transition flex items-center gap-2">
-        <span>Créer mon profil d'alerte</span>
-      </button>
-      <a href="#offres" class="px-6 py-3 rounded-2xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-bold border border-slate-700 transition">
-        Voir les 6 offres actives ↓
-      </a>
-    </div>
+          <!-- Barre de recherche mockup -->
+          <div style="transition-delay:.28s" class="reveal relative max-w-xl mt-6">
+            <div class="flex items-center bg-slate-900/90 border border-slate-700/80 rounded-full p-1.5 shadow-2xl backdrop-blur-xl focus-within:border-amber-400 transition-all">
+              <div class="pl-4 text-slate-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <input type="text" id="hero-search-input" oninput="handleHeroSearch(this.value)" placeholder="Quel emploi recherchez-vous ? (ex: développeur, design, remote...)" class="w-full bg-transparent px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none">
+              <button onclick="scrollToJobs()" class="w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold flex items-center justify-center transition shadow-lg shadow-amber-500/30 flex-shrink-0" title="Rechercher">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </button>
+            </div>
+            
+            <!-- Tags rapides du mockup -->
+            <div class="flex flex-wrap items-center gap-2 mt-3.5">
+              <button type="button" onclick="filterByQuickTag('Web3')" class="px-3.5 py-1 rounded-full text-xs font-semibold border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition">Web3</button>
+              <button type="button" onclick="filterByQuickTag('Dev')" class="px-3.5 py-1 rounded-full text-xs font-medium border border-slate-800 bg-slate-900/80 text-slate-300 hover:border-slate-700 hover:text-white transition">Développeur</button>
+              <button type="button" onclick="filterByQuickTag('Content')" class="px-3.5 py-1 rounded-full text-xs font-medium border border-slate-800 bg-slate-900/80 text-slate-300 hover:border-slate-700 hover:text-white transition">Design</button>
+              <button type="button" onclick="filterByQuickTag('Marketing')" class="px-3.5 py-1 rounded-full text-xs font-medium border border-slate-800 bg-slate-900/80 text-slate-300 hover:border-slate-700 hover:text-white transition">Marketing</button>
+              <button type="button" onclick="filterByQuickTag('Remote')" class="px-3.5 py-1 rounded-full text-xs font-medium border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 transition">Remote</button>
+            </div>
+          </div>
 
-    <!-- STATS BANNER -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-10">
-      <div style="transition-delay:.45s" class="reveal glass p-3 rounded-xl border border-slate-800">
-        <div class="text-lg font-black text-white">Chaque matin, 8h</div>
-        <div class="text-[11px] text-slate-400">Scan automatique</div>
-      </div>
-      <div style="transition-delay:.53s" class="reveal glass p-3 rounded-xl border border-slate-800">
-        <div class="text-lg font-black text-amber-400">100% Remote</div>
-        <div class="text-[11px] text-slate-400">Éligibilité mondiale</div>
-      </div>
-      <div style="transition-delay:.61s" class="reveal glass p-3 rounded-xl border border-slate-800">
-        <div class="text-lg font-black text-emerald-400">USDC / Crypto</div>
-        <div class="text-[11px] text-slate-400">Paiement sans friction</div>
-      </div>
-      <div style="transition-delay:.69s" onclick="openPitchModal()" class="reveal glass p-3 rounded-xl border border-slate-800 hover:border-purple-500/50 hover:bg-purple-950/20 cursor-pointer transition" title="Clique pour ouvrir le générateur de Pitch IA">
-        <div class="text-lg font-black text-purple-400 flex items-center justify-between">
-          <span>Pitch IA</span>
-          <span class="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded font-normal">Générer ⚡</span>
+          <!-- Puces de réassurance -->
+          <div style="transition-delay:.35s" class="reveal mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> +58 opportunités en direct</span>
+            <span class="text-slate-600">·</span>
+            <span class="flex items-center gap-1.5">⚡ Audit anti-scam IA</span>
+            <span class="text-slate-600">·</span>
+            <span class="flex items-center gap-1.5">🌍 Afrique francophone & Monde</span>
+          </div>
         </div>
-        <div class="text-[11px] text-slate-400">Cover Letter en 1 clic</div>
+
+        <!-- Colonne Droite : Visuel Héroïque & Badges -->
+        <div class="lg:col-span-5 mt-6 lg:mt-0">
+          <div style="transition-delay:.25s" class="reveal relative rounded-3xl overflow-hidden border border-slate-800/80 shadow-2xl bg-slate-900/40 backdrop-blur-md group">
+            <img src="assets/hero.jpg" alt="ÀNFÀÀNÍ — Open the door to opportunity" class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            
+            <!-- Badge flottant sur l'image -->
+            <div class="absolute bottom-4 left-4 right-4 glass p-3.5 rounded-2xl border border-slate-700/60 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
+                  ✨
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white">Carrières Tech & Web3</div>
+                  <div class="text-[11px] text-slate-400">100% Remote · Salaires en USDC</div>
+                </div>
+              </div>
+              <button onclick="openModal()" class="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition shadow-md shadow-amber-500/20">
+                Alerte IA
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <!-- STATS BANNER -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mt-12">
+        <div style="transition-delay:.45s" class="reveal glass p-3.5 rounded-xl border border-slate-800 text-center">
+          <div class="text-lg font-black text-white">Chaque matin, 8h</div>
+          <div class="text-[11px] text-slate-400">Scan automatique par IA</div>
+        </div>
+        <div style="transition-delay:.53s" class="reveal glass p-3.5 rounded-xl border border-slate-800 text-center">
+          <div class="text-lg font-black text-amber-400">100% Remote</div>
+          <div class="text-[11px] text-slate-400">Accessible depuis le Togo & Monde</div>
+        </div>
+        <div style="transition-delay:.61s" class="reveal glass p-3.5 rounded-xl border border-slate-800 text-center">
+          <div class="text-lg font-black text-emerald-400">USDC / Stablecoins</div>
+          <div class="text-[11px] text-slate-400">Paiement direct sans friction</div>
+        </div>
+        <div style="transition-delay:.69s" onclick="openPitchModal()" class="reveal glass p-3.5 rounded-xl border border-slate-800 hover:border-purple-500/50 hover:bg-purple-950/20 cursor-pointer transition text-center" title="Clique pour ouvrir le générateur de Pitch IA">
+          <div class="text-lg font-black text-purple-400 flex items-center justify-center gap-1.5">
+            <span>Pitch IA</span>
+            <span class="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded font-normal">Générer ⚡</span>
+          </div>
+          <div class="text-[11px] text-slate-400">Cover Letter en 1 clic</div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <!-- MARQUEE -->
@@ -518,16 +569,20 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-800 mt-12 relative z-[2]">
+  <footer class="border-t border-slate-800/80 mt-16 relative z-[2] bg-slate-950/80">
     <div class="max-w-5xl mx-auto px-4 py-10">
       <div class="rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 text-xs text-slate-300 mb-8" role="note">
         <strong class="text-amber-300">Anti-arnaque : ne payez jamais pour postuler.</strong>
-        Un recruteur ou un programme sérieux ne demande ni frais de dossier, ni dépôt d'argent, ni clé privée ou phrase de récupération de portefeuille. Vérifie toujours l'annonce sur le site officiel de l'entreprise.
+        Un recruteur sérieux ne demande ni frais de dossier, ni caution d'inscription, ni clé privée ou signature de portefeuille. Vérifiez toujours l'annonce sur le site officiel de l'organisation.
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs">
         <div class="sm:col-span-1">
-          <div class="font-black text-white tracking-wide mb-2">OURSON HUNTER</div>
-          <p class="text-slate-400 leading-relaxed">Projet initié par Tine Antonio Etche, consultant blockchain et éducateur Web3 basé à Lomé (Togo), pour aider les talents d'Afrique francophone à trouver des opportunités Web3 et remote.</p>
+          <div class="flex items-center gap-2.5 mb-2">
+            <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-8 w-auto">
+            <span class="font-black text-white text-base tracking-wider">ÀNFÀÀNÍ</span>
+          </div>
+          <p class="text-amber-400 font-semibold mb-2 text-xs">Open the door to opportunity.</p>
+          <p class="text-slate-400 leading-relaxed">Plateforme propulsée par l'IA conçue par Tine Antonio Etche (Lomé, Togo) pour connecter les talents d'Afrique francophone et du monde aux meilleures opportunités technologiques, Web3 et remote.</p>
         </div>
         <div>
           <div class="font-bold text-slate-300 mb-2">Navigation</div>
@@ -549,7 +604,7 @@
           </ul>
         </div>
       </div>
-      <p class="mt-8 pt-6 border-t border-slate-800/80 text-[11px] text-slate-500">Ourson Hunter · Scan automatique chaque matin à 8 h · Information uniquement : ni conseil financier, ni offre d'emploi directe.</p>
+      <p class="mt-8 pt-6 border-t border-slate-800/80 text-[11px] text-slate-500">ÀNFÀÀNÍ · Open the door to opportunity · Information uniquement : ni conseil financier, ni offre d'emploi directe.</p>
     </div>
   </footer>
 
@@ -1027,13 +1082,45 @@
       }
     }
 
+    // Fonctions de recherche & filtres du Hero Mockup
+    function handleHeroSearch(query) {
+      const input = document.getElementById('job-search');
+      if (input) {
+        input.value = query;
+        state.q = query;
+        renderJobs(false);
+      }
+    }
+
+    function scrollToJobs() {
+      const target = document.getElementById('offres');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function filterByQuickTag(tag) {
+      if (tag === 'Dev' || tag === 'Community' || tag === 'Content') {
+        const btn = document.querySelector(`[onclick*="filterCategory('${tag}'"]`);
+        if (btn) filterCategory(tag, btn);
+      } else {
+        const allBtn = document.querySelector('.profile-btn');
+        if (allBtn) filterCategory('all', allBtn);
+        const heroInput = document.getElementById('hero-search-input');
+        if (heroInput) heroInput.value = tag;
+        handleHeroSearch(tag);
+      }
+      scrollToJobs();
+    }
+
     // ══ EFFETS ══
     const $ = id => document.getElementById(id);
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Marquee (mots dupliqués => boucle sans couture)
-    const MARQUEE_WORDS = ['Web3', 'Bounties', '100% Remote', 'USDC', 'Grants', 'Ambassadeur', 'Community', 'Freelance', 'Afrique francophone', 'Pitch IA'];
-    $('marquee').innerHTML = [...MARQUEE_WORDS, ...MARQUEE_WORDS].map(w => `<span class="word">${esc(w)}</span>`).join('');
+    const MARQUEE_WORDS = ['ÀNFÀÀNÍ', 'Open the door to opportunity', 'Tech & Web3', 'Remote Jobs', 'Bounties', 'USDC', 'Grants', 'Community', 'Afrique Francophone & Monde', 'Intelligence Artificielle'];
+    const marqueeEl = $('marquee');
+    if (marqueeEl) {
+      marqueeEl.innerHTML = [...MARQUEE_WORDS, ...MARQUEE_WORDS].map(w => `<span class="word">${esc(w)}</span>`).join('');
+    }
 
     // Reveal au scroll (une seule fois par élément)
     const revealIO = new IntersectionObserver(es => es.forEach(e => {

@@ -208,7 +208,7 @@ def app(environ, start_response):
     if method == "GET":
         return json_response(start_response, "200 OK", {
             "status": "online",
-            "service": "Ourson Hunter Admin API",
+            "service": "ÀNFÀÀNÍ Admin API",
             "version": "2.0"
         })
 

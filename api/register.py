@@ -39,7 +39,7 @@ def serve_file(filename, start_response):
             except Exception:
                 pass
 
-    msg = f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>Ourson Hunter</title></head><body style='font-family:sans-serif;background:#0b1120;color:#fff;text-align:center;padding:50px;'><h1>Ourson Hunter Global</h1><p>Page {filename} en ligne.</p></body></html>".encode("utf-8")
+    msg = f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>ÀNFÀÀNÍ</title></head><body style='font-family:sans-serif;background:#0b1120;color:#fff;text-align:center;padding:50px;'><h1>ÀNFÀÀNÍ — Open the door to opportunity</h1><p>Page {filename} en ligne.</p></body></html>".encode("utf-8")
     headers = [("Content-Type", "text/html; charset=utf-8"), ("Content-Length", str(len(msg)))]
     start_response("200 OK", headers)
     return [msg]

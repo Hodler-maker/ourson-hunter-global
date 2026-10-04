@@ -30,7 +30,7 @@ SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
-SMTP_FROM_NAME = os.getenv("SMTP_FROM_NAME", "Ourson Hunter 🐻")
+SMTP_FROM_NAME = os.getenv("SMTP_FROM_NAME", "ÀNFÀÀNÍ")
 RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 
@@ -38,7 +38,7 @@ def format_telegram_digest(user_name, matches):
     """
     Formate un message Telegram clair et direct avec les meilleures opportunités.
     """
-    msg = f"🐻 *OURSON HUNTER — Nouvelles Offres pour toi*\n"
+    msg = f"✨ *ÀNFÀÀNÍ — Nouvelles Offres pour toi*\n"
     msg += f"Bonjour *{user_name}*, voici les meilleures opportunités détectées ce matin correspondant à ton profil :\n\n"
 
     for idx, item in enumerate(matches[:3], 1):
@@ -49,7 +49,7 @@ def format_telegram_digest(user_name, matches):
         msg += f"📍 Éligibilité : {opp['eligibility']} | Type : {opp['type']}\n"
         msg += f"🔗 [Voir l'offre officielle]({opp['url']})\n\n"
 
-    msg += "⚡ _Génère ta lettre de motivation sur notre plateforme._"
+    msg += "⚡ _ÀNFÀÀNÍ · Open the door to opportunity._"
     return msg
 
 def format_email_html(user_name, matches):
@@ -83,7 +83,7 @@ def format_email_html(user_name, matches):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ourson Hunter Alert</title>
+<title>ÀNFÀÀNÍ — Open the door to opportunity</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f8fafc;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0b0f19; padding: 20px 10px;">
@@ -93,9 +93,9 @@ def format_email_html(user_name, matches):
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom: 20px; border-bottom: 1px solid #1e293b;">
-              <div style="font-size: 38px; line-height: 1; margin-bottom: 6px;">🐻</div>
-              <h1 style="color: #fbbf24; margin: 0; font-size: 22px; font-weight: 900; letter-spacing: 0.5px;">OURSON HUNTER GLOBAL</h1>
-              <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 12px;">Veille IA Web3 & Remote · Afrique Francophone & Monde</p>
+              <h1 style="color: #fbbf24; margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1px;">ÀNFÀÀNÍ</h1>
+              <p style="color: #f59e0b; margin: 2px 0 0 0; font-size: 13px; font-weight: 600;">Open the door to opportunity.</p>
+              <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 12px;">Tech, Web3 & Remote Jobs · Afrique Francophone & Monde</p>
             </td>
           </tr>
           <!-- Salutation -->
@@ -115,14 +115,14 @@ def format_email_html(user_name, matches):
           <tr>
             <td style="background-color: rgba(217, 119, 6, 0.1); border: 1px dashed rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 14px; text-align: center; margin-top: 10px;">
               <p style="color: #fde68a; font-size: 12px; margin: 0; font-weight: 600;">⚡ Besoin d'un message d'accroche ou d'une Cover Letter ?</p>
-              <p style="color: #94a3b8; font-size: 11px; margin: 4px 0 0 0;">Utilise le générateur IA sur la plateforme pour postuler en 2 minutes.</p>
+              <p style="color: #94a3b8; font-size: 11px; margin: 4px 0 0 0;">Utilise le générateur IA sur la plateforme ÀNFÀÀNÍ pour postuler en 2 minutes.</p>
             </td>
           </tr>
           <!-- Footer -->
           <tr>
             <td align="center" style="padding-top: 24px; border-top: 1px solid #1e293b; margin-top: 20px;">
-              <p style="color: #64748b; font-size: 11px; margin: 0;">Ourson Hunter Global · Initié par Tine Antonio Etche (Lomé, Togo)</p>
-              <p style="color: #475569; font-size: 10px; margin: 4px 0 0 0;">Tu reçois cet e-mail car tu t'es inscrit sur Ourson Hunter.</p>
+              <p style="color: #64748b; font-size: 11px; margin: 0;">ÀNFÀÀNÍ · Open the door to opportunity · Initié par Tine Antonio Etche (Lomé, Togo)</p>
+              <p style="color: #475569; font-size: 10px; margin: 4px 0 0 0;">Tu reçois cet e-mail car tu t'es inscrit sur ÀNFÀÀNÍ.</p>
             </td>
           </tr>
         </table>
@@ -288,20 +288,21 @@ def send_welcome_telegram(telegram_input, user_name, category="Community", count
         return False, "Chat ID Telegram introuvable."
         
     msg = (
-        f"🐻 *BIENVENUE SUR OURSON HUNTER GLOBAL !*\n\n"
+        f"✨ *BIENVENUE SUR ÀNFÀÀNÍ !*\n"
+        f"_Open the door to opportunity._\n\n"
         f"Félicitations *{user_name}* ! 🎉\n\n"
-        f"Ton profil est activé avec succès :\n"
+        f"Ton profil d'alerte est activé avec succès :\n"
         f"📍 *Pays :* {country}\n"
         f"💼 *Spécialité :* {category}\n"
-        f"⏰ *Fréquence :* Alertes automatiques toutes les 8h\n\n"
-        f"🔥 *TOP 3 Opportunités prêtes pour toi :*\n\n"
+        f"⏰ *Fréquence :* Scan et alertes automatiques chaque matin\n\n"
+        f"🔥 *TOP Opportunités prêtes pour toi :*\n\n"
         f"1. *Community Lead — Kraken Pro* (Kraken)\n"
         f"💰 83k - 166k $/an | CDI Remote | Score: 92%\n\n"
         f"2. *BD & Community Ambassador* (CertiK)\n"
         f"💰 1 000 $/mois (~5h/sem) | Ambassadeur | Score: 88%\n\n"
         f"3. *Arc Microgrants Proof-of-Learning* (Circle / Arc)\n"
         f"💰 500 USDC | Bourse MVP | Score: 87%\n\n"
-        f"⚡ _Génère ta lettre de motivation sur notre plateforme :_\n"
+        f"⚡ _Découvre toutes les opportunités sur la plateforme :_\n"
         f"https://ourson-hunter-global-rqkh.vercel.app/"
     )
     return send_telegram_alert(chat_id, msg)
@@ -351,7 +352,7 @@ def format_welcome_email(user_name, category, country):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bienvenue sur Ourson Hunter</title>
+<title>Bienvenue sur ÀNFÀÀNÍ</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f8fafc;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0b0f19; padding: 20px 10px;">
@@ -361,9 +362,9 @@ def format_welcome_email(user_name, category, country):
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom: 20px; border-bottom: 1px solid #1e293b;">
-              <div style="font-size: 42px; line-height: 1; margin-bottom: 6px;">🐻</div>
-              <h1 style="color: #fbbf24; margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 0.5px;">BIENVENUE SUR OURSON HUNTER !</h1>
-              <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 13px;">Le Job Board IA des talents Web3 & Remote d'Afrique francophone</p>
+              <h1 style="color: #fbbf24; margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 1px;">ÀNFÀÀNÍ</h1>
+              <p style="color: #f59e0b; margin: 2px 0 0 0; font-size: 13px; font-weight: 600;">Open the door to opportunity.</p>
+              <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 13px;">Le Radar IA des talents Tech, Web3 & Remote</p>
             </td>
           </tr>
           <!-- Corps -->
@@ -371,7 +372,7 @@ def format_welcome_email(user_name, category, country):
             <td style="padding: 24px 0 16px 0;">
               <h2 style="color: #ffffff; font-size: 18px; margin: 0 0 10px 0;">Félicitations {user_name} ! 🎉</h2>
               <p style="color: #cbd5e1; font-size: 14px; margin: 0 0 14px 0; line-height: 1.6;">
-                Ton profil est désormais enregistré avec succès dans notre base de données. Notre agent IA analyse le web chaque jour pour dénicher les opportunités les plus rémunératrices et accessibles depuis <strong>{country}</strong>.
+                Ton profil est désormais enregistré avec succès sur <strong>ÀNFÀÀNÍ</strong>. Notre agent IA analyse le web chaque jour pour dénicher les opportunités les plus rémunératrices et accessibles depuis <strong>{country}</strong>.
               </p>
               
               <!-- Profil récapitulatif -->
@@ -387,7 +388,7 @@ def format_welcome_email(user_name, category, country):
               <h3 style="color: #fbbf24; font-size: 15px; margin: 20px 0 8px 0;">Ce qui va se passer ensuite :</h3>
               <p style="color: #cbd5e1; font-size: 13px; margin: 0 0 6px 0; line-height: 1.6;">
                 1. <strong>Veille active 24/7 :</strong> Notre agent scrute les bourses (grants), bounties en USDC et contrats 100% remote.<br>
-                2. <strong>Matching IA sur mesure :</strong> Dès qu'une opportunité correspond à tes compétences, tu reçois un e-mail direct avec le lien pour postuler.<br>
+                2. <strong>Matching IA sur mesure :</strong> Dès qu'une opportunité correspond à tes compétences, tu reçois une alerte directe avec le lien pour postuler.<br>
                 3. <strong>Générateur de Pitch :</strong> Utilise notre plateforme pour générer une lettre de motivation et un message d'accroche personnalisé en 2 clics.
               </p>
             </td>
@@ -396,7 +397,7 @@ def format_welcome_email(user_name, category, country):
           <!-- Footer -->
           <tr>
             <td align="center" style="padding-top: 24px; border-top: 1px solid #1e293b; margin-top: 20px;">
-              <p style="color: #64748b; font-size: 11px; margin: 0;">Ourson Hunter Global · Conçu par Tine Antonio Etche (Lomé, Togo)</p>
+              <p style="color: #64748b; font-size: 11px; margin: 0;">ÀNFÀÀNÍ · Open the door to opportunity · Fondé par Tine Antonio Etche (Lomé, Togo)</p>
               <p style="color: #475569; font-size: 10px; margin: 4px 0 0 0;">Des questions ? Réponds directement à cet e-mail officiel.</p>
             </td>
           </tr>
@@ -413,9 +414,9 @@ def send_welcome_email(recipient_email, user_name, category="Community", country
     """
     Envoie un e-mail de bienvenue officiel dès qu'un utilisateur s'enregistre.
     """
-    subject = f"🐻 Bienvenue sur Ourson Hunter, {user_name} ! Ton profil est activé"
+    subject = f"✨ Bienvenue sur ÀNFÀÀNÍ, {user_name} ! Ton profil est activé"
     html_content = format_welcome_email(user_name, category, country)
-    text_content = f"Bienvenue sur Ourson Hunter, {user_name} !\nTon profil ({category} - {country}) est activé. Tu recevras tes premières alertes d'offres chaque matin à 08h00."
+    text_content = f"Bienvenue sur ÀNFÀÀNÍ, {user_name} !\nTon profil ({category} - {country}) est activé. Tu recevras tes premières alertes d'offres chaque matin à 08h00."
     return send_email(recipient_email, subject, html_content, text_content)
 
 if __name__ == "__main__":
