@@ -9,7 +9,35 @@ Utilise SQLite (sans configuration, portable, réplicable sur Supabase).
 import sqlite3
 import os
 import json
+import urllib.request
 from datetime import datetime
+
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "")
+
+def supabase_request(endpoint, method="GET", data=None):
+    if not SUPABASE_URL or not SUPABASE_KEY:
+        return None
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint.lstrip('/')}"
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json"
+    }
+    if method == "POST":
+        headers["Prefer"] = "resolution=merge-duplicates,return=representation"
+    
+    body = json.dumps(data).encode("utf-8") if data is not None else None
+    req = urllib.request.Request(url, data=body, headers=headers, method=method)
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            content = resp.read().decode("utf-8")
+            if content:
+                return json.loads(content)
+            return True
+    except Exception as e:
+        print(f"[SUPABASE WARN] {method} {endpoint} : {e}")
+        return None
 
 if os.environ.get("VERCEL"):
     DB_PATH = "/tmp/ourson_global.db"
@@ -108,6 +136,8 @@ def init_db():
     print("Base de données SQLite initialisée avec succès.")
 
 def add_user(name, email, telegram, country, category, experience_years=2, english_level="Bon", skills=""):
+    user_id = None
+    # 1. Sauvegarde SQLite locale / fallback
     conn = get_connection()
     cursor = conn.cursor()
     try:
@@ -117,9 +147,32 @@ def add_user(name, email, telegram, country, category, experience_years=2, engli
         """, (name, email, telegram, country, category, experience_years, english_level, skills))
         conn.commit()
         user_id = cursor.lastrowid
-        return user_id
     finally:
         conn.close()
+
+    # 2. Synchronisation automatique Supabase (Cloud persistant)
+    if SUPABASE_URL and SUPABASE_KEY:
+        try:
+            payload = {
+                "name": name,
+                "email": email,
+                "telegram": telegram,
+                "country": country,
+                "category": category,
+                "experience_years": experience_years,
+                "english_level": english_level,
+                "skills": skills,
+                "notify_telegram": True,
+                "notify_email": True,
+                "is_active": True
+            }
+            res = supabase_request("users", method="POST", data=payload)
+            if res:
+                print(f"[SUPABASE OK] Utilisateur synchronisé dans le cloud : {email}")
+        except Exception as se:
+            print(f"[SUPABASE WARN] Impossible de synchroniser l'utilisateur : {se}")
+
+    return user_id
 
 def add_opportunity(opp_id, title, company, category, opp_type, salary, url, eligibility, score, notes=""):
     conn = get_connection()
@@ -253,6 +306,16 @@ def ensure_tables():
         conn.close()
 
 def get_all_active_users():
+    # 1. Priorité Supabase Cloud (Données persistantes mondiales)
+    if SUPABASE_URL and SUPABASE_KEY:
+        try:
+            remote_users = supabase_request("users?is_active=eq.true&select=*")
+            if remote_users is not None and isinstance(remote_users, list):
+                return remote_users
+        except Exception as se:
+            print(f"[SUPABASE WARN] Récupération utilisateurs échouée, bascule SQLite : {se}")
+
+    # 2. Fallback SQLite local
     ensure_tables()
     try:
         conn = get_connection()
