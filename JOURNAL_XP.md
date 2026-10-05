@@ -29,6 +29,7 @@ Niveau : Recrue | XP confirmé : 10 | XP en attente : 10
 3. **Idea Track vs Tech Track :** Le hackathon SMU Web3 for Social Good propose une piste "Idée" pure sans code préalable avec mentorat "Vibe Coding" pour les finalistes, ce qui permet de valoriser immédiatement un concept sans passer des semaines à coder.
 4. **Purge automatique & Rejet strict des pages d'accueil génériques :** Règle #1 d'AGENTS.md appliquée dans le cleaner. Une opportunité qui redirige vers une racine de domaine (`ton.org`, `arbitrum.foundation`) sans formulaire de candidature ni lien direct vers l'offre est désormais systématiquement rejetée et purgée de la base de données.
 5. **Automatisation des offres d'emploi :** Centralisation et déduplication quotidienne dans `RAPPORTS/OFFRES_EMPLOI.xlsx` pour tracker systématiquement les postes ouverts (Community Management, Ambassadeur, Growth, Consulting) accessibles à distance depuis Lomé.
+6. **Persistance des abonnés & Envoi d'alertes par scan :** L'intégration de Supabase PostgreSQL a permis de résoudre le problème des environnements sans état (GitHub Actions et Vercel). Les abonnés sont désormais conservés dans le cloud et interrogés lors de chaque scan automatique de 8h, permettant la distribution effective des e-mails d'opportunités ciblées.
 
 ## Hypothèses à tester
 - **Hypothèse 1 :** Déployer un contrat minimal d'attestation ou de score pour le jeu éducatif Bitcoin sur Arc mainnet permet de sécuriser un grant de 500 USDC en moins de 10 jours.
