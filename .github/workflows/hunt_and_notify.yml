@@ -1,11 +1,7 @@
 name: ANFAANI 8-Hour Autonomous Cycle
 
 on:
-  schedule:
-    # Tourne toutes les 8 heures (00:15, 08:15, 16:15 UTC)
-    # Decale a la minute 15 pour garantir l'execution sans file d'attente GitHub
-    - cron: '15 0,8,16 * * *'
-  workflow_dispatch: # Permet de declencher manuellement le scan depuis GitHub
+  workflow_dispatch: # Déclenché de façon fiable et ponctuelle par cron-job.org à la seconde près
 
 # Permissions requises pour pousser les mises a jour
 permissions:
