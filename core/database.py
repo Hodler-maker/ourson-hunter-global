@@ -234,6 +234,26 @@ def get_all_active_events():
         print(f"Erreur SQL events: {e}")
         return []
 
+def get_event_by_id(event_id):
+    ensure_tables()
+    if not event_id:
+        return None
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM events WHERE id = ? AND status = 'active'", (event_id,))
+        row = cursor.fetchone()
+        conn.close()
+        if row:
+            return dict(row)
+    except Exception as e:
+        print(f"Erreur SQL get_event_by_id: {e}")
+
+    for e in get_all_active_events():
+        if e.get("id") == event_id:
+            return e
+    return None
+
 def export_public_events_json():
     events = get_all_active_events()
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -13,7 +13,8 @@ import sys
 # Ajout du dossier core
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "core"))
 
-from database import get_all_active_events
+from urllib.parse import parse_qs
+from database import get_all_active_events, get_event_by_id
 from security import get_cors_origin
 
 def app(environ, start_response):
@@ -37,12 +38,27 @@ def app(environ, start_response):
         start_response("200 OK", headers)
         return [b""]
 
-    try:
-        events = get_all_active_events()
-    except Exception:
-        events = []
+    # Traitement des parametres de requete (?id=...)
+    query_string = environ.get("QUERY_STRING", "")
+    params = parse_qs(query_string)
+    event_id = params.get("id", [None])[0]
 
-    payload = json.dumps(events, ensure_ascii=False).encode("utf-8")
+    if event_id:
+        evt = get_event_by_id(event_id)
+        if evt:
+            payload = json.dumps({"success": True, "event": evt}, ensure_ascii=False).encode("utf-8")
+            status = "200 OK"
+        else:
+            payload = json.dumps({"success": False, "error": "Evenement introuvable"}, ensure_ascii=False).encode("utf-8")
+            status = "404 Not Found"
+    else:
+        try:
+            events = get_all_active_events()
+        except Exception:
+            events = []
+        payload = json.dumps(events, ensure_ascii=False).encode("utf-8")
+        status = "200 OK"
+
     headers = [
         ("Content-Type", "application/json; charset=utf-8"),
         ("Content-Length", str(len(payload)))
@@ -53,7 +69,7 @@ def app(environ, start_response):
         headers.append(("Access-Control-Allow-Methods", "GET, OPTIONS"))
         headers.append(("Access-Control-Allow-Headers", "Content-Type"))
 
-    start_response("200 OK", headers)
+    start_response(status, headers)
     return [payload]
 
 application = app

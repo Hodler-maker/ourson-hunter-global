@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "EVT-LOME-BTC-2026",
+    "title": "Lomé Bitcoin & Lightning Meetup",
+    "organizer": "Togo Bitcoin Community",
+    "date": "24 Octobre 2026 • 15h00 GMT",
+    "location": "Woelab / Campus Numérique Francophone, Lomé",
+    "country": "Togo",
+    "type": "Meetup",
+    "url": "https://x.com/TogoBitcoin",
+    "description": "Atelier pratique sur le protocole Lightning Network, les paiements instantanés en satoshis, et les opportunités pour développeurs et créateurs en Afrique de l'Ouest.",
+    "status": "active",
+    "created_at": "2026-10-08 16:04:06",
+    "poster_url": ""
+  },
+  {
+    "id": "EVT-COTONOU-WEB3-2026",
+    "title": "Stripe & Web3 Community Cotonou",
+    "organizer": "Crypto & FinTech Bénin",
+    "date": "31 Octobre 2026 • 10h00 GMT+1",
+    "location": "Sèmè City Open Park, Cotonou",
+    "country": "Bénin",
+    "type": "Conférence",
+    "url": "https://semecity.bj",
+    "description": "Rencontre des bâtisseurs Web3 et FinTech autour de l'intégration des passerelles de paiement, stablecoins USDC et régulation en zone UEMOA.",
+    "status": "active",
+    "created_at": "2026-10-08 16:04:06",
+    "poster_url": ""
+  }
+]

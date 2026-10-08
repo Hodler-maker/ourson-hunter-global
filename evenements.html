@@ -174,6 +174,25 @@
       </div>
     </div>
 
+    <!-- BANNIÈRE FOCUS ÉVÉNEMENT SÉLECTIONNÉ (Lien direct individuel) -->
+    <div id="event-focus-banner" class="hidden mb-6 p-4 rounded-2xl border border-amber-500/40 bg-amber-500/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-lg">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping flex-shrink-0"></span>
+        <span class="text-slate-200">
+          Vous consultez l'événement : <strong id="focus-banner-title" class="text-amber-300 font-bold">...</strong>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a id="focus-banner-standalone" href="#" class="text-amber-400 hover:underline font-semibold font-mono flex items-center gap-1">
+          <span>Ouvrir la page dédiée</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <button onclick="clearEventFocus()" class="px-3 py-1 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-slate-300 font-medium border border-neutral-800 transition cursor-pointer">
+          Voir tout l'agenda
+        </button>
+      </div>
+    </div>
+
     <!-- EN-TÊTE DU LISTING -->
     <div class="flex items-center justify-between mb-6">
       <h2 id="events-heading" class="text-xl font-bold text-white flex items-center gap-2">
@@ -189,6 +208,12 @@
       <!-- Injecté par JavaScript -->
     </div>
   </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-neutral-900 border border-amber-500/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="w-6 h-6 rounded-full bg-amber-400 text-black flex items-center justify-center flex-shrink-0 font-bold">✓</div>
+    <span id="toast-message">Lien individuel copié !</span>
+  </div>
 
   <!-- MODAL PROPOSER UN ÉVÉNEMENT -->
   <div id="submit-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -378,7 +403,7 @@
         const safeTitle = esc(evt.title);
 
         return `
-        <article class="glass-card rounded-2xl p-5 sm:p-6 border border-neutral-800 flex flex-col justify-between group">
+        <article id="event-${esc(evt.id)}" data-event-id="${esc(evt.id)}" class="glass-card rounded-2xl p-5 sm:p-6 border border-neutral-800 flex flex-col justify-between group transition-all duration-300">
           <div>
             ${safePoster ? `
               <div class="relative w-full h-44 sm:h-52 rounded-xl overflow-hidden mb-4 border border-neutral-800 bg-neutral-950 group/img cursor-pointer" onclick="openPosterModal('${safePoster}', '${safeTitle}')">
@@ -402,7 +427,9 @@
             </div>
 
             <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
-              ${evt.title}
+              <a href="evenement.html?id=${encodeURIComponent(evt.id)}" class="hover:underline">
+                ${evt.title}
+              </a>
             </h3>
 
             <p class="text-xs text-slate-300 leading-relaxed line-clamp-3 mb-4">
@@ -425,7 +452,16 @@
             </div>
           </div>
 
-          <div class="mt-5 pt-3.5 border-t border-neutral-800 flex items-center justify-end">
+          <div class="mt-5 pt-3.5 border-t border-neutral-800 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5">
+              <a href="evenement.html?id=${encodeURIComponent(evt.id)}" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 transition flex items-center gap-1.5" title="Page individuelle complète de cet événement">
+                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <span>Détails</span>
+              </a>
+              <button onclick="shareEvent('${esc(evt.id)}', '${esc(evt.title)}', '${esc(evt.date)}', '${esc(evt.location)}')" class="p-2 rounded-xl text-slate-400 hover:text-amber-400 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 transition cursor-pointer" title="Partager / Copier le lien direct de cet événement">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+              </button>
+            </div>
             <a href="${evt.url}" target="_blank" rel="noopener noreferrer" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition">
               <span>Participer</span>
               <svg class="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -488,6 +524,75 @@
       e.target.reset();
     }
 
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-message');
+      if (toast && text) {
+        text.textContent = msg;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3200);
+      }
+    }
+
+    function shareEvent(id, title, date, location) {
+      const canonicalUrl = `${window.location.origin}/evenement.html?id=${encodeURIComponent(id)}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: `${title} — Agenda ÀNFÀÀNÍ`,
+          text: `Rejoignez l'événement Web3 : ${title} (${date} • ${location})\nDétails et inscription :`,
+          url: canonicalUrl
+        }).catch(() => {
+          copyLinkToClipboard(canonicalUrl);
+        });
+      } else {
+        copyLinkToClipboard(canonicalUrl);
+      }
+    }
+
+    function copyLinkToClipboard(url) {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast("Lien individuel copié dans le presse-papier !");
+      }).catch(() => {
+        prompt("Copiez le lien de cet événement :", url);
+      });
+    }
+
+    function highlightTargetEvent(targetId) {
+      if (!targetId) return;
+      const cleanId = String(targetId).trim();
+      const card = document.getElementById(`event-${cleanId}`) || document.querySelector(`[data-event-id="${cleanId}"]`);
+      
+      const evt = allEvents.find(e => e && e.id === cleanId);
+      const banner = document.getElementById('event-focus-banner');
+      const bannerTitle = document.getElementById('focus-banner-title');
+      const bannerLink = document.getElementById('focus-banner-standalone');
+
+      if (banner && evt) {
+        if (bannerTitle) bannerTitle.textContent = evt.title;
+        if (bannerLink) bannerLink.href = `evenement.html?id=${encodeURIComponent(cleanId)}`;
+        banner.classList.remove('hidden');
+      }
+
+      if (card) {
+        card.classList.add('ring-2', 'ring-amber-400', 'shadow-[0_0_35px_rgba(245,158,11,0.45)]', 'border-amber-400/50');
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function clearEventFocus() {
+      const banner = document.getElementById('event-focus-banner');
+      if (banner) banner.classList.add('hidden');
+      document.querySelectorAll('[data-event-id]').forEach(c => {
+        c.classList.remove('ring-2', 'ring-amber-400', 'shadow-[0_0_35px_rgba(245,158,11,0.45)]', 'border-amber-400/50');
+      });
+      if (window.history.pushState) {
+        window.history.pushState(null, '', window.location.pathname);
+      }
+    }
+
     async function init() {
       const delEvts = new Set(JSON.parse(localStorage.getItem('ourson_deleted_events') || '[]'));
       const localEvts = JSON.parse(localStorage.getItem('anfaani_events') || localStorage.getItem('ourson_custom_events') || '[]');
@@ -536,7 +641,18 @@
           }
         }
       } catch (e) {}
+
+      // Vérification du deep-link ?id=... ou #...
+      const targetId = new URLSearchParams(window.location.search).get('id') || window.location.hash.replace(/^#/, '');
+      if (targetId) {
+        setTimeout(() => highlightTargetEvent(targetId), 200);
+      }
     }
+
+    window.addEventListener('hashchange', () => {
+      const targetId = window.location.hash.replace(/^#/, '');
+      if (targetId) highlightTargetEvent(targetId);
+    });
 
     init();
   </script>

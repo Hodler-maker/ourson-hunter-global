@@ -360,6 +360,7 @@
                 <th class="p-3">Date & Lieu</th>
                 <th class="p-3">Pays</th>
                 <th class="p-3">Type</th>
+                <th class="p-3">Lien individuel</th>
                 <th class="p-3 text-right">Action</th>
               </tr>
             </thead>
@@ -669,6 +670,17 @@
           </td>
           <td class="p-3"><span class="px-2.5 py-0.5 rounded-full bg-neutral-900 border border-neutral-800 text-[11px] font-mono">${esc(e.country)}</span></td>
           <td class="p-3"><span class="px-2 py-0.5 rounded-lg bg-amber-500/10 text-amber-300 text-[11px] font-mono font-bold">${esc(e.type)}</span></td>
+          <td class="p-3">
+            <div class="flex items-center gap-1.5">
+              <button onclick="copyEventPublicLink('${esc(e.id)}')" class="px-2.5 py-1 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-amber-400 hover:text-amber-300 text-[11px] font-mono flex items-center gap-1 cursor-pointer" title="Copier le lien individuel direct">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <span>Copier lien</span>
+              </button>
+              <a href="evenement.html?id=${encodeURIComponent(e.id)}" target="_blank" class="p-1 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-slate-400 hover:text-white" title="Ouvrir la page individuelle dans un nouvel onglet">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </td>
           <td class="p-3 text-right">
             <button onclick="deleteEvent('${esc(e.id)}')" class="px-3 py-1 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 text-xs font-semibold transition cursor-pointer">
               Supprimer
@@ -676,6 +688,15 @@
           </td>
         </tr>
       `).join('');
+    }
+
+    function copyEventPublicLink(id) {
+      const url = `${window.location.origin}/evenement.html?id=${encodeURIComponent(id)}`;
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Lien direct copié : " + url);
+      }).catch(() => {
+        prompt("Copiez le lien direct ci-dessous :", url);
+      });
     }
 
     async function handleAddJob(e) {
