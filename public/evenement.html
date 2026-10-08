@@ -399,21 +399,7 @@
         return;
       }
 
-      // 1. Recherche via l'API dédiée
-      try {
-        const res = await fetch(`/api/events?id=${encodeURIComponent(eventId)}&t=${Date.now()}`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.event) {
-            renderEvent(data.event);
-            return;
-          }
-        }
-      } catch (e) {
-        console.warn("API fetch error, trying local fallbacks:", e);
-      }
-
-      // 2. Recherche via localStorage (ajouts admin locaux récents)
+      // 1. Recherche via localStorage (ajouts admin locaux récents)
       try {
         const localList = JSON.parse(localStorage.getItem('anfaani_events') || localStorage.getItem('ourson_custom_events') || '[]');
         const match = localList.find(e => e && e.id === eventId);
@@ -423,7 +409,7 @@
         }
       } catch (e) {}
 
-      // 3. Recherche via public_events.json
+      // 2. Recherche via public_events.json (fichier statique répliqué et ultra-fiable)
       try {
         const res = await fetch(`public_events.json?t=${Date.now()}`);
         if (res.ok) {
@@ -431,6 +417,20 @@
           const match = Array.isArray(list) ? list.find(e => e && e.id === eventId) : null;
           if (match) {
             renderEvent(match);
+            return;
+          }
+        }
+      } catch (e) {
+        console.warn("Fallback public_events.json error:", e);
+      }
+
+      // 3. Recherche via l'API dédiée
+      try {
+        const res = await fetch(`/api/events?id=${encodeURIComponent(eventId)}&t=${Date.now()}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success && data.event) {
+            renderEvent(data.event);
             return;
           }
         }
