@@ -21,7 +21,14 @@ if sys.platform == "win32":
 # Assurer l'accès aux modules internes
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from database import init_db, get_all_active_users, get_all_active_opportunities, export_public_json
+from database import (
+    init_db,
+    get_all_active_users,
+    get_all_active_opportunities,
+    export_public_json,
+    get_user_notified_opp_ids,
+    record_user_notification
+)
 from matcher import match_opportunities_for_user
 from notifier import notify_user_matches
 
@@ -53,15 +60,22 @@ def run_global_cycle():
     # 4. Export pour le site web public
     export_public_json()
 
-    # 5. Matching & Diffusion personnalisée
+    # 5. Matching & Diffusion personnalisée avec rotation anti-répétition
     sent_count = 0
     for user in users:
-        matches = match_opportunities_for_user(user, opps, min_score=60)
+        # Récupération des offres déjà reçues par cet utilisateur
+        notified_ids = get_user_notified_opp_ids(user["id"])
+        matches = match_opportunities_for_user(user, opps, min_score=60, exclude_ids=notified_ids)
+        
         if matches:
             success = notify_user_matches(user, matches)
             if success:
                 sent_count += 1
-                print(f"[OK] Alerte envoyée à {user['name']} ({len(matches)} offres ciblées)")
+                # Enregistrement des opportunités envoyées pour éviter qu'elles ne soient répétées
+                channel = "email" if user.get("email") else "telegram"
+                for item in matches[:4]:
+                    record_user_notification(user["id"], item["opportunity"]["id"], channel=channel)
+                print(f"[OK] Alerte envoyée à {user['name']} ({len(matches)} offres ciblées, historique mis à jour)")
         else:
             print(f"[INFO] Aucune nouvelle offre > 60% pour {user['name']} ce cycle-ci")
 

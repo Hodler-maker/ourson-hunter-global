@@ -333,7 +333,7 @@ def get_all_active_opportunities():
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM opportunities WHERE status = 'active' ORDER BY score DESC, created_at DESC")
+        cursor.execute("SELECT * FROM opportunities WHERE status = 'active' ORDER BY created_at DESC, score DESC")
         opps = [dict(row) for row in cursor.fetchall()]
         conn.close()
         if opps:
@@ -411,3 +411,60 @@ if __name__ == "__main__":
     for opp in initial_opps:
         add_opportunity(*opp)
     export_public_json()
+
+def record_user_notification(user_id, opp_id, channel="email"):
+    """
+    Enregistre qu'une opportunité a été notifiée à un utilisateur pour éviter les doublons.
+    """
+    # 1. Sauvegarde SQLite
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO notifications (user_id, opportunity_id, channel) VALUES (?, ?, ?)", (user_id, opp_id, channel))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"[NOTIF DB WARN] {e}")
+
+    # 2. Sauvegarde Supabase
+    if SUPABASE_URL and SUPABASE_KEY:
+        try:
+            payload = {
+                "user_id": user_id,
+                "opportunity_id": opp_id,
+                "channel": channel
+            }
+            supabase_request("notifications", method="POST", data=payload)
+        except Exception as se:
+            print(f"[SUPABASE NOTIF WARN] {se}")
+
+def get_user_notified_opp_ids(user_id):
+    """
+    Retourne l'ensemble des IDs d'opportunités déjà envoyées à cet utilisateur.
+    """
+    notified = set()
+    # 1. Supabase Cloud en priorité
+    if SUPABASE_URL and SUPABASE_KEY:
+        try:
+            records = supabase_request(f"notifications?user_id=eq.{user_id}&select=opportunity_id")
+            if records and isinstance(records, list):
+                for r in records:
+                    if r.get("opportunity_id"):
+                        notified.add(r["opportunity_id"])
+                return notified
+        except Exception as se:
+            print(f"[SUPABASE NOTIF FETCH WARN] {se}")
+
+    # 2. Fallback SQLite
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT opportunity_id FROM notifications WHERE user_id = ?", (user_id,))
+        for row in cursor.fetchall():
+            if row[0]:
+                notified.add(row[0])
+        conn.close()
+    except Exception as e:
+        print(f"[SQL NOTIF FETCH WARN] {e}")
+
+    return notified

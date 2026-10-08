@@ -2876,7 +2876,7 @@
               score: rj.score || 85,
               url: rj.url,
               desc: rj.notes || rj.description || rj.desc || rj.title,
-              checked: (rj.created_at || '').slice(0, 10) || null,
+              checked: (rj.created_at || '').slice(0, 10) || (rj.checked || '').slice(0, 10) || new Date().toISOString().slice(0, 10),
               payMonthly: null,
               accent: '#f59e0b'
             });

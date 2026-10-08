@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-VERCEL SERVERLESS ENTRYPOINT — OURSON HUNTER GLOBAL
-Sert l'application Web (GET) et traite les inscriptions (POST /api/register)
-Compatible avec Vercel Python Runtime (WSGI)
+VERCEL SERVERLESS ENTRYPOINT — OURSON HUNTER GLOBAL / ANFAANI
+Sert l'application Web (GET) et traite les inscriptions (POST /api/register).
+Securise avec validation CORS stricte (aucun wildcard *).
+Aucun emoji dans ce fichier.
 """
 
 import json
@@ -15,6 +16,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 
 from database import add_user
 from notifier import send_welcome_email, send_welcome_telegram
+from security import get_cors_origin, is_origin_allowed
 
 def serve_file(filename, start_response):
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,38 +33,54 @@ def serve_file(filename, start_response):
                 headers = [
                     ("Content-Type", "text/html; charset=utf-8"),
                     ("Content-Length", str(len(content))),
-                    ("Cache-Control", "public, max-age=0, must-revalidate"),
-                    ("Access-Control-Allow-Origin", "*"),
+                    ("Cache-Control", "public, max-age=0, must-revalidate")
                 ]
                 start_response("200 OK", headers)
                 return [content]
             except Exception:
                 pass
 
-    msg = f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>ÀNFÀÀNÍ</title></head><body style='font-family:sans-serif;background:#0b1120;color:#fff;text-align:center;padding:50px;'><h1>ÀNFÀÀNÍ — Open the door to opportunity</h1><p>Page {filename} en ligne.</p></body></html>".encode("utf-8")
+    msg = f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>ANFAANI</title></head><body style='font-family:sans-serif;background:#0b1120;color:#fff;text-align:center;padding:50px;'><h1>ANFAANI — Open the door to opportunity</h1><p>Page {filename} en ligne.</p></body></html>".encode("utf-8")
     headers = [("Content-Type", "text/html; charset=utf-8"), ("Content-Length", str(len(msg)))]
     start_response("200 OK", headers)
     return [msg]
 
+def build_headers(status, payload_len, cors_origin=None):
+    headers = [
+        ("Content-Type", "application/json; charset=utf-8"),
+        ("Content-Length", str(payload_len))
+    ]
+    if cors_origin:
+        headers.append(("Access-Control-Allow-Origin", cors_origin))
+        headers.append(("Vary", "Origin"))
+        headers.append(("Access-Control-Allow-Methods", "GET, POST, OPTIONS"))
+        headers.append(("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Admin-Key"))
+    return headers
+
 def app(environ, start_response):
-    """
-    Standard WSGI callable reconnu par Vercel.
-    """
     method = environ.get("REQUEST_METHOD", "GET")
     raw_path = environ.get("PATH_INFO", "/").lower().strip("/")
-    
-    # Gestion des requêtes OPTIONS (CORS pre-flight)
+    raw_origin = environ.get("HTTP_ORIGIN", "").strip()
+    cors_origin = get_cors_origin(environ)
+
+    # Gestion des requetes OPTIONS (CORS preflight)
     if method == "OPTIONS":
+        if raw_origin and not cors_origin:
+            start_response("403 Forbidden", [("Content-Type", "application/json")])
+            return [json.dumps({"error": "Origine non autorisee"}).encode("utf-8")]
+
         headers = [
             ("Content-Type", "application/json"),
-            ("Access-Control-Allow-Origin", "*"),
             ("Access-Control-Allow-Methods", "GET, POST, OPTIONS"),
-            ("Access-Control-Allow-Headers", "Content-Type")
+            ("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Admin-Key")
         ]
+        if cors_origin:
+            headers.append(("Access-Control-Allow-Origin", cors_origin))
+            headers.append(("Vary", "Origin"))
         start_response("200 OK", headers)
         return [b""]
 
-    # Requête GET -> Servir les pages HTML
+    # Requete GET -> Servir les pages HTML
     if method == "GET":
         if "evenement" in raw_path or "event" in raw_path:
             return serve_file("evenements.html", start_response)
@@ -72,8 +90,14 @@ def app(environ, start_response):
             return serve_file("contact.html", start_response)
         return serve_file("index.html", start_response)
 
-    # Requête POST
+    # Requete POST
     if method == "POST":
+        # Verification d'origine non autorisee
+        if raw_origin and not cors_origin:
+            payload = json.dumps({"success": False, "error": "Origine non autorisee (CORS)"}).encode("utf-8")
+            start_response("403 Forbidden", build_headers("403 Forbidden", len(payload), None))
+            return [payload]
+
         try:
             content_length = int(environ.get("CONTENT_LENGTH", 0))
         except (ValueError, TypeError):
@@ -86,7 +110,7 @@ def app(environ, start_response):
         except Exception:
             data = {}
 
-        # 1. Routage vers l'API Admin si action ou admin_key présent
+        # 1. Routage vers l'API Admin si action ou admin_key present
         if "action" in data or "admin_key" in data or "admin" in raw_path:
             import io
             environ["wsgi.input"] = io.BytesIO(request_body)
@@ -96,9 +120,9 @@ def app(environ, start_response):
                 import admin
                 return admin.app(environ, start_response)
             except Exception as admin_err:
-                headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
-                start_response("500 Internal Server Error", headers)
-                return [json.dumps({"success": False, "error": f"Erreur admin API: {admin_err}"}).encode("utf-8")]
+                payload = json.dumps({"success": False, "error": f"Erreur admin API: {admin_err}"}).encode("utf-8")
+                start_response("500 Internal Server Error", build_headers("500 Internal Server Error", len(payload), cors_origin))
+                return [payload]
 
         # 2. Inscription utilisateur
         try:
@@ -114,11 +138,11 @@ def app(environ, start_response):
                 experience_years = 2
 
             if not name or (not email and not telegram):
-                headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
-                start_response("400 Bad Request", headers)
-                return [json.dumps({"success": False, "error": "Nom et contact requis."}).encode("utf-8")]
+                payload = json.dumps({"success": False, "error": "Nom et contact requis."}).encode("utf-8")
+                start_response("400 Bad Request", build_headers("400 Bad Request", len(payload), cors_origin))
+                return [payload]
 
-            # Enregistrement en base de données
+            # Enregistrement en base de donnees
             try:
                 add_user(name=name, email=email, telegram=telegram, country=country, category=category, experience_years=experience_years, skills=skills)
             except Exception as dbe:
@@ -144,24 +168,23 @@ def app(environ, start_response):
 
             response_data = {
                 "success": True,
-                "message": f"Bienvenue {name} ! Ton profil est activé.",
+                "message": f"Bienvenue {name} ! Ton profil est active.",
                 "email_sent": email_sent,
                 "telegram_sent": telegram_sent
             }
-            headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
-            start_response("200 OK", headers)
-            return [json.dumps(response_data, ensure_ascii=False).encode("utf-8")]
+            payload = json.dumps(response_data, ensure_ascii=False).encode("utf-8")
+            start_response("200 OK", build_headers("200 OK", len(payload), cors_origin))
+            return [payload]
 
         except Exception as e:
-            headers = [("Content-Type", "application/json"), ("Access-Control-Allow-Origin", "*")]
-            start_response("500 Internal Server Error", headers)
-            return [json.dumps({"success": False, "error": str(e)}).encode("utf-8")]
+            payload = json.dumps({"success": False, "error": str(e)}).encode("utf-8")
+            start_response("500 Internal Server Error", build_headers("500 Internal Server Error", len(payload), cors_origin))
+            return [payload]
 
-    # Autres méthodes non supportées
-    headers = [("Content-Type", "application/json")]
-    start_response("405 Method Not Allowed", headers)
-    return [json.dumps({"error": "Méthode non autorisée"}).encode("utf-8")]
+    # Autres methodes non supportees
+    payload = json.dumps({"error": "Methode non autorisee"}).encode("utf-8")
+    start_response("405 Method Not Allowed", build_headers("405 Method Not Allowed", len(payload), cors_origin))
+    return [payload]
 
-# Alias pour couvrir tous les cas de détection Vercel
 application = app
 handler = app

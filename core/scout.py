@@ -33,16 +33,16 @@ def classify_category(title, tags, description=""):
     """
     full_text = f"{title} {' '.join(tags)} {description[:300]}".lower()
 
-    if any(k in full_text for k in ['community', 'moderator', 'telegram manager', 'discord', 'social media', 'cm']):
-        return "Community"
-    if any(k in full_text for k in ['ambassador', 'business development', 'partnerships', 'outreach', 'bd ']):
-        return "Ambassadeur"
-    if any(k in full_text for k in ['writer', 'content', 'research', 'copywriter', 'translation', 'technical writer']):
-        return "Content"
-    if any(k in full_text for k in ['engineer', 'developer', 'solidity', 'rust', 'frontend', 'backend', 'smart contract', 'full stack']):
+    if any(k in full_text for k in ['engineer', 'developer', 'solidity', 'rust', 'frontend', 'backend', 'smart contract', 'full stack', 'architect', 'tech lead', 'devops', 'infra', 'qa']):
         return "Dev"
-    if any(k in full_text for k in ['trader', 'trading', 'analyst', 'tokenomics', 'quant', 'market maker', 'kol']):
+    if any(k in full_text for k in ['writer', 'content', 'research', 'copywriter', 'translation', 'technical writer', 'designer', 'ui/ux', 'graphic', 'video', 'creative']):
+        return "Content"
+    if any(k in full_text for k in ['ambassador', 'business development', 'partnerships', 'outreach', 'bd ', 'sales', 'growth', 'account executive']):
+        return "Ambassadeur"
+    if any(k in full_text for k in ['trader', 'trading', 'analyst', 'tokenomics', 'quant', 'market maker', 'kol', 'finance', 'accounting', 'compliance', 'risk', 'treasury']):
         return "Trading"
+    if any(k in full_text for k in ['community', 'moderator', 'telegram', 'discord', 'social media', 'cm', 'support', 'customer']):
+        return "Community"
     
     return "Community"
 
@@ -73,12 +73,13 @@ def generate_opp_id(company, title):
 
 def fetch_jobicy_jobs():
     """
-    Explore l'API Jobicy pour les postes Crypto & Web3.
+    Explore l'API Jobicy pour les postes Crypto, Web3, Blockchain, Community, Ambassador, etc.
     """
     jobs = []
-    for tag in ['crypto', 'web3']:
+    tags = ['crypto', 'web3', 'blockchain', 'defi', 'solidity', 'community', 'ambassador', 'marketing', 'copywriting', 'trading', 'analyst']
+    for tag in tags:
         try:
-            url = f"https://jobicy.com/api/v2/remote-jobs?count=15&tag={tag}"
+            url = f"https://jobicy.com/api/v2/remote-jobs?count=30&tag={tag}"
             res = requests.get(url, headers=HEADERS, timeout=8)
             if res.status_code == 200:
                 data = res.json()
@@ -125,56 +126,112 @@ def fetch_jobicy_jobs():
 
 def fetch_remoteok_jobs():
     """
-    Explore l'API RemoteOK pour les postes Web3.
+    Explore l'API RemoteOK pour les postes Web3, Crypto, DeFi, Blockchain.
+    """
+    jobs = []
+    tags = ['crypto', 'web3', 'blockchain', 'defi']
+    for tag in tags:
+        try:
+            url = f"https://remoteok.com/api?tag={tag}"
+            res = requests.get(url, headers=HEADERS, timeout=8)
+            if res.status_code == 200:
+                data = res.json()
+                if isinstance(data, list) and len(data) > 1:
+                    for item in data[1:]:
+                        title = item.get('position', '').strip()
+                        company = item.get('company', '').strip()
+                        url_link = item.get('apply_url') or item.get('url') or ''
+                        tags_list = item.get('tags', [])
+                        location = item.get('location', '')
+                        desc = item.get('description', '')
+                        
+                        if not title or not company or not url_link:
+                            continue
+                            
+                        if not is_remote_eligible(location, desc):
+                            continue
+                            
+                        s_min = item.get('salary_min')
+                        s_max = item.get('salary_max')
+                        salary = "Selon profil"
+                        if s_min and s_max:
+                            salary = f"{int(s_min):,} - {int(s_max):,} $/an"
+                        elif s_min:
+                            salary = f"Dès {int(s_min):,} $/an"
+                            
+                        category = classify_category(title, tags_list, desc)
+                        opp_id = generate_opp_id(company, title)
+                        
+                        clean_desc = re.sub(r'<[^>]+>', '', desc)[:140].strip()
+                        
+                        jobs.append({
+                            "id": opp_id,
+                            "title": title,
+                            "company": company,
+                            "category": category,
+                            "type": "Remote 100%",
+                            "salary": salary,
+                            "url": url_link,
+                            "eligibility": "Global",
+                            "score": 87,
+                            "notes": clean_desc + "..." if clean_desc else "Opportunité Web3 vérifiée."
+                        })
+        except Exception as e:
+            print(f"Erreur scout RemoteOK ({tag}): {e}")
+    return jobs
+
+def fetch_cryptojobslist_jobs():
+    """
+    Explore le flux officiel CryptoJobsList (100+ offres récentes Web3).
     """
     jobs = []
     try:
-        url = "https://remoteok.com/remote-web3-jobs.json"
+        import xml.etree.ElementTree as ET
+        url = "https://cryptojobslist.com/rss.xml"
         res = requests.get(url, headers=HEADERS, timeout=8)
         if res.status_code == 200:
-            data = res.json()
-            # Le premier élément est un disclaimer légal
-            for item in data[1:]:
-                title = item.get('position', '').strip()
-                company = item.get('company', '').strip()
-                url_link = item.get('apply_url') or item.get('url') or ''
-                tags = item.get('tags', [])
-                location = item.get('location', '')
-                desc = item.get('description', '')
-                
-                if not title or not company or not url_link:
-                    continue
-                    
-                if not is_remote_eligible(location, desc):
-                    continue
-                    
-                s_min = item.get('salary_min')
-                s_max = item.get('salary_max')
-                salary = "Selon profil"
-                if s_min and s_max:
-                    salary = f"{int(s_min):,} - {int(s_max):,} $/an"
-                elif s_min:
-                    salary = f"Dès {int(s_min):,} $/an"
-                    
-                category = classify_category(title, tags, desc)
-                opp_id = generate_opp_id(company, title)
-                
-                clean_desc = re.sub(r'<[^>]+>', '', desc)[:140].strip()
-                
-                jobs.append({
-                    "id": opp_id,
-                    "title": title,
-                    "company": company,
-                    "category": category,
-                    "type": "Remote 100%",
-                    "salary": salary,
-                    "url": url_link,
-                    "eligibility": "Global",
-                    "score": 87,
-                    "notes": clean_desc + "..." if clean_desc else "Opportunité Web3 vérifiée."
-                })
+            root = ET.fromstring(res.content)
+            ns = {
+                'dc': 'http://purl.org/dc/elements/1.1/',
+                'media': 'http://search.yahoo.com/mrss/'
+            }
+            channel = root.find('channel')
+            if channel is not None:
+                for item in channel.findall('item'):
+                    title = (item.findtext('title') or '').strip()
+                    company = (item.findtext('dc:creator', namespaces=ns) or 'Web3').strip()
+                    location = (item.findtext('media:location', namespaces=ns) or '').strip()
+                    link = (item.findtext('link') or '').strip()
+                    desc = item.findtext('description') or ''
+                    clean_desc = re.sub(r'<[^>]+>', '', desc)[:140].strip()
+
+                    if not title or not link:
+                        continue
+
+                    # Filtrage géographique : ne retenir que les offres Remote ou sans restriction bloquante
+                    loc_lower = location.lower()
+                    if not is_remote_eligible(location, clean_desc):
+                        continue
+                    if any(k in loc_lower for k in ['london', 'singapore', 'new york', 'hanoi', 'tokyo', 'taiwan']) and 'remote' not in title.lower() and 'remote' not in loc_lower:
+                        continue
+
+                    category = classify_category(title, [], clean_desc)
+                    opp_id = generate_opp_id(company, title)
+
+                    jobs.append({
+                        "id": opp_id,
+                        "title": title,
+                        "company": company,
+                        "category": category,
+                        "type": "Remote",
+                        "salary": "Rémunération Web3 compétitive",
+                        "url": link,
+                        "eligibility": "Global / Remote",
+                        "score": 86,
+                        "notes": clean_desc + "..." if clean_desc else f"Offre vérifiée chez {company}."
+                    })
     except Exception as e:
-        print(f"Erreur scout RemoteOK: {e}")
+        print(f"Erreur scout CryptoJobsList: {e}")
     return jobs
 
 def scout_and_sync_new_jobs():
@@ -187,6 +244,7 @@ def scout_and_sync_new_jobs():
     candidates = []
     candidates.extend(fetch_jobicy_jobs())
     candidates.extend(fetch_remoteok_jobs())
+    candidates.extend(fetch_cryptojobslist_jobs())
     
     print(f"[SCOUT] {len(candidates)} opportunités candidates trouvées sur les flux en direct.")
     

@@ -60,21 +60,36 @@ def score_match(user, opp):
 
     return min(score, 100)
 
-def match_opportunities_for_user(user, opportunities, min_score=60):
+def match_opportunities_for_user(user, opportunities, min_score=60, exclude_ids=None):
     """
     Retourne la liste des opportunités recommandées pour un utilisateur donné,
-    triées par pertinence.
+    en filtrant ou reléguant celles déjà envoyées lors des cycles précédents.
     """
-    matched = []
+    exclude_set = set(exclude_ids or [])
+    matched_new = []
+    matched_old = []
+
     for opp in opportunities:
         match_pts = score_match(user, opp)
         if match_pts >= min_score:
-            matched.append({
+            item = {
                 "opportunity": opp,
-                "match_score": match_pts
-            })
-    matched.sort(key=lambda x: x["match_score"], reverse=True)
-    return matched
+                "match_score": match_pts,
+                "is_new_for_user": opp["id"] not in exclude_set
+            }
+            if opp["id"] in exclude_set:
+                matched_old.append(item)
+            else:
+                matched_new.append(item)
+
+    matched_new.sort(key=lambda x: (x["match_score"], x["opportunity"].get("created_at", "")), reverse=True)
+    matched_old.sort(key=lambda x: (x["match_score"], x["opportunity"].get("created_at", "")), reverse=True)
+
+    # Si on a de nouvelles offres jamais envoyées, on les met en priorité absolue !
+    if matched_new:
+        return matched_new
+    # Si tout a déjà été envoyé, on renvoie une sélection avec rotation
+    return matched_old
 
 if __name__ == "__main__":
     from database import get_all_active_users, get_all_active_opportunities

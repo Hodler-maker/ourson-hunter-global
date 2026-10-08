@@ -376,16 +376,67 @@
     let adminToken = sessionStorage.getItem('ourson_admin_key') || '';
     let adminJobs = [];
     let adminEvents = [];
+    let lockoutTimer = null;
 
     function esc(s) {
       return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
 
+    function checkClientLockout() {
+      const lockoutUntil = parseInt(sessionStorage.getItem('admin_lockout_until') || '0', 10);
+      const now = Math.floor(Date.now() / 1000);
+      if (lockoutUntil > now) {
+        const remaining = lockoutUntil - now;
+        applyLockoutUI(remaining);
+        return true;
+      }
+      return false;
+    }
+
+    function applyLockoutUI(secondsRemaining) {
+      const errEl = document.getElementById('login-error');
+      const btn = document.getElementById('login-btn');
+      const input = document.getElementById('admin-pass');
+
+      btn.disabled = true;
+      if (input) input.disabled = true;
+      errEl.classList.remove('hidden');
+
+      if (lockoutTimer) clearInterval(lockoutTimer);
+
+      let timeLeft = secondsRemaining;
+      const updateText = () => {
+        if (timeLeft <= 0) {
+          clearInterval(lockoutTimer);
+          btn.disabled = false;
+          if (input) input.disabled = false;
+          btn.textContent = "Déverrouiller la console";
+          errEl.textContent = "";
+          errEl.classList.add('hidden');
+          sessionStorage.removeItem('admin_lockout_until');
+          sessionStorage.removeItem('admin_failed_count');
+        } else {
+          const mins = Math.floor(timeLeft / 60);
+          const secs = timeLeft % 60;
+          btn.textContent = `Bloqué (${mins}m ${secs < 10 ? '0' : ''}${secs}s)`;
+          errEl.textContent = `Trop de tentatives de connexion. Accès bloqué temporairement pendant ${mins}m ${secs < 10 ? '0' : ''}${secs}s.`;
+          timeLeft--;
+        }
+      };
+
+      updateText();
+      lockoutTimer = setInterval(updateText, 1000);
+    }
+
     async function handleLogin(e) {
       e.preventDefault();
+      if (checkClientLockout()) return;
+
       const pass = document.getElementById('admin-pass').value.trim();
       const errEl = document.getElementById('login-error');
       const btn = document.getElementById('login-btn');
+
+      if (!pass) return;
 
       errEl.classList.add('hidden');
       btn.disabled = true;
@@ -398,26 +449,43 @@
           body: JSON.stringify({ action: 'login', admin_key: pass })
         });
         const data = await res.json();
+
+        if (res.status === 429) {
+          const retryAfter = data.retry_after || 900;
+          const lockoutUntil = Math.floor(Date.now() / 1000) + retryAfter;
+          sessionStorage.setItem('admin_lockout_until', lockoutUntil.toString());
+          applyLockoutUI(retryAfter);
+          return;
+        }
+
         if (data.success) {
+          sessionStorage.removeItem('admin_failed_count');
+          sessionStorage.removeItem('admin_lockout_until');
           adminToken = pass;
           sessionStorage.setItem('ourson_admin_key', pass);
           initDashboard();
         } else {
-          errEl.textContent = data.error || "Mot de passe invalide.";
-          errEl.classList.remove('hidden');
+          let count = parseInt(sessionStorage.getItem('admin_failed_count') || '0', 10) + 1;
+          sessionStorage.setItem('admin_failed_count', count.toString());
+
+          if (count >= 5) {
+            const lockoutUntil = Math.floor(Date.now() / 1000) + 300;
+            sessionStorage.setItem('admin_lockout_until', lockoutUntil.toString());
+            applyLockoutUI(300);
+          } else {
+            const remaining = Math.max(0, 5 - count);
+            errEl.textContent = data.error || `Mot de passe incorrect. (${remaining} tentative(s) restante(s))`;
+            errEl.classList.remove('hidden');
+          }
         }
       } catch (err) {
-        if (pass === 'ourson2026') {
-          adminToken = pass;
-          sessionStorage.setItem('ourson_admin_key', pass);
-          initDashboard();
-        } else {
-          errEl.textContent = "Erreur de connexion. Vérifiez votre clé admin.";
-          errEl.classList.remove('hidden');
-        }
+        errEl.textContent = "Erreur de connexion ou accès bloqué. Vérifiez vos identifiants.";
+        errEl.classList.remove('hidden');
       } finally {
-        btn.disabled = false;
-        btn.textContent = "Déverrouiller la console";
+        if (!sessionStorage.getItem('admin_lockout_until')) {
+          btn.disabled = false;
+          btn.textContent = "Déverrouiller la console";
+        }
       }
     }
 
@@ -861,9 +929,12 @@
       }
     }
 
-    if (adminToken) {
-      initDashboard();
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+      const isLocked = checkClientLockout();
+      if (!isLocked && adminToken) {
+        initDashboard();
+      }
+    });
   </script>
 </body>
 </html>
