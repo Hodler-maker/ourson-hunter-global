@@ -1,5 +1,19 @@
 [
   {
+    "id": "EVT-AFRIQUE-NUMERIQUE-2026",
+    "title": "L'AFRIQUE NUMERIQUE: Construire aujourd'hui pour les générations futures",
+    "organizer": "BLOCK BRIDGE",
+    "date": "24 octobre 2026 à 14h GMT",
+    "location": "IPNET Agbalépédo, Lomé",
+    "country": "Togo",
+    "type": "Meetup",
+    "url": "https://x.com/blockbridge_tech",
+    "description": "Meetup et conférence technologique organisée par Block Bridge à l'IPNET Agbalépédo (Lomé, Togo) : Construire aujourd'hui pour les générations futures. Échanges pratiques sur la souveraineté numérique, l'adoption des technologies décentralisées et les opportunités professionnelles pour les talents togolais.",
+    "status": "active",
+    "created_at": "2026-10-08 22:55:46",
+    "poster_url": "assets/afrique_numerique.png"
+  },
+  {
     "id": "EVT-LOME-BTC-2026",
     "title": "Lomé Bitcoin & Lightning Meetup",
     "organizer": "Togo Bitcoin Community",
