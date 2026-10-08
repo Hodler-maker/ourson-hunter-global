@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Événement Web3 Afrique — ÀNFÀÀNÍ</title>
+  <meta id="meta-desc" name="description" content="Découvrez cet événement Web3 et tech en Afrique francophone. Inscription officielle, date, lieu et détails sur ÀNFÀÀNÍ.">
+  
+  <meta property="og:type" content="website">
+  <meta id="og-title" property="og:title" content="Événement Web3 Afrique — ÀNFÀÀNÍ">
+  <meta id="og-desc" property="og:description" content="Rejoignez la communauté Web3 et tech en Afrique. Inscription, date, lieu et programme complet.">
+  <meta id="og-url" property="og:url" content="https://anfaani.vercel.app/evenements.html">
+  <meta id="og-img" property="og:image" content="https://anfaani.vercel.app/assets/logo_transparent.png">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <style>
+    :root {
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      background-color: #000000;
+      color: #f1f5f9;
+    }
+    .font-mono { font-family: var(--font-mono); }
+
+    .glass-nav {
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #171717;
+    }
+    .glass-card {
+      background-color: #0c0c0c;
+      border: 1px solid #1c1c1c;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+    .btn-gold {
+      background-color: #f59e0b;
+      color: #000000;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .btn-gold:hover {
+      background-color: #fbbf24;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      border: 1px solid #27272a;
+      background-color: #121214;
+      color: #e4e4e7;
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      border-color: #f59e0b;
+      color: #ffffff;
+      background-color: #18181b;
+    }
+  </style>
+</head>
+<body class="bg-black text-slate-100 antialiased min-h-screen flex flex-col relative selection:bg-amber-400 selection:text-black">
+
+  <!-- NAVBAR -->
+  <header class="glass-nav sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-white font-sans">ÀNFÀÀNÍ</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 font-semibold">Événement</span>
+          </div>
+          <span class="text-[9px] text-amber-400/90 font-bold uppercase tracking-widest -mt-0.5 hidden sm:block">Open the door to opportunity</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <a href="evenements.html" class="btn-outline px-4 py-2 rounded-xl flex items-center gap-2 transition">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span class="hidden sm:inline">Tous les événements</span>
+          <span class="sm:hidden">Agenda</span>
+        </a>
+        <a href="index.html#offres" class="text-slate-400 hover:text-white transition hidden md:inline">
+          Offres Remote
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- ÉTAT DE CHARGEMENT -->
+    <div id="loading-state" class="text-center py-24 glass-card rounded-3xl border border-neutral-800 p-8">
+      <div class="w-12 h-12 rounded-full border-2 border-amber-400 border-t-transparent animate-spin mx-auto mb-4"></div>
+      <h3 class="text-lg font-bold text-white mb-1">Chargement de l'événement...</h3>
+      <p class="text-xs text-slate-400">Récupération des détails officiels en cours.</p>
+    </div>
+
+    <!-- ÉTAT ERREUR / INTROUVABLE -->
+    <div id="error-state" class="hidden text-center py-20 glass-card rounded-3xl border border-neutral-800 p-8">
+      <div class="w-14 h-14 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-amber-400 mx-auto mb-4">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2" id="error-title">Événement introuvable</h3>
+      <p class="text-xs text-slate-400 max-w-md mx-auto mb-6" id="error-desc">
+        Cet événement a peut-être été déplacé, archivé ou le lien est incomplet. Consultez l'agenda complet pour découvrir tous les prochains rassemblements Web3.
+      </p>
+      <div class="flex items-center justify-center gap-3">
+        <a href="evenements.html" class="btn-gold px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center gap-2">
+          <span>Explorer l'agenda complet</span>
+          <svg class="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- VUE DÉTAILLÉE DE L'ÉVÉNEMENT -->
+    <article id="event-view" class="hidden space-y-8">
+
+      <!-- Fil d'Ariane & Actions rapides -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 font-mono">
+        <div class="flex items-center gap-2">
+          <a href="index.html" class="hover:text-amber-400 transition">Accueil</a>
+          <span>/</span>
+          <a href="evenements.html" class="hover:text-amber-400 transition">Événements</a>
+          <span>/</span>
+          <span class="text-slate-200 truncate max-w-[200px] sm:max-w-xs" id="breadcrumb-title">Détails</span>
+        </div>
+
+        <button onclick="copyCurrentEventLink()" class="btn-outline px-3.5 py-1.5 rounded-xl text-[11px] font-sans font-semibold flex items-center gap-2 cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span id="copy-btn-label">Copier le lien direct</span>
+        </button>
+      </div>
+
+      <!-- En-tête de l'événement -->
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border border-neutral-800 relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-wrap items-center gap-2.5 mb-4">
+          <span id="event-badge-type" class="text-xs font-mono font-bold px-3 py-1 rounded-full border bg-amber-500/10 text-amber-300 border-amber-500/20">
+            Meetup
+          </span>
+          <span id="event-badge-country" class="text-xs font-mono text-slate-300 flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800">
+            <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span id="event-country-text">Togo</span>
+          </span>
+          <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full font-semibold">
+            Événement vérifié
+          </span>
+        </div>
+
+        <h1 id="event-title" class="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight mb-4 font-sans">
+          Nom de l'événement
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 flex items-center gap-2 font-medium">
+          <span>Organisé par :</span>
+          <strong id="event-organizer" class="text-amber-400 font-bold">Organisateur</strong>
+        </p>
+      </div>
+
+      <!-- Grille Principale : Détails & Actions -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Colonne Gauche : Affiche & Description (7/12) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Affiche (si disponible) -->
+          <div id="event-poster-container" class="hidden">
+            <div class="glass-card rounded-2xl overflow-hidden border border-neutral-800 group relative cursor-pointer" onclick="openLightbox()">
+              <img id="event-poster-img" src="" alt="Affiche de l'événement" class="w-full h-auto max-h-[500px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute bottom-3 right-3 bg-black/85 backdrop-blur-md border border-neutral-700/60 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-200 flex items-center gap-2 shadow-xl">
+                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <span>Cliquer pour agrandir l'affiche</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description complète -->
+          <div class="glass-card rounded-2xl p-6 sm:p-8 border border-neutral-800">
+            <h2 class="text-base font-bold text-white mb-4 flex items-center gap-2 font-mono uppercase tracking-wider text-xs text-amber-400">
+              <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Présentation & Programme</span>
+            </h2>
+            <div id="event-desc" class="text-sm text-slate-300 leading-relaxed space-y-4 whitespace-pre-line font-normal">
+              Description de l'événement...
+            </div>
+          </div>
+
+          <!-- Bannière ÀNFÀÀNÍ -->
+          <div class="p-5 rounded-2xl border border-neutral-800 bg-neutral-950/80 flex items-start gap-3.5 text-xs">
+            <div class="w-8 h-8 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+              <div class="font-bold text-white">Événement certifié sans frais d'entrée cachés</div>
+              <p class="text-slate-400 mt-0.5 leading-relaxed">
+                Les événements publiés sur ÀNFÀÀNÍ sont vérifiés pour garantir un accès transparent aux talents et bâtisseurs Web3 d'Afrique.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne Droite : Carte d'inscription & Partage (5/12) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Carte Fiche Pratique -->
+          <div class="glass-card rounded-2xl p-6 sm:p-7 border border-neutral-800 space-y-5 sticky top-24">
+
+            <div class="space-y-4 pb-5 border-b border-neutral-850">
+              <!-- Date -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono text-slate-400 uppercase font-semibold">Date & Heure</div>
+                  <div id="event-date" class="text-sm font-bold text-white mt-0.5">24 Octobre 2026 • 15h00 GMT</div>
+                </div>
+              </div>
+
+              <!-- Lieu -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 text-slate-400 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono text-slate-400 uppercase font-semibold">Lieu / Plateforme</div>
+                  <div id="event-location" class="text-sm font-bold text-white mt-0.5">Lomé, Togo</div>
+                </div>
+              </div>
+
+              <!-- Pays & Format -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 text-slate-400 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono text-slate-400 uppercase font-semibold">Format</div>
+                  <div id="event-format" class="text-sm font-bold text-white mt-0.5">Présentiel / En ligne</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bouton d'action principal -->
+            <div class="space-y-3">
+              <a id="event-action-url" href="#" target="_blank" rel="noopener noreferrer" class="btn-gold w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg">
+                <span>Participer / S'inscrire</span>
+                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+
+              <!-- Calendriers -->
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <button onclick="addToGoogleCalendar()" class="btn-outline py-2.5 px-3 rounded-xl font-semibold flex items-center justify-center gap-1.5 cursor-pointer">
+                  <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                  <span>Google Cal</span>
+                </button>
+                <button onclick="downloadIcsFile()" class="btn-outline py-2.5 px-3 rounded-xl font-semibold flex items-center justify-center gap-1.5 cursor-pointer">
+                  <svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <span>iCal / Outlook</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Partager cet événement -->
+            <div class="pt-5 border-t border-neutral-850 space-y-3">
+              <div class="text-[11px] font-mono text-slate-400 uppercase font-semibold flex items-center justify-between">
+                <span>Partager cet événement</span>
+                <span class="text-amber-400 text-[10px]">Lien direct</span>
+              </div>
+
+              <!-- Grille des réseaux -->
+              <div class="grid grid-cols-4 gap-2">
+                <button onclick="shareToWhatsApp()" title="Partager sur WhatsApp" class="btn-outline p-2.5 rounded-xl flex items-center justify-center hover:text-emerald-400 hover:border-emerald-500/40 transition cursor-pointer">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                </button>
+                <button onclick="shareToTelegram()" title="Partager sur Telegram" class="btn-outline p-2.5 rounded-xl flex items-center justify-center hover:text-sky-400 hover:border-sky-500/40 transition cursor-pointer">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.919z"/></svg>
+                </button>
+                <button onclick="shareToTwitter()" title="Partager sur X (Twitter)" class="btn-outline p-2.5 rounded-xl flex items-center justify-center hover:text-white hover:border-neutral-500 transition cursor-pointer">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </button>
+                <button onclick="shareToLinkedIn()" title="Partager sur LinkedIn" class="btn-outline p-2.5 rounded-xl flex items-center justify-center hover:text-blue-400 hover:border-blue-500/40 transition cursor-pointer">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </button>
+              </div>
+
+              <!-- Champ de lien copiable -->
+              <div class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl p-1.5 pl-3">
+                <input type="text" id="share-link-input" readonly class="bg-transparent text-[11px] font-mono text-slate-300 w-full focus:outline-none select-all truncate">
+                <button onclick="copyCurrentEventLink()" class="btn-gold px-3 py-1.5 rounded-lg text-xs font-bold flex-shrink-0 cursor-pointer">
+                  Copier
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Retour & Autres événements -->
+      <div class="pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="evenements.html" class="btn-outline px-5 py-3 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>Consulter les autres événements de l'agenda</span>
+        </a>
+        <a href="index.html#offres" class="text-xs text-slate-400 hover:text-amber-400 transition font-mono">
+          Explorer les offres d'emploi Web3 →
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- LIGHTBOX AFFICHE -->
+  <div id="poster-lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox(event)">
+    <div class="max-w-3xl w-full max-h-[92vh] flex flex-col items-center relative cursor-default" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" aria-label="Fermer" class="absolute -top-10 right-0 sm:-right-4 text-slate-400 hover:text-white p-2 cursor-pointer transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="Affiche en grand" class="max-h-[82vh] w-auto max-w-full rounded-2xl border border-neutral-800 object-contain shadow-2xl">
+      <div id="lightbox-caption" class="mt-3 text-sm font-bold text-white text-center font-sans px-4 truncate max-w-full"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-neutral-900 border border-amber-500/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="w-6 h-6 rounded-full bg-amber-400 text-black flex items-center justify-center flex-shrink-0 font-bold">✓</div>
+    <span id="toast-message">Lien copié dans le presse-papier !</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-neutral-900 bg-black py-10 text-xs text-slate-400 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo_transparent.png" alt="Logo ÀNFÀÀNÍ" class="h-7 w-auto">
+        <span class="text-white font-bold">ÀNFÀÀNÍ</span>
+        <span class="text-slate-500 font-mono">· Open the door to opportunity</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-white transition">Offres</a>
+        <a href="evenements.html" class="text-amber-400 font-semibold">Agenda Événements</a>
+        <a href="contact.html" class="hover:text-white transition">Contact</a>
+        <a href="admin.html" class="hover:text-slate-200 transition font-mono">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentEvent = null;
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-message');
+      if (toast && text) {
+        text.textContent = msg;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3200);
+      }
+    }
+
+    function getEventIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const qId = params.get('id');
+      if (qId) return qId.trim();
+
+      const hash = window.location.hash.replace(/^#/, '').trim();
+      if (hash) return hash;
+
+      return null;
+    }
+
+    async function loadEvent() {
+      const eventId = getEventIdFromUrl();
+
+      if (!eventId) {
+        // Redirection vers l'agenda si aucun ID n'est précisé
+        window.location.replace('evenements.html');
+        return;
+      }
+
+      // 1. Recherche via l'API dédiée
+      try {
+        const res = await fetch(`/api/events?id=${encodeURIComponent(eventId)}&t=${Date.now()}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success && data.event) {
+            renderEvent(data.event);
+            return;
+          }
+        }
+      } catch (e) {
+        console.warn("API fetch error, trying local fallbacks:", e);
+      }
+
+      // 2. Recherche via localStorage (ajouts admin locaux récents)
+      try {
+        const localList = JSON.parse(localStorage.getItem('anfaani_events') || localStorage.getItem('ourson_custom_events') || '[]');
+        const match = localList.find(e => e && e.id === eventId);
+        if (match) {
+          renderEvent(match);
+          return;
+        }
+      } catch (e) {}
+
+      // 3. Recherche via public_events.json
+      try {
+        const res = await fetch(`public_events.json?t=${Date.now()}`);
+        if (res.ok) {
+          const list = await res.json();
+          const match = Array.isArray(list) ? list.find(e => e && e.id === eventId) : null;
+          if (match) {
+            renderEvent(match);
+            return;
+          }
+        }
+      } catch (e) {}
+
+      // Événement introuvable
+      document.getElementById('loading-state').classList.add('hidden');
+      document.getElementById('error-state').classList.remove('hidden');
+    }
+
+    function renderEvent(evt) {
+      currentEvent = evt;
+
+      document.getElementById('loading-state').classList.add('hidden');
+      document.getElementById('error-state').classList.add('hidden');
+      document.getElementById('event-view').classList.remove('hidden');
+
+      // Titres & Métadonnées
+      const pageTitle = `${evt.title} — Agenda Web3 Afrique | ÀNFÀÀNÍ`;
+      document.title = pageTitle;
+      const ptEl = document.getElementById('page-title');
+      if (ptEl) ptEl.textContent = pageTitle;
+
+      const descSnippet = (evt.description || '').slice(0, 160);
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc) metaDesc.content = descSnippet;
+
+      const ogTitle = document.getElementById('og-title');
+      if (ogTitle) ogTitle.content = pageTitle;
+      const ogDesc = document.getElementById('og-desc');
+      if (ogDesc) ogDesc.content = descSnippet;
+      const ogUrl = document.getElementById('og-url');
+      if (ogUrl) ogUrl.content = window.location.href;
+
+      document.getElementById('breadcrumb-title').textContent = evt.title;
+      document.getElementById('event-title').textContent = evt.title;
+      document.getElementById('event-organizer').textContent = evt.organizer || 'Communauté Web3';
+      document.getElementById('event-date').textContent = evt.date;
+      document.getElementById('event-location').textContent = evt.location;
+      document.getElementById('event-country-text').textContent = evt.country || 'Afrique';
+      document.getElementById('event-badge-type').textContent = evt.type || 'Meetup';
+      document.getElementById('event-format').textContent = (evt.location && evt.location.toLowerCase().includes('en ligne')) ? '100% En ligne' : `${evt.country} (Présentiel)`;
+
+      // Bouton d'action
+      const actionBtn = document.getElementById('event-action-url');
+      actionBtn.href = evt.url || '#';
+
+      // Description
+      document.getElementById('event-desc').textContent = evt.description || 'Aucune description détaillée fournie.';
+
+      // Affiche
+      const posterContainer = document.getElementById('event-poster-container');
+      const posterImg = document.getElementById('event-poster-img');
+      if (evt.poster_url) {
+        posterImg.src = evt.poster_url;
+        posterContainer.classList.remove('hidden');
+        const ogImg = document.getElementById('og-img');
+        if (ogImg) ogImg.content = evt.poster_url;
+      } else {
+        posterContainer.classList.add('hidden');
+      }
+
+      // Lien direct dans l'input
+      const shareInput = document.getElementById('share-link-input');
+      shareInput.value = window.location.href;
+    }
+
+    function copyCurrentEventLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        showToast("Lien individuel de l'événement copié !");
+        const btnLabel = document.getElementById('copy-btn-label');
+        if (btnLabel) {
+          btnLabel.textContent = "Lien copié !";
+          setTimeout(() => { btnLabel.textContent = "Copier le lien direct"; }, 2500);
+        }
+      }).catch(() => {
+        const input = document.getElementById('share-link-input');
+        input.select();
+        document.execCommand('copy');
+        showToast("Lien copié dans le presse-papier !");
+      });
+    }
+
+    function shareToWhatsApp() {
+      if (!currentEvent) return;
+      const text = `*${currentEvent.title}*\n Organisé par : ${currentEvent.organizer}\n Date : ${currentEvent.date}\n Lieu : ${currentEvent.location}\n\nLien d'inscription et détails :\n${window.location.href}`;
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function shareToTelegram() {
+      if (!currentEvent) return;
+      const text = `${currentEvent.title} (${currentEvent.date} - ${currentEvent.location})`;
+      window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function shareToTwitter() {
+      if (!currentEvent) return;
+      const text = `Participez à "${currentEvent.title}" (${currentEvent.date}) à ${currentEvent.location} via @AnfaaniWeb3 !`;
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+    }
+
+    function shareToLinkedIn() {
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+    }
+
+    function addToGoogleCalendar() {
+      if (!currentEvent) return;
+      const title = encodeURIComponent(currentEvent.title);
+      const details = encodeURIComponent(`${currentEvent.description || ''}\n\nInscription : ${currentEvent.url || window.location.href}\nLien direct de l'événement : ${window.location.href}`);
+      const location = encodeURIComponent(currentEvent.location || '');
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
+      window.open(gcalUrl, '_blank');
+    }
+
+    function downloadIcsFile() {
+      if (!currentEvent) return;
+      const title = currentEvent.title.replace(/\n/g, ' ');
+      const desc = (currentEvent.description || '').replace(/\n/g, '\\n');
+      const loc = (currentEvent.location || '').replace(/\n/g, ' ');
+
+      const icsData = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//ANFAANI//Agenda Evenements Web3 Afrique//FR',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        `UID:${currentEvent.id}@anfaani.vercel.app`,
+        `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+        `SUMMARY:${title}`,
+        `DESCRIPTION:${desc}\\n\\nInscription: ${currentEvent.url || window.location.href}`,
+        `LOCATION:${loc}`,
+        `URL:${window.location.href}`,
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', `${currentEvent.id || 'evenement'}.ics`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Fichier calendrier .ics téléchargé !");
+    }
+
+    function openLightbox() {
+      if (!currentEvent || !currentEvent.poster_url) return;
+      const modal = document.getElementById('poster-lightbox');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      if (modal && img) {
+        img.src = currentEvent.poster_url;
+        if (cap) cap.textContent = currentEvent.title;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('poster-lightbox');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Chargement initial
+    loadEvent();
+  </script>
+</body>
+</html>
