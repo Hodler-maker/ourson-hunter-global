@@ -1,243 +1,5 @@
 [
   {
-    "id": "BAST-1146FF7A",
-    "title": "Senior Security Engineer",
-    "company": "Bastion",
-    "category": "Dev",
-    "type": "Remote",
-    "salary": "Rémunération Web3 compétitive",
-    "url": "https://cryptojobslist.com/jobs/senior-security-engineer-united-states-at-bastion",
-    "eligibility": "Global / Remote",
-    "score": 86,
-    "notes": "Tags: Web3 Jobs • Cryptocurrency Security Jobs • Cryptocurrency Golang Jobs • Web3 Kubernetes Jobs • Cryptocurrency Remote Jobs • Blockc...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "CHAI-B03445B5",
-    "title": "Site Reliability Engineer, Connectivity",
-    "company": "Chainlink Labs",
-    "category": "Dev",
-    "type": "Remote",
-    "salary": "Rémunération Web3 compétitive",
-    "url": "https://cryptojobslist.com/jobs/site-reliability-engineer-connectivity-brazil-argentina-colombia-mexico-at-chainlink-labs",
-    "eligibility": "Global / Remote",
-    "score": 86,
-    "notes": "Tags: Web3 Jobs • Cryptocurrency SRE Jobs • Cryptocurrency Golang Jobs • Web3 Kubernetes Jobs • Blockchain Remote Jobs • Blockchain Full...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "SAAS-DF0FD587",
-    "title": "Content Lead",
-    "company": "saas.group",
-    "category": "Content",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155104-content-lead",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "This role is part of a fast-growing AI company that is set to join saas.group, as one of our upcoming brands. This role is attached to a future acquis...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "WEBF-321201E3",
-    "title": "Corporate Account Executive - East",
-    "company": "Webflow",
-    "category": "Dev",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155107-corporate-account-executive-east-2",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "UPGU-92DF6E9E",
-    "title": "Senior Web Developer",
-    "company": "UpGuard",
-    "category": "Dev",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155084-senior-web-developer",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "Who are we? At UpGuard, we are replacing manual security bottlenecks with AI-driven precision. Fresh off a US$75M Series C, we are scaling our infrast...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "CUST-F074CE18",
-    "title": "Customer Success Manager",
-    "company": "Customer.io",
-    "category": "Community",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155082-customer-success-manager-36",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "About Customer.io Over 9,000 companies — from scrappy startups to global brands — use our platform to send billions of emails, push notifications, in-...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "LAUN-AAD33686",
-    "title": "Lead BI Developer",
-    "company": "Launch Potato",
-    "category": "Dev",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155159-lead-bi-developer-2",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "WHO ARE WE? Launch Potato is the discovery and conversion company. We reach tens of millions of people every month through our brands, including Finan...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "LAUN-FECEC1B1",
-    "title": "Lead BI Manager",
-    "company": "Launch Potato",
-    "category": "Trading",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155160-lead-bi-manager-2",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "WHO ARE WE? Launch Potato is the discovery and conversion company. We reach tens of millions of people every month through our brands, including Finan...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "LAUN-8BA6A1C0",
-    "title": "Lead Analytics Manager",
-    "company": "Launch Potato",
-    "category": "Trading",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155158-lead-analytics-manager-2",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "WHO ARE WE? Launch Potato is the discovery and conversion company. We reach tens of millions of people every month through our brands, including Finan...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "LAUN-45F373A0",
-    "title": "Business Intelligence Lead, Performance Marketing",
-    "company": "Launch Potato",
-    "category": "Trading",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155153-business-intelligence-lead-performance-marketing-4",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "WHO ARE WE? Launch Potato is the discovery and conversion company. We reach tens of millions of people every month through our brands, including Finan...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "PLAY-BFBDA190",
-    "title": "Content Manager",
-    "company": "Playson",
-    "category": "Content",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155156-content-manager",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "About the Role Playson is a leading online gaming supplier with worldwide recognition which was founded in 2012. We offer complete gaming solutions ba...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "BAYE-10DE54F3",
-    "title": "Product Marketing Lead",
-    "company": "Bayesian Health",
-    "category": "Community",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155124-product-marketing-lead-2",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "Product Marketing Lead In Brief We're a rapidly growing startup on a mission to make healthcare proactive by empowering physicians, nurses, and care t...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "CANO-4458737C",
-    "title": "Embedded Devices Software Solution Sales Director (Japan)",
-    "company": "Canonical",
-    "category": "Dev",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155089-embedded-devices-software-solution-sales-director-japan",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, i...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "LEVE-2F18DEA9",
-    "title": "Inside Sales Rep",
-    "company": "LevelUp",
-    "category": "Ambassadeur",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155083-inside-sales-rep",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "Company Overview LevelUp is a specialist agency that provides outsourcing solutions to agencies, software vendors, and website owners. For over seven ...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "UPGU-85B3BCC9",
-    "title": "Marketing Operations Email Specialist",
-    "company": "UpGuard",
-    "category": "Dev",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155091-marketing-operations-email-specialist",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "Who are we? At UpGuard, we are replacing manual security bottlenecks with AI-driven precision. Fresh off a US$75M Series C, we are scaling our infrast...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "CISI-769CD03E",
-    "title": "Senior Staff Software Engineer",
-    "company": "Cision",
-    "category": "Dev",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155079-senior-staff-software-engineer",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "At Cision, we believe in empowering every individual to make an impact. Here, your voice is heard, your ideas are valued, and your unique perspective ...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
-    "id": "HUNT-3C923968",
-    "title": "Security Operations Analyst- Ireland",
-    "company": "Huntress",
-    "category": "Trading",
-    "type": "CDI Remote",
-    "salary": "Rémunération compétitive",
-    "url": "https://jobicy.com/jobs/155141-security-operations-analyst-ireland",
-    "eligibility": "Global / Remote",
-    "score": 85,
-    "notes": "What We Do: Cybercrime is growing, and more businesses are getting hit by threats that used to target only the biggest organizations. That pushes defe...",
-    "status": "active",
-    "created_at": "2026-10-13 00:05:28"
-  },
-  {
     "id": "KRAKEN-01",
     "title": "Community Lead — Kraken Pro",
     "company": "Kraken",
@@ -249,7 +11,7 @@
     "score": 92,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SOLANA-01",
@@ -263,7 +25,7 @@
     "score": 91,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SUPERTEAM-01",
@@ -277,7 +39,7 @@
     "score": 89,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERTIK-01",
@@ -291,7 +53,7 @@
     "score": 88,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITGET-01",
@@ -305,7 +67,7 @@
     "score": 88,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MAGI-8CA6A5A7",
@@ -319,7 +81,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LIBE-17F36445",
@@ -333,7 +95,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEWS-EF0E7CCE",
@@ -347,7 +109,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEWS-E1A5B6EF",
@@ -361,7 +123,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CELS-9F53A6E7",
@@ -375,7 +137,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LANT-45D502B0",
@@ -389,7 +151,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KAST-B91B6E58",
@@ -403,7 +165,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DIGI-F49E3879",
@@ -417,7 +179,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOC-CEC3CE90",
@@ -431,7 +193,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KANA-27FE49F9",
@@ -445,7 +207,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEWE-9ADE19DA",
@@ -459,7 +221,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OVER-6090D23F",
@@ -473,7 +235,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LEAR-432A1AFC",
@@ -487,7 +249,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CARE-3DE746EF",
@@ -501,7 +263,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROTA-640396D3",
@@ -515,7 +277,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KAST-84C06A61",
@@ -529,7 +291,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIN-D464470A",
@@ -543,7 +305,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FUSE-622C6251",
@@ -557,7 +319,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LITT-3457A99B",
@@ -571,7 +333,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EZCA-F1C5E948",
@@ -585,7 +347,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GAMB-9A6E5633",
@@ -599,7 +361,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEST-232003AA",
@@ -613,7 +375,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CYAR-AD632E4A",
@@ -627,7 +389,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-5D4DCF99",
@@ -641,7 +403,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CAES-4C3EA288",
@@ -655,7 +417,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DSWD-F5EF00C5",
@@ -669,7 +431,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STAR-503055E6",
@@ -683,7 +445,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXOD-A1B2B586",
@@ -697,7 +459,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DVTR-224F785D",
@@ -711,7 +473,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GROV-49C21E1C",
@@ -725,7 +487,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YOUF-BD63F79E",
@@ -739,7 +501,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TUSM-B4F4D73A",
@@ -753,7 +515,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PUBG-1C5DF06F",
@@ -767,7 +529,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WIKI-0D41EECA",
@@ -781,7 +543,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEFD-8C655939",
@@ -795,7 +557,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BASE-06561879",
@@ -809,7 +571,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EMPI-FD26A8DC",
@@ -823,7 +585,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OMEG-C0A66488",
@@ -837,7 +599,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BYBI-6A071BE6",
@@ -851,7 +613,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FULC-BFDF906B",
@@ -865,7 +627,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLEN-FC6B288C",
@@ -879,7 +641,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AJAI-DF42A72D",
@@ -893,7 +655,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FRAC-C16A0F87",
@@ -907,7 +669,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YOUT-2CCC87A4",
@@ -921,7 +683,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SCHO-320E29CC",
@@ -935,7 +697,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OPEN-C0F1F93B",
@@ -949,7 +711,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OPEN-1058EE83",
@@ -963,7 +725,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-6C9426F6",
@@ -977,7 +739,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RECR-DEA65271",
@@ -991,7 +753,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RECS-087A750A",
@@ -1005,7 +767,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SWOO-F5B16346",
@@ -1019,7 +781,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MAST-1C972EE4",
@@ -1033,7 +795,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLAC-070CFA70",
@@ -1047,7 +809,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-1A25743D",
@@ -1061,7 +823,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ZENI-54798EA6",
@@ -1075,7 +837,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ARCH-41EAC87C",
@@ -1089,7 +851,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REI-35CBA442",
@@ -1103,7 +865,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CELS-C1E7F35F",
@@ -1117,7 +879,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INJE-95B7126A",
@@ -1131,7 +893,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROCK-ED575DD7",
@@ -1145,7 +907,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BYBIT-01",
@@ -1159,7 +921,7 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ARC-01",
@@ -1173,7 +935,35 @@
     "score": 87,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "BAST-1146FF7A",
+    "title": "Senior Security Engineer",
+    "company": "Bastion",
+    "category": "Dev",
+    "type": "Remote",
+    "salary": "Rémunération Web3 compétitive",
+    "url": "https://cryptojobslist.com/jobs/senior-security-engineer-united-states-at-bastion",
+    "eligibility": "Global / Remote",
+    "score": 86,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CHAI-B03445B5",
+    "title": "Site Reliability Engineer, Connectivity",
+    "company": "Chainlink Labs",
+    "category": "Dev",
+    "type": "Remote",
+    "salary": "Rémunération Web3 compétitive",
+    "url": "https://cryptojobslist.com/jobs/site-reliability-engineer-connectivity-brazil-argentina-colombia-mexico-at-chainlink-labs",
+    "eligibility": "Global / Remote",
+    "score": 86,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALCH-D2677BC6",
@@ -1187,7 +977,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STEL-F14A2E1E",
@@ -1201,7 +991,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-F3FFF9B5",
@@ -1215,7 +1005,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SYNO-EC909853",
@@ -1229,7 +1019,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOC-3FF8BB84",
@@ -1243,7 +1033,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-911E2A0F",
@@ -1257,7 +1047,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALGO-6F31FA12",
@@ -1271,7 +1061,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HYRO-C83D2202",
@@ -1285,7 +1075,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DELO-0768D3A5",
@@ -1299,7 +1089,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOC-55C0B3AF",
@@ -1313,7 +1103,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIGU-E6ADCB0D",
@@ -1327,7 +1117,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-7798FCF7",
@@ -1341,7 +1131,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-E5C95F84",
@@ -1355,7 +1145,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BVNK-F68DDB5E",
@@ -1369,7 +1159,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ACCE-B7594897",
@@ -1383,7 +1173,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ACCE-34D8E046",
@@ -1397,7 +1187,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-02DDB1AB",
@@ -1411,7 +1201,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PANT-E3952BB6",
@@ -1425,7 +1215,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-CF4A1390",
@@ -1439,7 +1229,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-C042E465",
@@ -1453,7 +1243,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INJE-5DE09210",
@@ -1467,7 +1257,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ANCH-B56979AB",
@@ -1481,7 +1271,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-940B6DE8",
@@ -1495,7 +1285,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INFI-441C2A4A",
@@ -1509,7 +1299,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-9D943CD9",
@@ -1523,7 +1313,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-E38475C3",
@@ -1537,7 +1327,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RECA-19A3F9D9",
@@ -1551,7 +1341,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ARVE-33C489FA",
@@ -1565,7 +1355,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALCH-782DB290",
@@ -1579,7 +1369,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-B28F9335",
@@ -1593,7 +1383,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALCH-B254E58D",
@@ -1607,7 +1397,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RAIN-A3A3CD6D",
@@ -1621,7 +1411,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-7D02426B",
@@ -1635,7 +1425,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SIGI-8F988212",
@@ -1649,7 +1439,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-812A47C6",
@@ -1663,7 +1453,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ONDO-3ABE80B4",
@@ -1677,7 +1467,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OPEN-5E3BCB9C",
@@ -1691,7 +1481,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MOON-29C7934F",
@@ -1705,7 +1495,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-0F39B127",
@@ -1719,7 +1509,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-6A03159B",
@@ -1733,7 +1523,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLUP-7D5C99BD",
@@ -1747,7 +1537,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLUP-05B5D70C",
@@ -1761,7 +1551,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-235ACF06",
@@ -1775,7 +1565,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JEEV-F8274044",
@@ -1789,7 +1579,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-751A45EA",
@@ -1803,7 +1593,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ANCH-F9B6A64F",
@@ -1817,7 +1607,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JEEV-B6A73DEE",
@@ -1831,7 +1621,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CIRC-0E260CA6",
@@ -1845,7 +1635,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ATTR-57F2D00C",
@@ -1859,7 +1649,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-35EBA847",
@@ -1873,7 +1663,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ANCH-F4ADB730",
@@ -1887,7 +1677,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ANCH-F7D351DD",
@@ -1901,7 +1691,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CIRC-CD798A1B",
@@ -1915,7 +1705,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RAIN-3FCE63AE",
@@ -1929,7 +1719,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-9B3F26BE",
@@ -1943,7 +1733,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-BB355F83",
@@ -1957,7 +1747,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BRAV-4B85A668",
@@ -1971,7 +1761,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-1A4326CB",
@@ -1985,7 +1775,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WEEX-A7F58A50",
@@ -1999,7 +1789,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RITU-B6EEC811",
@@ -2013,7 +1803,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-870F9015",
@@ -2027,7 +1817,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-DF8E5F30",
@@ -2041,7 +1831,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-80FECCC0",
@@ -2055,7 +1845,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-64719518",
@@ -2069,7 +1859,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-E6A95A8A",
@@ -2083,7 +1873,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RITU-FDDC7C07",
@@ -2097,7 +1887,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RITU-BA36BB58",
@@ -2111,7 +1901,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RITU-E64E3BDD",
@@ -2125,7 +1915,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STEL-4A17C04A",
@@ -2139,7 +1929,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CODE4RENA-01",
@@ -2153,7 +1943,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-8C439BFC",
@@ -2167,7 +1957,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-FA51AC87",
@@ -2181,7 +1971,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIGU-B6D0D4EF",
@@ -2195,7 +1985,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DELO-4FF9DBD8",
@@ -2209,7 +1999,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-6864F06C",
@@ -2223,7 +2013,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOC-6C59286C",
@@ -2237,7 +2027,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-871E1961",
@@ -2251,7 +2041,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RITU-6C31DE94",
@@ -2265,7 +2055,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STEL-A42AD335",
@@ -2279,7 +2069,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-526F2DF1",
@@ -2293,7 +2083,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RAIN-B604D5E6",
@@ -2307,7 +2097,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-1F9C8AD8",
@@ -2321,7 +2111,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-940D2564",
@@ -2335,7 +2125,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-CC52A525",
@@ -2349,7 +2139,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-C0CE6987",
@@ -2363,7 +2153,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ONDO-F7875AD0",
@@ -2377,7 +2167,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-B7675654",
@@ -2391,7 +2181,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TETH-23B308E7",
@@ -2405,7 +2195,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-EE9F92C6",
@@ -2419,7 +2209,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIGU-6E4759FB",
@@ -2433,7 +2223,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RITU-24D00AEB",
@@ -2447,7 +2237,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RAIN-20537F25",
@@ -2461,7 +2251,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-1FAAF633",
@@ -2475,7 +2265,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-8F365B08",
@@ -2489,7 +2279,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REVO-7BC136B8",
@@ -2503,7 +2293,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-7E8F4405",
@@ -2517,7 +2307,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-07643EFF",
@@ -2531,7 +2321,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-396C1F9B",
@@ -2545,7 +2335,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-84E5B409",
@@ -2559,7 +2349,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-80CAD8F1",
@@ -2573,7 +2363,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-4C819590",
@@ -2587,7 +2377,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TECH-ABBE381B",
@@ -2601,7 +2391,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-66164E48",
@@ -2615,7 +2405,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-9F903284",
@@ -2629,7 +2419,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-94E50A05",
@@ -2643,7 +2433,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BITG-63722A0D",
@@ -2657,7 +2447,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GALA-7C2A441B",
@@ -2671,7 +2461,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STEL-4B02D12E",
@@ -2685,7 +2475,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STEL-D61132B2",
@@ -2699,7 +2489,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-C3223E74",
@@ -2713,7 +2503,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-582D3D85",
@@ -2727,7 +2517,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-B4C2145F",
@@ -2741,7 +2531,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-C8F83C0F",
@@ -2755,7 +2545,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-B54502EB",
@@ -2769,7 +2559,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-02729CAF",
@@ -2783,7 +2573,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-46310490",
@@ -2797,7 +2587,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-3E29044B",
@@ -2811,7 +2601,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-344B545D",
@@ -2825,7 +2615,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-5AE134C4",
@@ -2839,7 +2629,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COIN-9C62BEDD",
@@ -2853,7 +2643,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOC-CED777D7",
@@ -2867,7 +2657,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ETOR-F49A3662",
@@ -2881,7 +2671,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STEL-31B131A2",
@@ -2895,7 +2685,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOC-EB4FED1C",
@@ -2909,7 +2699,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-8D03017A",
@@ -2923,7 +2713,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-D5D08B80",
@@ -2937,7 +2727,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-64D4B3F1",
@@ -2951,7 +2741,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-CD701CF2",
@@ -2965,7 +2755,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-1D5389A9",
@@ -2979,7 +2769,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRYP-65BF010D",
@@ -2993,7 +2783,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-76C52322",
@@ -3007,7 +2797,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-274FBC75",
@@ -3021,7 +2811,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SHAK-727B8D10",
@@ -3035,7 +2825,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SHAK-AE48BFE1",
@@ -3049,7 +2839,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-C968CE1B",
@@ -3063,7 +2853,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KRAK-1A60D731",
@@ -3077,7 +2867,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TETH-6EC7A9AA",
@@ -3091,7 +2881,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TETH-1ECFE92E",
@@ -3105,7 +2895,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OPEN-058C3E56",
@@ -3119,7 +2909,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ARQ-86E1BDCD",
@@ -3133,7 +2923,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JEEV-081856C8",
@@ -3147,7 +2937,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TETH-F988B139",
@@ -3161,7 +2951,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CIRC-1F8644B6",
@@ -3175,7 +2965,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TETH-7B097F31",
@@ -3189,7 +2979,7 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ARQ-1026CE86",
@@ -3203,7 +2993,273 @@
     "score": 86,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "OPEN-66C4171A",
+    "title": "Staff Product Designer",
+    "company": "OpenSea",
+    "category": "Content",
+    "type": "Remote",
+    "salary": "Rémunération Web3 compétitive",
+    "url": "https://cryptojobslist.com/jobs/staff-product-designer-remote-at-opensea",
+    "eligibility": "Global / Remote",
+    "score": 86,
+    "notes": "Tags: Web3 Jobs • Blockchain Designer Jobs • Blockchain Senior Jobs • Cryptocurrency Web3 Jobs • Cryptocurrency Ai Jobs • Blockchain Mob...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CHAI-3C65744E",
+    "title": "Director of Events",
+    "company": "Chainlink Labs",
+    "category": "Community",
+    "type": "Remote",
+    "salary": "Rémunération Web3 compétitive",
+    "url": "https://cryptojobslist.com/jobs/director-of-events-united-states-at-chainlink-labs",
+    "eligibility": "Global / Remote",
+    "score": 86,
+    "notes": "Tags: Web3 Jobs • Blockchain Director Jobs • Blockchain Event Marketing Jobs • Web3 Manager Jobs • Blockchain Marketing Jobs • Web3 Remo...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CHAI-ACD02EDB",
+    "title": "Senior People Systems & Integrations Analyst",
+    "company": "Chainalysis",
+    "category": "Trading",
+    "type": "Remote",
+    "salary": "Rémunération Web3 compétitive",
+    "url": "https://cryptojobslist.com/jobs/senior-people-systems-integrations-united-states-at-chainalysis",
+    "eligibility": "Global / Remote",
+    "score": 86,
+    "notes": "Tags: Web3 Jobs • Cryptocurrency Analyst Jobs • Cryptocurrency Human Resources Jobs • Blockchain Ai Jobs • Blockchain Full Time Jobs • W...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "BITG-7D326888",
+    "title": "Director of Trust Administration",
+    "company": "BitGo",
+    "category": "Dev",
+    "type": "Remote",
+    "salary": "Rémunération Web3 compétitive",
+    "url": "https://cryptojobslist.com/jobs/director-of-trust-administration-sioux-falls-south-dakota-united-states-at-bitgo",
+    "eligibility": "Global / Remote",
+    "score": 86,
+    "notes": "Tags: Web3 Jobs • Cryptocurrency Director Jobs • Web3 Operations Jobs • Web3 Finance Jobs • Blockchain Compliance Jobs • Web3 Web3 Jobs...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "SAAS-DF0FD587",
+    "title": "Content Lead",
+    "company": "saas.group",
+    "category": "Content",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155104-content-lead",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "WEBF-321201E3",
+    "title": "Corporate Account Executive - East",
+    "company": "Webflow",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155107-corporate-account-executive-east-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "UPGU-92DF6E9E",
+    "title": "Senior Web Developer",
+    "company": "UpGuard",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155084-senior-web-developer",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CUST-F074CE18",
+    "title": "Customer Success Manager",
+    "company": "Customer.io",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155082-customer-success-manager-36",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LAUN-AAD33686",
+    "title": "Lead BI Developer",
+    "company": "Launch Potato",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155159-lead-bi-developer-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LAUN-FECEC1B1",
+    "title": "Lead BI Manager",
+    "company": "Launch Potato",
+    "category": "Trading",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155160-lead-bi-manager-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LAUN-8BA6A1C0",
+    "title": "Lead Analytics Manager",
+    "company": "Launch Potato",
+    "category": "Trading",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155158-lead-analytics-manager-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LAUN-45F373A0",
+    "title": "Business Intelligence Lead, Performance Marketing",
+    "company": "Launch Potato",
+    "category": "Trading",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155153-business-intelligence-lead-performance-marketing-4",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PLAY-BFBDA190",
+    "title": "Content Manager",
+    "company": "Playson",
+    "category": "Content",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155156-content-manager",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "BAYE-10DE54F3",
+    "title": "Product Marketing Lead",
+    "company": "Bayesian Health",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155124-product-marketing-lead-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CANO-4458737C",
+    "title": "Embedded Devices Software Solution Sales Director (Japan)",
+    "company": "Canonical",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155089-embedded-devices-software-solution-sales-director-japan",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LEVE-2F18DEA9",
+    "title": "Inside Sales Rep",
+    "company": "LevelUp",
+    "category": "Ambassadeur",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155083-inside-sales-rep",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "UPGU-85B3BCC9",
+    "title": "Marketing Operations Email Specialist",
+    "company": "UpGuard",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155091-marketing-operations-email-specialist",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CISI-769CD03E",
+    "title": "Senior Staff Software Engineer",
+    "company": "Cision",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155079-senior-staff-software-engineer",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "HUNT-3C923968",
+    "title": "Security Operations Analyst- Ireland",
+    "company": "Huntress",
+    "category": "Trading",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/155141-security-operations-analyst-ireland",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPST-55490DA4",
@@ -3217,7 +3273,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPST-D3CAA21F",
@@ -3231,7 +3287,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NATE-1650F8D4",
@@ -3245,7 +3301,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NATE-9665EA59",
@@ -3259,7 +3315,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GIVE-36787DCD",
@@ -3273,7 +3329,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPSI-156CFFB7",
@@ -3287,7 +3343,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BRAF-BDADFD49",
@@ -3301,7 +3357,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BRAF-12C32553",
@@ -3315,7 +3371,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BRAF-F38A1062",
@@ -3329,7 +3385,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SPOT-E45C511E",
@@ -3343,7 +3399,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JOBB-67ED8FA8",
@@ -3357,7 +3413,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WORK-2674F50B",
@@ -3371,7 +3427,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TEST-419D6CAE",
@@ -3385,7 +3441,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEE-8D901B22",
@@ -3399,7 +3455,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-148A4433",
@@ -3413,7 +3469,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-501F0F6F",
@@ -3427,7 +3483,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FORT-818D88D9",
@@ -3441,7 +3497,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALPH-17284237",
@@ -3455,7 +3511,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-AF18B980",
@@ -3469,7 +3525,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MURA-10AF2309",
@@ -3483,7 +3539,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SQUA-8263200A",
@@ -3497,7 +3553,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SQUA-B62E96F5",
@@ -3511,7 +3567,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CONT-B4BEA21E",
@@ -3525,7 +3581,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CONT-2949EA10",
@@ -3539,7 +3595,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CODE-1E544540",
@@ -3553,7 +3609,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRUS-A41C7FF3",
@@ -3567,7 +3623,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TENA-F644673A",
@@ -3581,7 +3637,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TENA-2AE96506",
@@ -3595,7 +3651,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TENA-46D60685",
@@ -3609,7 +3665,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TENA-E77BE78F",
@@ -3623,7 +3679,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPBO-9ECA2940",
@@ -3637,7 +3693,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPBO-77948134",
@@ -3651,7 +3707,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "QUIN-71F25092",
@@ -3665,7 +3721,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KONG-1DA8FC33",
@@ -3679,7 +3735,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "IMPA-739FD020",
@@ -3693,7 +3749,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "IMPA-65D6A01B",
@@ -3707,7 +3763,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "IMPA-0A8E5C6B",
@@ -3721,7 +3777,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "IMPA-C057D67B",
@@ -3735,7 +3791,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEEP-FFCE1EE9",
@@ -3749,7 +3805,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAR-320AC56F",
@@ -3763,7 +3819,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YIPI-998F1CBD",
@@ -3777,7 +3833,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GREM-26E90133",
@@ -3791,7 +3847,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "APPE-4B98C334",
@@ -3805,7 +3861,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-D441AEF0",
@@ -3819,7 +3875,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-C7694FC1",
@@ -3833,7 +3889,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRIP-A485BD20",
@@ -3847,7 +3903,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DL-A30E60DF",
@@ -3861,7 +3917,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WPRO-C506FC06",
@@ -3875,7 +3931,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WPRO-659CD580",
@@ -3889,7 +3945,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WPRO-E27E5C2A",
@@ -3903,7 +3959,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WPRO-6A4F4062",
@@ -3917,7 +3973,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEX-0311E221",
@@ -3931,7 +3987,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DOXI-7307B2C1",
@@ -3945,7 +4001,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SEAT-534B4D5F",
@@ -3959,7 +4015,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SPIR-BED4D589",
@@ -3973,7 +4029,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PALM-B5E28ADB",
@@ -3987,7 +4043,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AMPL-63A38C1C",
@@ -4001,7 +4057,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AMPL-2F7776E2",
@@ -4015,7 +4071,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YIPI-88C32D55",
@@ -4029,7 +4085,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YIPI-DFD2A28B",
@@ -4043,7 +4099,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YIPI-58F2DB5B",
@@ -4057,7 +4113,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CAPG-742BDD42",
@@ -4071,7 +4127,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GOFA-16795365",
@@ -4085,7 +4141,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PERF-9181F1CB",
@@ -4099,7 +4155,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PERF-41D402E0",
@@ -4113,7 +4169,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEX-06B11BE9",
@@ -4127,7 +4183,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DOXI-FBF9D3FD",
@@ -4141,7 +4197,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STRI-574B1DC0",
@@ -4155,7 +4211,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STRI-BC82F558",
@@ -4169,7 +4225,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STRI-95244583",
@@ -4183,7 +4239,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RECO-39A4B6F4",
@@ -4197,7 +4253,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ACQU-18BAA476",
@@ -4211,7 +4267,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ABBY-A8A3A6EB",
@@ -4225,7 +4281,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MOZI-7B37844A",
@@ -4239,7 +4295,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ACQU-BE9ACBAE",
@@ -4253,7 +4309,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GITL-9E598F50",
@@ -4267,7 +4323,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LUXU-A4F34279",
@@ -4281,7 +4337,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-0C71331C",
@@ -4295,7 +4351,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-7EDCC2A8",
@@ -4309,7 +4365,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-097CFFB2",
@@ -4323,7 +4379,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STRI-D0DEE533",
@@ -4337,7 +4393,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BEYO-412446FF",
@@ -4351,7 +4407,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KEYF-C0E4A7B3",
@@ -4365,7 +4421,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-61C5818B",
@@ -4379,7 +4435,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-E61FE57F",
@@ -4393,7 +4449,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HACK-E9155B4D",
@@ -4407,7 +4463,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HACK-448A0532",
@@ -4421,7 +4477,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HACK-DBA3C703",
@@ -4435,7 +4491,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "RAMP-D39982D7",
@@ -4449,7 +4505,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PHAN-CA85BB07",
@@ -4463,7 +4519,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STAC-FFB31218",
@@ -4477,7 +4533,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STAC-9C020B67",
@@ -4491,7 +4547,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-B24AB152",
@@ -4505,7 +4561,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-7FFFD363",
@@ -4519,7 +4575,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PLEO-88FB6ACE",
@@ -4533,7 +4589,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-BB02ECF7",
@@ -4547,7 +4603,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-F67F75D2",
@@ -4561,7 +4617,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-28E58D53",
@@ -4575,7 +4631,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-28201D09",
@@ -4589,7 +4645,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERC-060D1A8D",
@@ -4603,7 +4659,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAMS-2BC20250",
@@ -4617,7 +4673,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-E72332F0",
@@ -4631,7 +4687,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "YIPI-40AC145E",
@@ -4645,7 +4701,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-FE294556",
@@ -4659,7 +4715,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COMM-8C7300A4",
@@ -4673,7 +4729,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-ACC05A11",
@@ -4687,7 +4743,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEE-E826FA66",
@@ -4701,7 +4757,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-734F52CC",
@@ -4715,7 +4771,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SLEE-9F8FCEDE",
@@ -4729,7 +4785,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIVE-E4928809",
@@ -4743,7 +4799,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-BEE5833C",
@@ -4757,7 +4813,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-FDEF2390",
@@ -4771,7 +4827,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LIGH-7161B599",
@@ -4785,7 +4841,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WIND-485672AF",
@@ -4799,7 +4855,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PASS-BE2FEB6E",
@@ -4813,7 +4869,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "QUIC-5CBB6F79",
@@ -4827,7 +4883,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KEYF-51BEDBFD",
@@ -4841,7 +4897,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KEYF-A9243E7D",
@@ -4855,7 +4911,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-1C2B7AD9",
@@ -4869,7 +4925,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-B76A921C",
@@ -4883,7 +4939,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-1D46FB36",
@@ -4897,7 +4953,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "APOL-D264152F",
@@ -4911,7 +4967,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-448501CF",
@@ -4925,7 +4981,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-D4F5F97C",
@@ -4939,7 +4995,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EVER-ECEE6F5B",
@@ -4953,7 +5009,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "QUIC-41C8AE23",
@@ -4967,7 +5023,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "QUIC-1A91DBBC",
@@ -4981,7 +5037,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-BBF4DB71",
@@ -4995,7 +5051,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WIND-F1B88006",
@@ -5009,7 +5065,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-D688BEB6",
@@ -5023,7 +5079,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CONS-1DB96E87",
@@ -5037,7 +5093,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-5EFA4A21",
@@ -5051,7 +5107,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-EEF54BE5",
@@ -5065,7 +5121,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIL-E3CA3B41",
@@ -5079,7 +5135,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIL-650C4240",
@@ -5093,7 +5149,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIL-F185D09D",
@@ -5107,7 +5163,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-4A5A2632",
@@ -5121,7 +5177,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GIVE-A06F5863",
@@ -5135,7 +5191,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HACK-8C4E39D7",
@@ -5149,7 +5205,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HACK-2F1C5750",
@@ -5163,7 +5219,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HACK-D21B61BF",
@@ -5177,7 +5233,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOO-AE557A46",
@@ -5191,7 +5247,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRIB-5B195317",
@@ -5205,7 +5261,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEEP-7CEA4E23",
@@ -5219,7 +5275,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ACTI-3655B497",
@@ -5233,7 +5289,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-6BBF2EFF",
@@ -5247,7 +5303,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-2B30E6B6",
@@ -5261,7 +5317,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ACTI-495DA75C",
@@ -5275,7 +5331,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DISC-481A6A6D",
@@ -5289,7 +5345,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEMA-527BA0C3",
@@ -5303,7 +5359,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FANA-E92153E3",
@@ -5317,7 +5373,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DISC-2DE8ACB4",
@@ -5331,7 +5387,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ARLO-B758D273",
@@ -5345,7 +5401,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DROP-EDE8AD79",
@@ -5359,7 +5415,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ATAR-C6FC0B0D",
@@ -5373,7 +5429,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERI-2EBC4A3F",
@@ -5387,7 +5443,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GIVE-9C2892A6",
@@ -5401,7 +5457,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BETT-6EB35047",
@@ -5415,7 +5471,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HUNT-67007992",
@@ -5429,7 +5485,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEMA-F5D4117B",
@@ -5443,7 +5499,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "STAC-CCC1A8B7",
@@ -5457,7 +5513,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GIVE-B0606315",
@@ -5471,7 +5527,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SOCI-C5ECDB7F",
@@ -5485,7 +5541,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SOCI-1F7D8B1D",
@@ -5499,7 +5555,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PERF-54F9D9B9",
@@ -5513,7 +5569,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BIGI-60F899DF",
@@ -5527,7 +5583,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BIGI-93458316",
@@ -5541,7 +5597,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAR-7ADF1741",
@@ -5555,7 +5611,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAR-8BFAA53E",
@@ -5569,7 +5625,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "QUAN-6343B422",
@@ -5583,7 +5639,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SUPA-0C8931DD",
@@ -5597,7 +5653,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLIC-CFCBBD2D",
@@ -5611,7 +5667,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-D4CAD67F",
@@ -5625,7 +5681,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BEYO-D653465A",
@@ -5639,7 +5695,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "QUAN-6B69B579",
@@ -5653,7 +5709,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MONZ-793C83C1",
@@ -5667,7 +5723,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "IRON-D8DCC629",
@@ -5681,7 +5737,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LITM-6FFC8133",
@@ -5695,7 +5751,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LITM-70989103",
@@ -5709,7 +5765,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SENS-D176CF54",
@@ -5723,7 +5779,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHIL-B99FC98A",
@@ -5737,7 +5793,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SUPA-B96257F5",
@@ -5751,7 +5807,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CENT-8BDCF7AE",
@@ -5765,7 +5821,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SUPA-C46B18D4",
@@ -5779,7 +5835,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LANG-479260CC",
@@ -5793,7 +5849,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LANG-EB581E69",
@@ -5807,7 +5863,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CENT-D6DDFE91",
@@ -5821,7 +5877,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BEYO-54D89E8E",
@@ -5835,7 +5891,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LIFT-E46EE9DD",
@@ -5849,7 +5905,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DUCK-19B7C1C0",
@@ -5863,7 +5919,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ZIP-FA61F810",
@@ -5877,7 +5933,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-CD24FA83",
@@ -5891,7 +5947,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIL-2540AF5E",
@@ -5905,7 +5961,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIL-B9F8954D",
@@ -5919,7 +5975,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TWIL-29404F17",
@@ -5933,7 +5989,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-04F6ECDB",
@@ -5947,7 +6003,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-729F5CCE",
@@ -5961,7 +6017,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-DEA4F866",
@@ -5975,7 +6031,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAMS-26BCB924",
@@ -5989,7 +6045,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-83523DF4",
@@ -6003,7 +6059,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TOPT-4C0C6F6B",
@@ -6017,7 +6073,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-4DE6905A",
@@ -6031,7 +6087,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERA-B5931647",
@@ -6045,7 +6101,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERA-49ACE7CF",
@@ -6059,7 +6115,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-FDDE6A2B",
@@ -6073,7 +6129,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TOPT-A5E39C0C",
@@ -6087,7 +6143,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-6E704295",
@@ -6101,7 +6157,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-909FA8E8",
@@ -6115,7 +6171,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JUNI-DE298A1A",
@@ -6129,7 +6185,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PASS-AACD25BA",
@@ -6143,7 +6199,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JUNI-8E5BE692",
@@ -6157,7 +6213,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PASS-9C596FA6",
@@ -6171,7 +6227,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PASS-C91CAE27",
@@ -6185,7 +6241,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JUNI-E50103E9",
@@ -6199,7 +6255,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GARN-56046742",
@@ -6213,7 +6269,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GOOD-04A9029C",
@@ -6227,7 +6283,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-2EFEDA5B",
@@ -6241,7 +6297,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HALT-CDD6BFB7",
@@ -6255,7 +6311,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HALT-6AF08F0F",
@@ -6269,7 +6325,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HALT-A76222B2",
@@ -6283,7 +6339,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LUXU-2250DDAE",
@@ -6297,7 +6353,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-D86920EF",
@@ -6311,7 +6367,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LUXU-1F4269C7",
@@ -6325,7 +6381,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LUXU-1D42655F",
@@ -6339,7 +6395,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JOBB-F140DD1B",
@@ -6353,7 +6409,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPST-4F59C0F6",
@@ -6367,7 +6423,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KARB-5FC36626",
@@ -6381,7 +6437,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PADD-FBF1A342",
@@ -6395,7 +6451,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PADD-FBFA8103",
@@ -6409,7 +6465,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HIMS-1FC2ED50",
@@ -6423,7 +6479,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HIMS-E9D18C43",
@@ -6437,7 +6493,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HIMS-3B45EB63",
@@ -6451,7 +6507,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GOAT-74CA5712",
@@ -6465,7 +6521,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "UPST-DF53BE0B",
@@ -6479,7 +6535,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DUNE-E7C50C67",
@@ -6493,7 +6549,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ANGI-A6DE0F81",
@@ -6507,7 +6563,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CORD-F1327A46",
@@ -6521,7 +6577,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GRAF-1442ABCF",
@@ -6535,7 +6591,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERC-197227CB",
@@ -6549,7 +6605,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERC-7E82C75A",
@@ -6563,7 +6619,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GRAF-B0468017",
@@ -6577,7 +6633,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-60F2A99F",
@@ -6591,7 +6647,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-4A9A6285",
@@ -6605,7 +6661,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NETB-A609FEE9",
@@ -6619,7 +6675,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SUMM-C685A1F7",
@@ -6633,7 +6689,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INST-A2C69238",
@@ -6647,7 +6703,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INST-CE85EF3B",
@@ -6661,7 +6717,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MONK-95E0EA5C",
@@ -6675,7 +6731,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KALS-CE172809",
@@ -6689,7 +6745,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KALS-DDABCA8B",
@@ -6703,7 +6759,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERI-3C0A836B",
@@ -6717,7 +6773,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEXT-89DF5021",
@@ -6731,7 +6787,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "APAL-FFBD764A",
@@ -6745,7 +6801,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEXT-262BCF39",
@@ -6759,7 +6815,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VERI-F520EE3B",
@@ -6773,7 +6829,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TOPT-B333A341",
@@ -6787,7 +6843,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEBI-D5129EE4",
@@ -6801,7 +6857,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TREM-42EEF453",
@@ -6815,7 +6871,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-B065ECF2",
@@ -6829,7 +6885,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-7E61A3ED",
@@ -6843,7 +6899,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NETB-2DE7338E",
@@ -6857,7 +6913,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NETB-D4B52C26",
@@ -6871,7 +6927,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DISC-A62003DF",
@@ -6885,7 +6941,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DISC-8A1DB016",
@@ -6899,7 +6955,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VEEA-F50916AA",
@@ -6913,7 +6969,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INST-48548894",
@@ -6927,7 +6983,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TREM-A092DC96",
@@ -6941,7 +6997,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "INST-D3246377",
@@ -6955,7 +7011,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TOPT-9572FCB3",
@@ -6969,7 +7025,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-3257C466",
@@ -6983,7 +7039,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TREM-5D654CB7",
@@ -6997,7 +7053,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TREM-47C1BD63",
@@ -7011,7 +7067,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KALS-1F1ABAFD",
@@ -7025,7 +7081,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ECHO-587A9FFE",
@@ -7039,7 +7095,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TREM-B85B8A00",
@@ -7053,7 +7109,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAMS-FE139B9C",
@@ -7067,7 +7123,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAMS-FF06875E",
@@ -7081,7 +7137,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-FAB62A7E",
@@ -7095,7 +7151,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CORD-1692E006",
@@ -7109,7 +7165,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALMA-2299637A",
@@ -7123,7 +7179,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-B6EF57AA",
@@ -7137,7 +7193,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-75615FE1",
@@ -7151,7 +7207,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NETB-0AD72EA0",
@@ -7165,7 +7221,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-D593CFCA",
@@ -7179,7 +7235,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROBO-765438BC",
@@ -7193,7 +7249,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WHOG-51DB3CFA",
@@ -7207,7 +7263,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-5D3662C4",
@@ -7221,7 +7277,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROBO-AFC521D7",
@@ -7235,7 +7291,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DATA-A24355E4",
@@ -7249,7 +7305,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIEL-DE1A161D",
@@ -7263,7 +7319,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HARN-FD9573A7",
@@ -7277,7 +7333,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DUCK-663475F3",
@@ -7291,7 +7347,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROBO-1555E53D",
@@ -7305,7 +7361,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WALK-B95F4D07",
@@ -7319,7 +7375,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LANG-A2597D07",
@@ -7333,7 +7389,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WHOG-5958C182",
@@ -7347,7 +7403,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LANG-D222F7D7",
@@ -7361,7 +7417,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIEL-84D1B383",
@@ -7375,7 +7431,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-DE2A7664",
@@ -7389,7 +7445,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-9CEB0F6C",
@@ -7403,7 +7459,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-CC2D8252",
@@ -7417,7 +7473,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-5E17F97C",
@@ -7431,7 +7487,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-8612554C",
@@ -7445,7 +7501,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-69768230",
@@ -7459,7 +7515,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERT-3CB387A1",
@@ -7473,7 +7529,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAMS-2D5AD6BA",
@@ -7487,7 +7543,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAMS-0D968D64",
@@ -7501,7 +7557,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AUTO-822004D0",
@@ -7515,7 +7571,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "JJKE-F2886C75",
@@ -7529,7 +7585,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAFE-70DFFEC6",
@@ -7543,7 +7599,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOU-5EC27250",
@@ -7557,7 +7613,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOU-53B8503B",
@@ -7571,7 +7627,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SYNT-4D797194",
@@ -7585,7 +7641,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOU-C828D69F",
@@ -7599,7 +7655,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOU-6DF2338D",
@@ -7613,7 +7669,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-48838946",
@@ -7627,7 +7683,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-8532C095",
@@ -7641,7 +7697,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOU-B1D50BC6",
@@ -7655,7 +7711,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-ACCCA7E8",
@@ -7669,7 +7725,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEEP-7ED722F9",
@@ -7683,7 +7739,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KOMM-EE816EBF",
@@ -7697,7 +7753,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GARN-D6E1CD90",
@@ -7711,7 +7767,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GARN-F895BBFC",
@@ -7725,7 +7781,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-F720BA08",
@@ -7739,7 +7795,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AXIO-E37A7D17",
@@ -7753,7 +7809,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-A0CF5B7E",
@@ -7767,7 +7823,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-89A6B7C0",
@@ -7781,7 +7837,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-8EC3A63D",
@@ -7795,7 +7851,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-C40A4749",
@@ -7809,7 +7865,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SYNT-940906BB",
@@ -7823,7 +7879,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SMAR-3E3F1128",
@@ -7837,7 +7893,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-37F56E9B",
@@ -7851,7 +7907,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CANO-D400A80E",
@@ -7865,7 +7921,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PREC-313BFF0C",
@@ -7879,7 +7935,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BRAN-68DA5FB8",
@@ -7893,7 +7949,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SYNT-3AA3028B",
@@ -7907,7 +7963,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NIGH-1F284A4B",
@@ -7921,7 +7977,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-B8EBB4F3",
@@ -7935,7 +7991,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OKX-6A5A12EB",
@@ -7949,7 +8005,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-7B29AB89",
@@ -7963,7 +8019,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-58C71B63",
@@ -7977,7 +8033,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-5B6D76FB",
@@ -7991,7 +8047,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TAIL-46E772CC",
@@ -8005,7 +8061,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-CF70CA56",
@@ -8019,7 +8075,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-C24C169F",
@@ -8033,7 +8089,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HALT-D12AC6E6",
@@ -8047,7 +8103,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DROP-936C0CEF",
@@ -8061,7 +8117,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-4360D8FA",
@@ -8075,7 +8131,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FRES-B0C2A3D4",
@@ -8089,7 +8145,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEBI-00032287",
@@ -8103,7 +8159,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NASH-43D5E9EA",
@@ -8117,7 +8173,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DROP-1D6C2595",
@@ -8131,7 +8187,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HIMS-79CFBC2E",
@@ -8145,7 +8201,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HIMS-AE0DAD8C",
@@ -8159,7 +8215,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAAS-B3703B16",
@@ -8173,7 +8229,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BLOO-B19642AD",
@@ -8187,7 +8243,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MONZ-8BADD964",
@@ -8201,7 +8257,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIVE-5DD63D44",
@@ -8215,7 +8271,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MONZ-E39409BB",
@@ -8229,7 +8285,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-46DB5C9C",
@@ -8243,7 +8299,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-258AE174",
@@ -8257,7 +8313,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-E07F8A1A",
@@ -8271,7 +8327,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LUXU-9E205F18",
@@ -8285,7 +8341,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-A9B2AE7A",
@@ -8299,7 +8355,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ATOM-899BC274",
@@ -8313,7 +8369,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-078C4701",
@@ -8327,7 +8383,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ATOM-DC5E30B6",
@@ -8341,7 +8397,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MATT-3A035BE7",
@@ -8355,7 +8411,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-9FBEC33D",
@@ -8369,7 +8425,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-EC49C01E",
@@ -8383,7 +8439,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-6DAD3700",
@@ -8397,7 +8453,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "REDD-E2F43266",
@@ -8411,7 +8467,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PATT-F632D70D",
@@ -8425,7 +8481,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TEST-C227126E",
@@ -8439,7 +8495,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PASS-379E4EBB",
@@ -8453,7 +8509,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAAS-1A959E58",
@@ -8467,7 +8523,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALER-71DF4C74",
@@ -8481,7 +8537,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIVE-31243667",
@@ -8495,7 +8551,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "MATT-089F8D6E",
@@ -8509,7 +8565,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NVEE-863D94B8",
@@ -8523,7 +8579,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NVEE-D240C3E7",
@@ -8537,7 +8593,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ZAPI-1563E844",
@@ -8551,7 +8607,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIVE-7C88F293",
@@ -8565,7 +8621,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIVE-A6B75F95",
@@ -8579,7 +8635,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-F5AC9772",
@@ -8593,7 +8649,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-3ADC197E",
@@ -8607,7 +8663,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-C1C0531C",
@@ -8621,7 +8677,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-F850EE6D",
@@ -8635,7 +8691,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-033D1A91",
@@ -8649,7 +8705,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-762BB176",
@@ -8663,7 +8719,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "BINA-37463301",
@@ -8677,7 +8733,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SMAR-5144FBE1",
@@ -8691,7 +8747,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DEEP-4490D066",
@@ -8705,7 +8761,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GRAF-B0B03CC0",
@@ -8719,7 +8775,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GRAF-38761125",
@@ -8733,7 +8789,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIVE-4D9B3D79",
@@ -8747,7 +8803,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SMAR-1EEF2F68",
@@ -8761,7 +8817,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SMAR-41821646",
@@ -8775,7 +8831,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "GRAF-4B12008A",
@@ -8789,7 +8845,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ELEV-03CE62B9",
@@ -8803,7 +8859,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "KINS-03A110E4",
@@ -8817,7 +8873,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-A5063553",
@@ -8831,7 +8887,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "VARI-E6EA0EEA",
@@ -8845,7 +8901,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CAPI-4076A182",
@@ -8859,7 +8915,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SIER-91CAD6AC",
@@ -8873,7 +8929,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DSCO-377C9A74",
@@ -8887,7 +8943,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TREA-FB41DDEB",
@@ -8901,7 +8957,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HIMS-98DD5B7D",
@@ -8915,7 +8971,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ABLE-843FC1FA",
@@ -8929,7 +8985,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXTR-E7A387F5",
@@ -8943,7 +8999,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXTR-12F1E2C5",
@@ -8957,7 +9013,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CERO-8E43AC21",
@@ -8971,7 +9027,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXTR-7358E279",
@@ -8985,7 +9041,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEE-6F281D2B",
@@ -8999,7 +9055,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ALER-446AF3AF",
@@ -9013,7 +9069,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PING-63648AFC",
@@ -9027,7 +9083,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXTR-908A7C29",
@@ -9041,7 +9097,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EDB-66A426BE",
@@ -9055,7 +9111,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EDB-559F8829",
@@ -9069,7 +9125,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "AFFI-BDDC3CDF",
@@ -9083,7 +9139,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SIGM-71769701",
@@ -9097,7 +9153,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXTR-D807B7B5",
@@ -9111,7 +9167,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "EXTR-D6D6C8C2",
@@ -9125,7 +9181,7 @@
     "score": 85,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-E2BD9215",
@@ -9137,9 +9193,9 @@
     "url": "https://jobicy.com/jobs/155139-business-development-executive-financial-institutions-emea",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Build a Safer World. TRM Labs provides AI-powered intelligence solutions that help public and private sector agencies investigate and disrupt crime. T...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-B96DE41B",
@@ -9151,9 +9207,9 @@
     "url": "https://jobicy.com/jobs/155136-senior-blockchain-intelligence-analyst-ransomware",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Build a Safer World. TRM Labs provides AI-powered intelligence solutions that help public and private sector agencies investigate and disrupt crime. T...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OKX-2BD966B2",
@@ -9165,9 +9221,9 @@
     "url": "https://jobicy.com/jobs/155123-affiliates-business-development-manager-germany",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Who We Are At OKX, we believe that the future will be reshaped by crypto, and ultimately contribute to every individual's freedom. OKX is a leading cr...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OKX-519C4B6E",
@@ -9179,9 +9235,9 @@
     "url": "https://jobicy.com/jobs/155121-affiliate-manager",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Who We Are At OKX, we believe that the future will be reshaped by crypto, and ultimately contribute to every individual's freedom. OKX is a leading cr...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "OKX-A58C1C8C",
@@ -9193,9 +9249,9 @@
     "url": "https://jobicy.com/jobs/155119-affiliate-business-development-manager-northeast-asia",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Who We Are At OKX, we believe that the future will be reshaped by crypto, and ultimately contribute to every individual's freedom. OKX is a leading cr...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROCK-D0C834EB",
@@ -9207,9 +9263,9 @@
     "url": "https://jobicy.com/jobs/155154-tier-2-technical-support-specialist",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "As the Tier 2 Technical Support Specialist at Rockbot, you'll serve as the technical backbone of Rockbot's escalation function — the person the team t...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PLAY-AE3A6C52",
@@ -9221,9 +9277,9 @@
     "url": "https://jobicy.com/jobs/155157-compliance-engineer-2",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "About Playson Playson builds premium casino games and platform solutions for operators worldwide. Our products reach millions of players across regula...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ROCK-F17BD65A",
@@ -9235,9 +9291,9 @@
     "url": "https://jobicy.com/jobs/155152-strategic-enterprise-sales-director",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Every day, millions of consumers engage with businesses in physical locations - retailers, restaurants, gyms, convenience stores, hospitality venues, ...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOU-63982155",
@@ -9249,9 +9305,9 @@
     "url": "https://jobicy.com/jobs/155151-director-of-digital-marketing",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Cloudinary is the Image and Video API platform trusted by millions of developers and over 10,000 companies worldwide. Our powerful tools fuel websites...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CHAI-5D1914BE",
@@ -9263,9 +9319,9 @@
     "url": "https://jobicy.com/jobs/155138-commercial-account-executive-benelux-2",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Chainguard is the trusted source for open source. By delivering hardened, secure, and production-ready builds of all the open source software engineer...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "TRML-F3E019A9",
@@ -9277,9 +9333,9 @@
     "url": "https://jobicy.com/jobs/155143-marketing-technology-engineer-2",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Build a Safer World. TRM Labs provides AI-powered intelligence solutions that help public and private sector agencies investigate and disrupt crime. T...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "HUNT-AA900F09",
@@ -9291,9 +9347,9 @@
     "url": "https://jobicy.com/jobs/155134-manager-security-operations-center-emea",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "What We Do: Cybercrime is growing, and more businesses are getting hit by threats that used to target only the biggest organizations. That pushes defe...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ZONE-A63F4687",
@@ -9305,9 +9361,9 @@
     "url": "https://jobicy.com/jobs/155142-gtm-engineer-4",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Zone &amp; Company Software Consulting LLC (“Zone”) is the ERP-native AI platform for financial operations, purpose-built for organizations running on...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LEGI-C135EE80",
@@ -9319,9 +9375,9 @@
     "url": "https://jobicy.com/jobs/155127-enterprise-account-executive-namer",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Enterprise Account Executive - East Remote, United States JOB OVERVIEW The mission of the Account Executive, Enterprise is to source, develop, and clo...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-CC3A7EB8",
@@ -9333,9 +9389,9 @@
     "url": "https://jobicy.com/jobs/155125-ai-strategist",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Cresta unlocks the true potential of the customer experience, turning every conversation into a competitive advantage. Cresta’s unified AI platform co...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEX-C86DEBB4",
@@ -9347,9 +9403,9 @@
     "url": "https://jobicy.com/jobs/155133-founders-associate-strategy-team",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Flex is building the AI-native private bank for business owners. We’re re-architecting the entire financial system for entrepreneurs—from the first do...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "LEGI-15B0127A",
@@ -9361,9 +9417,9 @@
     "url": "https://jobicy.com/jobs/155132-senior-integration-engineer-2",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Senior Integration Engineer Remote, Mexico JOB OVERVIEW Are you passionate about building large-scale applications leveraging public cloud services an...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-6B8A8B2C",
@@ -9375,9 +9431,9 @@
     "url": "https://jobicy.com/jobs/155130-ai-success-manager",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Cresta unlocks the true potential of the customer experience, turning every conversation into a competitive advantage. Cresta’s unified AI platform co...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FLEX-291B6C60",
@@ -9389,9 +9445,9 @@
     "url": "https://jobicy.com/jobs/155128-counsel",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Flex is building the AI-native private bank for business owners. We’re re-architecting the entire financial system for entrepreneurs—from the first do...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "THUM-061CE4F4",
@@ -9403,9 +9459,9 @@
     "url": "https://jobicy.com/jobs/155122-applied-scientist-pro-growth",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Thumbtack helps millions of people confidently care for their homes. Thumbtack is the one app you need to take care of and improve your home — from pe...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-48A5B259",
@@ -9417,9 +9473,9 @@
     "url": "https://jobicy.com/jobs/155117-enterprise-account-executive-americas-west",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Why Join Sales at Ashby Sales at Ashby is a unique opportunity to sell a product customers genuinely love during an AI-fueled market expansion. Over 5...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "THUM-5F1D378E",
@@ -9431,9 +9487,9 @@
     "url": "https://jobicy.com/jobs/155116-product-manager-pro-fulfillment",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Thumbtack helps millions of people confidently care for their homes. Thumbtack is the one app you need to take care of and improve your home — from pe...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CCOF-7F916D48",
@@ -9445,9 +9501,9 @@
     "url": "https://jobicy.com/jobs/155115-livestock-certification-supervisor",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Who we are: CCOF advances organic agriculture for a healthy world. We advocate on behalf of our members for organic policies, support the growth of or...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-950D4932",
@@ -9459,9 +9515,9 @@
     "url": "https://jobicy.com/jobs/155114-enterprise-account-executive-americas-east",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Why Join Sales at Ashby Sales at Ashby is a unique opportunity to sell a product customers genuinely love during an AI-fueled market expansion. Over 5...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "ASHB-95B7A3D4",
@@ -9473,9 +9529,9 @@
     "url": "https://jobicy.com/jobs/155120-mid-market-implementation-specialist-americas",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Mid-Market Implementation Specialist Hi, I’m Daryl and I’m the Manager of Mid-Market Implementations at Ashby. One of my favorite aspects of Ashby is ...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WEBF-1CE59FA6",
@@ -9487,9 +9543,9 @@
     "url": "https://jobicy.com/jobs/155110-senior-manager-ai-customer-success",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "WEBF-C6B01A18",
@@ -9501,9 +9557,9 @@
     "url": "https://jobicy.com/jobs/155112-senior-software-engineer-cloud-backend-infrastructure",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAAS-34B66B29",
@@ -9515,9 +9571,9 @@
     "url": "https://jobicy.com/jobs/155113-senior-customer-success-manager-19",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "This role is part of our Prerender team, one of our growing brands at saas.group. For nearly a decade, Prerender has helped marketers build dynamic, c...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-D3D4D872",
@@ -9529,9 +9585,9 @@
     "url": "https://jobicy.com/jobs/155094-enterprise-account-executive-iberia-2",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Cresta unlocks the true potential of the customer experience, turning every conversation into a competitive advantage. Cresta’s unified AI platform co...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "NEXT-3FF1C173",
@@ -9543,9 +9599,9 @@
     "url": "https://jobicy.com/jobs/155093-customer-support-representative-night-shift",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Redefine the future of customer experiences. One conversation at a time. At Nextiva, we’re reimagining how businesses connect, bringing together custo...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-DC11F250",
@@ -9557,9 +9613,9 @@
     "url": "https://jobicy.com/jobs/155097-gtm-strategy-operations-manager-emea",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Cresta unlocks the true potential of the customer experience, turning every conversation into a competitive advantage. Cresta’s unified AI platform co...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "PADD-256A4568",
@@ -9571,9 +9627,9 @@
     "url": "https://jobicy.com/jobs/155092-senior-product-designer-15",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "What do we do? Paddle offers digital product companies a completely different approach to their payments infrastructure. Instead of assembling and mai...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CRES-BFC11262",
@@ -9585,9 +9641,9 @@
     "url": "https://jobicy.com/jobs/155100-senior-forward-deployed-engineer-ai-agent-uk",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Cresta unlocks the true potential of the customer experience, turning every conversation into a competitive advantage. Cresta’s unified AI platform co...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DISC-167C47E1",
@@ -9599,9 +9655,9 @@
     "url": "https://jobicy.com/jobs/155126-senior-data-engineer-ads",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Discord has a highly engaged community of millions of daily active users who use the platform for many different reasons, but there’s one thing that n...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "DISC-F1918C91",
@@ -9613,9 +9669,9 @@
     "url": "https://jobicy.com/jobs/155131-senior-software-engineer-application-security",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "Discord has a highly engaged community of millions of daily active users who use the platform for many different reasons, but there’s one thing that n...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "SAAS-2ADF401D",
@@ -9627,9 +9683,611 @@
     "url": "https://jobicy.com/jobs/155108-german-speaking-performance-marketing-lead",
     "eligibility": "Global / Remote",
     "score": 85,
-    "notes": "This role is part of our Central Marketing Team at saas.group. What is saas.group? Think of us as the driving catalyst behind your favorite software s...",
+    "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PHAN-D1D4984B",
+    "title": "Staff DevOps Engineer (Platform)",
+    "company": "Phantom",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153130-staff-devops-engineer-platform",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Phantom is on a mission to connect the world to the freedom of open markets. Tens of millions of people all over the world use Phantom to access globa...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PHAN-AD7AC9FF",
+    "title": "Staff Software Engineer (SRE)",
+    "company": "Phantom",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153134-staff-software-engineer-sre",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Phantom is on a mission to connect the world to the freedom of open markets. Tens of millions of people all over the world use Phantom to access globa...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CERT-8237BA53",
+    "title": "Compliance Engineer Intern",
+    "company": "CertiK",
+    "category": "Dev",
+    "type": "Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153136-compliance-engineer-intern",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "About the Company Born from groundbreaking research at Columbia University and Yale University, CertiK is a leading Web3 security company focused on s...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CERT-528449F4",
+    "title": "Compliance Engineer",
+    "company": "CertiK",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153132-compliance-engineer",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "About the Company Born from groundbreaking research at Columbia University and Yale University, CertiK is a leading Web3 security company focused on s...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "BOUL-B9484DD1",
+    "title": "GTM Engineer",
+    "company": "Boulevard",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153135-gtm-engineer-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Who is Boulevard? Boulevard provides the first and only client experience platform for appointment-based, self-care businesses. We empower our custome...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "ASHB-15F67102",
+    "title": "Startup Customer Success Manager - Americas",
+    "company": "Ashby",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/145717-startup-customer-success-manager-americas",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Hello! I’m Jared  I joined Ashby four years ago as the first member of the Startup Customer Success team. Since then, I have been a part of building o...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "GIVE-5D56A073",
+    "title": "Chief Technology Officer",
+    "company": "GiveDirectly",
+    "category": "Content",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153122-chief-technology-officer-2",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "GiveDirectly has delivered more than $1B in cash directly to 2+ million people living in poverty across 15 countries since 2011. We believe cash trans...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "ASHB-2F5620F0",
+    "title": "Snr. Marketing Manager, Enterprise ABM EMEA",
+    "company": "Ashby",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/152037-snr-marketing-manager-enterprise-abm-emea",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Hi, I’m Harriet, Ashby’s VP Marketing. I joined Ashby in August 2022 to lead the Marketing function. My career journey has been anything but linear st...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PASS-E3C09DE5",
+    "title": "Manager, Security Incident Response",
+    "company": "1Password",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153123-manager-security-incident-response",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "1Password is growing. We’ve surpassed $400M in ARR and we’re continuing to accelerate, earning a spot on the Forbes Cloud 100 for four years in a row ...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PASS-F282DB53",
+    "title": "Senior GTM Engineering Analyst",
+    "company": "1Password",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153118-senior-gtm-engineering-analyst",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "1Password is growing. We’ve surpassed $400M in ARR and we’re continuing to accelerate, earning a spot on the Forbes Cloud 100 for four years in a row ...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "TECO-EF854E57",
+    "title": "Technical Problem Solver Expert - Red X",
+    "company": "TE Connectivity",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149103-technical-problem-solver-expert-red-x",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "At TE, you will unleash your potential working with people from diverse backgrounds and industries to create a safer, sustainable and more connected w...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "ACTI-9287D821",
+    "title": "AI Enablement Lead [gn] Data Intelligence",
+    "company": "Actian",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149049-ai-enablement-lead-gn-data-intelligence",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "The AI Enablement Team is the catalyst for internal transformation and product acceleration across Actian. In the modern data landscape, AI is not a s...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "RITH-F09E7D0B",
+    "title": "Staff Information Security Engineer - AI First",
+    "company": "Rithum",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153112-staff-information-security-engineer-ai-first",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Rithum™ is the world’s most trusted commerce network, accelerating how brands, suppliers, and retailers work together to deliver seamless e-commerce e...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LIFT-2323E4F8",
+    "title": "Senior Gen AI Software Engineer",
+    "company": "Liftoff",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153108-senior-gen-ai-software-engineer",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Liftoff is a leading AI-powered performance marketing platform for the mobile app economy. Our end-to-end technology stack helps app marketers acquire...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "TEAC-E19810D4",
+    "title": "Brand & Events Lead",
+    "company": "Teachable",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153086-brand-events-lead",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "What is Teachable? Teachable is the platform for experts and businesses who take education seriously. In a world where anyone can ask AI for informati...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "FIRS-CA8BEE6D",
+    "title": "Customer Success Associate",
+    "company": "First Advantage",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149655-customer-success-associate",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "CUSTOMER SUCCESS ASSOCIATE We are on the front line of recruitment, enabling organizations to hire smarter and onboard faster. At First Advantage (Nas...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "UPST-6E78CA9F",
+    "title": "Senior Software Engineer, Unsecured Installments",
+    "company": "Upstart",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149108-senior-software-engineer-unsecured-installments",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "About Upstart At Upstart, we’re united by a mission that matters: to radically reduce the cost and complexity of borrowing for all Americans. Every da...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "RAMP-85DA2750",
+    "title": "Senior Customer Activation Manager | Partnerships",
+    "company": "Ramp",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/150478-senior-customer-activation-manager-partnerships",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "About RampRamp is building the smart infrastructure for finance teams, embedded in the transaction flow of every dollar a business spends. We automate...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "FIEL-7EF00E4C",
+    "title": "Staff Product Designer",
+    "company": "Fieldguide",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149110-staff-product-designer",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "About UsFieldguide is establishing a new state of trust for global commerce and capital markets by automating and streamlining the work of assurance a...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "CRES-0727F57E",
+    "title": "Senior Software Engineer, Backend (AI Agent Integrations)",
+    "company": "Cresta",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149101-senior-software-engineer-backend-ai-agent-integrations",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Cresta unlocks the true potential of the customer experience, turning every conversation into a competitive advantage. Cresta’s unified AI platform co...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "WEBF-1E7C3915",
+    "title": "Senior Infrastructure Engineer",
+    "company": "Webflow",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153105-senior-infrastructure-engineer-3",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "ZAPI-134C6987",
+    "title": "Manager, GTM Analytics",
+    "company": "Zapier",
+    "category": "Content",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153099-manager-gtm-analytics",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "AI at Zapier At Zapier, we build and use automation every day to make work more efficient, creative, and human. So if you’re using AI tools while appl...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LIFT-4A449D03",
+    "title": "Product Analyst",
+    "company": "Liftoff",
+    "category": "Trading",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153096-product-analyst",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Liftoff is a leading AI-powered performance marketing platform for the mobile app economy. Our end-to-end technology stack helps app marketers acquire...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "ZAPI-E9FFA9E9",
+    "title": "Account Executive, Mid Market",
+    "company": "Zapier",
+    "category": "Content",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153092-account-executive-mid-market-3",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "AI at Zapier At Zapier, we build and use automation every day to make work more efficient, creative, and human. So if you’re using AI tools while appl...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LIFT-6FED3EC9",
+    "title": "Senior Manager, Investor Relations",
+    "company": "Liftoff",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153111-senior-manager-investor-relations",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Liftoff is a leading AI-powered performance marketing platform for the mobile app economy. Our end-to-end technology stack helps app marketers acquire...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "WEBF-5E3FEC6B",
+    "title": "Senior Manager, Corporate Sales - West",
+    "company": "Webflow",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153107-senior-manager-corporate-sales-west",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "WEBF-F5C851B7",
+    "title": "Senior Manager, Sales Compensation",
+    "company": "Webflow",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153113-senior-manager-sales-compensation",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "WEBF-70A8992E",
+    "title": "Corporate Account Executive - West",
+    "company": "Webflow",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153085-corporate-account-executive-west",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Webflow is the agentic web marketing platform for modern marketing teams, helping organizations build, manage, and optimize high-performing web experi...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PADS-C1EF4043",
+    "title": "Account Executive - Chicago, IL",
+    "company": "PadSplit",
+    "category": "Ambassadeur",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153133-account-executive-chicago-il",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "The Role That We Need: PadSplit is hiring for an Account Executive to expand our marketplace by engaging traditional property owners to become PadSpli...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PADS-0F09B616",
+    "title": "Account Executive - Denver, CO",
+    "company": "PadSplit",
+    "category": "Ambassadeur",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153137-account-executive-denver-co",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "The Role That We Need: PadSplit is hiring for an Account Executive to expand our marketplace by engaging traditional property owners to become PadSpli...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PADS-757845E6",
+    "title": "Account Executive - Boston, MA",
+    "company": "PadSplit",
+    "category": "Ambassadeur",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153128-account-executive-boston-ma",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "The Role That We Need: PadSplit is hiring for an Account Executive to expand our marketplace by engaging traditional property owners to become PadSpli...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-0B2AC51D",
+    "title": "Customer service manager (PP)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149076-customer-service-manager-pp",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-1520AD29",
+    "title": "Customer service manager (CY)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149072-customer-service-manager-cy",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-75E8A815",
+    "title": "Customer service manager (CZ)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149070-customer-service-manager-cz",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-4A4648DC",
+    "title": "Customer service manager (PT)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149074-customer-service-manager-pt",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-2793EB8B",
+    "title": "Customer service manager (UK)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149075-customer-service-manager-uk",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-6E16971C",
+    "title": "Customer service manager (PL)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149071-customer-service-manager-pl",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "SEMP-9F1E44F4",
+    "title": "Enterprise Sales Director, Kansas & Missouri",
+    "company": "Semperis",
+    "category": "Ambassadeur",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153119-enterprise-sales-director-kansas-missouri",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "At Semperis, our mission is to be a Force for Good. Starting with being a great place to work. We believe that when people feel valued, supported, and...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "PARC-9CDA593E",
+    "title": "Customer service manager (GR)",
+    "company": "ParcelHero",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149073-customer-service-manager-gr",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "ParcelHero is one of the UK's biggest parcel delivery price comparison sites, with over 5 million visitors a year. We're a scaling, technology-focused...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "STAC-CC8E16D3",
+    "title": "Manager, Ad Operations",
+    "company": "StackAdapt",
+    "category": "Community",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149104-manager-ad-operations",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "StackAdapt is the leading technology company that empowers marketers to reach, engage, and convert audiences with precision. With 465 billion automate...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "LIFT-0681CC66",
+    "title": "Security Engineer, Detection & Response",
+    "company": "Liftoff",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153102-security-engineer-detection-response",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Liftoff is a leading AI-powered performance marketing platform for the mobile app economy. Our end-to-end technology stack helps app marketers acquire...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "RITH-EF48262D",
+    "title": "Advertising Account Manager - eCommerce",
+    "company": "Rithum",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/153089-advertising-account-manager-ecommerce",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "Rithum™ is the world’s most trusted commerce network, accelerating how brands, suppliers, and retailers work together to deliver seamless e-commerce e...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
+  },
+  {
+    "id": "SPOR-FB910756",
+    "title": "Offensive Security Engineer",
+    "company": "Sporty Group",
+    "category": "Dev",
+    "type": "CDI Remote",
+    "salary": "Rémunération compétitive",
+    "url": "https://jobicy.com/jobs/149060-offensive-security-engineer",
+    "eligibility": "Global / Remote",
+    "score": 85,
+    "notes": "About the roleMission Strengthen Sporty’s offensive security posture by proactively testing and identifying vulnerabilities across our external perime...",
+    "status": "active",
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "CLOWN-01",
@@ -9643,7 +10301,7 @@
     "score": 84,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "COINMARKETCAP-01",
@@ -9657,7 +10315,7 @@
     "score": 84,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   },
   {
     "id": "FIBER-01",
@@ -9671,6 +10329,6 @@
     "score": 81,
     "notes": "",
     "status": "active",
-    "created_at": "2026-10-13 00:05:27"
+    "created_at": "2026-10-13 08:05:22"
   }
 ]
